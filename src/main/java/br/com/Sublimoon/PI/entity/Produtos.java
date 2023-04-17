@@ -65,7 +65,7 @@ public class Produtos {
 
     @Getter @Setter
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "produtp_avaliação",
+    @JoinTable(name = "produto_avaliação",
             uniqueConstraints = @UniqueConstraint(
                     columnNames = {
                             "produto_id",
