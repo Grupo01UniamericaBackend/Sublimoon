@@ -7,6 +7,5 @@ import java.util.List;
 
 public interface ProdutosRepository extends JpaRepository<Produtos,Long>{
 
-    public List<Produtos> findByNoNe(final String nome);
 
 }
