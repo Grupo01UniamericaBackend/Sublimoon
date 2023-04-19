@@ -14,6 +14,12 @@ import java.util.List;
 @Table(name = "Adms",schema = "public")
 public class Adm extends Usuario{
 
+    @Id
+    @Getter
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idAdm",nullable = false, unique = true)
+    private Long id;
+
     @Getter @Setter
     @Column (name = "userAdm",nullable = false,length = 25)
     private String userAdm;

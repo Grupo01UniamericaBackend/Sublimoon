@@ -13,7 +13,11 @@ import java.util.List;
 @Table(name = "Clientes",schema = "public")
 public class Cliente extends Usuario {
 
-
+    @Id
+    @Getter
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idCliente",nullable = false, unique = true)
+    private Long id;
     @Getter @Setter
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "Favoritos",nullable = false)

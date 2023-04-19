@@ -14,6 +14,12 @@ import java.util.List;
 @Table (name = "pedidos",schema = "public")
 public class Pedido extends Carrinho{
 
+    @Id
+    @Getter
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idPedido",nullable = false, unique = true)
+    private Long id;
+
     @Getter @Setter
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "Envio",nullable = false)

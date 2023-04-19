@@ -17,7 +17,7 @@ public class Envio {
     @Id
     @Getter
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (name = "idCliente",nullable = false, unique = true)
+    @Column (name = "idEnvio",nullable = false, unique = true)
     private Long id;
 
     @Getter @Setter
