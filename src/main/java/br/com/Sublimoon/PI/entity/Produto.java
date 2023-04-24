@@ -39,7 +39,7 @@ public class Produto {
     )
     private List<Categoria> categorias;
 
-    @Enumerated (EnumType.ORDINAL)
+    @Enumerated (EnumType.STRING)
     @Getter @Setter
     @Column(name = "tipo", length = 15, nullable = false)
     private Cor cor;
