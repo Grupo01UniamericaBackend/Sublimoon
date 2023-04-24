@@ -4,15 +4,12 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-import java.time.LocalDate;
-
 import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
 @Table (name = "produtos",schema = "public")
-public class Produtos {
+public class Produto {
     @Id
     @Getter
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -40,7 +37,7 @@ public class Produtos {
             )
 
     )
-    private List<Categorias> categorias;
+    private List<Categoria> categorias;
 
     @Enumerated (EnumType.ORDINAL)
     @Getter @Setter
@@ -90,7 +87,7 @@ public class Produtos {
 
     @Getter @Setter
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Favoritos favoritos;
+    private Favorito favoritos;
 
     @Getter @Setter
     @Column(name = "tamanhoDoProduto",nullable = false,length = 4)
