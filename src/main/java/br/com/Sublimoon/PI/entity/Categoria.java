@@ -4,14 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-import java.time.LocalDate;
-
-import java.math.BigDecimal;
-
 @Entity
 @Table(name = "Categorias", schema = "public")
-public class Categorias {
+public class Categoria {
 
     @Id
     @Getter
