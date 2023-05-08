@@ -86,9 +86,24 @@ public class Produto {
     private float mediaAvaliacao;
 
     @Getter @Setter
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "produto_favoritos",
+            uniqueConstraints = @UniqueConstraint(
+                    columnNames = {
+                            "produto_id",
+                            "favorito_id"
+                    }
+            ),
+            joinColumns = @JoinColumn(
+                    name = "produto_id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "favorito_id"
+            )
+
+    )
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Favorito favoritos;
-
     @Getter @Setter
     @Column(name = "tamanhoDoProduto",nullable = false,length = 4)
     private String tamanho;
