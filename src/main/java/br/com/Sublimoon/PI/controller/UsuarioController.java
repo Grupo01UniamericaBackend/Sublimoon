@@ -1,8 +1,8 @@
 package br.com.Sublimoon.PI.controller;
 
-import br.com.Sublimoon.PI.entity.Adm;
+
 import br.com.Sublimoon.PI.entity.Usuario;
-import br.com.Sublimoon.PI.repository.AdmRepository;
+import br.com.Sublimoon.PI.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +32,7 @@ public class UsuarioController {
     @PostMapping
     public ResponseEntity <?> cadastrarUsuario(@RequestBody final Usuario usuario){
         try {
-            this.admRepository.save(usuario);
+            this.usuarioRepository.save(usuario);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         }
         catch (DataIntegrityViolationException e){
