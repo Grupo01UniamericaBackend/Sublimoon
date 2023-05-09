@@ -2,6 +2,7 @@ package br.com.Sublimoon.PI.controller;
 
 
 import br.com.Sublimoon.PI.entity.Usuario;
+import br.com.Sublimoon.PI.service.UsuarioService;
 import br.com.Sublimoon.PI.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -15,6 +16,8 @@ public class UsuarioController {
 
     @Autowired
     UsuarioRepository usuarioRepository;
+    @Autowired
+    UsuarioService usuarioService;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") final Long id) {

@@ -3,6 +3,7 @@ package br.com.Sublimoon.PI.controller;
 
 
 import br.com.Sublimoon.PI.entity.Produto;
+import br.com.Sublimoon.PI.service.ProdutoService;
 import br.com.Sublimoon.PI.repository.ProdutosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -16,6 +17,8 @@ public class ProdutoController {
 
     @Autowired
     ProdutosRepository produtoRepository;
+    @Autowired
+    ProdutoService produtoService;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
