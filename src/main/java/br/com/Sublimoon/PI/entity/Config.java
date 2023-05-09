@@ -10,10 +10,17 @@ import java.time.LocalDate;
 import java.math.BigDecimal;
 import java.util.List;
 
+@Entity
 
 @Table(name = "configurações" , schema = "public")
 public class Config {
 
+
+    @Id
+    @Getter
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idConfig",nullable = false, unique = true)
+    private Long id;
     @Getter @Setter
     @Column(name = "alterarNome")
     private String alterarNome;

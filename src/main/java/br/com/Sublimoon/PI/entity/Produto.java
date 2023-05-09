@@ -104,6 +104,7 @@ public class Produto {
     )
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Favorito favoritos;
+
     @Getter @Setter
     @Column(name = "tamanhoDoProduto",nullable = false,length = 4)
     private String tamanho;
