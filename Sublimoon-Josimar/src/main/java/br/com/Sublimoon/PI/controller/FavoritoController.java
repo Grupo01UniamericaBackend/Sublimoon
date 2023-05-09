@@ -2,6 +2,7 @@ package br.com.Sublimoon.PI.controller;
 
 import br.com.Sublimoon.PI.entity.Favorito;
 import br.com.Sublimoon.PI.repository.FavoritosRepository;
+import br.com.Sublimoon.PI.service.FavoritoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,8 @@ public class FavoritoController {
 
     @Autowired
     FavoritosRepository favoritosRepository;
+    @Autowired
+    FavoritoService favoritoService;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findByIdPath(@PathVariable("id") final Long id){
