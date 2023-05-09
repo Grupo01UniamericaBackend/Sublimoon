@@ -1,12 +1,8 @@
 package br.com.Sublimoon.PI.repository;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-import br.com.Sublimoon.PI.entity.Cliente;
+import br.com.Sublimoon.PI.entity.Config;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
-
 @Repository
-public interface ClienteRepository extends JpaRepository<Cliente, Long>{
+public interface ConfigRepository extends JpaRepository<Config, Long>{
 }
