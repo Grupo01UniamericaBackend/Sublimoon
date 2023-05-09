@@ -2,6 +2,7 @@ package br.com.Sublimoon.PI.controller;
 
 import br.com.Sublimoon.PI.entity.Categoria;
 import br.com.Sublimoon.PI.repository.CategoriasRepository;
+import br.com.Sublimoon.PI.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,8 @@ public class CategoriaController {
 
     @Autowired
     CategoriasRepository categoriasRepository;
+    @Autowired
+    CategoriasService categoriasService;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") final Long id) {

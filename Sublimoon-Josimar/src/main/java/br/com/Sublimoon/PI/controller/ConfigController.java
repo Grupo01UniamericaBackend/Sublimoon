@@ -2,6 +2,7 @@ package br.com.Sublimoon.PI.controller;
 
 import br.com.Sublimoon.PI.entity.Cliente;
 import br.com.Sublimoon.PI.entity.Config;
+import br.com.Sublimoon.PI.service.ConfigService;
 import br.com.Sublimoon.PI.repository.ConfigRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -15,6 +16,8 @@ public class ConfigController {
 
     @Autowired
     ConfigRepository configRepository;
+    @Autowired
+    ConfigService configService;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") final Long id) {

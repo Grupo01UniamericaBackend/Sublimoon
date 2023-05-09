@@ -3,6 +3,7 @@ package br.com.Sublimoon.PI.controller;
 
 import br.com.Sublimoon.PI.entity.Avaliacao;
 import br.com.Sublimoon.PI.repository.AvaliacaoRepository;
+import br.com.Sublimoon.PI.service.AvaliacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,8 @@ public class AvaliacaoController {
 
     @Autowired
     AvaliacaoRepository avaliacaoRepository;
+    @Autowired
+    AvaliacaoService avaliacaoService;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
