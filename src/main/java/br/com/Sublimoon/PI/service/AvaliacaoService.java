@@ -1,7 +1,6 @@
 package br.com.Sublimoon.PI.service;
 
 import br.com.Sublimoon.PI.entity.Avaliacao;
-import br.com.Sublimoon.PI.controller.AvaliacaoController;
 import br.com.Sublimoon.PI.repository.AvaliacaoRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

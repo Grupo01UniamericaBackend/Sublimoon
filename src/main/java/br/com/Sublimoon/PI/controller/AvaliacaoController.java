@@ -8,6 +8,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import br.com.Sublimoon.PI.service.AvaliacaoService;
 
 @Controller
 @RequestMapping(value = "/api/avaliacao")
@@ -15,6 +16,9 @@ public class AvaliacaoController {
 
     @Autowired
     AvaliacaoRepository avaliacaoRepository;
+
+    @Autowired
+    AvaliacaoService avaliacaoServ;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
@@ -34,8 +38,8 @@ public class AvaliacaoController {
         try {
             this.avaliacaoRepository.save(avaliacao);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
-        } catch (DataIntegrityViolationException e) {
-            return ResponseEntity.internalServerError().body("Error: " + e.getCause().getCause().getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
     }
 

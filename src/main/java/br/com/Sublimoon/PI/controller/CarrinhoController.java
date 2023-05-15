@@ -2,6 +2,7 @@ package br.com.Sublimoon.PI.controller;
 
 import br.com.Sublimoon.PI.entity.Carrinho;
 import br.com.Sublimoon.PI.repository.CarrinhoRepository;
+import br.com.Sublimoon.PI.service.CarrinhoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,9 @@ public class CarrinhoController {
 
     @Autowired
     CarrinhoRepository carrinhoRepository;
+
+    @Autowired
+    CarrinhoService carrinhoService;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
@@ -33,8 +37,8 @@ public class CarrinhoController {
         try {
             this.carrinhoRepository.save(carrinho);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
-        } catch (DataIntegrityViolationException e) {
-            return ResponseEntity.internalServerError().body("Error: " + e.getCause().getCause().getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
     }
 
