@@ -1,19 +1,19 @@
 # Sublimoon
 
-Sublimoon - E-commerce de produtos sublimados!!
+🌙 Sublimoon - E-commerce de produtos sublimados!!
 
-Integrantes:
+🧑‍💻 Integrantes:
 
 - Gabriel Sottomaior Albuquerque
 - Josimar Henrique de Oliveira
 - Reginaldo Santos Gomes
 - Scheligan Gabriele Monzon
 
-Demandante: 
+🧠 Demandante: 
 
-Stefany Larissa Monzon
+- Stefany Larissa Monzon
 
-História de usuário:
+📖 História de usuário:
 
 Stefany é dona de uma loja que vende produtos sublimados feitos pela mesma, porém ela quer um site para facilitar as coisas para ela e seus compradores. 
 No e-commerce deverá ter um controle de estoque onde ela poderá adicionar, retirar, ou modificar informações dos produtos. 
