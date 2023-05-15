@@ -1,14 +1,6 @@
 # Sublimoon
-*Sublimoon -* E-commerce de produtos sublimados!!
 
-Integrantes: 
-- Gabriel Sottomaior Albuquerque
-- Josimar Henrique de Oliveira
-- Reginaldo Santos Gomes
-- Scheligan Gabriele Monzon
-
-Demandante:
-Stefany Larissa Monzon
+Branch de: Gabriel Sottomaior Albuquerque
 
 História de usuário:
 
