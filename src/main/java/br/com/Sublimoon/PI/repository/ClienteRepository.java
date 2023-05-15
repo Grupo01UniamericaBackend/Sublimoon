@@ -12,4 +12,8 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long>{
     static Cliente findByCpf(String cpf) {
         return null;
     }
+
+    Cliente findByTelefone(String telefone);
+
+    Cliente findByEmail(String email);
 }
