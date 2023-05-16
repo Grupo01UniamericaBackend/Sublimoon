@@ -41,10 +41,4 @@ public class Pedido extends Carrinho{
     @Column(name = "cep",nullable = false,length = 25)
     private String cep;
 
-
-
-
-
-
-
 }

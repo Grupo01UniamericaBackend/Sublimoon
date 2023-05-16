@@ -2,7 +2,7 @@ package br.com.Sublimoon.PI.controller;
 
 import br.com.Sublimoon.PI.entity.Envio;
 import br.com.Sublimoon.PI.entity.Pedido;
-import br.com.Sublimoon.PI.service.PedidoService;
+import br.com.Sublimoon.PI.service.PedidosService;
 import br.com.Sublimoon.PI.repository.EnvioRepository;
 import br.com.Sublimoon.PI.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class PedidoController {
     @Autowired
     PedidoRepository pedidoRepository;
     @Autowired
-    PedidoService pedidoService;
+    PedidosService pedidoService;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findByIdPath(@PathVariable("id") final Long id){
