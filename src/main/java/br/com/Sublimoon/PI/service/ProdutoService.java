@@ -1,9 +1,4 @@
 package br.com.Sublimoon.PI.service;
-
-
-
-
-
 import br.com.Sublimoon.PI.entity.Cliente;
 import br.com.Sublimoon.PI.entity.Produto;
 import br.com.Sublimoon.PI.repository.ClienteRepository;
@@ -13,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
+@Service
 public class ProdutoService {
 
     @Autowired
@@ -26,10 +22,9 @@ public class ProdutoService {
     public void VerificarProduto (final Produto produto){
 
 
-
         Assert.isTrue(!produto.getNome().equals(""),"O nome do produto não pode ser nulo!");
         Assert.isTrue(produto.getNome().length() <= 100 ,"O nome do produto deve ter até 100 digitos") ;
-        Produto produtoExistente = produtoRep.findByProduto(produto.getNome());
+        Produto produtoExistente = produtoRep.findByNome(produto.getNome());
         Assert.isTrue(produtoExistente == null || produtoExistente.equals(produto),"Nome já cadastrado!");
 
 
