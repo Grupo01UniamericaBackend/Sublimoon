@@ -4,15 +4,12 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-import java.time.LocalDate;
-
 import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
 @Table (name = "produtos",schema = "public")
-public class Produtos {
+public class Produto {
     @Id
     @Getter
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -40,9 +37,9 @@ public class Produtos {
             )
 
     )
-    private List<Categorias> categorias;
+    private List<Categoria> categorias;
 
-    @Enumerated (EnumType.ORDINAL)
+    @Enumerated (EnumType.STRING)
     @Getter @Setter
     @Column(name = "tipo", length = 15, nullable = false)
     private Cor cor;
@@ -89,8 +86,24 @@ public class Produtos {
     private float mediaAvaliacao;
 
     @Getter @Setter
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "produto_favoritos",
+            uniqueConstraints = @UniqueConstraint(
+                    columnNames = {
+                            "produto_id",
+                            "favorito_id"
+                    }
+            ),
+            joinColumns = @JoinColumn(
+                    name = "produto_id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "favorito_id"
+            )
+
+    )
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Favoritos favoritos;
+    private Favorito favoritos;
 
     @Getter @Setter
     @Column(name = "tamanhoDoProduto",nullable = false,length = 4)

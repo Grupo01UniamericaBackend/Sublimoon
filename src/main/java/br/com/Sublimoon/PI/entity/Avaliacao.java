@@ -16,8 +16,8 @@ public class Avaliacao {
     @Id
     @Getter
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idAvaliação",nullable = false,unique = true)
-    private Long idAvaliacao;
+    @Column(name = "id",nullable = false,unique = true)
+    private Long id;
 
     @Getter @Setter
     @Column(name = "nota",nullable = false)

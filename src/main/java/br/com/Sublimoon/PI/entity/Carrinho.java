@@ -4,9 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-import java.time.LocalDate;
-
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -35,7 +32,7 @@ public class Carrinho {
                     name = "produto_id"
             )
     )
-    private List<Produtos>produtos;
+    private List<Produto>produtos;
 
     @Getter @Setter
     @Column(name = "quantidade",nullable = false)
