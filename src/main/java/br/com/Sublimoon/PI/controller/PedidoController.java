@@ -1,6 +1,5 @@
 package br.com.Sublimoon.PI.controller;
 
-
 import br.com.Sublimoon.PI.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +25,7 @@ public class PedidoController {
     }
 
     @DeleteMapping("delete/{id}")
-    public void deletaIdPedido(@PathVariable Long id){
+    public void deletaPedido(@PathVariable Long id){
         pedidoRepository.deleteById(id);
     }
 
@@ -45,11 +44,5 @@ public class PedidoController {
             return ResponseEntity.internalServerError().body("Error: " + e.getCause().getCause().getMessage());
         }
     }
-    @DeleteMapping("delete/{id}")
-    public void deleta(@PathVariable Long id){
-        pedidoRepository.deleteById(id);
-    }
-
-
 
 }

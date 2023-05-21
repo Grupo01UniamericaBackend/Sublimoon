@@ -14,8 +14,6 @@ public class ProdutoService {
     @Autowired
     private ProdutosRepository produtoRep;
 
-    @Autowired
-
     @Transactional(rollbackFor = Exception.class)
 
 
