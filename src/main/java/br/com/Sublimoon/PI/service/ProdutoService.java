@@ -15,8 +15,6 @@ public class ProdutoService {
     private ProdutosRepository produtoRep;
 
     @Transactional(rollbackFor = Exception.class)
-
-
     public void VerificarProduto (final Produto produto){
 
 

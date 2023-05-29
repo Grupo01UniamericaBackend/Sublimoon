@@ -18,9 +18,6 @@ public class PedidosService {
         Assert.isTrue(!pedido.getCep().equals(""),"CEP não pode ser nulo");
         Assert.isTrue(pedido.getCep().length() <= 25,"Cep n pode passar de 25 caracteres!!");
 
-
-
-
     }
 
 }
