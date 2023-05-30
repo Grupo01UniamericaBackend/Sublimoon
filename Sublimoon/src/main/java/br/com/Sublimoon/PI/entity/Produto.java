@@ -103,7 +103,11 @@ public class Produto {
 
     )
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+<<<<<<< HEAD:src/main/java/br/com/Sublimoon/PI/entity/Produto.java
+    private Favorito favoritos;
+=======
     private Favorito favorito;
+>>>>>>> 9ff1c53b05fe42b4e4bf6712d3e91600bff4043a:Sublimoon/src/main/java/br/com/Sublimoon/PI/entity/Produto.java
 
     @Getter @Setter
     @Column(name = "tamanhoDoProduto",nullable = false,length = 4)

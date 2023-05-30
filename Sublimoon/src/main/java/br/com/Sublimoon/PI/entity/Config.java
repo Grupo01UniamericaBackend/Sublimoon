@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.math.BigDecimal;
 import java.util.List;
 
+@Entity
 
 @Entity
 
@@ -22,7 +23,10 @@ public class Config {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idConfig",nullable = false, unique = true)
     private Long id;
+<<<<<<< HEAD:src/main/java/br/com/Sublimoon/PI/entity/Config.java
+=======
 
+>>>>>>> 9ff1c53b05fe42b4e4bf6712d3e91600bff4043a:Sublimoon/src/main/java/br/com/Sublimoon/PI/entity/Config.java
     @Getter @Setter
     @Column(name = "alterarNome")
     private String alterarNome;
