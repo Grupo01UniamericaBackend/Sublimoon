@@ -1,7 +1,8 @@
 package br.com.Sublimoon.PI.controller;
 
 
-import br.com.Sublimoon.PI.repository.ProdutosRepository;
+import br.com.Sublimoon.PI.repository.ProdutoRepository;
+import br.com.Sublimoon.PI.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,14 +18,14 @@ import br.com.Sublimoon.PI.entity.Produto;
 public class ProdutoController {
 
     @Autowired
-    final ProdutosRepository produtoRepository;
+    final ProdutoRepository produtoRepository;
 
     @Autowired
-    final ProdutosService produtosService;
+    final ProdutoService produtoService;
 
-    public ProdutoController(ProdutosRepository produtoRepository, ProdutosService produtosService) {
+    public ProdutoController(ProdutoRepository produtoRepository, ProdutoService produtoService) {
         this.produtoRepository = produtoRepository;
-        this.produtosService = produtosService;
+        this.produtoService = produtoService;
     }
 
     @GetMapping("/{id}")
