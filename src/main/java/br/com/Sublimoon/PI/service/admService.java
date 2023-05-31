@@ -1,7 +1,6 @@
 package br.com.Sublimoon.PI.service;
 
 import br.com.Sublimoon.PI.entity.Adm;
-import br.com.Sublimoon.PI.controller.AdmController;
 import br.com.Sublimoon.PI.repository.AdmRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 
 @Service
-public class AdmService {
+public class admService {
 
     @Autowired
     private AdmRepository AdmRep;

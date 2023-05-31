@@ -1,5 +1,5 @@
 package br.com.Sublimoon.PI.service;
 
-public class FavoritosService {
+public class favoritosService {
 
 }

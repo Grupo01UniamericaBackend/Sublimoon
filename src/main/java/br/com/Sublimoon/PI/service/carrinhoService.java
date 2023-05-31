@@ -10,7 +10,7 @@ import org.springframework.util.Assert;
 import java.util.Optional;
 
 @Service
-public class CarrinhoService {
+public class carrinhoService {
 
     @Autowired
     CarrinhoRepository carrinhoRepo;

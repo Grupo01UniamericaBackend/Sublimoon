@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 @Service
-public class PedidosService {
+public class pedidosService {
 
     @Transactional(rollbackFor = Exception.class)
     public void verificarPedido(final Pedido pedido){

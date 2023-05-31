@@ -10,7 +10,7 @@ import org.springframework.util.Assert;
 import java.util.Optional;
 
 @Service
-public class CategoriasService {
+public class categoriasService {
 
     @Autowired
     private CategoriasRepository categoriaRep;
