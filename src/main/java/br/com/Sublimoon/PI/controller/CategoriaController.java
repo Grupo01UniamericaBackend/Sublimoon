@@ -35,7 +35,7 @@ public class CategoriaController {
     @PostMapping
     public ResponseEntity<?> cadastrar(@RequestBody final Categoria categoria) {
         try {
-            this.categoriasRepository.save(categoria);
+            this.categoriasServ.createCategoria(categoria);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());

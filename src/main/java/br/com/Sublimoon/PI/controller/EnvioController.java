@@ -1,6 +1,7 @@
 package br.com.Sublimoon.PI.controller;
 
 import br.com.Sublimoon.PI.repository.EnvioRepository;
+import br.com.Sublimoon.PI.service.EnvioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,9 @@ public class EnvioController {
 
     @Autowired
     EnvioRepository envioRepository;
+
+    @Autowired
+    EnvioService envioServ;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findByIdPath(@PathVariable("id") final Long id){
@@ -35,7 +39,7 @@ public class EnvioController {
     @PostMapping
     public ResponseEntity <?> cadastrarEnvio(@RequestBody final Envio envio){
         try {
-            this.envioRepository.save(envio);
+            this.envioServ.validaEnvio(envio);
             return ResponseEntity.ok("Envio cadastrado com sucesso");
         }
         catch (DataIntegrityViolationException e){

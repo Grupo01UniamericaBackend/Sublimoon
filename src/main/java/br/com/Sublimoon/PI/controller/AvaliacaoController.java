@@ -36,7 +36,7 @@ public class AvaliacaoController {
     @PostMapping
     public ResponseEntity<?> cadastrarAvaliacao(@RequestBody final Avaliacao avaliacao) {
         try {
-            this.avaliacaoRepository.save(avaliacao);
+            this.avaliacaoServ.createAvaliacao(avaliacao);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
