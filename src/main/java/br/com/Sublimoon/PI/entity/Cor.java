@@ -1,5 +1,5 @@
 package br.com.Sublimoon.PI.entity;
 
 public enum Cor {
-    Vermelho,Amarelo,Verde,Branco,Preto,Azul,Marrom,Laranja,Cinza,Roxo
+    VERMELHO,AMARELO,VERDE,BRANCO,PRETO,AZUL,MARROM,LARANJA,CINZA,ROXO
 }

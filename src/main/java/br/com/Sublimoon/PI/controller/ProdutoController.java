@@ -17,8 +17,6 @@ import br.com.Sublimoon.PI.entity.Produto;
 public class ProdutoController {
 
     @Autowired
-
-
     ProdutosRepository produtoRepository;
 
     @GetMapping("/{id}")
