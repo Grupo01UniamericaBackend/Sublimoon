@@ -41,7 +41,7 @@ public class Produto {
 
     @Enumerated (EnumType.STRING)
     @Getter @Setter
-    @Column(name = "tipo", length = 15, nullable = false)
+    @Column(name = "cor", length = 15, nullable = false)
     private Cor cor;
 
     @Getter @Setter
@@ -82,7 +82,7 @@ public class Produto {
     private BigDecimal pesoproduto;
 
     @Getter @Setter
-    @Column (name = "médiaAvaliação",nullable = false)
+    @Column (name = "mediaAvaliacao",nullable = false)
     private float mediaAvaliacao;
 
     @Getter @Setter
@@ -106,7 +106,7 @@ public class Produto {
     private Favorito favoritos;
 
     @Getter @Setter
-    @Column(name = "tamanhoDoProduto",nullable = false,length = 4)
+    @Column(name = "tamanhoDoProduto",nullable = false,length = 10)
     private String tamanho;
 
 
