@@ -40,16 +40,16 @@ public class ProdutoService {
         Assert.isTrue(!produto.getTamanho().equals(""),"O tamanho não pode ser nulo");
         Assert.isTrue(produto.getImagem().length() <= 4 ,"O tamanho pode ter ate 4 caracteres") ;
 
+        this.produtoRep.save(produto);
+    }
 
-
-
-
-
-
-
-
-
+    /* public void atualizaProduto (Produto produto){
+        final Produto produtoAttService=this.produtoRep.findById(produto.getId()).orElse(null);
+        produto.setCadastro(produtoAttService.getId());
 
         this.produtoRep.save(produto);
     }
+
+     */
+
 }

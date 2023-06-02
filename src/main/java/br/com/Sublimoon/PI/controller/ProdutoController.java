@@ -44,8 +44,9 @@ public class ProdutoController {
     }
 
     @PutMapping
-    public ResponseEntity<?> editar(@RequestParam("id") final Long id, @RequestBody final Produto produto){
+    public ResponseEntity<?> editarProduto(@RequestParam("id") final Long id, @RequestBody final Produto produto){
         try {
+                    // produtoService.atualizaProduto(produto);
             final Produto produto1 = this.produtoRepository.findById(id).orElse(null);
 
             if (produto1 == null || produto1.getId().equals(produto1.getId())){
