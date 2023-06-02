@@ -2,13 +2,12 @@ package br.com.Sublimoon.PI.controller;
 
 import br.com.Sublimoon.PI.entity.Adm;
 import br.com.Sublimoon.PI.repository.AdmRepository;
+import br.com.Sublimoon.PI.service.AdmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import br.com.Sublimoon.PI.service.AdmService;
-
 @Controller
 @RequestMapping (value = "/api/adm")
 public class AdmController {
@@ -17,11 +16,11 @@ public class AdmController {
     final AdmRepository admRepository;
 
     @Autowired
-    final AdmService admServ;
+    final AdmService admService;
 
-    public AdmController(AdmRepository admRepository, AdmService admServ) {
+    public AdmController(AdmRepository admRepository, AdmService admService) {
         this.admRepository = admRepository;
-        this.admServ = admServ;
+        this.admService = admService;
     }
 
 
@@ -41,7 +40,7 @@ public class AdmController {
     @PostMapping
     public ResponseEntity<?> cadastrarAdm(@RequestBody final Adm adm) {
         try {
-            this.admRepository.save(adm);
+            this.admService.createAdm(adm);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());

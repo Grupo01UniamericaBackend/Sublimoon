@@ -1,8 +1,6 @@
 package br.com.Sublimoon.PI.service;
 
-import br.com.Sublimoon.PI.entity.Adm;
 import br.com.Sublimoon.PI.entity.Usuario;
-import br.com.Sublimoon.PI.controller.UsuarioController;
 import br.com.Sublimoon.PI.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

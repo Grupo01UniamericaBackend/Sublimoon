@@ -1,7 +1,6 @@
 package br.com.Sublimoon.PI.service;
 
 import br.com.Sublimoon.PI.entity.Adm;
-import br.com.Sublimoon.PI.controller.AdmController;
 import br.com.Sublimoon.PI.repository.AdmRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,11 +11,15 @@ import org.springframework.util.Assert;
 public class AdmService {
 
     @Autowired
-    private AdmRepository AdmRep;
+    final AdmRepository AdmRep;
+
+    public AdmService(AdmRepository admRep) {
+        AdmRep = admRep;
+    }
 
 
     @Transactional(rollbackFor = Exception.class)
-    public void createAdm(final Adm adm){
+    public void createAdm(Adm adm){
 
         Assert.isTrue(! adm.getUserAdm().equals(""), "Adm não pode ser nulo");
         Assert.isTrue( adm.getUserAdm().length() <= 25, "Deve conter até 25 caracteres");

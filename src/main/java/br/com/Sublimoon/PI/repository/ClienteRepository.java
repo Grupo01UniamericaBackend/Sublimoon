@@ -1,5 +1,6 @@
 package br.com.Sublimoon.PI.repository;
 
+import br.com.Sublimoon.PI.entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import br.com.Sublimoon.PI.entity.Cliente;
 import org.springframework.stereotype.Repository;
@@ -16,4 +17,6 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long>{
     Cliente findByTelefone(String telefone);
 
     Cliente findByEmail(String email);
+
+
 }

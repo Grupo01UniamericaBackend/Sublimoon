@@ -1,7 +1,6 @@
 package br.com.Sublimoon.PI.controller;
 
 import br.com.Sublimoon.PI.repository.UsuarioRepository;
-import br.com.Sublimoon.PI.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,15 +15,8 @@ import org.springframework.web.bind.annotation.*;
 public class UsuarioController {
 
     @Autowired
-    final UsuarioRepository usuarioRepository;
+    UsuarioRepository usuarioRepository;
 
-    @Autowired
-    final UsuarioService usuarioService;
-
-    public UsuarioController(UsuarioRepository usuarioRepository, UsuarioService usuarioService) {
-        this.usuarioRepository = usuarioRepository;
-        this.usuarioService = usuarioService;
-    }
 
 
     @GetMapping("/{id}")

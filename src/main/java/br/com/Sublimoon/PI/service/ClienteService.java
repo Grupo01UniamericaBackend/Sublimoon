@@ -11,7 +11,11 @@ import org.springframework.util.Assert;
 public class ClienteService {
 
     @Autowired
-    private ClienteRepository clienteRepository;
+    final ClienteRepository clienteRepository;
+
+    public ClienteService(ClienteRepository clienteRepository) {
+        this.clienteRepository = clienteRepository;
+    }
 
     @Transactional(rollbackFor = Exception.class)
     public void VerificarCliente (final Cliente cliente){

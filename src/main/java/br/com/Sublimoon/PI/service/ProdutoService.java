@@ -12,12 +12,9 @@ public class ProdutoService {
     @Autowired
     final ProdutoRepository produtoRep;
 
-    @Autowired
-    final ProdutoService produtoService;
 
-    public ProdutoService(ProdutoRepository produtoRep, ProdutoService produtoService) {
+    public ProdutoService(ProdutoRepository produtoRep) {
         this.produtoRep = produtoRep;
-        this.produtoService = produtoService;
     }
 
 

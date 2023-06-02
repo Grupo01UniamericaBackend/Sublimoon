@@ -6,8 +6,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "Clientes",schema = "public")
-public class Cliente extends Usuario {
-
+public class Cliente extends Usuario{
 
     @Getter @Setter
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
@@ -30,8 +29,6 @@ public class Cliente extends Usuario {
     @Getter @Setter
     @Column(name = "cpf",nullable = false,unique = true,length = 30)
     private String cpf;
-
-
 
 
 }
