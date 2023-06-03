@@ -1,6 +1,6 @@
 package br.com.Sublimoon.PI.controller;
 
-
+import br.com.Sublimoon.PI.service.ProdutoService;
 import br.com.Sublimoon.PI.repository.ProdutosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +18,9 @@ public class ProdutoController {
 
     @Autowired
     ProdutosRepository produtoRepository;
+
+    @Autowired
+    ProdutoService produtoService;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
@@ -46,7 +49,7 @@ public class ProdutoController {
     @PutMapping
     public ResponseEntity<?> editarProduto(@RequestParam("id") final Long id, @RequestBody final Produto produto){
         try {
-                    // produtoService.atualizaProduto(produto);
+                     produtoService.atualizaProduto(produto);
             final Produto produto1 = this.produtoRepository.findById(id).orElse(null);
 
             if (produto1 == null || produto1.getId().equals(produto1.getId())){
