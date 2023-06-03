@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table (name = "produtos",schema = "public")
-public class Produto {
+public class Produto  extends AbastractEntity{
     @Id
     @Getter
     @GeneratedValue(strategy = GenerationType.AUTO)
