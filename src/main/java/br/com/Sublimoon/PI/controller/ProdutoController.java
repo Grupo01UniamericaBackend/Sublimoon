@@ -41,8 +41,8 @@ public class ProdutoController {
             this.produtoRepository.save(produto);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         }
-        catch (DataIntegrityViolationException e){
-            return ResponseEntity.internalServerError().body("Error: " + e.getCause().getCause().getMessage());
+        catch (Exception e){
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
     }
 
