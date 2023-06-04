@@ -52,7 +52,7 @@ public class ProdutoController {
                      produtoService.atualizaProduto(produto);
             final Produto produto1 = this.produtoRepository.findById(id).orElse(null);
 
-            if (produto1 == null || produto1.getId().equals(produto1.getId())){
+            if (produto1 == null || !produto1.getId().equals(produto1.getId())){
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
             }
             this.produtoRepository.save(produto);
