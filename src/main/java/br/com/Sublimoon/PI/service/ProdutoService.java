@@ -15,7 +15,7 @@ public class ProdutoService {
     private ProdutosRepository produtoRep;
 
     @Transactional(rollbackFor = Exception.class)
-    public void VerificarProduto (final Produto produto){
+    public void cadastrar (final Produto produto){
 
 
         Assert.isTrue(!produto.getNome().equals(""),"O nome do produto não pode ser nulo!");
@@ -38,7 +38,7 @@ public class ProdutoService {
         Assert.isTrue(!produto.getPesoproduto().equals(""),"O peso não pode ser nulo");
 
         Assert.isTrue(!produto.getTamanho().equals(""),"O tamanho não pode ser nulo");
-        Assert.isTrue(produto.getImagem().length() <= 4 ,"O tamanho pode ter ate 4 caracteres") ;
+        Assert.isTrue(produto.getImagem().length() <= 4 ,"O tamanho DE IMAGEM pode ter ate 4 caracteres") ;
 
         this.produtoRep.save(produto);
     }

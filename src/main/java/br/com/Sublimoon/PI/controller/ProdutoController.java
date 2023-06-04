@@ -38,7 +38,7 @@ public class ProdutoController {
     @PostMapping
     public ResponseEntity <?> cadastrar(@RequestBody final Produto produto){
         try {
-            this.produtoRepository.save(produto);
+            produtoService.cadastrar(produto);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         }
         catch (Exception e){
