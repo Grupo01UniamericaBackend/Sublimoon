@@ -17,22 +17,13 @@ public class Carrinho {
     private Long id;
 
     @Getter @Setter
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(name = "carrinho_produto",
-            uniqueConstraints = @UniqueConstraint(
-                    columnNames = {
-                            "carrinho_id",
-                            "produto_id"
-                    }
-            ),
-            joinColumns = @JoinColumn(
-                    name = "carrinho_id"
-            ),
-            inverseJoinColumns = @JoinColumn(
-                    name = "produto_id"
-            )
+            joinColumns = @JoinColumn(name = "carrinho_id"),
+            inverseJoinColumns = @JoinColumn(name = "produto_id")
     )
-    private List<Produto>produtos;
+    private List<Produto> produtos;
+
 
     @Getter @Setter
     @Column(name = "quantidade",nullable = false)

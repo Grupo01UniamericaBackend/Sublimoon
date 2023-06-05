@@ -39,15 +39,10 @@ public class ProdutoService {
 
         Assert.isTrue(!produto.getPreco().equals(""),"O preco não pode ser nulo");
 
-        Assert.isTrue(!produto.getPesoproduto().equals(""),"O peso não pode ser nulo");
+        Assert.isTrue(!produto.getPesoProduto().equals(""),"O peso não pode ser nulo");
 
         Assert.isTrue(!produto.getTamanho().equals(""),"O tamanho não pode ser nulo");
         Assert.isTrue(produto.getImagem().length() <= 4 ,"O tamanho pode ter ate 4 caracteres") ;
-
-
-
-
-
 
 
 

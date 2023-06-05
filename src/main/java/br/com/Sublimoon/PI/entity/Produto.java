@@ -79,7 +79,7 @@ public class Produto {
 
     @Getter @Setter
     @Column (name = "pesoProduto",nullable = false)
-    private BigDecimal pesoproduto;
+    private BigDecimal pesoProduto;
 
     @Getter @Setter
     @Column (name = "médiaAvaliação",nullable = false)
