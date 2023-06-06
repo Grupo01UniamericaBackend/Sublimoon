@@ -10,9 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 
 
-    static Cliente findByCpf(String cpf) {
-        return null;
-    }
+    Cliente findByCpf(String cpf);
 
     Cliente findByTelefone(String telefone);
 

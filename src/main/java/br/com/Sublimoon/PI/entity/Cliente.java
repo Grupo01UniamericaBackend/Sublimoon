@@ -1,5 +1,4 @@
 package br.com.Sublimoon.PI.entity;
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,6 +28,4 @@ public class Cliente extends Usuario{
     @Getter @Setter
     @Column(name = "cpf",nullable = false,unique = true,length = 30)
     private String cpf;
-
-
 }

@@ -11,14 +11,14 @@ import org.springframework.util.Assert;
 public class ClienteService {
 
     @Autowired
-    final ClienteRepository clienteRepository;
+    final ClienteRepository clienteRep;
 
     public ClienteService(ClienteRepository clienteRepository) {
-        this.clienteRepository = clienteRepository;
+        clienteRep = clienteRepository;
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void VerificarCliente (final Cliente cliente){
+    public void VerificarCliente (Cliente cliente){
 
         Assert.isTrue(!cliente.getNome().equals(""),"O nome não pode nulo!");
         Assert.isTrue(cliente.getNome().length() <= 45 ,"O nome deve ter no máximo 45 digitos") ;
@@ -28,7 +28,7 @@ public class ClienteService {
 
         Assert.isTrue(!cliente.getCpf().equals(""),"O cpf não pode ser nulo!");
         Assert.isTrue(cliente.getCpf().length() <= 20 ,"O cpf deve ter no máximo 20 dígitos") ;
-        Cliente cpfExistente = ClienteRepository.findByCpf(cliente.getCpf());
+        Cliente cpfExistente = clienteRep.findByCpf(cliente.getCpf());
         Assert.isTrue(cpfExistente == null || cpfExistente.equals(cliente),"Cliente já cadastrado!");
 
 
@@ -36,15 +36,15 @@ public class ClienteService {
         Assert.isTrue(cliente.getTelefone().substring(0,11).matches("[0-9]*"),"Telefone deve conter apenas números!");
         Assert.isTrue(!cliente.getTelefone().equals(""),"O telefone não pode ser nulo!");
         Assert.isTrue(cliente.getTelefone().length() == 11 ,"O numero deve ter 11 digitos, contando o DDD") ;
-        Cliente telefoneExistente = clienteRepository.findByTelefone(cliente.getTelefone());
+        Cliente telefoneExistente = clienteRep.findByTelefone(cliente.getTelefone());
         Assert.isTrue(telefoneExistente == null || telefoneExistente.equals(cliente),"Telefone já cadastrado!");
 
         Assert.isTrue(!cliente.getEmail().equals(""),"O email não pode ser nulo!");
         Assert.isTrue(cliente.getEmail().length() <= 50 ,"O email deve ter no maximo 50 caracteres") ;
-        Cliente emailExistente = clienteRepository.findByEmail(cliente.getEmail());
+        Cliente emailExistente = clienteRep.findByEmail(cliente.getEmail());
         Assert.isTrue(emailExistente == null || emailExistente.equals(cliente),"Email já cadastrado!");
 
-        this.clienteRepository.save(cliente);
+        this.clienteRep.save(cliente);
     }
 
 }
