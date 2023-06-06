@@ -32,11 +32,6 @@ public class ClienteService {
         Assert.isTrue(cpfExistente == null || cpfExistente.equals(cliente),"Cliente já cadastrado!");
 
 
-        Assert.isTrue(!cliente.getFavoritos().equals(""),"O campo favoritos não pode nulo!");
-
-        Assert.isTrue(!cliente.getCarrinho().equals(""),"O campo carrinho não pode nulo!");
-
-        Assert.isTrue(!cliente.getId().equals(""),"O campo ID não pode nulo!");
 
         Assert.isTrue(cliente.getTelefone().substring(0,11).matches("[0-9]*"),"Telefone deve conter apenas números!");
         Assert.isTrue(!cliente.getTelefone().equals(""),"O telefone não pode ser nulo!");

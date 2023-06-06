@@ -1,9 +1,7 @@
 package br.com.Sublimoon.PI.entity;
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -16,17 +14,19 @@ public class Carrinho {
     @Column (name = "idCarrinho",nullable = false, unique = true)
     private Long id;
 
-    @Getter @Setter
-    @ManyToMany
+    @Getter
+    @Setter
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "carrinho_produto",
             joinColumns = @JoinColumn(name = "carrinho_id"),
-            inverseJoinColumns = @JoinColumn(name = "produto_id")
-    )
+            inverseJoinColumns = @JoinColumn(name = "produto_id"))
     private List<Produto> produtos;
+    @Getter @Setter
+    private Long produtoId;
 
 
     @Getter @Setter
-    @Column(name = "quantidade",nullable = false)
+    @Column(name = "quantidade")
     private int quantidade;
 
     @Getter @Setter
@@ -34,7 +34,11 @@ public class Carrinho {
     private BigDecimal desconto;
 
     @Getter @Setter
-    @Column (name = "subTotal",nullable = false)
+    @Column (name = "subTotal")
     private BigDecimal subTotal;
+
+    @Getter @Setter
+    @OneToOne(mappedBy = "carrinho")
+    private Cliente cliente;
 
 }

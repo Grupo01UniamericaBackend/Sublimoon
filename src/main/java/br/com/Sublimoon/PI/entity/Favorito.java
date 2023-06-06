@@ -1,10 +1,7 @@
 package br.com.Sublimoon.PI.entity;
-
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.List;
 
 
@@ -21,18 +18,12 @@ public class Favorito {
     @Getter @Setter
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "Favorito_produto",
-            uniqueConstraints = @UniqueConstraint(
-                    columnNames = {
-                            "favorito_id",
-                            "produto_id"
-                    }
-            ),
-            joinColumns = @JoinColumn(
-                    name = "favorito_id"
-            ),
-            inverseJoinColumns = @JoinColumn(
-                    name = "produto_id"
-            )
-    )
+            joinColumns = @JoinColumn(name = "favorito_id"),
+            inverseJoinColumns = @JoinColumn(name = "produto_id"))
     private List<Produto>produtos;
+
+    @Getter @Setter
+    @OneToOne(mappedBy = "favorito")
+    private Cliente cliente;
+
 }

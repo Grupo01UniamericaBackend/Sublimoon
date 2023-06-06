@@ -11,11 +11,11 @@ public class Cliente extends Usuario{
     @Getter @Setter
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "Favoritos",nullable = false)
-    private Favorito favoritos;
+    private Favorito favorito;
 
     @Getter @Setter
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(name = "Carrinho",nullable = false)
+    @JoinColumn(name = "carrinho_id")
     private Carrinho carrinho;
 
     @Getter @Setter
