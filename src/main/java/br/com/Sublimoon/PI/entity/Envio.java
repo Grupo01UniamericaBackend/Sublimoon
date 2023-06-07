@@ -28,4 +28,5 @@ public class Envio {
     @Column(name = "valorFrete",nullable = false)
     private float valorFrete;
 
+
 }

@@ -1,6 +1,5 @@
 package br.com.Sublimoon.PI.repository;
 
-import br.com.Sublimoon.PI.entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import br.com.Sublimoon.PI.entity.Cliente;
 import org.springframework.stereotype.Repository;

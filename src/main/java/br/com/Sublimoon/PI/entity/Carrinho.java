@@ -41,4 +41,9 @@ public class Carrinho {
     @OneToOne(mappedBy = "carrinho")
     private Cliente cliente;
 
+    @Getter @Setter
+    @OneToMany(mappedBy = "carrinho", cascade = CascadeType.ALL)
+    private List<Pedido> pedidos;
+
+
 }

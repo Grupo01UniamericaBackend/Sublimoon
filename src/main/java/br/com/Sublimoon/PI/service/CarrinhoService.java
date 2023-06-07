@@ -23,16 +23,22 @@ public class CarrinhoService {
     @Transactional(rollbackFor = Exception.class)
     public void createCarrinho(final Carrinho carrinho){
 
-        //Assert.isTrue(carrinho.getId() != null, "Id não pode ser nulo");
+
         Optional<Carrinho> carrinhoExistente = carrinhoRepo.findById(carrinho.getId());
         Assert.isTrue(carrinhoExistente == null || carrinhoExistente.equals(carrinho.getId()), "Id já existente");
 
-        //Assert.isTrue(carrinho.getQuantidade() >= 0, "Quantidade não pode ser nulo");
 
-        //Assert.isTrue(carrinho.getSubTotal() != null, "SubTotal não pode ser nulo");
 
-        Assert.isTrue(produtoRepository.findById(carrinho.getProdutoId())!= null, "Produto não encontrado!");
-        carrinho.getProdutos().add(produtoRepository.getById(carrinho.getProdutoId()));
+        Long produtoId = carrinho.getProdutoId(); // Supondo que você tenha o ID do produto disponível
+
+        Produto produto = produtoRepository.getById(produtoId);
+        Assert.isTrue(produto != null, "Produto não encontrado!");
+
+        carrinho.getProdutos().add(produto);
+
+
+
+
 
     }
 

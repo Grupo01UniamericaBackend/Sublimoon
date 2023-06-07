@@ -3,7 +3,6 @@ package br.com.Sublimoon.PI.controller;
 import br.com.Sublimoon.PI.entity.Cliente;
 import br.com.Sublimoon.PI.repository.ClienteRepository;
 import br.com.Sublimoon.PI.service.ClienteService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
@@ -15,15 +14,10 @@ import org.springframework.web.bind.annotation.*;
 public class ClienteController {
 
     @Autowired
-    final ClienteRepository clienteRepository;
+    ClienteRepository clienteRepository;
 
     @Autowired
-    final ClienteService clienteService;
-
-    public ClienteController(ClienteRepository clienteRepository, ClienteService clienteService) {
-        this.clienteRepository = clienteRepository;
-        this.clienteService = clienteService;
-    }
+    ClienteService clienteSer;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
@@ -41,7 +35,7 @@ public class ClienteController {
     @PostMapping
     public ResponseEntity<?> cadastrar(@RequestBody final Cliente cliente) {
         try {
-            this.clienteService.VerificarCliente(cliente);
+            this.clienteSer.VerificarCliente(cliente);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (DataIntegrityViolationException e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getCause().getCause().getMessage());

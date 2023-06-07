@@ -92,6 +92,11 @@ public class Produto {
             inverseJoinColumns = @JoinColumn(name = "carrinho_id"))
     private List<Carrinho> carrinhos;
 
+    @Getter @Setter
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+    private List<Avaliacao> avaliacoes;
+
+
 
 
 }

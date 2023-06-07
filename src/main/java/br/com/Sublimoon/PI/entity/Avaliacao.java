@@ -24,11 +24,20 @@ public class Avaliacao {
     private Float nota;
 
     @Getter @Setter
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "Cliente",nullable = false)
+    @Column (name = "comentário", length = 150)
+    private String comentario;
+
+    @Getter @Setter
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
     @Getter @Setter
-    @Column (name = "comentário",nullable = false, length = 150)
-    private String comentario;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "produto_id")
+    private Produto produto;
+
+
+
+
 }

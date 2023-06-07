@@ -3,8 +3,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
-@Table(name = "Usuários",schema = "public")
+@MappedSuperclass
 public class Usuario {
     @Id
     @Getter
