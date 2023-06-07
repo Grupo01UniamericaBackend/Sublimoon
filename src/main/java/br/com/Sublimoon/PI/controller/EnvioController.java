@@ -1,7 +1,7 @@
 package br.com.Sublimoon.PI.controller;
 
 import br.com.Sublimoon.PI.repository.EnvioRepository;
-import br.com.Sublimoon.PI.service.EnvioService;
+import br.com.Sublimoon.PI.service.envioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +18,7 @@ public class EnvioController {
     EnvioRepository envioRepository;
 
     @Autowired
-    EnvioService envioServ;
+    envioService envioServ;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findByIdPath(@PathVariable("id") final Long id){

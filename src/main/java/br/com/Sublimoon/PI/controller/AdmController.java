@@ -3,12 +3,11 @@ package br.com.Sublimoon.PI.controller;
 import br.com.Sublimoon.PI.entity.Adm;
 import br.com.Sublimoon.PI.repository.AdmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import br.com.Sublimoon.PI.service.AdmService;
+import br.com.Sublimoon.PI.service.admService;
 
 @Controller
 @RequestMapping (value = "/api/adm")
@@ -18,7 +17,7 @@ public class AdmController {
     AdmRepository admRepository;
 
     @Autowired
-    AdmService admServ;
+    admService admServ;
 
 
     @GetMapping("/{id}")
