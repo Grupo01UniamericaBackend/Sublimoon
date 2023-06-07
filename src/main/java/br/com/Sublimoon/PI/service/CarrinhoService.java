@@ -29,7 +29,7 @@ public class CarrinhoService {
 
 
 
-        Long produtoId = carrinho.getProdutoId(); // Supondo que você tenha o ID do produto disponível
+        Long produtoId = carrinho.getProdutoId();
 
         Produto produto = produtoRepository.getById(produtoId);
         Assert.isTrue(produto != null, "Produto não encontrado!");

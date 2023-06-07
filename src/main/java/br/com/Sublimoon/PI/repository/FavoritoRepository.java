@@ -5,5 +5,5 @@ import br.com.Sublimoon.PI.entity.Favorito;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface FavoritosRepository extends JpaRepository<Favorito,Long>{
+public interface FavoritoRepository extends JpaRepository<Favorito,Long>{
 }

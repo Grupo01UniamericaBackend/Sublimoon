@@ -16,6 +16,9 @@ public class Favorito {
     private Long id;
 
     @Getter @Setter
+    long produtoId;
+
+    @Getter @Setter
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "Favorito_produto",
             joinColumns = @JoinColumn(name = "favorito_id"),

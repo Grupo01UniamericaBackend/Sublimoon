@@ -1,6 +1,6 @@
 package br.com.Sublimoon.PI.controller;
 
-import br.com.Sublimoon.PI.repository.FavoritosRepository;
+import br.com.Sublimoon.PI.repository.FavoritoRepository;
 import br.com.Sublimoon.PI.service.FavoritoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.*;
 public class FavoritoController {
 
     @Autowired
-    final FavoritosRepository favoritosRepository;
+    final FavoritoRepository favoritosRepository;
 
     @Autowired
     final FavoritoService favoritoService;
 
-    public FavoritoController(FavoritosRepository favoritosRepository, FavoritoService favoritoService) {
+    public FavoritoController(FavoritoRepository favoritosRepository, FavoritoService favoritoService) {
         this.favoritosRepository = favoritosRepository;
         this.favoritoService = favoritoService;
     }
