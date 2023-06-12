@@ -22,7 +22,7 @@ public class AvaliacaoService {
     Optional<Avaliacao> avaliacaoExistente = AvaliacaoRep.findById(avaliacao.getId());
     Assert.isTrue(avaliacaoExistente == null || avaliacaoExistente.equals(avaliacao.getId()), "Id já existente");
 
-    Assert.isTrue(avaliacao.getNota() != null,"Nota não pode ser nulo");
+    Assert.isTrue(avaliacao.getNota() != null,"Nota não pode ser nul");
 
     Assert.isTrue(avaliacao.getCliente() != null,"Cliente não pode ser nulo");
 
