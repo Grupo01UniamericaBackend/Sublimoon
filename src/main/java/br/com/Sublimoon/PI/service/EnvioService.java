@@ -9,7 +9,7 @@ import org.springframework.util.Assert;
 
 
 @Service
-public class envioService {
+public class EnvioService {
 
     @Autowired
     EnvioRepository envioRepository;

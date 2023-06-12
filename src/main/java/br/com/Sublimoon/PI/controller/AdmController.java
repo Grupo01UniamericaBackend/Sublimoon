@@ -7,7 +7,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import br.com.Sublimoon.PI.service.admService;
+import br.com.Sublimoon.PI.service.AdmService;
 
 @Controller
 @RequestMapping (value = "/api/adm")
@@ -17,7 +17,7 @@ public class AdmController {
     AdmRepository admRepository;
 
     @Autowired
-    admService admServ;
+    AdmService admServ;
 
 
     @GetMapping("/{id}")

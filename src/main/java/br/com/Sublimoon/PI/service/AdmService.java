@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 
 @Service
-public class admService {
+public class AdmService {
 
     @Autowired
     private AdmRepository AdmRep;

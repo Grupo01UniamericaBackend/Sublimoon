@@ -2,7 +2,7 @@ package br.com.Sublimoon.PI.controller;
 
 import br.com.Sublimoon.PI.entity.Cliente;
 import br.com.Sublimoon.PI.repository.ClienteRepository;
-import br.com.Sublimoon.PI.service.clienteService;
+import br.com.Sublimoon.PI.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ public class ClienteController {
     ClienteRepository clienteRepository;
 
     @Autowired
-    clienteService clienteSer;
+    ClienteService clienteSer;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") final Long id) {

@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 @Service
-public class produtoService {
+public class ProdutoService {
 
     @Autowired
     private ProdutosRepository produtoRep;

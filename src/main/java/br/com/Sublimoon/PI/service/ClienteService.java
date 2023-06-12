@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 @Service
-public class clienteService {
+public class ClienteService {
 
     @Autowired
     private ClienteRepository clienteRepository;

@@ -1,6 +1,6 @@
 package br.com.Sublimoon.PI.controller;
 
-import br.com.Sublimoon.PI.service.produtoService;
+import br.com.Sublimoon.PI.service.ProdutoService;
 import br.com.Sublimoon.PI.repository.ProdutosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +20,7 @@ public class ProdutoController {
     ProdutosRepository produtoRepository;
 
     @Autowired
-    produtoService produtoService;
+    ProdutoService produtoService;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findByIdPath(@PathVariable("id") final Long id) {

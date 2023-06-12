@@ -8,7 +8,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import br.com.Sublimoon.PI.service.avaliacaoService;
+import br.com.Sublimoon.PI.service.AvaliacaoService;
 
 @Controller
 @RequestMapping(value = "/api/avaliacao")
@@ -18,7 +18,7 @@ public class AvaliacaoController {
     AvaliacaoRepository avaliacaoRepository;
 
     @Autowired
-    avaliacaoService avaliacaoServ;
+    AvaliacaoService avaliacaoServ;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
