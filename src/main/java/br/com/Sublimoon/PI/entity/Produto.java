@@ -21,7 +21,7 @@ public class Produto  extends AbastractEntity{
     private String nome;
 
     @Getter @Setter
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "produto_categoria",
     uniqueConstraints = @UniqueConstraint(
             columnNames = {
@@ -61,7 +61,7 @@ public class Produto  extends AbastractEntity{
     private int quantidade;
 
     @Getter @Setter
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "produto_avaliação",
             uniqueConstraints = @UniqueConstraint(
                     columnNames = {
@@ -86,7 +86,7 @@ public class Produto  extends AbastractEntity{
     private float mediaAvaliacao;
 
     @Getter @Setter
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "produto_favoritos",
             uniqueConstraints = @UniqueConstraint(
                     columnNames = {
@@ -102,7 +102,7 @@ public class Produto  extends AbastractEntity{
             )
 
     )
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Favorito favoritos;
 
     @Getter @Setter

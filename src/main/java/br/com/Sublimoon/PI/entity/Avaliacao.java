@@ -24,7 +24,7 @@ public class Avaliacao {
     private Float nota;
 
     @Getter @Setter
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Cliente",nullable = false)
     private Cliente cliente;
 
