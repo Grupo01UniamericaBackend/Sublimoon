@@ -18,6 +18,10 @@ public class AdmService {
     @Transactional(rollbackFor = Exception.class)
     public void createAdm(final Adm adm){
 
+        Assert.isTrue(adm.getUserAdm().equals("001AdmUser100") && adm.getSenhaAdm().equals("333AdminPassword777") || adm.getUserAdm().equals("TesteADM02") && adm.getSenhaAdm().equals("SENHA123")
+                ,"Nome ou Senha Invalidos para Administrador");
+
+
         Assert.isTrue(! adm.getUserAdm().equals(""), "Adm não pode ser nulo");
         Assert.isTrue( adm.getUserAdm().length() <= 25, "Deve conter até 25 caracteres");
 
@@ -34,7 +38,7 @@ public class AdmService {
         Assert.isTrue(admExistente2 == null || admExistente2.equals(adm.getEmail()),"Email já cadastrado");
         Assert.isTrue(adm.getEmail().length() <= 50, "E-mail deve ter até 50 caracteres");
 
-
+        this.AdmRep.save(adm);
 
     }
 
