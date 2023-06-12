@@ -21,7 +21,7 @@ public class Produto  extends AbastractEntity{
     private String nome;
 
     @Getter @Setter
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "produto_categoria",
     uniqueConstraints = @UniqueConstraint(
             columnNames = {

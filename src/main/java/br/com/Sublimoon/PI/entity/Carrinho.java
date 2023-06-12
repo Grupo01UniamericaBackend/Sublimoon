@@ -17,7 +17,7 @@ public class Carrinho {
     private Long id;
 
     @Getter @Setter
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "carrinho_produto",
             uniqueConstraints = @UniqueConstraint(
                     columnNames = {

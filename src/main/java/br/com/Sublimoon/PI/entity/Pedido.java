@@ -21,7 +21,7 @@ public class Pedido extends Carrinho{
     private Long id;
 
     @Getter @Setter
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Envio",nullable = false)
     private Envio envio;
 

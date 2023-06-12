@@ -19,7 +19,7 @@ public class Favorito {
     private Long id;
 
     @Getter @Setter
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "Favorito_produto",
             uniqueConstraints = @UniqueConstraint(
                     columnNames = {
