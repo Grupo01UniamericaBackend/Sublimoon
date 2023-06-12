@@ -21,8 +21,6 @@ public class Carrinho {
             joinColumns = @JoinColumn(name = "carrinho_id"),
             inverseJoinColumns = @JoinColumn(name = "produto_id"))
     private List<Produto> produtos;
-    @Getter @Setter
-    private Long produtoId;
 
 
     @Getter @Setter
