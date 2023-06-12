@@ -15,7 +15,7 @@ import br.com.Sublimoon.PI.service.AdmService;
 public class AdmController {
 
     @Autowired
-    AdmRepository admRepository;
+    AdmRepository admRep;
 
     @Autowired
     AdmService admServ;
@@ -23,13 +23,13 @@ public class AdmController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
-        final Adm adm = this.admRepository.findById(id).orElse(null);
+        final Adm adm = this.admRep.findById(id).orElse(null);
         return ResponseEntity.ok(adm);
     }
 
     @GetMapping("/lista")
     public ResponseEntity<?> Lista() {
-        return ResponseEntity.ok(this.admRepository.findAll());
+        return ResponseEntity.ok(this.admRep.findAll());
 
     }
 
@@ -47,12 +47,12 @@ public class AdmController {
     @PutMapping
     public ResponseEntity<?> editarAdm(@RequestParam("id") final Long id, @RequestBody final Adm adm) {
         try {
-            final Adm adm1 = this.admRepository.findById(id).orElse(null);
+            final Adm adm1 = this.admRep.findById(id).orElse(null);
 
             if (adm1 == null || adm1.getId().equals(adm1.getId())) {
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
             }
-            this.admRepository.save(adm);
+            this.admRep.save(adm);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
         } catch (DataIntegrityViolationException e) {
             return ResponseEntity.internalServerError()
@@ -64,7 +64,7 @@ public class AdmController {
 
     @DeleteMapping("delete/{id}")
     public void deletaAdm(@PathVariable Long id) {
-        admRepository.deleteById(id);
+        admRep.deleteById(id);
     }
 
 

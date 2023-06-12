@@ -34,6 +34,7 @@ public class AdmService {
         Assert.isTrue(admExistente2 == null || admExistente2.equals(adm.getEmail()),"Email já cadastrado");
         Assert.isTrue(adm.getEmail().length() <= 50, "E-mail deve ter até 50 caracteres");
 
+        this.AdmRep.save(adm);
 
 
     }
