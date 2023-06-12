@@ -37,6 +37,7 @@ public class AdmController {
     public ResponseEntity<?> cadastrarAdm(@RequestBody final Adm adm) {
         try {
             this.admServ.createAdm(adm);
+
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
@@ -64,6 +65,7 @@ public class AdmController {
     @DeleteMapping("delete/{id}")
     public void deletaAdm(@PathVariable Long id) {
         admRep.deleteById(id);
+
     }
 
 

@@ -17,6 +17,7 @@ public class EnvioController {
     @Autowired
     EnvioRepository envioRepository;
 
+
     @Autowired
     EnvioService envioServ;
 
@@ -24,11 +25,6 @@ public class EnvioController {
     public ResponseEntity<?> findByIdPath(@PathVariable("id") final Long id){
         final Envio envio = this.envioRepository.findById(id).orElse(null);
         return ResponseEntity.ok(envio);
-    }
-
-    @DeleteMapping("delete/{id}")
-    public void deletaIdEnvio(@PathVariable Long id){
-        envioRepository.deleteById(id);
     }
 
     @GetMapping("/listaEnvio")
@@ -46,4 +42,10 @@ public class EnvioController {
             return ResponseEntity.internalServerError().body("Error: " + e.getCause().getCause().getMessage());
         }
     }
+
+    @DeleteMapping("delete/{id}")
+    public void deletaIdEnvio(@PathVariable Long id){
+        envioRepository.deleteById(id);
+    }
+
 }

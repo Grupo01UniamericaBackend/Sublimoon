@@ -1,7 +1,10 @@
 package br.com.Sublimoon.PI.service;
 
 import br.com.Sublimoon.PI.entity.Adm;
+<<<<<<< HEAD
 import br.com.Sublimoon.PI.controller.AdmController;
+=======
+>>>>>>> 7ab800cdf9be5c4a793fda40429e293138963241
 import br.com.Sublimoon.PI.repository.AdmRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,6 +15,7 @@ import org.springframework.util.Assert;
 public class AdmService {
 
     @Autowired
+<<<<<<< HEAD
     private AdmRepository AdmRep;
 
 
@@ -21,6 +25,17 @@ public class AdmService {
         Assert.isTrue(adm.getUserAdm().equals("001AdmUser100") && adm.getSenhaAdm().equals("333AdminPassword777") || adm.getUserAdm().equals("TesteADM02") && adm.getSenhaAdm().equals("SENHA123")
                 ,"Nome ou Senha Invalidos para Administrador");
 
+=======
+    final AdmRepository AdmRep;
+
+    public AdmService(AdmRepository admRep) {
+        AdmRep = admRep;
+    }
+
+
+    @Transactional(rollbackFor = Exception.class)
+    public void createAdm(Adm adm){
+>>>>>>> 7ab800cdf9be5c4a793fda40429e293138963241
 
         Assert.isTrue(! adm.getUserAdm().equals(""), "Adm não pode ser nulo");
         Assert.isTrue( adm.getUserAdm().length() <= 25, "Deve conter até 25 caracteres");
@@ -38,8 +53,20 @@ public class AdmService {
         Assert.isTrue(admExistente2 == null || admExistente2.equals(adm.getEmail()),"Email já cadastrado");
         Assert.isTrue(adm.getEmail().length() <= 50, "E-mail deve ter até 50 caracteres");
 
+<<<<<<< HEAD
         this.AdmRep.save(adm);
 
     }
 
+=======
+
+
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void DeleteById(Long id){
+
+
+    }
+>>>>>>> 7ab800cdf9be5c4a793fda40429e293138963241
 }

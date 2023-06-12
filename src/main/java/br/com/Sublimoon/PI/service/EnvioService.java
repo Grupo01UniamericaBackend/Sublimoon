@@ -20,9 +20,13 @@ public class EnvioService {
         Assert.isTrue(!envio.getFormaEnvio().equals(""),"Por favor, selecione uma forma de envio válida!!");
         Assert.isTrue(envio.getFormaEnvio().length() <= 30,"Forma de envio n pode passar de 30 caracteres");
 
+<<<<<<< HEAD
         Assert.isTrue(!envio.getId().equals(""),"Id nao pode ser nulo, verifique essa informação");
 
         this.envioRepository.save(envio);
+=======
+
+>>>>>>> 7ab800cdf9be5c4a793fda40429e293138963241
     }
 
 

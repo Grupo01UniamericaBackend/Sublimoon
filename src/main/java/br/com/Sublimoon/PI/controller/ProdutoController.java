@@ -17,20 +17,21 @@ import br.com.Sublimoon.PI.entity.Produto;
 public class ProdutoController {
 
     @Autowired
-    ProdutoRepository produtoRepository;
+    ProdutoRepository produtoRep;
 
     @Autowired
     ProdutoService produtoService;
 
+
     @GetMapping("/{id}")
     public ResponseEntity<?> findByIdPath(@PathVariable("id") final Long id) {
-        final Produto produto = this.produtoRepository.findById(id).orElse(null);
+        final Produto produto = this.produtoRep.findById(id).orElse(null);
         return ResponseEntity.ok(produto);
     }
 
     @GetMapping("/lista")
     public ResponseEntity <?> Lista(){
-        return ResponseEntity.ok(this.produtoRepository.findAll());
+        return ResponseEntity.ok(this.produtoRep.findAll());
 
     }
 
@@ -49,13 +50,12 @@ public class ProdutoController {
     @PutMapping
     public ResponseEntity<?> editarProduto(@RequestParam("id") final Long id, @RequestBody final Produto produto){
         try {
-                     produtoService.atualizaProduto(produto);
-            final Produto produto1 = this.produtoRepository.findById(id).orElse(null);
+            final Produto produto1 = this.produtoRep.findById(id).orElse(null);
 
             if (produto1 == null || !produto1.getId().equals(produto1.getId())){
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
             }
-            this.produtoRepository.save(produto);
+            this.produtoRep.save(produto);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
         }
         catch (DataIntegrityViolationException e){
@@ -69,7 +69,7 @@ public class ProdutoController {
 
     @DeleteMapping("delete/{id}")
     public void deleta(@PathVariable Long id){
-        produtoRepository.deleteById(id);
+        produtoRep.deleteById(id);
     }
 
 

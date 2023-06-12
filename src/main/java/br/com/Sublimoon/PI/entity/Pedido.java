@@ -12,7 +12,7 @@ import java.util.List;
 
 @Entity
 @Table (name = "pedidos",schema = "public")
-public class Pedido extends Carrinho{
+public class Pedido{
 
     @Id
     @Getter
@@ -40,11 +40,10 @@ public class Pedido extends Carrinho{
     @Getter @Setter
     @Column(name = "cep",nullable = false,length = 25)
     private String cep;
-
-
-
-
-
+    @Getter @Setter
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "carrinho_id")
+    private Carrinho carrinho;
 
 
 }

@@ -1,5 +1,9 @@
 package br.com.Sublimoon.PI.service;
 
+<<<<<<< HEAD
+=======
+import br.com.Sublimoon.PI.ExceptionHandler.IdNotFoundException;
+>>>>>>> 7ab800cdf9be5c4a793fda40429e293138963241
 import br.com.Sublimoon.PI.entity.Cliente;
 import br.com.Sublimoon.PI.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +11,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
+<<<<<<< HEAD
+=======
+import java.util.Optional;
+import br.com.Sublimoon.PI.ExceptionHandler.IdNotFoundException;
+
+>>>>>>> 7ab800cdf9be5c4a793fda40429e293138963241
 @Service
 public class ClienteService {
 
@@ -14,7 +24,11 @@ public class ClienteService {
     private ClienteRepository clienteRepository;
 
     @Transactional(rollbackFor = Exception.class)
+<<<<<<< HEAD
     public void VerificarCliente (final Cliente cliente){
+=======
+    public Cliente VerificarCliente (final Cliente cliente){
+>>>>>>> 7ab800cdf9be5c4a793fda40429e293138963241
 
         Assert.isTrue(!cliente.getNome().equals(""),"O nome não pode nulo!");
         Assert.isTrue(cliente.getNome().length() <= 45 ,"O nome deve ter no máximo 45 digitos") ;
@@ -24,10 +38,23 @@ public class ClienteService {
 
         Assert.isTrue(!cliente.getCpf().equals(""),"O cpf não pode ser nulo!");
         Assert.isTrue(cliente.getCpf().length() <= 20 ,"O cpf deve ter no máximo 20 dígitos") ;
+<<<<<<< HEAD
         Cliente cpfExistente = ClienteRepository.findByCpf(cliente.getCpf());
         Assert.isTrue(cpfExistente == null || cpfExistente.equals(cliente),"Cliente já cadastrado!");
 
 
+=======
+        Cliente cpfExistente = clienteRepository.findByCpf(cliente.getCpf());
+        Assert.isTrue(cpfExistente == null || cpfExistente.equals(cliente),"Cliente já cadastrado!");
+
+
+        //Assert.isTrue(!cliente.getFavorito().equals(""),"O campo favoritos não pode nulo!");
+
+       // Assert.isTrue(!cliente.getCarrinho().equals(""),"O campo carrinho não pode nulo!");
+
+        //Assert.isTrue(!cliente.getId().equals(""),"O campo ID não pode nulo!");
+
+>>>>>>> 7ab800cdf9be5c4a793fda40429e293138963241
         Assert.isTrue(cliente.getTelefone().substring(0,11).matches("[0-9]*"),"Telefone deve conter apenas números!");
         Assert.isTrue(!cliente.getTelefone().equals(""),"O telefone não pode ser nulo!");
         Assert.isTrue(cliente.getTelefone().length() == 11 ,"O numero deve ter 11 digitos, contando o DDD") ;
@@ -39,7 +66,16 @@ public class ClienteService {
         Cliente emailExistente = clienteRepository.findByEmail(cliente.getEmail());
         Assert.isTrue(emailExistente == null || emailExistente.equals(cliente),"Email já cadastrado!");
 
+<<<<<<< HEAD
         this.clienteRepository.save(cliente);
+=======
+        return clienteRepository.save(cliente);
+    }
+    public Cliente findById(long id){
+
+        Optional<Cliente> cliente= clienteRepository.findById(id);
+        return cliente.orElseThrow(() -> new IdNotFoundException());
+>>>>>>> 7ab800cdf9be5c4a793fda40429e293138963241
     }
 
 }

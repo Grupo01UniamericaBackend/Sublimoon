@@ -1,9 +1,7 @@
 package br.com.Sublimoon.PI.entity;
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -16,26 +14,19 @@ public class Carrinho {
     @Column (name = "idCarrinho",nullable = false, unique = true)
     private Long id;
 
-    @Getter @Setter
-    @OneToMany(fetch = FetchType.LAZY)
+    @Getter
+    @Setter
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "carrinho_produto",
-            uniqueConstraints = @UniqueConstraint(
-                    columnNames = {
-                            "carrinho_id",
-                            "produto_id"
-                    }
-            ),
-            joinColumns = @JoinColumn(
-                    name = "carrinho_id"
-            ),
-            inverseJoinColumns = @JoinColumn(
-                    name = "produto_id"
-            )
-    )
-    private List<Produto>produtos;
+            joinColumns = @JoinColumn(name = "carrinho_id"),
+            inverseJoinColumns = @JoinColumn(name = "produto_id"))
+    private List<Produto> produtos;
+    @Getter @Setter
+    private Long produtoId;
+
 
     @Getter @Setter
-    @Column(name = "quantidade",nullable = false)
+    @Column(name = "quantidade")
     private int quantidade;
 
     @Getter @Setter
@@ -43,7 +34,16 @@ public class Carrinho {
     private BigDecimal desconto;
 
     @Getter @Setter
-    @Column (name = "subTotal",nullable = false)
+    @Column (name = "subTotal")
     private BigDecimal subTotal;
+
+    @Getter @Setter
+    @OneToOne(mappedBy = "carrinho")
+    private Cliente cliente;
+
+    @Getter @Setter
+    @OneToMany(mappedBy = "carrinho")
+    private List<Pedido> pedidos;
+
 
 }

@@ -16,8 +16,15 @@ public class CarrinhoController {
     @Autowired
     CarrinhoRepository carrinhoRepository;
 
+
     @Autowired
-    CarrinhoService carrinhoService;
+    final CarrinhoService carrinhoService;
+
+    public CarrinhoController(CarrinhoRepository carrinhoRepository, CarrinhoService carrinhoService) {
+        this.carrinhoRepository = carrinhoRepository;
+        this.carrinhoService = carrinhoService;
+    }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") final Long id) {

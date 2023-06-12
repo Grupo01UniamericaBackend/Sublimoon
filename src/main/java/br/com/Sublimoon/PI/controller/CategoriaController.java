@@ -19,6 +19,7 @@ public class CategoriaController {
     @Autowired
     CategoriaService categoriasServ;
 
+
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
         final Categoria categoria = this.categoriasRepository.findById(id).orElse(null);

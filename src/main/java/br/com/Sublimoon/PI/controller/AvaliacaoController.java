@@ -20,6 +20,7 @@ public class AvaliacaoController {
     @Autowired
     AvaliacaoService avaliacaoServ;
 
+
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
         final Avaliacao avaliacao = this.avaliacaoRepository.findById(id).orElse(null);
