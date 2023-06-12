@@ -22,9 +22,7 @@ public class CarrinhoService {
         Optional<Carrinho> carrinhoExistente = carrinhoRepo.findById(carrinho.getId());
         Assert.isTrue(carrinhoExistente == null || carrinhoExistente.equals(carrinho.getId()), "Id já existente");
 
-        Assert.isTrue(carrinho.getProdutos() != null, "Produtos não pode ser nulo");
 
-        Assert.isTrue(carrinho.getQuantidade() >= 0, "Quantidade não pode ser nulo");
 
         Assert.isTrue(carrinho.getSubTotal() != null, "SubTotal não pode ser nulo");
 
