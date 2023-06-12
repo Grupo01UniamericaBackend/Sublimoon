@@ -1,6 +1,8 @@
 package br.com.Sublimoon.PI.service;
 import br.com.Sublimoon.PI.entity.Produto;
-import br.com.Sublimoon.PI.repository.ProdutosRepository;
+
+import br.com.Sublimoon.PI.repository.ProdutoRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,7 +12,7 @@ import org.springframework.util.Assert;
 public class ProdutoService {
 
     @Autowired
-    private ProdutosRepository produtoRep;
+    private ProdutoRepository produtoRep;
 
     @Transactional(rollbackFor = Exception.class)
     public void cadastrar (final Produto produto){

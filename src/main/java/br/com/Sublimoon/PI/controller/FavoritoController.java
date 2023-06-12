@@ -1,6 +1,6 @@
 package br.com.Sublimoon.PI.controller;
 
-import br.com.Sublimoon.PI.repository.FavoritosRepository;
+import br.com.Sublimoon.PI.repository.FavoritoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class FavoritoController {
 
     @Autowired
-    FavoritosRepository favoritosRepository;
+    FavoritoRepository favoritosRepository;
 
 
     @GetMapping("/{id}")
