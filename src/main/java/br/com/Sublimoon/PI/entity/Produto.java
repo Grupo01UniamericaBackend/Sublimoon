@@ -48,7 +48,7 @@ public class Produto {
     @Column(name = "quantidade",nullable = false)
     private int quantidade;
 
-    @Getter @Setter
+   /* @Getter @Setter
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "produto_avaliação",
             uniqueConstraints = @UniqueConstraint(
@@ -63,7 +63,11 @@ public class Produto {
             inverseJoinColumns = @JoinColumn(
                     name = "avaliação_id"
             )
-    )    private List<Avaliacao> avaliavao;
+    )    private List<Avaliacao> avaliavao;*/
+
+    @Getter @Setter
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+    private List<Avaliacao> avaliacoes;
 
     @Getter @Setter
     @Column (name = "pesoProduto",nullable = false)
@@ -92,9 +96,7 @@ public class Produto {
             inverseJoinColumns = @JoinColumn(name = "carrinho_id"))
     private List<Carrinho> carrinhos;
 
-    @Getter @Setter
-    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
-    private List<Avaliacao> avaliacoes;
+
 
 
 

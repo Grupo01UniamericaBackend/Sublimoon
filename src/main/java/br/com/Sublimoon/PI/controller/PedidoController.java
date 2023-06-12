@@ -37,7 +37,7 @@ public class PedidoController {
         pedidoRepository.deleteById(id);
     }
 
-    @GetMapping("/listaPedido")
+    @GetMapping("/lista")
     public ResponseEntity <?> ListaCompletaPedido(){
         return ResponseEntity.ok(this.pedidoRepository.findAll());
     }

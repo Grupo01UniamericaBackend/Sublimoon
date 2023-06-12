@@ -5,6 +5,7 @@ import br.com.Sublimoon.PI.repository.ClienteRepository;
 import br.com.Sublimoon.PI.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -17,14 +18,13 @@ public class ClienteController {
     ClienteRepository clienteRepository;
 
     @Autowired
-    ClienteService clienteSer;
+    ClienteService clienteService;
+
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
-        final Cliente cliente = this.clienteRepository.findById(id).orElse(null);
-        return ResponseEntity.ok(cliente);
+    public ResponseEntity<?> findById(@PathVariable("id")  Long id){
+        return new ResponseEntity<>(clienteService.findById(id), HttpStatus.OK);
     }
-
     @GetMapping("/lista")
     public ResponseEntity<?> Lista() {
         return ResponseEntity.ok(this.clienteRepository.findAll());
@@ -35,7 +35,7 @@ public class ClienteController {
     @PostMapping
     public ResponseEntity<?> cadastrar(@RequestBody final Cliente cliente) {
         try {
-            this.clienteSer.VerificarCliente(cliente);
+            this.clienteService.VerificarCliente(cliente);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (DataIntegrityViolationException e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getCause().getCause().getMessage());

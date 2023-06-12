@@ -1,7 +1,6 @@
 package br.com.Sublimoon.PI.service;
 
 
-import br.com.Sublimoon.PI.entity.Carrinho;
 import br.com.Sublimoon.PI.entity.Favorito;
 import br.com.Sublimoon.PI.entity.Produto;
 import br.com.Sublimoon.PI.repository.FavoritoRepository;
@@ -10,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class FavoritoService{
@@ -23,15 +25,28 @@ public class FavoritoService{
 
 
     @Transactional(rollbackFor = Exception.class)
-    public void Favorito(final Favorito favorito) {
+    public Favorito Favoritar(final Favorito favorito) {
 
 
         Long produtoId = favorito.getProdutoId();
 
-        Produto produto = produtoRepository.getById(produtoId);
-        Assert.isTrue(produto != null, "Produto não encontrado!");
+        Assert.isTrue(produtoRepository.findById(produtoId).get()!= null, "Produto não encontrado!");
 
-        favorito.getProdutos().add(produto);
+
+
+
+
+        if(favorito.getProdutos()==null) {
+
+            List<Produto> attProduto = new ArrayList<>(); // Cria uma nova lista caso ainda não exista
+            favorito.setProdutos(attProduto); // Define a lista no favorito
+        }
+        else {
+
+            favorito.getProdutos().add(produtoRepository.getById(produtoId)); // Adiciona o produto à lista de produtos
+        }
+        return favoritoRepository.save(favorito);
+
     }
 
 

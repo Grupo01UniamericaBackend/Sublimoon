@@ -3,6 +3,7 @@ package br.com.Sublimoon.PI.controller;
 import br.com.Sublimoon.PI.repository.FavoritoRepository;
 import br.com.Sublimoon.PI.service.FavoritoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import br.com.Sublimoon.PI.entity.Favorito;
@@ -38,10 +39,10 @@ public class FavoritoController {
     }
 
     @PostMapping
-    public ResponseEntity <?> cadastraFavorito(@RequestBody final Favorito favorito){
+    public ResponseEntity cadastraFavorito(@RequestBody final Favorito favorito){
         try {
-            this.favoritosRepository.save(favorito);
-            return ResponseEntity.ok("Favorito adicionado com sucesso");
+            return ResponseEntity.status(HttpStatus.CREATED).body(favoritoService.Favoritar(favorito));
+
         }
         catch (DataIntegrityViolationException e){
             return ResponseEntity.internalServerError().body("Error: " + e.getCause().getCause().getMessage());

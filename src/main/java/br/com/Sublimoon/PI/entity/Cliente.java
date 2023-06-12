@@ -32,7 +32,7 @@ public class Cliente extends Usuario{
     private String cpf;
 
     @Getter @Setter
-    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cliente", fetch =FetchType.LAZY,cascade = CascadeType.ALL)
     private List<Avaliacao> avaliacoes;
 
 }

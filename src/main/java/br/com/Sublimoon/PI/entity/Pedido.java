@@ -22,7 +22,7 @@ public class Pedido{
 
     @Getter @Setter
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(name = "Envio",nullable = false)
+    @JoinColumn(name = "Envio")//,nullable = false
     private Envio envio;
 
     @Getter @Setter
