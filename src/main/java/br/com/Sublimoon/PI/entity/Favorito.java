@@ -12,7 +12,7 @@ public class Favorito {
     @Id
     @Getter
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idFavoritos",nullable = false, unique = true)
+    @Column(name = "id",nullable = false, unique = true)
     private Long id;
 
     @Getter @Setter
@@ -26,7 +26,8 @@ public class Favorito {
     private List<Produto>produtos;
 
     @Getter @Setter
-    @OneToOne(mappedBy = "favorito")
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "cliente_id", referencedColumnName = "idCliente")
     private Cliente cliente;
 
 }

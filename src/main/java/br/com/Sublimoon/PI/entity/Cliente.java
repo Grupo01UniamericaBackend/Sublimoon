@@ -7,11 +7,22 @@ import java.util.List;
 
 @Entity
 @Table(name = "Clientes",schema = "public")
-public class Cliente extends Usuario{
+public class Cliente{
+
+    @Id
+    @Getter
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column (name = "idCliente",nullable = false, unique = true)
+    private Long id;
+    @Getter @Setter
+    @Column(name = "telefone",nullable = false,unique = true,length = 40)
+    private String telefone;
 
     @Getter @Setter
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(name = "Favoritos")
+    @Column (name = "email",nullable = false,unique = true,length = 50)
+    private String email;
+    @Getter @Setter
+    @OneToOne(mappedBy = "cliente")
     private Favorito favorito;
 
     @Getter @Setter
