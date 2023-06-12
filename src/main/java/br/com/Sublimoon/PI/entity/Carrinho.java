@@ -35,7 +35,7 @@ public class Carrinho {
     private List<Produto>produtos;
 
     @Getter @Setter
-    @Column(name = "quantidade",nullable = false)
+    @Column(name = "quantidade")
     private int quantidade;
 
     @Getter @Setter
