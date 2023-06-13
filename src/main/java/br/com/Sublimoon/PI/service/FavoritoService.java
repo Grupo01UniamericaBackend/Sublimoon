@@ -1,6 +1,7 @@
 package br.com.Sublimoon.PI.service;
 
 
+import br.com.Sublimoon.PI.ExceptionHandler.IdNotFoundException;
 import br.com.Sublimoon.PI.entity.Favorito;
 import br.com.Sublimoon.PI.entity.Produto;
 import br.com.Sublimoon.PI.repository.ClienteRepository;
@@ -13,6 +14,7 @@ import org.springframework.util.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FavoritoService{
@@ -30,13 +32,17 @@ public class FavoritoService{
     @Transactional(rollbackFor = Exception.class)
     public Favorito Favoritar(final Favorito favorito) {
 
-        Long idCliente = favorito.getCliente().getId();
+
         Long produtoId = favorito.getProdutoId();
 
-        Assert.isTrue(clienteRepository.findById(idCliente)!=null, "cliente não encontrado");
+
         Assert.isTrue(produtoRepository.findById(produtoId).get()!= null, "Produto não encontrado!");
 
-        favorito.setCliente(clienteRepository.getById(idCliente));
+
+        if(favorito.getCliente()!=null)
+        {
+            favorito.setCliente(clienteRepository.getById(favorito.getCliente().getId()));
+        }
 
         if(favorito.getProdutos()==null) {
             List<Produto> attProduto = new ArrayList<>(); // Cria uma nova lista caso ainda não exista
@@ -50,6 +56,11 @@ public class FavoritoService{
 
         return favoritoRepository.save(favorito);
 
+    }
+    public Favorito findById(long id){
+
+        Optional<Favorito> favorito = favoritoRepository.findById(id);
+        return favorito.orElseThrow(() -> new IdNotFoundException());
     }
 
 

@@ -2,6 +2,8 @@ package br.com.Sublimoon.PI.controller;
 
 import br.com.Sublimoon.PI.repository.FavoritoRepository;
 import br.com.Sublimoon.PI.service.FavoritoService;
+import jakarta.validation.Valid;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -26,11 +28,9 @@ public class FavoritoController {
         this.favoritoService = favoritoService;
     }
 
-
     @GetMapping("/{id}")
-    public ResponseEntity<?> findByIdPath(@PathVariable("id") final Long id){
-        final Favorito favorito = this.favoritosRepository.findById(id).orElse(null);
-        return ResponseEntity.ok(favorito);
+    public ResponseEntity<?> findById(@PathVariable("id")  Long id){
+        return new ResponseEntity<>(favoritoService.findById(id), HttpStatus.OK);
     }
 
     @GetMapping("/lista")
@@ -48,6 +48,19 @@ public class FavoritoController {
             return ResponseEntity.internalServerError().body("Error: " + e.getCause().getCause().getMessage());
         }
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> updateFavorito(@PathVariable(value = "id")Long id,@RequestBody @Valid Favorito favorito)throws Exception{
+        findById(id);
+
+        Favorito favoritoNovo = favoritosRepository.getById(id);
+
+        BeanUtils.copyProperties(favorito, favoritoNovo);
+        favoritoService.Favoritar(favorito);
+        return ResponseEntity.status(HttpStatus.OK).body(favoritoNovo);
+    }
+
+
 
     @DeleteMapping("delete/{id}")
     public void deletaIdFavorito(@PathVariable Long id){
