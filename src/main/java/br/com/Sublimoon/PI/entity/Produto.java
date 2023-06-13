@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table (name = "produtos",schema = "public")
-public class Produto  extends AbastractEntity{
+public class Produto  extends AbstractEntity {
     @Id
     @Getter
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,10 +22,21 @@ public class Produto  extends AbastractEntity{
 
     @Getter @Setter
     @OneToMany(fetch = FetchType.LAZY)
-   @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "produto_categoria",
-            joinColumns = @JoinColumn(name = "produto_id"),
-            inverseJoinColumns = @JoinColumn(name = "categoria_id"))
+            uniqueConstraints = @UniqueConstraint(
+                    columnNames = {
+                            "produto_id",
+                            "categoria_id"
+                    }
+            ),
+            joinColumns = @JoinColumn(
+                    name = "produto_id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "categoria_id"
+            )
+
+    )
     private List<Categoria> categorias;
 
     @Enumerated (EnumType.STRING)
@@ -43,15 +54,14 @@ public class Produto  extends AbastractEntity{
 
     @Getter @Setter
     @Column(name = "preço", nullable = false)
-    private BigDecimal preco;
+    private float preco;
 
     @Getter @Setter
     @Column(name = "quantidade",nullable = false)
     private int quantidade;
 
-   /* @Getter @Setter
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
->>>>>>> 7ab800cdf9be5c4a793fda40429e293138963241
+    @Getter @Setter
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "produto_avaliação",
             uniqueConstraints = @UniqueConstraint(
                     columnNames = {
@@ -65,41 +75,39 @@ public class Produto  extends AbastractEntity{
             inverseJoinColumns = @JoinColumn(
                     name = "avaliação_id"
             )
-    )    private List<Avaliacao> avaliavao;*/
-
-    @Getter @Setter
-    @OneToMany(mappedBy = "produto")
-    private List<Avaliacao> avaliacoes;
+    )    private List<Avaliacao> avaliavao;
 
     @Getter @Setter
     @Column (name = "pesoProduto",nullable = false)
-    private BigDecimal pesoProduto;
+    private BigDecimal pesoproduto;
 
     @Getter @Setter
     @Column (name = "mediaAvaliacao",nullable = false)
     private float mediaAvaliacao;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "produto_favorito",
-            joinColumns = @JoinColumn(name = "produto_id"),
-            inverseJoinColumns = @JoinColumn(name = "favorito_id"))
-    private List<Favorito> favoritos;
+    @Getter @Setter
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "produto_favoritos",
+            uniqueConstraints = @UniqueConstraint(
+                    columnNames = {
+                            "produto_id",
+                            "favorito_id"
+                    }
+            ),
+            joinColumns = @JoinColumn(
+                    name = "produto_id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "favorito_id"
+            )
+
+    )
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Favorito favoritos;
 
     @Getter @Setter
     @Column(name = "tamanhoDoProduto",nullable = false,length = 10)
     private String tamanho;
-
-    @Getter
-    @Setter
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "produto_carrinho",
-            joinColumns = @JoinColumn(name = "produto_id"),
-            inverseJoinColumns = @JoinColumn(name = "carrinho_id"))
-    private List<Carrinho> carrinhos;
-
-
-
-
 
 
 

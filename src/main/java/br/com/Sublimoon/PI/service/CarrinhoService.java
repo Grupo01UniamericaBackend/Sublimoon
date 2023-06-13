@@ -32,9 +32,6 @@ public class CarrinhoService {
         Assert.isTrue(carrinho.getSubTotal() != null, "SubTotal não pode ser nulo");
 
 
-        Carrinho carrinhoExistente = carrinhoRepo.findByProduto(carrinho.getProdutos());
-        Assert.isTrue( carrinhoExistente == null || carrinhoExistente.equals(carrinho.getPedidos()), "Produto já existente");
-
         this.carrinhoRepo.save(carrinho);
 
 

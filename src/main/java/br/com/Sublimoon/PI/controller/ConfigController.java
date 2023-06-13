@@ -15,9 +15,6 @@ public class ConfigController {
     @Autowired
     ConfigRepository configRep;
 
-    @Autowired
-    ConfigService configService;
-
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") final Long id) {

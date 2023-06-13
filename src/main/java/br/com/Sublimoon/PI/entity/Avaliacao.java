@@ -20,9 +20,7 @@ public class Avaliacao {
     private Float nota;
 
     @Getter @Setter
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Cliente",nullable = false)
-    @Column (name = "comentário", length = 150)
+    @Column(name = "comentario",length = 150)
     private String comentario;
 
     @Getter @Setter

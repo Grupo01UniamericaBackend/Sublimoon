@@ -46,7 +46,7 @@ public class Cliente{
     private String cpf;
 
     @Getter @Setter
-    @OneToMany(mappedBy = "cliente", fetch =FetchType.LAZY)
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
     private List<Avaliacao> avaliacoes;
 
 }

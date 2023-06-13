@@ -23,9 +23,6 @@ public class Favorito {
             inverseJoinColumns = @JoinColumn(name = "produto_id"))
     private List<Produto>produtos;
 
-    @Getter @Setter
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cliente_id", referencedColumnName = "idCliente")
-    private Cliente cliente;
+
 
 }

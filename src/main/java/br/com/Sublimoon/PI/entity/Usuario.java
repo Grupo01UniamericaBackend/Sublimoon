@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @MappedSuperclass
-public class Usuario {
+public class  Usuario {
     @Id
     @Getter
     @GeneratedValue(strategy = GenerationType.AUTO)
