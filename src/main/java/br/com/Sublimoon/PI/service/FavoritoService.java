@@ -39,20 +39,13 @@ public class FavoritoService{
         favorito.setCliente(clienteRepository.getById(idCliente));
 
         if(favorito.getProdutos()==null) {
-
             List<Produto> attProduto = new ArrayList<>(); // Cria uma nova lista caso ainda não exista
             attProduto.add(produtoRepository.getById(produtoId));
             favorito.setProdutos(attProduto); // Define a lista no favorito
         }
         else {
-
             favorito.getProdutos().add(produtoRepository.getById(produtoId)); // Adiciona o produto à lista de produtos
         }
-
-
-
-
-
 
 
         return favoritoRepository.save(favorito);
