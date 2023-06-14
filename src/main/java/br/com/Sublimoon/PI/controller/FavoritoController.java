@@ -54,7 +54,7 @@ public class FavoritoController {
 
         Favorito favoritoNovo = favoritosRep.getById(id);
 
-        BeanUtils.copyProperties(favorito, favoritoNovo);
+        BeanUtils.copyProperties(favorito, favoritoNovo, "id");
         favoritoService.Favoritar(favorito);
         return ResponseEntity.status(HttpStatus.OK).body(favoritoNovo);
     }
