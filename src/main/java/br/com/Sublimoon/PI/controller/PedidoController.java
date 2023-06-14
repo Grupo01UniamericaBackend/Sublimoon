@@ -1,7 +1,7 @@
 package br.com.Sublimoon.PI.controller;
 
 import br.com.Sublimoon.PI.repository.PedidoRepository;
-import br.com.Sublimoon.PI.service.PedidosService;
+import br.com.Sublimoon.PI.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,36 +16,33 @@ import org.springframework.web.bind.annotation.*;
 public class PedidoController {
 
     @Autowired
-    final PedidoRepository pedidoRepository;
-    @Autowired
-    final PedidosService pedidoService;
+    PedidoRepository pedidoRep;
 
-    public PedidoController(PedidoRepository pedidoRepository, PedidosService pedidoService) {
-        this.pedidoRepository = pedidoRepository;
-        this.pedidoService = pedidoService;
-    }
+    @Autowired
+    PedidoService pedidoService;
+
 
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findByIdPath(@PathVariable("id") final Long id){
-        final Pedido pedido = this.pedidoRepository.findById(id).orElse(null);
+        final Pedido pedido = this.pedidoRep.findById(id).orElse(null);
         return ResponseEntity.ok(pedido);
     }
 
     @DeleteMapping("delete/{id}")
     public void deletaPedido(@PathVariable Long id){
-        pedidoRepository.deleteById(id);
+        pedidoRep.deleteById(id);
     }
 
     @GetMapping("/lista")
     public ResponseEntity <?> ListaCompletaPedido(){
-        return ResponseEntity.ok(this.pedidoRepository.findAll());
+        return ResponseEntity.ok(this.pedidoRep.findAll());
     }
 
     @PostMapping
     public ResponseEntity <?> cadastrarPedido(@RequestBody final Pedido pedido){
         try {
-            this.pedidoRepository.save(pedido);
+            this.pedidoRep.save(pedido);
             return ResponseEntity.ok("Pedido cadastrado com sucesso");
         }
         catch (DataIntegrityViolationException e){

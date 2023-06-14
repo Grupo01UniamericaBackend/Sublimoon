@@ -15,25 +15,16 @@ import org.springframework.web.bind.annotation.*;
 public class EnvioController {
 
     @Autowired
-    final EnvioRepository envioRepository;
+    EnvioRepository envioRepository;
+
 
     @Autowired
-    final EnvioService envioService;
-
-    public EnvioController(EnvioRepository envioRepository, EnvioService envioService) {
-        this.envioRepository = envioRepository;
-        this.envioService = envioService;
-    }
+    EnvioService envioServ;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findByIdPath(@PathVariable("id") final Long id){
         final Envio envio = this.envioRepository.findById(id).orElse(null);
         return ResponseEntity.ok(envio);
-    }
-
-    @DeleteMapping("delete/{id}")
-    public void deletaIdEnvio(@PathVariable Long id){
-        envioRepository.deleteById(id);
     }
 
     @GetMapping("/listaEnvio")
@@ -44,11 +35,17 @@ public class EnvioController {
     @PostMapping
     public ResponseEntity <?> cadastrarEnvio(@RequestBody final Envio envio){
         try {
-            this.envioRepository.save(envio);
+            this.envioServ.validaEnvio(envio);
             return ResponseEntity.ok("Envio cadastrado com sucesso");
         }
         catch (DataIntegrityViolationException e){
             return ResponseEntity.internalServerError().body("Error: " + e.getCause().getCause().getMessage());
         }
     }
+
+    @DeleteMapping("delete/{id}")
+    public void deletaIdEnvio(@PathVariable Long id){
+        envioRepository.deleteById(id);
+    }
+
 }

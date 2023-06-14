@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table (name = "produtos",schema = "public")
-public class Produto {
+public class Produto  extends AbastractEntity{
     @Id
     @Getter
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +21,7 @@ public class Produto {
     private String nome;
 
     @Getter @Setter
-   @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "produto_categoria",
             joinColumns = @JoinColumn(name = "produto_id"),
             inverseJoinColumns = @JoinColumn(name = "categoria_id"))
@@ -29,7 +29,7 @@ public class Produto {
 
     @Enumerated (EnumType.STRING)
     @Getter @Setter
-    @Column(name = "tipo", length = 15, nullable = false)
+    @Column(name = "cor", length = 15, nullable = false)
     private Cor cor;
 
     @Getter @Setter
@@ -50,6 +50,7 @@ public class Produto {
 
    /* @Getter @Setter
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+>>>>>>> 7ab800cdf9be5c4a793fda40429e293138963241
     @JoinTable(name = "produto_avaliação",
             uniqueConstraints = @UniqueConstraint(
                     columnNames = {
@@ -66,7 +67,7 @@ public class Produto {
     )    private List<Avaliacao> avaliavao;*/
 
     @Getter @Setter
-    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "produto")
     private List<Avaliacao> avaliacoes;
 
     @Getter @Setter
@@ -74,7 +75,7 @@ public class Produto {
     private BigDecimal pesoProduto;
 
     @Getter @Setter
-    @Column (name = "médiaAvaliação",nullable = false)
+    @Column (name = "mediaAvaliacao",nullable = false)
     private float mediaAvaliacao;
 
     @Getter @Setter
@@ -85,7 +86,7 @@ public class Produto {
     private List<Favorito> favoritos;
 
     @Getter @Setter
-    @Column(name = "tamanhoDoProduto",nullable = false,length = 4)
+    @Column(name = "tamanhoDoProduto",nullable = false,length = 10)
     private String tamanho;
 
     @Getter
@@ -95,6 +96,7 @@ public class Produto {
             joinColumns = @JoinColumn(name = "produto_id"),
             inverseJoinColumns = @JoinColumn(name = "carrinho_id"))
     private List<Carrinho> carrinhos;
+
 
 
 

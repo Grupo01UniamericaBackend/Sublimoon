@@ -1,15 +1,12 @@
 package br.com.Sublimoon.PI.service;
 
-import br.com.Sublimoon.PI.ExceptionHandler.IdNotFoundException;
 import br.com.Sublimoon.PI.entity.Cliente;
 import br.com.Sublimoon.PI.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
-
 import java.util.Optional;
-import br.com.Sublimoon.PI.ExceptionHandler.IdNotFoundException;
 
 @Service
 public class ClienteService {
@@ -18,7 +15,8 @@ public class ClienteService {
     private ClienteRepository clienteRepository;
 
     @Transactional(rollbackFor = Exception.class)
-    public Cliente VerificarCliente (final Cliente cliente){
+    public void VerificarCliente (final Cliente cliente){
+
 
         Assert.isTrue(!cliente.getNome().equals(""),"O nome não pode nulo!");
         Assert.isTrue(cliente.getNome().length() <= 45 ,"O nome deve ter no máximo 45 digitos") ;
@@ -30,6 +28,7 @@ public class ClienteService {
         Assert.isTrue(cliente.getCpf().length() <= 20 ,"O cpf deve ter no máximo 20 dígitos") ;
         Cliente cpfExistente = clienteRepository.findByCpf(cliente.getCpf());
         Assert.isTrue(cpfExistente == null || cpfExistente.equals(cliente),"Cliente já cadastrado!");
+
 
 
         //Assert.isTrue(!cliente.getFavorito().equals(""),"O campo favoritos não pode nulo!");
@@ -49,12 +48,8 @@ public class ClienteService {
         Cliente emailExistente = clienteRepository.findByEmail(cliente.getEmail());
         Assert.isTrue(emailExistente == null || emailExistente.equals(cliente),"Email já cadastrado!");
 
-        return clienteRepository.save(cliente);
-    }
-    public Cliente findById(long id){
+        this.clienteRepository.save(cliente);
 
-        Optional<Cliente> cliente= clienteRepository.findById(id);
-        return cliente.orElseThrow(() -> new IdNotFoundException());
     }
 
 }

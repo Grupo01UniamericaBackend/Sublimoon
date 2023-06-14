@@ -29,6 +29,8 @@ public class AvaliacaoService {
     Assert.isTrue(!avaliacao.getComentario().equals(""), "Comentario não pode ser nulo");
     Assert.isTrue(avaliacao.getComentario().length() <= 150, "Comentário deve conter até 150 caracteres");
 
+    this.AvaliacaoRep.save(avaliacao);
+
 
     }
 

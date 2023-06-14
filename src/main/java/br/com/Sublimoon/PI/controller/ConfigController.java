@@ -14,25 +14,26 @@ import org.springframework.web.bind.annotation.*;
 public class ConfigController {
 
     @Autowired
-    final ConfigRepository configRepository;
+    final ConfigRepository configRep;
 
     @Autowired
     final ConfigService configService;
 
-    public ConfigController(ConfigRepository configRepository, ConfigService configService) {
-        this.configRepository = configRepository;
+    public ConfigController(ConfigRepository configRep, ConfigService configService) {
+        this.configRep = configRep;
         this.configService = configService;
     }
 
+
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
-        final Config config = this.configRepository.findById(id).orElse(null);
+        final Config config = this.configRep.findById(id).orElse(null);
         return ResponseEntity.ok(config);
     }
 
     @GetMapping("/lista")
     public ResponseEntity<?> Lista() {
-        return ResponseEntity.ok(this.configRepository.findAll());
+        return ResponseEntity.ok(this.configRep.findAll());
 
     }
 
@@ -40,7 +41,7 @@ public class ConfigController {
     @PostMapping
     public ResponseEntity<?> cadastrar(@RequestBody final Config config) {
         try {
-            this.configRepository.save(config);
+            this.configRep.save(config);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (DataIntegrityViolationException e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getCause().getCause().getMessage());
@@ -50,12 +51,12 @@ public class ConfigController {
     @PutMapping
     public ResponseEntity<?> editar(@RequestParam("id") final Long id, @RequestBody final Config config) {
         try {
-            final Config config1 = this.configRepository.findById(id).orElse(null);
+            final Config config1 = this.configRep.findById(id).orElse(null);
 
             if (config1 == null || config1.getId().equals(config1.getId())) {
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
             }
-            this.configRepository.save(config);
+            this.configRep.save(config);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
         } catch (DataIntegrityViolationException e) {
             return ResponseEntity.internalServerError()
@@ -67,7 +68,7 @@ public class ConfigController {
 
     @DeleteMapping("delete/{id}")
     public void deleta(@PathVariable Long id) {
-        configRepository.deleteById(id);
+        configRep.deleteById(id);
     }
 
 }

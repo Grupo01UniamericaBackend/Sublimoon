@@ -5,5 +5,5 @@ import br.com.Sublimoon.PI.entity.Categoria;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CategoriasRepository extends JpaRepository<Categoria,Long>{
+public interface CategoriaRepository extends JpaRepository<Categoria,Long>{
 }

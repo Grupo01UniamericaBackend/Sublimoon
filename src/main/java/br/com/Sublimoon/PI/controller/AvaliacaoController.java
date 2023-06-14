@@ -15,15 +15,11 @@ import br.com.Sublimoon.PI.service.AvaliacaoService;
 public class AvaliacaoController {
 
     @Autowired
-    final AvaliacaoRepository avaliacaoRepository;
+    AvaliacaoRepository avaliacaoRepository;
 
     @Autowired
-    final AvaliacaoService avaliacaoServ;
+    AvaliacaoService avaliacaoServ;
 
-    public AvaliacaoController(AvaliacaoRepository avaliacaoRepository, AvaliacaoService avaliacaoServ) {
-        this.avaliacaoRepository = avaliacaoRepository;
-        this.avaliacaoServ = avaliacaoServ;
-    }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
@@ -41,7 +37,7 @@ public class AvaliacaoController {
     @PostMapping
     public ResponseEntity<?> cadastrarAvaliacao(@RequestBody final Avaliacao avaliacao) {
         try {
-            this.avaliacaoRepository.save(avaliacao);
+            this.avaliacaoServ.createAvaliacao(avaliacao);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());

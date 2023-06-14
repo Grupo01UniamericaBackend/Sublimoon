@@ -1,7 +1,4 @@
 package br.com.Sublimoon.PI.service;
-
-
-import br.com.Sublimoon.PI.ExceptionHandler.IdNotFoundException;
 import br.com.Sublimoon.PI.entity.Favorito;
 import br.com.Sublimoon.PI.entity.Produto;
 import br.com.Sublimoon.PI.repository.ClienteRepository;
@@ -15,6 +12,8 @@ import org.springframework.util.Assert;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+
 
 @Service
 public class FavoritoService{
@@ -57,11 +56,8 @@ public class FavoritoService{
         return favoritoRepository.save(favorito);
 
     }
-    public Favorito findById(long id){
 
-        Optional<Favorito> favorito = favoritoRepository.findById(id);
-        return favorito.orElseThrow(() -> new IdNotFoundException());
-    }
+
 
 
 }

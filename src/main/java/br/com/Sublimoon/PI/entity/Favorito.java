@@ -16,10 +16,10 @@ public class Favorito {
     private Long id;
 
     @Getter @Setter
-    long produtoId;
+    private Long produtoId;
 
     @Getter @Setter
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "Favorito_produto",
             joinColumns = @JoinColumn(name = "favorito_id"),
             inverseJoinColumns = @JoinColumn(name = "produto_id"))

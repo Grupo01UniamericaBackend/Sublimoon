@@ -1,5 +1,4 @@
 package br.com.Sublimoon.PI.controller;
-
 import br.com.Sublimoon.PI.repository.FavoritoRepository;
 import br.com.Sublimoon.PI.service.FavoritoService;
 import jakarta.validation.Valid;
@@ -18,31 +17,31 @@ import org.springframework.web.bind.annotation.*;
 public class FavoritoController {
 
     @Autowired
-    final FavoritoRepository favoritosRepository;
+    FavoritoRepository favoritosRep;
+
 
     @Autowired
-    final FavoritoService favoritoService;
+    FavoritoService favoritoService;
 
-    public FavoritoController(FavoritoRepository favoritosRepository, FavoritoService favoritoService) {
-        this.favoritosRepository = favoritosRepository;
-        this.favoritoService = favoritoService;
-    }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findById(@PathVariable("id")  Long id){
-        return new ResponseEntity<>(favoritoService.findById(id), HttpStatus.OK);
+
+        public ResponseEntity<?> findById(@PathVariable("id") final Long id){
+        final Favorito favorito = this.favoritosRep.findById(id).orElse(null);
+        return ResponseEntity.ok(favorito);
+
     }
 
     @GetMapping("/lista")
     public ResponseEntity <?> ListaCompletaFavoritos(){
-        return ResponseEntity.ok(this.favoritosRepository.findAll());
+        return ResponseEntity.ok(this.favoritosRep.findAll());
     }
 
     @PostMapping
     public ResponseEntity cadastraFavorito(@RequestBody final Favorito favorito){
         try {
-            return ResponseEntity.status(HttpStatus.CREATED).body(favoritoService.Favoritar(favorito));
-
+            this.favoritosRep.save(favorito);
+            return ResponseEntity.ok("Registro cadastrado com sucesso");
         }
         catch (DataIntegrityViolationException e){
             return ResponseEntity.internalServerError().body("Error: " + e.getCause().getCause().getMessage());
@@ -53,7 +52,7 @@ public class FavoritoController {
     public ResponseEntity<Object> updateFavorito(@PathVariable(value = "id")Long id,@RequestBody @Valid Favorito favorito)throws Exception{
         findById(id);
 
-        Favorito favoritoNovo = favoritosRepository.getById(id);
+        Favorito favoritoNovo = favoritosRep.getById(id);
 
         BeanUtils.copyProperties(favorito, favoritoNovo);
         favoritoService.Favoritar(favorito);
@@ -64,7 +63,7 @@ public class FavoritoController {
 
     @DeleteMapping("delete/{id}")
     public void deletaIdFavorito(@PathVariable Long id){
-        favoritosRepository.deleteById(id);
+        favoritosRep.deleteById(id);
     }
 
 }

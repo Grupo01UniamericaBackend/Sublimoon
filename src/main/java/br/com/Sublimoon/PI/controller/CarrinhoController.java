@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.*;
 public class CarrinhoController {
 
     @Autowired
-    final CarrinhoRepository carrinhoRepository;
+    CarrinhoRepository carrinhoRepository;
+
 
     @Autowired
     final CarrinhoService carrinhoService;
@@ -41,7 +42,7 @@ public class CarrinhoController {
     @PostMapping
     public ResponseEntity<?> cadastrar(@RequestBody final Carrinho carrinho) {
         try {
-            this.carrinhoRepository.save(carrinho);
+            this.carrinhoService.createCarrinho(carrinho);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());

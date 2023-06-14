@@ -14,15 +14,16 @@ public class Carrinho {
     @Column (name = "idCarrinho",nullable = false, unique = true)
     private Long id;
 
+    @Getter @Setter
+    private Long produtoId;
+
     @Getter
     @Setter
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "carrinho_produto",
             joinColumns = @JoinColumn(name = "carrinho_id"),
             inverseJoinColumns = @JoinColumn(name = "produto_id"))
     private List<Produto> produtos;
-    @Getter @Setter
-    private Long produtoId;
 
 
     @Getter @Setter
@@ -42,7 +43,7 @@ public class Carrinho {
     private Cliente cliente;
 
     @Getter @Setter
-    @OneToMany(mappedBy = "carrinho", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "carrinho")
     private List<Pedido> pedidos;
 
 

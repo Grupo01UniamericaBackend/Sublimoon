@@ -21,6 +21,8 @@ public class EnvioService {
         Assert.isTrue(envio.getFormaEnvio().length() <= 30,"Forma de envio n pode passar de 30 caracteres");
 
 
+        this.envioRepository.save(envio);
+
     }
 
 

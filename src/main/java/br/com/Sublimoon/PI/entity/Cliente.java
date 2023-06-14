@@ -14,6 +14,7 @@ public class Cliente{
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column (name = "idCliente",nullable = false, unique = true)
     private Long id;
+
     @Getter @Setter
     @Column(name = "telefone",nullable = false,unique = true,length = 40)
     private String telefone;
@@ -21,13 +22,13 @@ public class Cliente{
     @Getter @Setter
     @Column (name = "email",nullable = false,unique = true,length = 50)
     private String email;
-
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "favorito_id", referencedColumnName = "idFavorito")
     private Favorito favorito;
 
+
     @Getter @Setter
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "carrinho_id")
     private Carrinho carrinho;
 
@@ -44,7 +45,7 @@ public class Cliente{
     private String cpf;
 
     @Getter @Setter
-    @OneToMany(mappedBy = "cliente", fetch =FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cliente", fetch =FetchType.LAZY)
     private List<Avaliacao> avaliacoes;
 
 }

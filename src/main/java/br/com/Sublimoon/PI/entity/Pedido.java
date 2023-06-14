@@ -12,17 +12,11 @@ import java.util.List;
 
 @Entity
 @Table (name = "pedidos",schema = "public")
-public class Pedido{
-
-    @Id
-    @Getter
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idPedido",nullable = false, unique = true)
-    private Long id;
+public class Pedido extends Carrinho{
 
     @Getter @Setter
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(name = "Envio")//,nullable = false
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Envio",nullable = false)
     private Envio envio;
 
     @Getter @Setter
@@ -44,11 +38,6 @@ public class Pedido{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "carrinho_id")
     private Carrinho carrinho;
-
-
-
-
-
 
 
 }
