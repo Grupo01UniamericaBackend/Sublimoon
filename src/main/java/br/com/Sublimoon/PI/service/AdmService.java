@@ -47,9 +47,4 @@ public class AdmService {
 
 
 
-
-    @Transactional(rollbackFor = Exception.class)
-    public void DeleteById(Long id){
-
-    }
 }

@@ -10,11 +10,6 @@ import java.util.List;
 @Entity
 @Table (name = "produtos",schema = "public")
 public class Produto  extends AbstractEntity {
-    @Id
-    @Getter
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (name = "idProduto",nullable = false, unique = true)
-    private Long id;
 
     @Getter @Setter
     @Column (name = "produto", nullable = false, unique = true,length = 100)
@@ -75,18 +70,19 @@ public class Produto  extends AbstractEntity {
             inverseJoinColumns = @JoinColumn(
                     name = "avaliação_id"
             )
-    )    private List<Avaliacao> avaliavao;
+    )
+    private List<Avaliacao> avaliavao;
 
     @Getter @Setter
     @Column (name = "pesoProduto",nullable = false)
-    private BigDecimal pesoproduto;
+    private float pesoProduto;
 
     @Getter @Setter
     @Column (name = "mediaAvaliacao",nullable = false)
     private float mediaAvaliacao;
 
     @Getter @Setter
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinTable(name = "produto_favoritos",
             uniqueConstraints = @UniqueConstraint(
                     columnNames = {
@@ -102,8 +98,14 @@ public class Produto  extends AbstractEntity {
             )
 
     )
-    @ManyToOne(fetch = FetchType.LAZY)
     private Favorito favoritos;
+
+
+    @Getter
+    @Setter
+    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "produtos")
+    private List<Carrinho> carrinhos;
+
 
     @Getter @Setter
     @Column(name = "tamanhoDoProduto",nullable = false,length = 10)

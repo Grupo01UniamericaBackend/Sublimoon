@@ -7,22 +7,18 @@ import java.util.List;
 
 @Entity
 @Table(name = "Favoritos",schema = "public")
-public class Favorito {
-
-    @Id
-    @Getter
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id",nullable = false, unique = true)
-    private Long id;
+public class Favorito extends AbstractEntity{
 
 
     @Getter @Setter
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "Favorito_produto",
-            joinColumns = @JoinColumn(name = "favorito_id"),
-            inverseJoinColumns = @JoinColumn(name = "produto_id"))
+    private Long produtoId;
+
+    @Getter @Setter
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "favoritos")
     private List<Produto>produtos;
 
-    
+    @Getter @Setter
+    @OneToOne(mappedBy = "favorito")
+    private Cliente cliente;
 
 }

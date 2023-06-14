@@ -8,20 +8,18 @@ import lombok.Setter;
 
 @Entity
 @Table(name ="Avaliações",schema = "public")
-public class Avaliacao {
-    @Id
-    @Getter
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id",nullable = false,unique = true)
-    private Long id;
+public class Avaliacao extends AbstractEntity{
+
 
     @Getter @Setter
     @Column(name = "nota",nullable = false)
     private Float nota;
 
+
     @Getter @Setter
     @Column(name = "comentario",length = 150)
     private String comentario;
+
 
     @Getter @Setter
     @ManyToOne(fetch = FetchType.LAZY)

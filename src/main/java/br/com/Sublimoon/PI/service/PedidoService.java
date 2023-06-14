@@ -17,7 +17,7 @@ public class PedidoService {
     @Transactional(rollbackFor = Exception.class)
     public void verificarPedido(final Pedido pedido){
 
-        Assert.isTrue(!pedido.getTotal().equals(""),"Total não pode ser nulo!!");
+        Assert.isTrue(pedido.getTotal() != 0,"Total não pode ser nulo!!");
         Assert.isTrue(!pedido.getPagamento().equals(""),"Pagamento nao pode ser nulo!!");
         Assert.isTrue(!pedido.getEndereco().equals(""),"O Endereço n pode ser nulo!!");
         Assert.isTrue(pedido.getEndereco().length() <= 60, "Endereço nao pode passar de 60 caracteres!!");

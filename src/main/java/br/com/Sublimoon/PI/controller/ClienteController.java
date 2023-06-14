@@ -3,9 +3,10 @@ package br.com.Sublimoon.PI.controller;
 import br.com.Sublimoon.PI.entity.Cliente;
 import br.com.Sublimoon.PI.repository.ClienteRepository;
 import br.com.Sublimoon.PI.service.ClienteService;
+import jakarta.validation.Valid;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import br.com.Sublimoon.PI.entity.Cliente;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -44,22 +45,15 @@ public class ClienteController {
         }
     }
 
-    @PutMapping
-    public ResponseEntity<?> editar(@RequestParam("id") final Long id, @RequestBody final Cliente cliente) {
-        try {
-            final Cliente cliente1 = this.clienteRep.findById(id).orElse(null);
+    @PutMapping("/{id}")
+    public ResponseEntity<?> editar(@PathVariable(value = "id") final Long id, @RequestBody @Valid Cliente cliente)throws Exception {
+        findById(id);
 
-            if (cliente1 == null || cliente1.getId().equals(cliente1.getId())) {
-                throw new RuntimeException("Nao foi possivel indentificar o registro informado");
-            }
-            this.clienteRep.save(cliente);
-            return ResponseEntity.ok("Registro Cadastrado com Sucesso");
-        } catch (DataIntegrityViolationException e) {
-            return ResponseEntity.internalServerError()
-                    .body("Error: " + e.getCause().getCause().getMessage());
-        } catch (RuntimeException e) {
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
-        }
+        Cliente clienteNovo = clienteRep.getById(id);
+        BeanUtils.copyProperties(cliente, clienteNovo, "id");
+        clienteSer.VerificarCliente(cliente);
+        return ResponseEntity.status(HttpStatus.OK).body(clienteNovo);
+
     }
 
     @DeleteMapping("delete/{id}")
