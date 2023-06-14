@@ -105,6 +105,7 @@ public class Produto  extends AbstractEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private Favorito favoritos;
 
+
     @Getter @Setter
     @Column(name = "tamanhoDoProduto",nullable = false,length = 10)
     private String tamanho;

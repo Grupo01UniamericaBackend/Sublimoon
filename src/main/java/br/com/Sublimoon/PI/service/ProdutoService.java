@@ -41,7 +41,7 @@ public class ProdutoService {
         this.produtoRep.save(produto);
     }
 
-     public void atualizaProduto (Produto produto){
+    public void atualizaProduto (Produto produto){
         final Produto produtoAttService=this.produtoRep.findById(produto.getId()).orElse(null);
         produto.setCadastro(produtoAttService.getCadastro());
 
@@ -50,4 +50,3 @@ public class ProdutoService {
 
 
 }
-

@@ -16,17 +16,16 @@ public class Cliente{
     private Long id;
 
     @Getter @Setter
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Favoritos")
-    private Favorito favoritos;
-
-    @Getter @Setter
     @Column(name = "telefone",nullable = false,unique = true,length = 40)
     private String telefone;
 
     @Getter @Setter
     @Column (name = "email",nullable = false,unique = true,length = 50)
     private String email;
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "favorito_id", referencedColumnName = "idFavorito")
+    private Favorito favorito;
+
 
     @Getter @Setter
     @OneToOne(fetch = FetchType.LAZY)

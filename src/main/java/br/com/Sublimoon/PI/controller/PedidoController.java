@@ -1,7 +1,7 @@
 package br.com.Sublimoon.PI.controller;
 
 import br.com.Sublimoon.PI.repository.PedidoRepository;
-import br.com.Sublimoon.PI.service.PedidosService;
+import br.com.Sublimoon.PI.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +19,7 @@ public class PedidoController {
     PedidoRepository pedidoRep;
 
     @Autowired
-    PedidosService pedidoService;
+    PedidoService pedidoService;
 
 
 

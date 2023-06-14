@@ -14,6 +14,9 @@ public class Carrinho {
     @Column (name = "idCarrinho",nullable = false, unique = true)
     private Long id;
 
+    @Getter @Setter
+    private Long produtoId;
+
     @Getter
     @Setter
     @ManyToMany(fetch = FetchType.LAZY)
