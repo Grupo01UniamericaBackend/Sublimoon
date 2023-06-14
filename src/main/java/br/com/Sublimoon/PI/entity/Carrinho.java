@@ -9,10 +9,28 @@ import java.util.List;
 @Table(name = "Carrinhos",schema = "public")
 public class Carrinho extends  AbstractEntity{
 
-    @Getter
-    @Setter
-    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "carrinhos")
+
+
+
+    @Getter @Setter
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "carrinho_produto",
+            uniqueConstraints = @UniqueConstraint(
+                    columnNames = {
+                            "carrinho_id",
+                            "produto_id"
+                    }
+            ),
+            joinColumns = @JoinColumn(
+                    name = "carrinho_id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "produto_id"
+            )
+    )
     private List<Produto> produtos;
+    @Getter @Setter
+    private Long produtoId;
 
 
     @Getter @Setter

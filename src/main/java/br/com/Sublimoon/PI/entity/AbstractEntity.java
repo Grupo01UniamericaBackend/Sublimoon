@@ -6,11 +6,11 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @MappedSuperclass
-public class AbstractEntity {
+abstract public class AbstractEntity {
 
     @Id
-    @Getter
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Getter
     @Column(name="id", nullable = false, unique = true)
     private Long id;
     @Getter @Setter
@@ -26,6 +26,7 @@ public class AbstractEntity {
     @PrePersist
     private void prePersist(){
         this.cadastro = LocalDateTime.now();
+        this.ativo = true;
     }
 
     @PreUpdate

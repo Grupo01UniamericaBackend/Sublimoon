@@ -75,7 +75,7 @@ public class Produto  extends AbstractEntity {
 
     @Getter @Setter
     @Column (name = "pesoProduto",nullable = false)
-    private float pesoproduto;
+    private float pesoProduto;
 
     @Getter @Setter
     @Column (name = "mediaAvaliacao",nullable = false)
@@ -101,22 +101,9 @@ public class Produto  extends AbstractEntity {
     private Favorito favoritos;
 
 
-    @Getter @Setter
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "produto_carrinho",
-        uniqueConstraints = @UniqueConstraint(
-                columnNames = {
-                        "produto_id",
-                        "carrinho_id"
-                }
-        ),
-        joinColumns = @JoinColumn(
-                name = "produto_id"
-            ),
-        inverseJoinColumns = @JoinColumn(
-                name = "carrinho_id"
-        )
-    )
+    @Getter
+    @Setter
+    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "produtos")
     private List<Carrinho> carrinhos;
 
 
