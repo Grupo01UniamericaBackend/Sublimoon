@@ -12,7 +12,7 @@ public class Carrinho extends  AbstractEntity{
 
 
     @Getter @Setter
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "carrinho_produto",
             uniqueConstraints = @UniqueConstraint(
                     columnNames = {
