@@ -11,6 +11,13 @@ import java.util.List;
 @Table (name = "produtos",schema = "public")
 public class Produto  extends AbstractEntity {
 
+    @Id
+    @Getter
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column (name = "idProduto",nullable = false, unique = true)
+    private Long id;
+
+
     @Getter @Setter
     @Column (name = "produto", nullable = false, unique = true,length = 100)
     private String nome;

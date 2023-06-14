@@ -11,6 +11,7 @@ public class AbstractEntity {
     @Id
     @Getter
     @GeneratedValue(strategy = GenerationType.AUTO)
+
     @Column(name="id", nullable = false, unique = true)
     private Long id;
     @Getter @Setter
@@ -31,6 +32,14 @@ public class AbstractEntity {
     @PreUpdate
     private void proUpdate(){
         this.edicao = LocalDateTime.now();
+    }
+
+
+
+
+
+    public Long getId() {
+        return id;
     }
 
 }
