@@ -40,7 +40,7 @@ public class FavoritoController {
     @PostMapping
     public ResponseEntity cadastraFavorito(@RequestBody final Favorito favorito){
         try {
-            this.favoritosRep.save(favorito);
+            favoritoService.Favoritar(favorito);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         }
         catch (DataIntegrityViolationException e){

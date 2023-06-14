@@ -33,15 +33,14 @@ public class FavoritoService{
 
 
         Long produtoId = favorito.getProdutoId();
+        Long clienteId = favorito.getCliente().getId();
 
 
         Assert.isTrue(produtoRepository.findById(produtoId).get()!= null, "Produto não encontrado!");
+        Assert.isTrue(produtoRepository.findById(clienteId).get()!= null, "Cliente não encontrado!");
 
 
-        if(favorito.getCliente()!=null)
-        {
-            favorito.setCliente(clienteRepository.getById(favorito.getCliente().getId()));
-        }
+        favorito.setCliente(clienteRepository.getById(favorito.getCliente().getId()));
 
         if(favorito.getProdutos()==null) {
             List<Produto> attProduto = new ArrayList<>(); // Cria uma nova lista caso ainda não exista
