@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class FavoritoController {
 
     @Autowired
-    FavoritoRepository favoritosRep;
+    FavoritoRepository favoritoRep;
 
 
     @Autowired
@@ -27,14 +27,14 @@ public class FavoritoController {
     @GetMapping("/{id}")
 
         public ResponseEntity<?> findById(@PathVariable("id") final Long id){
-        final Favorito favorito = this.favoritosRep.findById(id).orElse(null);
+        final Favorito favorito = this.favoritoRep.findById(id).orElse(null);
         return ResponseEntity.ok(favorito);
 
     }
 
     @GetMapping("/lista")
     public ResponseEntity <?> ListaCompletaFavoritos(){
-        return ResponseEntity.ok(this.favoritosRep.findAll());
+        return ResponseEntity.ok(this.favoritoRep.findAll());
     }
 
     @PostMapping
@@ -51,7 +51,7 @@ public class FavoritoController {
     @PutMapping("/{id}")
     public ResponseEntity<?> updateFavorito(@RequestParam("id")final Long id,@RequestBody Favorito favorito){
          try {
-            final Favorito favoritoNovo = this.favoritosRep.findById(id).orElse(null);
+            final Favorito favoritoNovo = this.favoritoRep.findById(id).orElse(null);
 
             if(favoritoNovo == null || !favoritoNovo.getId().equals(favoritoNovo.getId())){
 
@@ -61,7 +61,7 @@ public class FavoritoController {
              BeanUtils.copyProperties(favorito, favoritoNovo, "id");
              favoritoService.Favoritar(favorito);
 
-                 this.favoritosRep.save(favorito);
+                 this.favoritoRep.save(favorito);
                 return ResponseEntity.ok("Registro alterado com sucesso");
 
          } catch(Exception e){
@@ -75,7 +75,7 @@ public class FavoritoController {
 
     @DeleteMapping("delete/{id}")
     public void deletaIdFavorito(@PathVariable Long id){
-        favoritosRep.deleteById(id);
+        favoritoRep.deleteById(id);
     }
 
 }

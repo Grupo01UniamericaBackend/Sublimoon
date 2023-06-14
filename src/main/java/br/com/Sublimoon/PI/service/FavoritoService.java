@@ -1,4 +1,5 @@
 package br.com.Sublimoon.PI.service;
+import br.com.Sublimoon.PI.entity.Cliente;
 import br.com.Sublimoon.PI.entity.Favorito;
 import br.com.Sublimoon.PI.entity.Produto;
 import br.com.Sublimoon.PI.repository.ClienteRepository;
@@ -37,10 +38,10 @@ public class FavoritoService{
 
 
         Assert.isTrue(produtoRepository.findById(produtoId).get()!= null, "Produto não encontrado!");
-        Assert.isTrue(produtoRepository.findById(clienteId).get()!= null, "Cliente não encontrado!");
+        Assert.isTrue(clienteRepository.findById(clienteId).get()!= null, "Cliente não encontrado!");
 
+   //     favorito.setCliente(clienteRepository.findById(clienteId).get());
 
-        favorito.setCliente(clienteRepository.getById(favorito.getCliente().getId()));
 
         if(favorito.getProdutos()==null) {
             List<Produto> attProduto = new ArrayList<>(); // Cria uma nova lista caso ainda não exista
@@ -51,12 +52,9 @@ public class FavoritoService{
             favorito.getProdutos().add(produtoRepository.getById(produtoId)); // Adiciona o produto à lista de produtos
         }
 
+        Assert.isTrue(clienteRepository.findById(clienteId).get()!= null, "Cliente não encontrado!");
+        favorito.setCliente(clienteRepository.getById(clienteId));
 
         return favoritoRepository.save(favorito);
-
     }
-
-
-
-
 }

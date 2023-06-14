@@ -26,7 +26,7 @@ public class CarrinhoService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void createCarrinho(final Carrinho carrinho){
+    public Carrinho createCarrinho(final Carrinho carrinho){
 
         Assert.isTrue(carrinho.getQuantidade() >= 0, "Quantidade não pode ser nulo");
 
@@ -47,7 +47,7 @@ public class CarrinhoService {
 
         //Assert.isTrue(carrinho.getProdutos() != null, "Produtos não pode ser nulo");
 
-        this.carrinhoRepo.save(carrinho);
+        return carrinhoRepo.save(carrinho);
 
 
     }
