@@ -23,6 +23,6 @@ public class Favorito {
             inverseJoinColumns = @JoinColumn(name = "produto_id"))
     private List<Produto>produtos;
 
-
+    
 
 }
