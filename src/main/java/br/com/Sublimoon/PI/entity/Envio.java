@@ -12,13 +12,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Envios",schema = "public")
-public class Envio {
-
-    @Id
-    @Getter
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (name = "idEnvio",nullable = false, unique = true)
-    private Long id;
+public class Envio extends AbstractEntity{
 
     @Getter @Setter
     @Column(name = "formaEnvio",nullable = false,length = 30)

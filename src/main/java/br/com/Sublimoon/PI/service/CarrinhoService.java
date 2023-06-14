@@ -29,7 +29,7 @@ public class CarrinhoService {
 
         Assert.isTrue(carrinho.getQuantidade() >= 0, "Quantidade não pode ser nulo");
 
-        Assert.isTrue(carrinho.getSubTotal() != null, "SubTotal não pode ser nulo");
+        Assert.isTrue(carrinho.getSubTotal() != 0, "SubTotal não pode ser nulo");
 
 
         this.carrinhoRepo.save(carrinho);
