@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,20 +25,14 @@ public class CarrinhoService {
     public void createCarrinho(final Carrinho carrinho){
 
 
-        Optional<Carrinho> carrinhoExistente = carrinhoRepo.findById(carrinho.getId());
-        Assert.isTrue(carrinhoExistente == null || carrinhoExistente.equals(carrinho.getId()), "Id já existente");
+        Assert.isTrue(carrinho.getProdutos() != null, "Produtos não pode ser nulo");
+
+        Assert.isTrue(carrinho.getQuantidade() >= 0, "Quantidade não pode ser nulo");
+
+        Assert.isTrue(carrinho.getSubTotal() != 0, "SubTotal não pode ser nulo");
 
 
-
-        Long produtoId = carrinho.getProdutoId();
-
-        Produto produto = produtoRepository.getById(produtoId);
-        Assert.isTrue(produto != null, "Produto não encontrado!");
-
-        carrinho.getProdutos().add(produto);
-
-
-
+        this.carrinhoRepo.save(carrinho);
 
 
     }

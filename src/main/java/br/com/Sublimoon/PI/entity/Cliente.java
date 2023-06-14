@@ -7,13 +7,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "Clientes",schema = "public")
-public class Cliente{
+public class Cliente extends AbstractEntity{
 
-    @Id
-    @Getter
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (name = "idCliente",nullable = false, unique = true)
-    private Long id;
 
     @Getter @Setter
     @Column(name = "telefone",nullable = false,unique = true,length = 40)
@@ -22,8 +17,10 @@ public class Cliente{
     @Getter @Setter
     @Column (name = "email",nullable = false,unique = true,length = 50)
     private String email;
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(name = "favorito_id", referencedColumnName = "idFavorito")
+
+    @Getter @Setter
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "favorito_id")
     private Favorito favorito;
 
 
@@ -45,7 +42,7 @@ public class Cliente{
     private String cpf;
 
     @Getter @Setter
-    @OneToMany(mappedBy = "cliente", fetch =FetchType.LAZY)
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
     private List<Avaliacao> avaliacoes;
 
 }

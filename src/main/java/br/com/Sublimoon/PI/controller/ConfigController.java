@@ -14,15 +14,11 @@ import org.springframework.web.bind.annotation.*;
 public class ConfigController {
 
     @Autowired
-    final ConfigRepository configRep;
+    ConfigRepository configRep;
 
     @Autowired
-    final ConfigService configService;
+    ConfigService configService;
 
-    public ConfigController(ConfigRepository configRep, ConfigService configService) {
-        this.configRep = configRep;
-        this.configService = configService;
-    }
 
 
     @GetMapping("/{id}")

@@ -7,22 +7,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "Carrinhos",schema = "public")
-public class Carrinho {
-    @Id
-    @Getter
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (name = "idCarrinho",nullable = false, unique = true)
-    private Long id;
-
-    @Getter @Setter
-    private Long produtoId;
+public class Carrinho extends  AbstractEntity{
 
     @Getter
     @Setter
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "carrinho_produto",
-            joinColumns = @JoinColumn(name = "carrinho_id"),
-            inverseJoinColumns = @JoinColumn(name = "produto_id"))
+    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "carrinhos")
     private List<Produto> produtos;
 
 
@@ -32,19 +21,17 @@ public class Carrinho {
 
     @Getter @Setter
     @Column(name = "desconto")
-    private BigDecimal desconto;
+    private float desconto;
 
     @Getter @Setter
     @Column (name = "subTotal")
-    private BigDecimal subTotal;
+    private float subTotal;
 
     @Getter @Setter
-    @OneToOne(mappedBy = "carrinho")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "carrinho")
     private Cliente cliente;
 
-    @Getter @Setter
-    @OneToMany(mappedBy = "carrinho")
-    private List<Pedido> pedidos;
+
 
 
 }

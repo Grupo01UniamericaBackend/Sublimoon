@@ -6,13 +6,9 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "Categorias", schema = "public")
-public class Categoria {
+public class Categoria extends AbstractEntity{
 
-    @Id
-    @Getter
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idCategoria",nullable = false, unique = true)
-    private Long id;
+
     @Getter @Setter
     @Column(name = "Categoria",nullable = false, length = 50)
     private String categorias;

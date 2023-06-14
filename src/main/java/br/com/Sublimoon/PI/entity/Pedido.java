@@ -12,16 +12,12 @@ import java.util.List;
 
 @Entity
 @Table (name = "pedidos",schema = "public")
-public class Pedido extends Carrinho{
+public class Pedido extends AbstractEntity{
 
-    @Getter @Setter
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Envio",nullable = false)
-    private Envio envio;
 
     @Getter @Setter
     @Column(name = "total",nullable = false)
-    private BigDecimal total;
+    private float total;
 
     @Getter @Setter
     @Column(name = "pagamento",nullable = false,length = 15)
@@ -36,7 +32,20 @@ public class Pedido extends Carrinho{
     private String cep;
     @Getter @Setter
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "carrinho_id")
+    @JoinTable(name = "pedido_carrinho",
+            uniqueConstraints = @UniqueConstraint(
+                    columnNames = {
+                            "pedido_id",
+                            "carrinho_id"
+                    }
+            ),
+            joinColumns = @JoinColumn(
+                    name = "pedido_id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "carrinho_id"
+            )
+    )
     private Carrinho carrinho;
 
 

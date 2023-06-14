@@ -10,15 +10,10 @@ import org.springframework.util.Assert;
 public class ProdutoService {
 
     @Autowired
-    final ProdutoRepository produtoRep;
-
-    public ProdutoService(ProdutoRepository produtoRep) {
-        this.produtoRep = produtoRep;
-    }
+    private ProdutoRepository produtoRep;
 
     @Transactional(rollbackFor = Exception.class)
     public void cadastrar (final Produto produto){
-
 
 
         Assert.isTrue(!produto.getNome().equals(""),"O nome do produto não pode ser nulo!");
@@ -36,9 +31,9 @@ public class ProdutoService {
         Assert.isTrue(produto.getImagem().length() <= 500 ,"A imagem deve ter ate 500 caracteres") ;
 
 
-        Assert.isTrue(!produto.getPreco().equals(""),"O preco não pode ser nulo");
+        Assert.isTrue(produto.getPreco() != 0,"O preco não pode ser nulo");
 
-        Assert.isTrue(!produto.getPesoProduto().equals(""),"O peso não pode ser nulo");
+        Assert.isTrue(produto.getPesoproduto() != 0 ,"O peso não pode ser nulo");
 
         Assert.isTrue(!produto.getTamanho().equals(""),"O tamanho não pode ser nulo");
         Assert.isTrue(produto.getImagem().length() <= 4 ,"O tamanho DE IMAGEM pode ter ate 4 caracteres") ;
@@ -46,7 +41,7 @@ public class ProdutoService {
         this.produtoRep.save(produto);
     }
 
-     public void atualizaProduto (Produto produto){
+    public void atualizaProduto (Produto produto){
         final Produto produtoAttService=this.produtoRep.findById(produto.getId()).orElse(null);
         produto.setCadastro(produtoAttService.getCadastro());
 
@@ -55,5 +50,3 @@ public class ProdutoService {
 
 
 }
-
-

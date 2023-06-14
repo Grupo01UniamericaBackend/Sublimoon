@@ -18,12 +18,7 @@ public class CarrinhoController {
 
 
     @Autowired
-    final CarrinhoService carrinhoService;
-
-    public CarrinhoController(CarrinhoRepository carrinhoRepository, CarrinhoService carrinhoService) {
-        this.carrinhoRepository = carrinhoRepository;
-        this.carrinhoService = carrinhoService;
-    }
+    CarrinhoService carrinhoService;
 
 
     @GetMapping("/{id}")

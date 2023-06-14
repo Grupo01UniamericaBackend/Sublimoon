@@ -6,13 +6,13 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @MappedSuperclass
-public class  Usuario {
+public class AbstractEntity {
+
     @Id
     @Getter
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (name = "idUsuario",nullable = false, unique = true)
+    @Column(name="id", nullable = false, unique = true)
     private Long id;
-
     @Getter @Setter
     @Column(name = "dtCadastro")
     private LocalDateTime cadastro;
@@ -22,15 +22,6 @@ public class  Usuario {
     @Getter @Setter
     @Column (name = "ativo")
     private boolean ativo;
-
-
-    @Getter @Setter
-    @Column(name = "telefone",nullable = false,unique = true,length = 40)
-    private String telefone;
-
-    @Getter @Setter
-    @Column (name = "email",nullable = false,unique = true,length = 50)
-    private String email;
 
     @PrePersist
     private void prePersist(){

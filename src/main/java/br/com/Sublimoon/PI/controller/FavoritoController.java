@@ -44,19 +44,31 @@ public class FavoritoController {
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         }
         catch (DataIntegrityViolationException e){
-            return ResponseEntity.internalServerError().body("Error: " + e.getCause().getCause().getMessage());
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> updateFavorito(@PathVariable(value = "id")Long id,@RequestBody @Valid Favorito favorito)throws Exception{
-        findById(id);
+    public ResponseEntity<?> updateFavorito(@RequestParam("id")final Long id,@RequestBody Favorito favorito){
+         try {
+            final Favorito favoritoNovo = this.favoritosRep.findById(id).orElse(null);
 
-        Favorito favoritoNovo = favoritosRep.getById(id);
+            if(favoritoNovo == null || !favoritoNovo.getId().equals(favoritoNovo.getId())){
 
-        BeanUtils.copyProperties(favorito, favoritoNovo, "id");
-        favoritoService.Favoritar(favorito);
-        return ResponseEntity.status(HttpStatus.OK).body(favoritoNovo);
+                throw new RuntimeException("Nao foi possivel indentificar o registro informado");
+
+            }
+             BeanUtils.copyProperties(favorito, favoritoNovo, "id");
+             favoritoService.Favoritar(favorito);
+
+                 this.favoritosRep.save(favorito);
+                return ResponseEntity.ok("Registro alterado com sucesso");
+
+         } catch(Exception e){
+             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+
+         }
+
     }
 
 
