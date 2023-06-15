@@ -17,7 +17,6 @@ public class Favorito extends AbstractEntity{
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "favoritos")
     private List<Produto>produtos;
 
-
     @Getter @Setter
     @OneToOne(mappedBy = "favorito")
     private Cliente cliente;

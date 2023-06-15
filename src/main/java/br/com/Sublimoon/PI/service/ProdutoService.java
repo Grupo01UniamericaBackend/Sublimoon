@@ -1,19 +1,26 @@
 package br.com.Sublimoon.PI.service;
+import br.com.Sublimoon.PI.entity.Categoria;
 import br.com.Sublimoon.PI.entity.Produto;
+import br.com.Sublimoon.PI.repository.CategoriaRepository;
 import br.com.Sublimoon.PI.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class ProdutoService {
 
     @Autowired
     private ProdutoRepository produtoRep;
+    @Autowired
+    private CategoriaRepository categoriaRepository;
 
     @Transactional(rollbackFor = Exception.class)
-    public void cadastrar (final Produto produto){
+    public void cadastrar (final Produto produto,final Categoria categoria){
 
 
         Assert.isTrue(!produto.getNome().equals(""),"O nome do produto não pode ser nulo!");
@@ -23,6 +30,7 @@ public class ProdutoService {
 
 
         Assert.isTrue(!produto.getCor().equals(""),"A cor do produto não pode ser nula");
+
 
         Assert.isTrue(!produto.getDescricao().equals(""),"A descricao do produto não pode ser nula");
         Assert.isTrue(produto.getDescricao().length() <= 500 ,"A descricao deve ter ate 500 caracteres") ;
@@ -36,8 +44,6 @@ public class ProdutoService {
 
         Assert.isTrue(!produto.getTamanho().equals(""),"O tamanho não pode ser nulo");
         Assert.isTrue(produto.getImagem().length() <= 4 ,"O tamanho DE IMAGEM pode ter ate 4 caracteres") ;
-
-
 
         this.produtoRep.save(produto);
     }
