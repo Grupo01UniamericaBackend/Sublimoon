@@ -15,6 +15,10 @@ public class Produto  extends AbstractEntity {
     @Column (name = "produto", nullable = false, unique = true,length = 100)
     private String nome;
 
+   /* @Getter @Setter
+    @Column (name = "catId")
+    private Long idCat;*/
+
     @Getter @Setter
     @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "produto_categoria",

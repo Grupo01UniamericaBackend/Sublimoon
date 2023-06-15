@@ -1,5 +1,6 @@
 package br.com.Sublimoon.PI.controller;
 
+import br.com.Sublimoon.PI.entity.Categoria;
 import br.com.Sublimoon.PI.service.ProdutoService;
 import br.com.Sublimoon.PI.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +38,9 @@ public class ProdutoController {
 
 
     @PostMapping
-    public ResponseEntity <?> cadastrar(@RequestBody final Produto produto){
+    public ResponseEntity <?> cadastrar(@RequestBody final Produto produto, final Categoria categoria){
         try {
-            produtoService.cadastrar(produto);
+            produtoService.cadastrar(produto,categoria);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         }
         catch (Exception e){
