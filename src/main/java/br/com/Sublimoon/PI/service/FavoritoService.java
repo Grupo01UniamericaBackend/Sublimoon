@@ -40,7 +40,7 @@ public class FavoritoService{
         Assert.isTrue(produtoRepository.findById(produtoId).get()!= null, "Produto não encontrado!");
         Assert.isTrue(clienteRepository.findById(clienteId).get()!= null, "Cliente não encontrado!");
 
-   //     favorito.setCliente(clienteRepository.findById(clienteId).get());
+       favorito.setCliente(clienteRepository.findById(clienteId).get());
 
 
         if(favorito.getProdutos()==null) {

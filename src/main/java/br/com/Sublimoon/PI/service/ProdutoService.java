@@ -23,7 +23,6 @@ public class ProdutoService {
 
 
         Assert.isTrue(!produto.getCor().equals(""),"A cor do produto não pode ser nula");
-        Assert.isTrue(produto.getNome().length() <= 15 ,"A cor do produto deve ter até 15 digitos") ;
 
         Assert.isTrue(!produto.getDescricao().equals(""),"A descricao do produto não pode ser nula");
         Assert.isTrue(produto.getDescricao().length() <= 500 ,"A descricao deve ter ate 500 caracteres") ;
@@ -37,6 +36,8 @@ public class ProdutoService {
 
         Assert.isTrue(!produto.getTamanho().equals(""),"O tamanho não pode ser nulo");
         Assert.isTrue(produto.getImagem().length() <= 4 ,"O tamanho DE IMAGEM pode ter ate 4 caracteres") ;
+
+
 
         this.produtoRep.save(produto);
     }
