@@ -23,9 +23,6 @@ public class Config extends AbstractEntity{
     @Column(name = "alterarDescrição")
     private String alterarDescricao;
 
-    @Getter @Setter
-    @Column(name = "alterarImagem")
-    private String valorHora;
 
     @Getter @Setter
     @Column(name = "alterarPreço")

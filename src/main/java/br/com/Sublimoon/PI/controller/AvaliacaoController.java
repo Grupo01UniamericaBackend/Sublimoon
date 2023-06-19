@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import br.com.Sublimoon.PI.service.AvaliacaoService;
+import br.com.Sublimoon.PI.entity.Cliente;
 
 @Controller
 @RequestMapping(value = "/api/avaliacao")
@@ -35,9 +36,9 @@ public class AvaliacaoController {
 
 
     @PostMapping
-    public ResponseEntity<?> cadastrarAvaliacao(@RequestBody final Avaliacao avaliacao) {
+    public ResponseEntity<?> cadastrarAvaliacao(@RequestBody final Avaliacao avaliacao,final Cliente cliente) {
         try {
-            this.avaliacaoServ.createAvaliacao(avaliacao);
+            this.avaliacaoServ.createAvaliacao(avaliacao,cliente);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
