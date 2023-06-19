@@ -20,7 +20,7 @@ public class Produto  extends AbstractEntity {
     private Long idCat;*/
 
     @Getter @Setter
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "produto_categoria",
             uniqueConstraints = @UniqueConstraint(
                     columnNames = {
@@ -34,9 +34,8 @@ public class Produto  extends AbstractEntity {
             inverseJoinColumns = @JoinColumn(
                     name = "categoria_id"
             )
-
     )
-    private List<Categoria> categorias;
+    private List <Categoria> categorias;
 
     @Enumerated (EnumType.STRING)
     @Getter @Setter
@@ -56,26 +55,26 @@ public class Produto  extends AbstractEntity {
     private float preco;
 
     @Getter @Setter
-    @Column(name = "quantidade",nullable = false)
-    private int quantidade;
+    @Column(name = "quantidadeEstoque",nullable = false)
+    private float quantidade;
 
-    @Getter @Setter
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "produto_avaliação",
+   /* @Getter @Setter
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "produto_avaliacao",
             uniqueConstraints = @UniqueConstraint(
                     columnNames = {
                             "produto_id",
-                            "avaliação_id"
+                            "avaliacao_id"
                     }
             ),
             joinColumns = @JoinColumn(
                     name = "produto_id"
             ),
             inverseJoinColumns = @JoinColumn(
-                    name = "avaliação_id"
+                    name = "avaliacao_id"
             )
     )
-    private List<Avaliacao> avaliavao;
+    private List<Avaliacao> avaliacoes;*/
 
     @Getter @Setter
     @Column (name = "pesoProduto",nullable = false)
@@ -85,7 +84,7 @@ public class Produto  extends AbstractEntity {
     @Column (name = "mediaAvaliacao",nullable = false)
     private float mediaAvaliacao;
 
-    @Getter @Setter
+   /* @Getter @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinTable(name = "produto_favoritos",
             uniqueConstraints = @UniqueConstraint(
@@ -102,18 +101,17 @@ public class Produto  extends AbstractEntity {
             )
 
     )
-    private Favorito favoritos;
+    private Favorito favoritos;*/
 
-
-    @Getter
-    @Setter
-    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "produtos")
-    private List<Carrinho> carrinhos;
 
 
     @Getter @Setter
     @Column(name = "tamanhoDoProduto",nullable = false,length = 10)
     private String tamanho;
+
+    @Getter @Setter
+    @Column(name = "quantidadeProCarrinho")
+    private float quantidadeProCarrinho;
 
 
 

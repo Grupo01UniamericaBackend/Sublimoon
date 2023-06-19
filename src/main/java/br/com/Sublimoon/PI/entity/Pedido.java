@@ -49,4 +49,23 @@ public class Pedido extends AbstractEntity{
     private Carrinho carrinho;
 
 
+    @Getter @Setter
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinTable(name = "pedido_envio",
+            uniqueConstraints = @UniqueConstraint(
+                    columnNames = {
+                            "pedido_id",
+                            "envio_id"
+                    }
+            ),
+            joinColumns = @JoinColumn(
+                    name = "pedido_id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "envio_id"
+            )
+    )
+    private Envio envio;
+
+
 }

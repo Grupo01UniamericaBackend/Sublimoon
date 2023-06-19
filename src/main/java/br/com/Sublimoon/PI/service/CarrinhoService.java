@@ -16,23 +16,40 @@ import java.util.List;
 public class CarrinhoService {
 
     @Autowired
-    final CarrinhoRepository carrinhoRepo;
+     CarrinhoRepository carrinhoRepo;
     @Autowired
-    final ProdutoRepository produtoRepository;
+     ProdutoRepository produtoRepository;
 
-    public CarrinhoService(CarrinhoRepository carrinhoRepo, ProdutoRepository produtoRepository) {
+    /*public CarrinhoService(CarrinhoRepository carrinhoRepo, ProdutoRepository produtoRepository) {
         this.carrinhoRepo = carrinhoRepo;
         this.produtoRepository = produtoRepository;
-    }
+    }*/
 
     @Transactional(rollbackFor = Exception.class)
     public Carrinho createCarrinho(final Carrinho carrinho){
+        float quantidadeTotal = 0;
 
-        Assert.isTrue(carrinho.getQuantidade() >= 0, "Quantidade não pode ser nulo");
+        float subTotal = 0;
 
-        Assert.isTrue(carrinho.getSubTotal() != 0, "SubTotal não pode ser nulo");
+        float teste = carrinho.getProdutos().get(1).getQuantidadeProCarrinho();
 
-        Long produtoId = carrinho.getProdutoId();
+        System.out.println(teste);
+
+
+        for(int i = 0; i < carrinho.getProdutos().size(); i ++){
+
+           quantidadeTotal += carrinho.getProdutos().get(i).getQuantidadeProCarrinho();
+
+           subTotal += (carrinho.getProdutos().get(i).getQuantidadeProCarrinho() * carrinho.getProdutos().get(i).getPreco());
+
+        }
+
+
+        /*Assert.isTrue(carrinho.getQuantidade() >= 0, "Quantidade não pode ser nulo");
+
+        Assert.isTrue(carrinho.getSubTotal() != 0, "SubTotal não pode ser nulo");*/
+
+       /* Long produtoId = carrinho.getProdutoId();
 
         Produto produto = produtoRepository.getById(produtoId);
 
@@ -45,7 +62,7 @@ public class CarrinhoService {
             carrinho.getProdutos().add(produtoRepository.getById(produtoId)); // Adiciona o produto ao carrinho
         }
 
-        //Assert.isTrue(carrinho.getProdutos() != null, "Produtos não pode ser nulo");
+        //Assert.isTrue(carrinho.getProdutos() != null, "Produtos não pode ser nulo");*/
 
         return carrinhoRepo.save(carrinho);
 

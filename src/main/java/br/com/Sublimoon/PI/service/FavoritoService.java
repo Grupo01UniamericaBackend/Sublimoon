@@ -18,22 +18,19 @@ import java.util.Optional;
 
 @Service
 public class FavoritoService{
-    @Autowired final FavoritoRepository favoritoRepository;
-    @Autowired final ProdutoRepository produtoRepository;
-    @Autowired final ClienteRepository clienteRepository;
-
-    public FavoritoService(FavoritoRepository favoritoRepository, ProdutoRepository produtoRepository, ClienteRepository clienteRepository) {
-        this.favoritoRepository = favoritoRepository;
-        this.produtoRepository = produtoRepository;
-        this.clienteRepository = clienteRepository;
-    }
+    @Autowired
+    FavoritoRepository favoritoRepository;
+    @Autowired
+    ProdutoRepository produtoRepository;
+    @Autowired
+    ClienteRepository clienteRepository;
 
 
     @Transactional(rollbackFor = Exception.class)
     public Favorito Favoritar(final Favorito favorito) {
 
 
-        Long produtoId = favorito.getProdutoId();
+       /* Long produtoId = favorito.getProdutoId();
         Long clienteId = favorito.getCliente().getId();
 
 
@@ -53,7 +50,7 @@ public class FavoritoService{
         }
 
         Assert.isTrue(clienteRepository.findById(clienteId).get()!= null, "Cliente não encontrado!");
-        favorito.setCliente(clienteRepository.getById(clienteId));
+        favorito.setCliente(clienteRepository.getById(clienteId));*/
 
         return favoritoRepository.save(favorito);
     }

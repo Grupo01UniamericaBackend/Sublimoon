@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
 
 
 @Entity
@@ -23,12 +24,41 @@ public class Avaliacao extends AbstractEntity{
 
     @Getter @Setter
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cliente_id")
+    @JoinTable(name = "avaliacao_cliente",
+            uniqueConstraints = @UniqueConstraint(
+                    columnNames = {
+                            "avaliacao_id",
+                            "cliente_id"
+                    }
+            ),
+            joinColumns = @JoinColumn(
+                    name = "avaliacao_id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "cliente_id"
+
+
+            )
+
+    )
     private Cliente cliente;
 
     @Getter @Setter
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "produto_id")
+    @JoinTable(name = "avaliacao_produto",
+            uniqueConstraints = @UniqueConstraint(
+                    columnNames = {
+                            "avaliacao_id",
+                            "produto_id"
+                    }
+            ),
+            joinColumns = @JoinColumn(
+                    name = "avaliacao_id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "produto_id"
+            )
+    )
     private Produto produto;
 
 

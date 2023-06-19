@@ -45,6 +45,16 @@ public class ProdutoService {
         Assert.isTrue(!produto.getTamanho().equals(""),"O tamanho não pode ser nulo");
         Assert.isTrue(produto.getImagem().length() <= 4 ,"O tamanho DE IMAGEM pode ter ate 4 caracteres") ;
 
+
+       /* if(produto.getCategorias()==null) {
+            List<Categoria> attCategoria = new ArrayList<>(); // Cria uma nova lista caso ainda não exista
+            attCategoria.add(categoriaRepository.getById(idCat));
+            produto.setCategorias(attCategoria); // Define a lista no favorito
+        }
+        else {
+            produto.getCategorias().add(categoriaRepository.getById(categoria.getId())); // Adiciona o produto à lista de produtos
+        }*/
+
         this.produtoRep.save(produto);
     }
 

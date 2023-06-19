@@ -13,7 +13,7 @@ public class Carrinho extends  AbstractEntity{
 
 
     @Getter @Setter
-    @ManyToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "carrinho_produto",
             uniqueConstraints = @UniqueConstraint(
                     columnNames = {
@@ -29,9 +29,6 @@ public class Carrinho extends  AbstractEntity{
             )
     )
     private List<Produto> produtos;
-    @Getter @Setter
-    private Long produtoId;
-
 
     @Getter @Setter
     @Column(name = "quantidade")
@@ -46,7 +43,21 @@ public class Carrinho extends  AbstractEntity{
     private float subTotal;
 
     @Getter @Setter
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "carrinho")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinTable(name = "carrinho_cliente",
+            uniqueConstraints = @UniqueConstraint(
+                    columnNames = {
+                            "carrinho_id",
+                            "cliente_id"
+                    }
+            ),
+            joinColumns = @JoinColumn(
+                    name = "carrinho_id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "cliente_id"
+            )
+    )
     private Cliente cliente;
 
 

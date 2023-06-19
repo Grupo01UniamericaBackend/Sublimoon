@@ -18,16 +18,6 @@ public class Cliente extends AbstractEntity{
     @Column (name = "email",nullable = false,unique = true,length = 50)
     private String email;
 
-    @Getter @Setter
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "favorito_id")
-    private Favorito favorito;
-
-
-    @Getter @Setter
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "carrinho_id")
-    private Carrinho carrinho;
 
     @Getter @Setter
     @Column(name = "nomeCliente",nullable = false,length = 45)
@@ -41,8 +31,25 @@ public class Cliente extends AbstractEntity{
     @Column(name = "cpf",nullable = false,unique = true,length = 30)
     private String cpf;
 
-    @Getter @Setter
-    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
-    private List<Avaliacao> avaliacoes;
+   /* @Getter @Setter
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "cliente_avaliacao",
+            uniqueConstraints = @UniqueConstraint(
+                    columnNames = {
+                            "cliente_id",
+                            "avaliacao_id"
+                    }
+            ),
+            joinColumns = @JoinColumn(
+                    name = "cliente_id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "avaliacao_id"
+
+
+            )
+
+    )
+    private List<Avaliacao> avaliacoesCliente;*/
 
 }
