@@ -111,7 +111,7 @@ public class Produto  extends AbstractEntity {
 
     @Getter @Setter
     @Column(name = "quantidadeProCarrinho")
-    private float quantidadeProCarrinho;
+    private int quantidadeProCarrinho;
 
 
 

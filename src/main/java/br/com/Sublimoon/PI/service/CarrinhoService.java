@@ -22,7 +22,7 @@ public class CarrinhoService {
     @Autowired
      ProdutoRepository produtoRepository;
 
-    private List<Item> Itens;
+
 
     @Transactional(rollbackFor = Exception.class)
     public Carrinho createCarrinho(final Carrinho carrinho){
@@ -34,21 +34,27 @@ public class CarrinhoService {
 
         System.out.println(teste);
 
-        for(int i = 0; i < carrinho.getProdutos().size(); i ++){
+        /*for(int i = 0; i < carrinho.getProdutos().size(); i ++){
 
            quantidadeTotal += carrinho.getProdutos().get(i).getQuantidadeProCarrinho();
 
            subTotal += (carrinho.getProdutos().get(i).getQuantidadeProCarrinho() * carrinho.getProdutos().get(i).getPreco());
+        }*/
+        for(int i = 0; i < carrinho.getProdutos().size(); i ++){
+
+            adicionarItem(carrinho.getProdutos().get(i),carrinho.getItens());
         }
 
         return carrinhoRepo.save(carrinho);
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void adicionarItem(Produto produto,float valorUnitario, int quantidade, Carrinho carrinho){
+    public void adicionarItem(Produto produto, List<Item> Itens){
         int i = -1;
+        float valorUnitario = produto.getPesoProduto();
+        int quantidade = produto.getQuantidadeProCarrinho();
 
-        for(int x = 0; x < getItens().size() & i < 0; i++){
+        for(int x = 0; x < getItens(Itens).size() & i < 0; i++){
             Item itemAdd = Itens.get(x);
 
             if(itemAdd.getProduto().equals(produto)){
@@ -59,7 +65,7 @@ public class CarrinhoService {
             if(i < 0){
                 Item item = new Item();
                 item.setValor(item.getValorTotal());
-                getItens().add(item);
+                getItens(Itens).add(item);
             }
             else{
                 Item itemAdd = Itens.get(i);
@@ -77,7 +83,7 @@ public class CarrinhoService {
             e.getStackTrace();
         }
     }
-    public Collection<Item> getItens(){
+    public Collection<Item> getItens(List<Item> Itens){
 
         if(Itens == null){
                 Itens = new ArrayList<>();

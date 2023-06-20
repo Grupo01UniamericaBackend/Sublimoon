@@ -34,6 +34,7 @@ public class Carrinho extends  AbstractEntity{
     @Column(name = "quantidade")
     private int quantidade;
 
+
     @Getter @Setter
     @Column(name = "desconto")
     private float desconto;
@@ -59,6 +60,10 @@ public class Carrinho extends  AbstractEntity{
             )
     )
     private Cliente cliente;
+    @Getter @Setter
+    private List<Item> Itens;
+
+
 
 
 
