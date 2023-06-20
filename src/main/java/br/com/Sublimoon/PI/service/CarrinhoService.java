@@ -20,10 +20,7 @@ public class CarrinhoService {
     @Autowired
      ProdutoRepository produtoRepository;
 
-    /*public CarrinhoService(CarrinhoRepository carrinhoRepo, ProdutoRepository produtoRepository) {
-        this.carrinhoRepo = carrinhoRepo;
-        this.produtoRepository = produtoRepository;
-    }*/
+    private List<Produto> listaProd;
 
     @Transactional(rollbackFor = Exception.class)
     public Carrinho createCarrinho(final Carrinho carrinho){
@@ -35,37 +32,25 @@ public class CarrinhoService {
 
         System.out.println(teste);
 
-
         for(int i = 0; i < carrinho.getProdutos().size(); i ++){
 
            quantidadeTotal += carrinho.getProdutos().get(i).getQuantidadeProCarrinho();
 
            subTotal += (carrinho.getProdutos().get(i).getQuantidadeProCarrinho() * carrinho.getProdutos().get(i).getPreco());
-
         }
-
-
-        /*Assert.isTrue(carrinho.getQuantidade() >= 0, "Quantidade não pode ser nulo");
-
-        Assert.isTrue(carrinho.getSubTotal() != 0, "SubTotal não pode ser nulo");*/
-
-       /* Long produtoId = carrinho.getProdutoId();
-
-        Produto produto = produtoRepository.getById(produtoId);
-
-        if(carrinho.getProdutos()==null) {
-            List<Produto> attProduto = new ArrayList<>(); // Cria uma nova lista caso ainda não exista
-            attProduto.add(produtoRepository.getById(produtoId));
-            carrinho.setProdutos(attProduto); // Define a lista no carrinho
-        }
-        else {
-            carrinho.getProdutos().add(produtoRepository.getById(produtoId)); // Adiciona o produto ao carrinho
-        }
-
-        //Assert.isTrue(carrinho.getProdutos() != null, "Produtos não pode ser nulo");*/
 
         return carrinhoRepo.save(carrinho);
+    }
 
+    @Transactional(rollbackFor = Exception.class)
+    public void adicionarItem(Produto produto, int quantidade, Carrinho carrinho){
+        int i = -1;
+
+        for(int x = 0; x < carrinho.getProdutos().size() & i < 0; i++){
+            Produto produtoAdd = listaProd.get(x);
+
+            if(produtoAdd.getProduto)
+        }
 
     }
 
