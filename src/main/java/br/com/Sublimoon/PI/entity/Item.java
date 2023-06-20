@@ -16,7 +16,7 @@ public class Item extends AbstractEntity {
     @Getter @Setter
     private int quantidade;
     @Getter @Setter
-    private float valorTotal;
+    private float valor;
     @Getter @Setter
     private float valorUnit;
 
