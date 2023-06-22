@@ -1,18 +1,35 @@
 package br.com.Sublimoon.PI.entity;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Entity
-@Table(name = "itemCarrinho", schema = "public")
-public class Item extends AbstractEntity {
+@Table(name = "Item", schema = "public")
+public class Item {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Getter
+    @Column(name="id", nullable = false, unique = true)
+    private Long id;
     @Getter @Setter
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "produto",nullable = false)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinTable(name = "item-produto",
+            uniqueConstraints = @UniqueConstraint(
+                    columnNames = {
+                            "item_id",
+                            "produto_id"
+                    }
+            ),
+            joinColumns = @JoinColumn(
+                    name = "item_id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "produto_id"
+            )
+    )
     private Produto produto;
-
     @Getter @Setter
     @Column(name = "quantidade", nullable = false)
     private int quantidade;
@@ -25,5 +42,4 @@ public class Item extends AbstractEntity {
     @Getter @Setter
     @Column(name = "valorTotal")
     private float ValorTotal = valorUnit * quantidade;
-
 }

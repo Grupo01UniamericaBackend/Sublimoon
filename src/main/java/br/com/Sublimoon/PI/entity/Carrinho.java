@@ -9,11 +9,6 @@ import java.util.List;
 @Table(name = "Carrinhos",schema = "public")
 public class Carrinho extends  AbstractEntity{
 
-
-
-
-
-
     @Getter @Setter
     @Column(name = "quantidade")
     private int quantidade;
@@ -45,6 +40,21 @@ public class Carrinho extends  AbstractEntity{
     )
     private Cliente cliente;
     @Getter @Setter
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "carrinho_item",
+            uniqueConstraints = @UniqueConstraint(
+                    columnNames = {
+                            "carrinho_id",
+                            "item_id"
+                    }
+            ),
+            joinColumns = @JoinColumn(
+                    name = "carrinho_id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "item_id"
+            )
+    )
     private List<Item> Item;
 
 

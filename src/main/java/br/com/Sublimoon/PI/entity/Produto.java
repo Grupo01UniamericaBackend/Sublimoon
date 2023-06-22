@@ -4,22 +4,23 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
 @Table (name = "produtos",schema = "public")
 public class Produto  extends AbstractEntity {
 
-    @Getter @Setter
-    @Column (name = "produto", nullable = false, unique = true,length = 100)
+    @Getter
+    @Setter
+    @Column(name = "produto", nullable = false, unique = true, length = 100)
     private String nome;
 
    /* @Getter @Setter
     @Column (name = "catId")
     private Long idCat;*/
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "produto_categoria",
             uniqueConstraints = @UniqueConstraint(
@@ -35,27 +36,32 @@ public class Produto  extends AbstractEntity {
                     name = "categoria_id"
             )
     )
-    private List <Categoria> categorias;
+    private List<Categoria> categorias;
 
-    @Enumerated (EnumType.STRING)
-    @Getter @Setter
+    @Enumerated(EnumType.STRING)
+    @Getter
+    @Setter
     @Column(name = "cor", length = 15, nullable = false)
     private Cor cor;
 
-    @Getter @Setter
-    @Column(name = "descrição", length = 500, nullable = false )
+    @Getter
+    @Setter
+    @Column(name = "descrição", length = 500, nullable = false)
     private String descricao;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @Column(name = "imagem", length = 500)
     private String imagem;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @Column(name = "preço", nullable = false)
     private float preco;
 
-    @Getter @Setter
-    @Column(name = "quantidadeEstoque",nullable = false)
+    @Getter
+    @Setter
+    @Column(name = "quantidadeEstoque", nullable = false)
     private float quantidade;
 
    /* @Getter @Setter
@@ -76,12 +82,14 @@ public class Produto  extends AbstractEntity {
     )
     private List<Avaliacao> avaliacoes;*/
 
-    @Getter @Setter
-    @Column (name = "pesoProduto",nullable = false)
+    @Getter
+    @Setter
+    @Column(name = "pesoProduto", nullable = false)
     private float pesoProduto;
 
-    @Getter @Setter
-    @Column (name = "mediaAvaliacao",nullable = false)
+    @Getter
+    @Setter
+    @Column(name = "mediaAvaliacao", nullable = false)
     private float mediaAvaliacao;
 
    /* @Getter @Setter
@@ -104,15 +112,13 @@ public class Produto  extends AbstractEntity {
     private Favorito favoritos;*/
 
 
-
-    @Getter @Setter
-    @Column(name = "tamanhoDoProduto",nullable = false,length = 10)
+    @Getter
+    @Setter
+    @Column(name = "tamanhoDoProduto", nullable = false, length = 10)
     private String tamanho;
 
     /*@Getter @Setter
     @Column(name = "quantidadeProCarrinho")
     private int quantidadeProCarrinho;*/
-
-
 
 }

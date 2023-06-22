@@ -4,10 +4,9 @@ import br.com.Sublimoon.PI.entity.Carrinho;
 import br.com.Sublimoon.PI.entity.Item;
 import br.com.Sublimoon.PI.entity.Produto;
 import br.com.Sublimoon.PI.repository.CarrinhoRepository;
+import br.com.Sublimoon.PI.repository.ItemRepository;
 import br.com.Sublimoon.PI.repository.ProdutoRepository;
 import org.springframework.beans.BeanUtils;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +22,9 @@ public class CarrinhoService {
      CarrinhoRepository carrinhoRepo;
     @Autowired
      ProdutoRepository produtoRepository;
+
+    @Autowired
+    ItemRepository itemRepository;
 
 
 
@@ -44,13 +46,19 @@ public class CarrinhoService {
         for(int i = 0; i < carrinho.getItem().size(); i ++){
             Item itemNovo = carrinho.getItem().get(i);
 
-            Produto produto = itemNovo.getProduto();
+            long idProduto = itemNovo.getProduto().getId();
+            Produto produto = produtoRepository.getById(idProduto);
             float valorUnitario = produto.getPreco();
 
+            itemNovo.setProduto(produto);
             itemNovo.setValorUnit(valorUnitario);
-            itemNovo.setValor(itemNovo.getValorTotal());
+            itemNovo.setValor(itemNovo.getValorUnit() * itemNovo.getQuantidade());
+            itemNovo.setValorTotal(itemNovo.getValor());
 
+            itemRepository.save(itemNovo);
+            carrinho.getItem().set(i,itemNovo);
             carrinho.setSubTotal(carrinho.getSubTotal() + itemNovo.getValorTotal());
+            //itemRepository.getById((long) i).setValorUnit(valorUnitario);
 
         }
 
@@ -72,7 +80,8 @@ public class CarrinhoService {
                 float valorUnitario = produto.getPreco();
 
                 itemNovo.setValorUnit(valorUnitario);
-                itemNovo.setValor(itemNovo.getValorTotal());
+                itemNovo.setValor(itemNovo.getValorUnit() * itemNovo.getQuantidade());
+                itemNovo.setValorTotal(itemNovo.getValor());
                 carrinho.setSubTotal(carrinho.getSubTotal() + itemNovo.getValorTotal());
 
             }
