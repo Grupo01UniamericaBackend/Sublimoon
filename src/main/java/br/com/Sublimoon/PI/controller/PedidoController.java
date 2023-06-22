@@ -26,7 +26,7 @@ public class PedidoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findByIdPath(@PathVariable("id") final Long id){
-        final Pedido pedido = this.pedidoRep.findById(id).orElse(null);
+        final Pedido pedido = pedidoRep.findById(id).orElse(null);
         return ResponseEntity.ok(pedido);
     }
 
@@ -37,13 +37,13 @@ public class PedidoController {
 
     @GetMapping("/lista")
     public ResponseEntity <?> ListaCompletaPedido(){
-        return ResponseEntity.ok(this.pedidoRep.findAll());
+        return ResponseEntity.ok(pedidoRep.findAll());
     }
 
     @PostMapping
     public ResponseEntity <?> cadastrarPedido(@RequestBody final Pedido pedido){
         try {
-            this.pedidoRep.save(pedido);
+            pedidoService.verificarPedido(pedido);
             return ResponseEntity.ok("Pedido cadastrado com sucesso");
         }
         catch (DataIntegrityViolationException e){
