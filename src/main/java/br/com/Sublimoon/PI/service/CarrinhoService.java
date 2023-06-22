@@ -45,7 +45,7 @@ public class CarrinhoService {
             Item itemNovo = carrinho.getItem().get(i);
 
             Produto produto = itemNovo.getProduto();
-            float valorUnitario = produto.getPesoProduto();
+            float valorUnitario = produto.getPreco();
 
             itemNovo.setValorUnit(valorUnitario);
             itemNovo.setValor(itemNovo.getValorTotal());
@@ -69,7 +69,7 @@ public class CarrinhoService {
                 Item itemNovo = carrinho.getItem().get(i);
 
                 Produto produto = itemNovo.getProduto();
-                float valorUnitario = produto.getPesoProduto();
+                float valorUnitario = produto.getPreco();
 
                 itemNovo.setValorUnit(valorUnitario);
                 itemNovo.setValor(itemNovo.getValorTotal());
