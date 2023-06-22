@@ -109,9 +109,9 @@ public class Produto  extends AbstractEntity {
     @Column(name = "tamanhoDoProduto",nullable = false,length = 10)
     private String tamanho;
 
-    @Getter @Setter
+    /*@Getter @Setter
     @Column(name = "quantidadeProCarrinho")
-    private int quantidadeProCarrinho;
+    private int quantidadeProCarrinho;*/
 
 
 
