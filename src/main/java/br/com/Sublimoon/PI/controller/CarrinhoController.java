@@ -52,7 +52,7 @@ public class CarrinhoController {
             if (carrinho1 == null || carrinho1.getId().equals(carrinho1.getId())) {
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
             }
-            this.carrinhoRepository.save(carrinho);
+            this.carrinhoService.addCarrinho(id,carrinho);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
         } catch (DataIntegrityViolationException e) {
             return ResponseEntity.internalServerError()
