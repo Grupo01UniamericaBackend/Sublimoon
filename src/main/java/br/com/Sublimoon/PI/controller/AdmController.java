@@ -88,6 +88,12 @@ public class AdmController {
 
     @DeleteMapping("delete/{id}")
     public void deletaAdm(@PathVariable Long id) {
+
+        findById(id);
+
+        if(admRep.getById(id).isAtivo()){
+            admRep.getById(id).setAtivo(false);
+        }
         admRep.deleteById(id);
 
     }

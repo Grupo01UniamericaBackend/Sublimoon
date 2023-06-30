@@ -35,6 +35,7 @@ public class  Usuario {
     @PrePersist
     private void prePersist(){
         this.cadastro = LocalDateTime.now();
+        this.ativo = true;
     }
 
     @PreUpdate
