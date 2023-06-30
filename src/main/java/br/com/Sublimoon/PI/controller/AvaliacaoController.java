@@ -45,8 +45,8 @@ public class AvaliacaoController {
         }
     }
 
-    @PutMapping
-    public ResponseEntity<?> editarAvaliacao(@RequestParam("id") final Long id, @RequestBody final Avaliacao avaliacao) {
+    @PutMapping("/{id}")
+    public ResponseEntity<?> editarAvaliacao(@PathVariable(value = "id") final Long id, @RequestBody final Avaliacao avaliacao) {
         try {
             final Avaliacao avaliacao1 = this.avaliacaoRepository.findById(id).orElse(null);
 

@@ -44,8 +44,8 @@ public class CarrinhoController {
         }
     }
 
-    @PutMapping
-    public ResponseEntity<?> editar(@RequestParam("id") final Long id, @RequestBody final Carrinho carrinho) {
+    @PutMapping("/{id}")
+    public ResponseEntity<?> editar(@PathVariable(value = "id") final Long id, @RequestBody final Carrinho carrinho) {
         try {
             final Carrinho carrinho1 = this.carrinhoRepository.findById(id).orElse(null);
 

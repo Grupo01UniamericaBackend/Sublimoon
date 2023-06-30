@@ -1,5 +1,6 @@
 package br.com.Sublimoon.PI.controller;
 
+import br.com.Sublimoon.PI.entity.Categoria;
 import br.com.Sublimoon.PI.repository.EnvioRepository;
 import br.com.Sublimoon.PI.service.EnvioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,23 @@ public class EnvioController {
         }
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<?> editar(@PathVariable(value = "id") final Long id, @RequestBody final Envio envio) {
+        try {
+            final Envio envio1 = this.envioRepository.findById(id).orElse(null);
+
+            if (envio1 == null || envio1.getId().equals(envio.getId())) {
+                throw new RuntimeException("Nao foi possivel indentificar o registro informado");
+            }
+            this.envioRepository.save(envio);
+            return ResponseEntity.ok("Registro Cadastrado com Sucesso");
+        } catch (DataIntegrityViolationException e) {
+            return ResponseEntity.internalServerError()
+                    .body("Error: " + e.getCause().getCause().getMessage());
+        } catch (RuntimeException e) {
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+        }
+    }
     @DeleteMapping("delete/{id}")
     public void deletaIdEnvio(@PathVariable Long id){
         envioRepository.deleteById(id);

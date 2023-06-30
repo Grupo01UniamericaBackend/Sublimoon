@@ -44,8 +44,8 @@ public class ConfigController {
         }
     }
 
-    @PutMapping
-    public ResponseEntity<?> editar(@RequestParam("id") final Long id, @RequestBody final Config config) {
+    @PutMapping("/{id}")
+    public ResponseEntity<?> editar(@PathVariable(value = "id") final Long id, @RequestBody final Config config) {
         try {
             final Config config1 = this.configRep.findById(id).orElse(null);
 

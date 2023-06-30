@@ -44,8 +44,8 @@ public class AdmController {
         }
     }
 
-    @PutMapping
-    public ResponseEntity<?> editarAdm(@RequestParam("id") final Long id, @RequestBody final Adm adm) {
+    @PutMapping("/{id}")
+    public ResponseEntity<?> editarAdm(@PathVariable(value = "id")Long id, @RequestBody final Adm adm) {
         try {
             final Adm adm1 = this.admRep.findById(id).orElse(null);
 

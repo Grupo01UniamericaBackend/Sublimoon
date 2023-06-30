@@ -49,7 +49,7 @@ public class FavoritoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateFavorito(@RequestParam("id")final Long id,@RequestBody Favorito favorito){
+    public ResponseEntity<?> updateFavorito(@PathVariable(value = "id") final Long id,@RequestBody Favorito favorito){
          try {
             final Favorito favoritoNovo = this.favoritoRep.findById(id).orElse(null);
 

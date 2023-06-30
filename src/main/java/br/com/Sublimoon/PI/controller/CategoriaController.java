@@ -43,8 +43,8 @@ public class CategoriaController {
         }
     }
 
-    @PutMapping
-    public ResponseEntity<?> editar(@RequestParam("id") final Long id, @RequestBody final Categoria categoria) {
+    @PutMapping("/{id}")
+    public ResponseEntity<?> editar(@PathVariable(value = "id") final Long id, @RequestBody final Categoria categoria) {
         try {
             final Categoria categoria1 = this.categoriasRepository.findById(id).orElse(null);
 
