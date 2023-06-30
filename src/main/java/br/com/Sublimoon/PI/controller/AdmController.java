@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 import br.com.Sublimoon.PI.service.AdmService;
 
@@ -46,10 +47,10 @@ public class AdmController {
     @PostMapping
     public ResponseEntity<?> cadastrarAdm(@RequestBody final Adm adm) {
         try {
-           // Adm admExistente = AdmRepository.findByTelefone(adm.getTelefone());
-            //Assert.isTrue(admExistente == null || admExistente.equals(adm.getTelefone()), "Telefone já cadastrado");
-            //Adm admExistente2 = AdmRepository.findByEmail(adm.getEmail());
-            //Assert.isTrue(admExistente2 == null || admExistente2.equals(adm.getEmail()),"Email já cadastrado");
+            Adm admExistente = admRep.findByTelefone(adm.getTelefone());
+            Assert.isTrue(admExistente == null || admExistente.equals(adm.getTelefone()), "Telefone já cadastrado");
+            Adm admExistente2 = admRep.findByEmail(adm.getEmail());
+            Assert.isTrue(admExistente2 == null || admExistente2.equals(adm.getEmail()),"Email já cadastrado");
 
             this.admServ.createAdm(adm);
 
