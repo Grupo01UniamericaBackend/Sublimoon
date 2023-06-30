@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface AdmRepository extends JpaRepository<Adm, Long>{
 
-    Adm findByTelefone(String telefone);
+     Adm findByTelefone(String telefone);
 
-    Adm findByEmail(String email);
+     Adm findByEmail(String email);
 }

@@ -3,6 +3,7 @@ package br.com.Sublimoon.PI.controller;
 import br.com.Sublimoon.PI.entity.Config;
 import br.com.Sublimoon.PI.repository.ConfigRepository;
 import br.com.Sublimoon.PI.service.ConfigService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
@@ -52,6 +53,7 @@ public class ConfigController {
             if (config1 == null || config1.getId().equals(config1.getId())) {
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
             }
+
             this.configRep.save(config);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
         } catch (DataIntegrityViolationException e) {

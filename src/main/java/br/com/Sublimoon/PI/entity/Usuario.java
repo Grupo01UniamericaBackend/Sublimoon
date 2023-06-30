@@ -25,11 +25,11 @@ public class  Usuario {
 
 
     @Getter @Setter
-    @Column(name = "telefone",nullable = false,unique = true,length = 40)
+    @Column(name = "telefone",nullable = false,length = 40)
     private String telefone;
 
     @Getter @Setter
-    @Column (name = "email",nullable = false,unique = true,length = 50)
+    @Column (name = "email",nullable = false,length = 50)
     private String email;
 
     @PrePersist
