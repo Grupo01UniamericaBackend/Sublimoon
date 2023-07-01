@@ -50,9 +50,14 @@ public class ConfigController {
         try {
             final Config config1 = this.configRep.findById(id).orElse(null);
 
-            if (config1 == null || config1.getId().equals(config1.getId())) {
+            if (config1 == null) {
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
             }
+            findById(id);
+
+            final Config configNovo = configRep.getById(id);
+
+            BeanUtils.copyProperties(config, configNovo, "id","cadastro", "ativo");
 
             this.configRep.save(config);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
@@ -66,6 +71,10 @@ public class ConfigController {
 
     @DeleteMapping("delete/{id}")
     public void deleta(@PathVariable Long id) {
+        findById(id);
+        if(configRep.getById(id).isAtivo()) {
+            configRep.getById(id).setAtivo(false);
+        }
         configRep.deleteById(id);
     }
 

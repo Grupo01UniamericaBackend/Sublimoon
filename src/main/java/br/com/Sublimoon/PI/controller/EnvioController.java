@@ -3,6 +3,7 @@ package br.com.Sublimoon.PI.controller;
 import br.com.Sublimoon.PI.entity.Categoria;
 import br.com.Sublimoon.PI.repository.EnvioRepository;
 import br.com.Sublimoon.PI.service.EnvioService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +24,7 @@ public class EnvioController {
     EnvioService envioServ;
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findByIdPath(@PathVariable("id") final Long id){
+    public ResponseEntity<?> findById(@PathVariable("id") final Long id){
         final Envio envio = this.envioRepository.findById(id).orElse(null);
         return ResponseEntity.ok(envio);
     }
@@ -52,6 +53,13 @@ public class EnvioController {
             if (envio1 == null || envio1.getId().equals(envio.getId())) {
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
             }
+            final Envio envioNovo = envioRepository.getById(id);
+            findById(id);
+            BeanUtils.copyProperties(envio, envioNovo, "id","cadastro", "ativo");
+            this.envioServ.validaEnvio(envioNovo);
+
+
+
             this.envioRepository.save(envio);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
         } catch (DataIntegrityViolationException e) {
@@ -63,6 +71,12 @@ public class EnvioController {
     }
     @DeleteMapping("delete/{id}")
     public void deletaIdEnvio(@PathVariable Long id){
+
+        findById(id);
+
+        if(envioRepository.getById(id).isAtivo()){
+            envioRepository.getById(id).setAtivo(false);
+        }
         envioRepository.deleteById(id);
     }
 

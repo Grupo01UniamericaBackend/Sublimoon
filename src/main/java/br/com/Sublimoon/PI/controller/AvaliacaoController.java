@@ -3,6 +3,7 @@ package br.com.Sublimoon.PI.controller;
 
 import br.com.Sublimoon.PI.entity.Avaliacao;
 import br.com.Sublimoon.PI.repository.AvaliacaoRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +39,7 @@ public class AvaliacaoController {
     @PostMapping
     public ResponseEntity<?> cadastrarAvaliacao(@RequestBody final Avaliacao avaliacao,final Cliente cliente) {
         try {
-            this.avaliacaoServ.createAvaliacao(avaliacao,cliente);
+            this.avaliacaoServ.createAvaliacao(avaliacao);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
@@ -53,7 +54,14 @@ public class AvaliacaoController {
             if (avaliacao1 == null || avaliacao1.getId().equals(avaliacao1.getId())) {
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
             }
-            this.avaliacaoRepository.save(avaliacao);
+            findById(id);
+
+            final Avaliacao avaliacaoNovo = avaliacaoRepository.getById(id);
+
+            BeanUtils.copyProperties(avaliacao, avaliacaoNovo, "id","cadastro", "ativo");
+            this.avaliacaoServ.createAvaliacao(avaliacaoNovo);
+
+            //this.avaliacaoRepository.save(avaliacao);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
         } catch (DataIntegrityViolationException e) {
             return ResponseEntity.internalServerError()
@@ -65,7 +73,15 @@ public class AvaliacaoController {
 
     @DeleteMapping("delete/{id}")
     public void deletaAvaliacao(@PathVariable Long id) {
+
+
+        findById(id);
+        if(avaliacaoRepository.getById(id).isAtivo()) {
+            avaliacaoRepository.getById(id).setAtivo(false);
+
+        }
         avaliacaoRepository.deleteById(id);
+
     }
 
 

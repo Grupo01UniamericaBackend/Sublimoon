@@ -3,8 +3,10 @@ package br.com.Sublimoon.PI.controller;
 import br.com.Sublimoon.PI.entity.Categoria;
 import br.com.Sublimoon.PI.service.ProdutoService;
 import br.com.Sublimoon.PI.repository.ProdutoRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +27,7 @@ public class ProdutoController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findByIdPath(@PathVariable("id") final Long id) {
+    public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
         final Produto produto = this.produtoRep.findById(id).orElse(null);
         return ResponseEntity.ok(produto);
     }
@@ -40,7 +42,10 @@ public class ProdutoController {
     @PostMapping
     public ResponseEntity <?> cadastrar(@RequestBody final Produto produto, final Categoria categoria){
         try {
-            produtoService.cadastrar(produto,categoria);
+            Produto produtoExistente = produtoRep.findByNome(produto.getNome());
+            Assert.isTrue(produtoExistente == null || produtoExistente.equals(produto),"Nome já cadastrado!");
+
+            produtoService.cadastrar(produto);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         }
         catch (Exception e){
@@ -53,9 +58,15 @@ public class ProdutoController {
         try {
             final Produto produto1 = this.produtoRep.findById(id).orElse(null);
 
-            if (produto1 == null || !produto1.getId().equals(produto1.getId())){
+            if (produto1 == null ){
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
             }
+            findById(id);
+
+            final Produto produtoNovo = produtoRep.getById(id);
+
+            BeanUtils.copyProperties(produto, produtoNovo, "id","cadastro", "ativo");
+            this.produtoService.cadastrar(produtoNovo);
             this.produtoRep.save(produto);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
         }
@@ -70,6 +81,11 @@ public class ProdutoController {
 
     @DeleteMapping("delete/{id}")
     public void deleta(@PathVariable Long id){
+        findById(id);
+
+        if(produtoRep.getById(id).isAtivo()){
+            produtoRep.getById(id).setAtivo(false);
+        }
         produtoRep.deleteById(id);
     }
 

@@ -1,11 +1,12 @@
 package br.com.Sublimoon.PI.controller;
+import br.com.Sublimoon.PI.repository.ClienteRepository;
 import br.com.Sublimoon.PI.repository.FavoritoRepository;
+import br.com.Sublimoon.PI.repository.ProdutoRepository;
 import br.com.Sublimoon.PI.service.FavoritoService;
-import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
 import br.com.Sublimoon.PI.entity.Favorito;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -17,11 +18,20 @@ import org.springframework.web.bind.annotation.*;
 public class FavoritoController {
 
     @Autowired
-    FavoritoRepository favoritoRep;
-
-
+    final FavoritoRepository favoritoRep;
     @Autowired
-    FavoritoService favoritoService;
+    final ClienteRepository clienteRepository;
+    @Autowired
+    final ProdutoRepository produtoRepository;
+    @Autowired
+    final FavoritoService favoritoService;
+
+    public FavoritoController(FavoritoRepository favoritoRep, ClienteRepository clienteRepository, ProdutoRepository produtoRepository, FavoritoService favoritoService) {
+        this.favoritoRep = favoritoRep;
+        this.clienteRepository = clienteRepository;
+        this.produtoRepository = produtoRepository;
+        this.favoritoService = favoritoService;
+    }
 
 
     @GetMapping("/{id}")
@@ -40,6 +50,9 @@ public class FavoritoController {
     @PostMapping
     public ResponseEntity cadastraFavorito(@RequestBody final Favorito favorito){
         try {
+
+            Assert.isTrue(produtoRepository.findById(favorito.getCliente().getId()).get()!= null, "Produto não encontrado!");
+            Assert.isTrue(clienteRepository.findById(favorito.getCliente().getId()).get()!= null, "Cliente não encontrado!");
             favoritoService.Favoritar(favorito);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         }
@@ -53,15 +66,16 @@ public class FavoritoController {
          try {
             final Favorito favoritoNovo = this.favoritoRep.findById(id).orElse(null);
 
-            if(favoritoNovo == null || !favoritoNovo.getId().equals(favoritoNovo.getId())){
+            if(favoritoNovo == null ){
 
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
 
             }
-             BeanUtils.copyProperties(favorito, favoritoNovo, "id");
-             favoritoService.Favoritar(favorito);
+            findById(id);
+             BeanUtils.copyProperties(favorito, favoritoNovo, "id","cadastro", "ativo");
+             favoritoService.Favoritar(favoritoNovo);
 
-                 this.favoritoRep.save(favorito);
+                 this.favoritoService.Favoritar(favoritoNovo);
                 return ResponseEntity.ok("Registro alterado com sucesso");
 
          } catch(Exception e){

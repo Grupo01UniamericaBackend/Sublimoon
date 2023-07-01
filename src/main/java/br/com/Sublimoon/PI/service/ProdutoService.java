@@ -20,13 +20,11 @@ public class ProdutoService {
     private CategoriaRepository categoriaRepository;
 
     @Transactional(rollbackFor = Exception.class)
-    public void cadastrar (final Produto produto,final Categoria categoria){
+    public void cadastrar (final Produto produto){
 
 
         Assert.isTrue(!produto.getNome().equals(""),"O nome do produto não pode ser nulo!");
         Assert.isTrue(produto.getNome().length() <= 100 ,"O nome do produto deve ter até 100 digitos") ;
-        Produto produtoExistente = produtoRep.findByNome(produto.getNome());
-        Assert.isTrue(produtoExistente == null || produtoExistente.equals(produto),"Nome já cadastrado!");
 
 
         Assert.isTrue(!produto.getCor().equals(""),"A cor do produto não pode ser nula");

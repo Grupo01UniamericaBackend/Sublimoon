@@ -25,13 +25,17 @@ public class PedidoController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findByIdPath(@PathVariable("id") final Long id){
+    public ResponseEntity<?> findById(@PathVariable("id") final Long id){
         final Pedido pedido = pedidoRep.findById(id).orElse(null);
         return ResponseEntity.ok(pedido);
     }
 
     @DeleteMapping("delete/{id}")
     public void deletaPedido(@PathVariable Long id){
+        findById(id);
+        if(pedidoRep.getById(id).isAtivo()){
+            pedidoRep.getById(id).setAtivo(false);
+        }
         pedidoRep.deleteById(id);
     }
 

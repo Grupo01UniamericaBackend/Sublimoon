@@ -1,15 +1,12 @@
 package br.com.Sublimoon.PI.service;
 
 import br.com.Sublimoon.PI.entity.Avaliacao;
-import br.com.Sublimoon.PI.entity.Cliente;
 import br.com.Sublimoon.PI.repository.AvaliacaoRepository;
 import br.com.Sublimoon.PI.repository.ClienteRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
-
-import java.util.Optional;
 
 @Service
 public class AvaliacaoService {
@@ -21,7 +18,7 @@ public class AvaliacaoService {
     private ClienteRepository clienteRep;
 
     @Transactional(rollbackFor = Exception.class)
-    public void createAvaliacao(final Avaliacao avaliacao,final Cliente cliente){
+    public void createAvaliacao(final Avaliacao avaliacao){
 
     Assert.isTrue(avaliacao.getNota() != null,"Nota não pode ser nulo");
 

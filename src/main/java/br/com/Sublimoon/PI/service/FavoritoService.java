@@ -30,14 +30,10 @@ public class FavoritoService{
     public Favorito Favoritar(final Favorito favorito) {
 
 
-       /* Long produtoId = favorito.getProdutoId();
-        Long clienteId = favorito.getCliente().getId();
 
 
-        Assert.isTrue(produtoRepository.findById(produtoId).get()!= null, "Produto não encontrado!");
-        Assert.isTrue(clienteRepository.findById(clienteId).get()!= null, "Cliente não encontrado!");
 
-       favorito.setCliente(clienteRepository.findById(clienteId).get());
+       /*favorito.setCliente(clienteRepository.findById(clienteId).get());
 
 
         if(favorito.getProdutos()==null) {
@@ -49,8 +45,10 @@ public class FavoritoService{
             favorito.getProdutos().add(produtoRepository.getById(produtoId)); // Adiciona o produto à lista de produtos
         }
 
-        Assert.isTrue(clienteRepository.findById(clienteId).get()!= null, "Cliente não encontrado!");
-        favorito.setCliente(clienteRepository.getById(clienteId));*/
+        */
+
+
+
 
         return favoritoRepository.save(favorito);
     }
