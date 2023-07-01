@@ -3,6 +3,7 @@ package br.com.Sublimoon.PI.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -82,14 +83,11 @@ public class Produto  extends AbstractEntity {
     )
     private List<Avaliacao> avaliacoes;*/
 
-    @Getter
-    @Setter
-    @Column(name = "pesoProduto", nullable = false)
-    private float pesoProduto;
+
 
     @Getter
     @Setter
-    @Column(name = "mediaAvaliacao", nullable = false)
+    @Column(name = "mediaAvaliacao")
     private float mediaAvaliacao;
 
    /* @Getter @Setter

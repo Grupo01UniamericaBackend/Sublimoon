@@ -33,15 +33,15 @@ public class ProdutoService {
         Assert.isTrue(!produto.getDescricao().equals(""),"A descricao do produto não pode ser nula");
         Assert.isTrue(produto.getDescricao().length() <= 500 ,"A descricao deve ter ate 500 caracteres") ;
 
-        Assert.isTrue(produto.getImagem().length() <= 500 ,"A imagem deve ter ate 500 caracteres") ;
+
 
 
         Assert.isTrue(produto.getPreco() != 0,"O preco não pode ser nulo");
 
-        Assert.isTrue(produto.getPesoProduto() != 0 ,"O peso não pode ser nulo");
+
 
         Assert.isTrue(!produto.getTamanho().equals(""),"O tamanho não pode ser nulo");
-        Assert.isTrue(produto.getImagem().length() <= 4 ,"O tamanho DE IMAGEM pode ter ate 4 caracteres") ;
+
 
 
        /* if(produto.getCategorias()==null) {
