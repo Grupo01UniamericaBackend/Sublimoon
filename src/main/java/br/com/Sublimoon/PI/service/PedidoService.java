@@ -15,7 +15,7 @@ import org.springframework.util.Assert;
 public class PedidoService {
 
     @Autowired
-    PedidoRepository pedidoRep;
+    private PedidoRepository pedidoRep;
     @Autowired
     private CarrinhoRepository carrinhoRepository;
     @Autowired
@@ -41,6 +41,33 @@ public class PedidoService {
         pedido.setTotal(total1 + total2);
 
         return pedidoRep.save(pedido);
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void editarpedido(final Pedido pedido){
+
+
+        Assert.isTrue(!pedido.getPagamento().equals(""),"Pagamento nao pode ser nulo!!");
+        Assert.isTrue(!pedido.getEndereco().equals(""),"O Endereço n pode ser nulo!!");
+        Assert.isTrue(pedido.getEndereco().length() <= 60, "Endereço nao pode passar de 60 caracteres!!");
+        Assert.isTrue(!pedido.getCep().equals(""),"CEP não pode ser nulo");
+        Assert.isTrue(pedido.getCep().length() <= 25,"Cep n pode passar de 25 caracteres!!");
+
+        Carrinho carrinho =  carrinhoRepository.getById(pedido.getCarrinho().getId());
+        Envio envio = envioRepository.getById(pedido.getEnvio().getId());
+        float total1 = envio.getValorFrete();
+
+        float total2 = carrinho.getSubTotal();
+
+        pedido.setTotal(total1 + total2);
+
+        this.pedidoRep.save(pedido);
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void delete(Long id){
+
+            this.pedidoRep.deleteById(id);
     }
 
 }

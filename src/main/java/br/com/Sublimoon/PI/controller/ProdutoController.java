@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.dao.DataIntegrityViolationException;
 import br.com.Sublimoon.PI.entity.Produto;
+import br.com.Sublimoon.PI.entity.Cor;
+import br.com.Sublimoon.PI.entity.Categoria;
 
 
 
@@ -30,6 +32,13 @@ public class ProdutoController {
     public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
         final Produto produto = this.produtoRep.findById(id).orElse(null);
         return ResponseEntity.ok(produto);
+    }
+
+    @GetMapping("/categoria/{categoria}")
+    public ResponseEntity<?> findByCategoria(@PathVariable("categoria") Categoria categoria) {
+
+        return ResponseEntity.ok(produtoRep.findByCategoria(categoria));
+
     }
 
     @GetMapping("/lista")
@@ -53,40 +62,36 @@ public class ProdutoController {
         }
     }
 
-    @PutMapping
-    public ResponseEntity<?> editarProduto(@RequestParam("id") final Long id, @RequestBody final Produto produto){
+    @PutMapping("/{id}")
+    public ResponseEntity<?> editarProduto(@PathVariable("id") final Long id, @RequestBody final Produto produto){
         try {
             final Produto produto1 = this.produtoRep.findById(id).orElse(null);
 
             if (produto1 == null ){
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
             }
-            findById(id);
 
             final Produto produtoNovo = produtoRep.getById(id);
-
             BeanUtils.copyProperties(produto, produtoNovo, "id","cadastro", "ativo");
+
             this.produtoService.cadastrar(produtoNovo);
-            this.produtoRep.save(produto);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
         }
-        catch (DataIntegrityViolationException e){
-            return ResponseEntity.internalServerError()
-                    .body("Error: " + e.getCause().getCause().getMessage());
-        }
-        catch (RuntimeException e){
+        catch (Exception e){
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
     }
 
-    @DeleteMapping("delete/{id}")
-    public void deleta(@PathVariable Long id){
-        findById(id);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleta(@PathVariable Long id){
 
-        if(produtoRep.getById(id).isAtivo()){
-            produtoRep.getById(id).setAtivo(false);
+        try {
+
+            produtoService.delete(id);
+            return ResponseEntity.ok("Desativado ou excluído");
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
-        produtoRep.deleteById(id);
     }
 
 

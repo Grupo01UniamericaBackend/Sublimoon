@@ -28,6 +28,13 @@ public class ClienteService {
         Assert.isTrue(cliente.getCpf().length() <= 20 ,"O cpf deve ter no máximo 20 dígitos") ;
 
 
+        Cliente cpfExistente = clienteRepository.findByCpf(cliente.getCpf());
+        Assert.isTrue(cpfExistente == null || cpfExistente.equals(cliente),"Cliente já cadastrado!");
+        Cliente telefoneExistente = clienteRepository.findByTelefone(cliente.getTelefone());
+        Assert.isTrue(telefoneExistente == null || telefoneExistente.equals(cliente),"Telefone já cadastrado!");
+        Cliente emailExistente = clienteRepository.findByEmail(cliente.getEmail());
+        Assert.isTrue(emailExistente == null || emailExistente.equals(cliente),"Email já cadastrado!");
+
 
 
         //Assert.isTrue(!cliente.getFavorito().equals(""),"O campo favoritos não pode nulo!");
@@ -44,6 +51,14 @@ public class ClienteService {
         Assert.isTrue(cliente.getEmail().length() <= 50 ,"O email deve ter no maximo 50 caracteres") ;
 
         this.clienteRepository.save(cliente);
+
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void delete (Long id ){
+
+        this.clienteRepository.deleteById(id);
+
 
     }
 

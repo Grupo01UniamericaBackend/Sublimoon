@@ -17,10 +17,10 @@ import br.com.Sublimoon.PI.entity.Cliente;
 public class AvaliacaoController {
 
     @Autowired
-    AvaliacaoRepository avaliacaoRepository;
+    private AvaliacaoRepository avaliacaoRepository;
 
     @Autowired
-    AvaliacaoService avaliacaoServ;
+    private AvaliacaoService avaliacaoServ;
 
 
     @GetMapping("/{id}")
@@ -37,7 +37,7 @@ public class AvaliacaoController {
 
 
     @PostMapping
-    public ResponseEntity<?> cadastrarAvaliacao(@RequestBody final Avaliacao avaliacao,final Cliente cliente) {
+    public ResponseEntity<?> cadastrarAvaliacao(@RequestBody final Avaliacao avaliacao) {
         try {
             this.avaliacaoServ.createAvaliacao(avaliacao);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
@@ -51,36 +51,35 @@ public class AvaliacaoController {
         try {
             final Avaliacao avaliacao1 = this.avaliacaoRepository.findById(id).orElse(null);
 
-            if (avaliacao1 == null || avaliacao1.getId().equals(avaliacao1.getId())) {
+            if (avaliacao1 == null || !avaliacao1.getId().equals(avaliacao.getId())) {
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
             }
-            findById(id);
 
             final Avaliacao avaliacaoNovo = avaliacaoRepository.getById(id);
 
             BeanUtils.copyProperties(avaliacao, avaliacaoNovo, "id","cadastro", "ativo");
-            this.avaliacaoServ.createAvaliacao(avaliacaoNovo);
 
-            //this.avaliacaoRepository.save(avaliacao);
+            this.avaliacaoServ.createAvaliacao(avaliacao);
+
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
-        } catch (DataIntegrityViolationException e) {
-            return ResponseEntity.internalServerError()
-                    .body("Error: " + e.getCause().getCause().getMessage());
-        } catch (RuntimeException e) {
+        }  catch (RuntimeException e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
     }
 
-    @DeleteMapping("delete/{id}")
-    public void deletaAvaliacao(@PathVariable Long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletaAvaliacao(@PathVariable Long id) {
 
+        try {
 
-        findById(id);
-        if(avaliacaoRepository.getById(id).isAtivo()) {
-            avaliacaoRepository.getById(id).setAtivo(false);
-
+            avaliacaoServ.delete(id);
+            return ResponseEntity.ok("Desativado ou excluído");
         }
-        avaliacaoRepository.deleteById(id);
+        catch (Exception e){
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+        }
+
+
 
     }
 

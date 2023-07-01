@@ -1,8 +1,10 @@
 package br.com.Sublimoon.PI.controller;
 
+import br.com.Sublimoon.PI.entity.Favorito;
 import br.com.Sublimoon.PI.repository.PedidoRepository;
 
 import br.com.Sublimoon.PI.service.PedidoService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,14 +32,6 @@ public class PedidoController {
         return ResponseEntity.ok(pedido);
     }
 
-    @DeleteMapping("delete/{id}")
-    public void deletaPedido(@PathVariable Long id){
-        findById(id);
-        if(pedidoRep.getById(id).isAtivo()){
-            pedidoRep.getById(id).setAtivo(false);
-        }
-        pedidoRep.deleteById(id);
-    }
 
     @GetMapping("/lista")
     public ResponseEntity <?> ListaCompletaPedido(){
@@ -50,10 +44,44 @@ public class PedidoController {
             pedidoService.verificarPedido(pedido);
             return ResponseEntity.ok("Pedido cadastrado com sucesso");
         }
-        catch (DataIntegrityViolationException e){
-            return ResponseEntity.internalServerError().body("Error: " + e.getCause().getCause().getMessage());
+        catch (Exception e){
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateFavorito(@PathVariable("id") final Long id,@RequestBody Pedido pedido){
+        try {
+            final Pedido pedido1 = this.pedidoRep.findById(id).orElse(null);
+
+            if(pedido1 == null ){
+
+                throw new RuntimeException("Nao foi possivel indentificar o registro informado");
+
+            }
+
+
+            BeanUtils.copyProperties(pedido, pedido1, "id","cadastro", "ativo");
+
+            this.pedidoService.verificarPedido(pedido);
+            return ResponseEntity.ok("Registro alterado com sucesso");
+
+        } catch(Exception e){
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+
+        }
+
+    }
+
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<?> deletaPedido(@PathVariable Long id) {
+        try {
+
+            pedidoService.delete(id);
+            return ResponseEntity.ok("Desativado ou excluído");
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+        }
+    }
 
 }

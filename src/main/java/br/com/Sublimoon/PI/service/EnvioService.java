@@ -26,5 +26,13 @@ public class EnvioService {
 
     }
 
+    @Transactional(rollbackFor = Exception.class)
+    public void delete(Long id){
+
+        this.envioRepository.deleteById(id);
+
+
+    }
+
 
 }

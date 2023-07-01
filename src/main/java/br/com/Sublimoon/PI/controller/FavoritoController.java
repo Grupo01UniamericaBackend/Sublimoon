@@ -1,4 +1,5 @@
 package br.com.Sublimoon.PI.controller;
+
 import br.com.Sublimoon.PI.repository.ClienteRepository;
 import br.com.Sublimoon.PI.repository.FavoritoRepository;
 import br.com.Sublimoon.PI.repository.ProdutoRepository;
@@ -18,25 +19,13 @@ import org.springframework.web.bind.annotation.*;
 public class FavoritoController {
 
     @Autowired
-    final FavoritoRepository favoritoRep;
+     private FavoritoRepository favoritoRep;
     @Autowired
-    final ClienteRepository clienteRepository;
-    @Autowired
-    final ProdutoRepository produtoRepository;
-    @Autowired
-    final FavoritoService favoritoService;
-
-    public FavoritoController(FavoritoRepository favoritoRep, ClienteRepository clienteRepository, ProdutoRepository produtoRepository, FavoritoService favoritoService) {
-        this.favoritoRep = favoritoRep;
-        this.clienteRepository = clienteRepository;
-        this.produtoRepository = produtoRepository;
-        this.favoritoService = favoritoService;
-    }
+     private FavoritoService favoritoService;
 
 
     @GetMapping("/{id}")
-
-        public ResponseEntity<?> findById(@PathVariable("id") final Long id){
+    public ResponseEntity<?> findById(@PathVariable("id") final Long id){
         final Favorito favorito = this.favoritoRep.findById(id).orElse(null);
         return ResponseEntity.ok(favorito);
 
@@ -51,8 +40,6 @@ public class FavoritoController {
     public ResponseEntity cadastraFavorito(@RequestBody final Favorito favorito){
         try {
 
-            Assert.isTrue(produtoRepository.findById(favorito.getCliente().getId()).get()!= null, "Produto não encontrado!");
-            Assert.isTrue(clienteRepository.findById(favorito.getCliente().getId()).get()!= null, "Cliente não encontrado!");
             favoritoService.Favoritar(favorito);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         }
@@ -71,12 +58,12 @@ public class FavoritoController {
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
 
             }
-            findById(id);
-             BeanUtils.copyProperties(favorito, favoritoNovo, "id","cadastro", "ativo");
-             favoritoService.Favoritar(favoritoNovo);
 
-                 this.favoritoService.Favoritar(favoritoNovo);
-                return ResponseEntity.ok("Registro alterado com sucesso");
+
+             BeanUtils.copyProperties(favorito, favoritoNovo, "id","cadastro", "ativo");
+
+            this.favoritoService.Favoritar(favorito);
+            return ResponseEntity.ok("Registro alterado com sucesso");
 
          } catch(Exception e){
              return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
@@ -88,8 +75,15 @@ public class FavoritoController {
 
 
     @DeleteMapping("delete/{id}")
-    public void deletaIdFavorito(@PathVariable Long id){
-        favoritoRep.deleteById(id);
+    public ResponseEntity<?> deletaIdFavorito(@PathVariable Long id){
+        try {
+
+            favoritoService.delete(id);
+            return ResponseEntity.ok("Desativado ou excluído");
+        }
+        catch (Exception e){
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+        }
     }
 
 }

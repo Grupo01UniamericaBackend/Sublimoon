@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.*;
 public class CarrinhoController {
 
     @Autowired
-    CarrinhoRepository carrinhoRepository;
+    private CarrinhoRepository carrinhoRepository;
 
 
     @Autowired
-    CarrinhoService carrinhoService;
+    private CarrinhoService carrinhoService;
 
 
     @GetMapping("/{id}")
@@ -49,22 +49,29 @@ public class CarrinhoController {
         try {
             final Carrinho carrinho1 = this.carrinhoRepository.findById(id).orElse(null);
 
-            if (carrinho1 == null || carrinho1.getId().equals(carrinho1.getId())) {
+            if (carrinho1 == null || !carrinho1.getId().equals(carrinho.getId())) {
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
             }
             this.carrinhoService.addCarrinho(id,carrinho);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
-        } catch (DataIntegrityViolationException e) {
-            return ResponseEntity.internalServerError()
-                    .body("Error: " + e.getCause().getCause().getMessage());
-        } catch (RuntimeException e) {
+        }  catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
     }
 
-    @DeleteMapping("delete/{id}")
-    public void deleta(@PathVariable Long id) {
-        carrinhoRepository.deleteById(id);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleta(@PathVariable Long id) {
+
+        try {
+
+            carrinhoService.delete(id);
+            return ResponseEntity.ok("Desativado ou excluído");
+        }
+        catch (Exception e){
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+        }
+
+
     }
 
 

@@ -31,7 +31,8 @@ public class FavoritoService{
 
 
 
-
+        Assert.isTrue(produtoRepository.findById(favorito.getCliente().getId()).get()!= null, "Produto não encontrado!");
+        Assert.isTrue(clienteRepository.findById(favorito.getCliente().getId()).get()!= null, "Cliente não encontrado!");
 
        /*favorito.setCliente(clienteRepository.findById(clienteId).get());
 
@@ -52,4 +53,13 @@ public class FavoritoService{
 
         return favoritoRepository.save(favorito);
     }
+
+
+    @Transactional(rollbackFor = Exception.class)
+    public void delete(Long id) {
+
+
+    }
+
+
 }

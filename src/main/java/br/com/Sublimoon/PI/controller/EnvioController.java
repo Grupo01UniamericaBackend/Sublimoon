@@ -17,11 +17,11 @@ import org.springframework.web.bind.annotation.*;
 public class EnvioController {
 
     @Autowired
-    EnvioRepository envioRepository;
+    private EnvioRepository envioRepository;
 
 
     @Autowired
-    EnvioService envioServ;
+    private EnvioService envioServ;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") final Long id){
@@ -29,7 +29,7 @@ public class EnvioController {
         return ResponseEntity.ok(envio);
     }
 
-    @GetMapping("/listaEnvio")
+    @GetMapping("/lista")
     public ResponseEntity <?> ListaCompletaEnvio(){
         return ResponseEntity.ok(this.envioRepository.findAll());
     }
@@ -40,44 +40,40 @@ public class EnvioController {
             this.envioServ.validaEnvio(envio);
             return ResponseEntity.ok("Envio cadastrado com sucesso");
         }
-        catch (DataIntegrityViolationException e){
-            return ResponseEntity.internalServerError().body("Error: " + e.getCause().getCause().getMessage());
+        catch (Exception e){
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editar(@PathVariable(value = "id") final Long id, @RequestBody final Envio envio) {
+    public ResponseEntity<?> editar(@PathVariable("id") final Long id, @RequestBody final Envio envio) {
         try {
             final Envio envio1 = this.envioRepository.findById(id).orElse(null);
 
-            if (envio1 == null || envio1.getId().equals(envio.getId())) {
+            if (envio1 == null || !envio1.getId().equals(envio.getId())) {
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
             }
+
             final Envio envioNovo = envioRepository.getById(id);
-            findById(id);
             BeanUtils.copyProperties(envio, envioNovo, "id","cadastro", "ativo");
-            this.envioServ.validaEnvio(envioNovo);
 
-
-
-            this.envioRepository.save(envio);
+            this.envioServ.validaEnvio(envio);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
-        } catch (DataIntegrityViolationException e) {
-            return ResponseEntity.internalServerError()
-                    .body("Error: " + e.getCause().getCause().getMessage());
-        } catch (RuntimeException e) {
+
+        }  catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
     }
-    @DeleteMapping("delete/{id}")
-    public void deletaIdEnvio(@PathVariable Long id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletaIdEnvio(@PathVariable Long id){
+        try {
 
-        findById(id);
-
-        if(envioRepository.getById(id).isAtivo()){
-            envioRepository.getById(id).setAtivo(false);
+            envioServ.delete(id);
+            return ResponseEntity.ok("Desativado ou excluído");
         }
-        envioRepository.deleteById(id);
+        catch (Exception e){
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+        }
     }
 
 }

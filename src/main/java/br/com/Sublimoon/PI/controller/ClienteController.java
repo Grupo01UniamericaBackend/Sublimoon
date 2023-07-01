@@ -1,5 +1,6 @@
 package br.com.Sublimoon.PI.controller;
 
+import br.com.Sublimoon.PI.entity.Carrinho;
 import br.com.Sublimoon.PI.entity.Cliente;
 import br.com.Sublimoon.PI.repository.ClienteRepository;
 import br.com.Sublimoon.PI.service.ClienteService;
@@ -17,10 +18,10 @@ import org.springframework.web.bind.annotation.*;
 public class ClienteController {
 
     @Autowired
-    ClienteRepository clienteRep;
+    private ClienteRepository clienteRep;
 
     @Autowired
-    ClienteService clienteSer;
+    private ClienteService clienteSer;
 
 
     @GetMapping("/{id}")
@@ -38,12 +39,7 @@ public class ClienteController {
     @PostMapping
     public ResponseEntity<?> cadastrar(@RequestBody final Cliente cliente) {
         try {
-            Cliente cpfExistente = clienteRep.findByCpf(cliente.getCpf());
-            Assert.isTrue(cpfExistente == null || cpfExistente.equals(cliente),"Cliente já cadastrado!");
-            Cliente telefoneExistente = clienteRep.findByTelefone(cliente.getTelefone());
-            Assert.isTrue(telefoneExistente == null || telefoneExistente.equals(cliente),"Telefone já cadastrado!");
-            Cliente emailExistente = clienteRep.findByEmail(cliente.getEmail());
-            Assert.isTrue(emailExistente == null || emailExistente.equals(cliente),"Email já cadastrado!");
+
 
             this.clienteSer.VerificarCliente(cliente);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
@@ -54,24 +50,37 @@ public class ClienteController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editar(@PathVariable(value = "id") final Long id, @RequestBody @Valid Cliente cliente)throws Exception {
-        findById(id);
+    public ResponseEntity<?> editar(@PathVariable(value = "id") final Long id, @RequestBody @Valid Cliente cliente){
+        try {
 
-        Cliente clienteNovo = clienteRep.getById(id);
-        BeanUtils.copyProperties(cliente, clienteNovo, "id","cadastro", "ativo");
-        clienteSer.VerificarCliente(cliente);
-        return ResponseEntity.status(HttpStatus.OK).body(clienteNovo);
+            final Cliente cliente1 = this.clienteRep.findById(id).orElse(null);
 
+            if (cliente1 == null || !cliente1.getId().equals(cliente.getId())) {
+                throw new RuntimeException("Nao foi possivel indentificar o registro informado");
+            }
+
+            Cliente clienteNovo = clienteRep.getById(id);
+            BeanUtils.copyProperties(cliente, clienteNovo, "id", "cadastro", "ativo");
+
+
+            clienteSer.VerificarCliente(cliente);
+            return ResponseEntity.ok("Registro cadastrado com sucesso");
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("Error" + e .getMessage());
+        }
     }
 
-    @DeleteMapping("delete/{id}")
-    public void deleta(@PathVariable Long id) {
-        findById(id);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleta(@PathVariable Long id) {
 
-        if(clienteRep.getById(id).isAtivo()) {
-            clienteRep.getById(id).setAtivo(false);
+        try {
+
+            clienteSer.delete(id);
+            return ResponseEntity.ok("Desativado ou excluído");
         }
-        clienteRep.deleteById(id);
+        catch (Exception e){
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+        }
 
     }
 }

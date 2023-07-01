@@ -19,12 +19,12 @@ import java.util.List;
 public class CarrinhoService {
 
     @Autowired
-     CarrinhoRepository carrinhoRepo;
+     private CarrinhoRepository carrinhoRepo;
     @Autowired
-     ProdutoRepository produtoRepository;
+     private ProdutoRepository produtoRepository;
 
     @Autowired
-    ItemRepository itemRepository;
+    private ItemRepository itemRepository;
 
 
 
@@ -131,6 +131,11 @@ public class CarrinhoService {
                 Itens = new ArrayList<>();
         }
         return Itens;
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void delete(Long id ){
+            this.carrinhoRepo.deleteById(id);
     }
 
 }

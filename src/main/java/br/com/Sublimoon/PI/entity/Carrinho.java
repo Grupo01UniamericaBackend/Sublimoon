@@ -57,9 +57,4 @@ public class Carrinho extends  AbstractEntity{
     )
     private List<Item> Item;
 
-
-
-
-
-
 }

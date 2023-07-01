@@ -20,24 +20,12 @@ public class Produto  extends AbstractEntity {
     @Column (name = "catId")
     private Long idCat;*/
 
+
+    @Enumerated(EnumType.STRING)
     @Getter
     @Setter
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "produto_categoria",
-            uniqueConstraints = @UniqueConstraint(
-                    columnNames = {
-                            "produto_id",
-                            "categoria_id"
-                    }
-            ),
-            joinColumns = @JoinColumn(
-                    name = "produto_id"
-            ),
-            inverseJoinColumns = @JoinColumn(
-                    name = "categoria_id"
-            )
-    )
-    private List<Categoria> categorias;
+    @Column(name = "categoria", length = 15, nullable = false)
+    private Categoria categoria;
 
     @Enumerated(EnumType.STRING)
     @Getter

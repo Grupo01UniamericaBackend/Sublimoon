@@ -17,18 +17,12 @@ import br.com.Sublimoon.PI.service.AdmService;
 public class AdmController {
 
     @Autowired
-    final AdmRepository admRep;
+     private AdmRepository admRep;
 
     @Autowired
-    final AdmService admServ;
+     private AdmService admServ;
     @Autowired
-    final  ConfigRepository configRepository;
-
-    public AdmController(AdmRepository admRep, AdmService admServ, ConfigRepository configRepository) {
-        this.admRep = admRep;
-        this.admServ = admServ;
-        this.configRepository = configRepository;
-    }
+    private ConfigRepository configRepository;
 
 
     @GetMapping("/{id}")
@@ -47,13 +41,7 @@ public class AdmController {
     @PostMapping
     public ResponseEntity<?> cadastrarAdm(@RequestBody final Adm adm) {
         try {
-            Adm admExistente = admRep.findByTelefone(adm.getTelefone());
-            Assert.isTrue(admExistente == null || admExistente.equals(adm.getTelefone()), "Telefone já cadastrado");
-            Adm admExistente2 = admRep.findByEmail(adm.getEmail());
-            Assert.isTrue(admExistente2 == null || admExistente2.equals(adm.getEmail()),"Email já cadastrado");
-
             this.admServ.createAdm(adm);
-
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
@@ -61,40 +49,35 @@ public class AdmController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editarAdm(@PathVariable(value = "id")Long id, @RequestBody final Adm adm) {
+    public ResponseEntity<?> editarAdm(@PathVariable("id")Long id, @RequestBody final Adm adm) {
         try {
             final Adm adm1 = this.admRep.findById(id).orElse(null);
 
             if (adm1 == null) {
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
             }
-            findById(id);
 
             final Adm admNovo = admRep.getById(id);
 
             BeanUtils.copyProperties(adm, admNovo, "id","cadastro", "ativo");
-            this.admServ.createAdm(admNovo);
 
-
-           // this.admRep.save(adm);
+            this.admServ.createAdm(adm);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
-        } catch (DataIntegrityViolationException e) {
-            return ResponseEntity.internalServerError()
-                    .body("Error: " + e.getCause().getCause().getMessage());
-        } catch (RuntimeException e) {
+        }  catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
     }
 
-    @DeleteMapping("delete/{id}")
-    public void deletaAdm(@PathVariable Long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletaAdm(@PathVariable Long id) {
+        try {
 
-        findById(id);
-
-        if(admRep.getById(id).isAtivo()){
-            admRep.getById(id).setAtivo(false);
+            this.admServ.delete(id);
+            return ResponseEntity.ok("Desativado ou excluído");
         }
-        admRep.deleteById(id);
+        catch (RuntimeException e){
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+        }
 
     }
 

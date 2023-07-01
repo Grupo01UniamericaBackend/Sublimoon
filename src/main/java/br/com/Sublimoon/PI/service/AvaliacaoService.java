@@ -12,7 +12,7 @@ import org.springframework.util.Assert;
 public class AvaliacaoService {
 
     @Autowired
-    private AvaliacaoRepository AvaliacaoRep;
+    private AvaliacaoRepository avaliacaoRep;
 
     @Autowired
     private ClienteRepository clienteRep;
@@ -27,7 +27,17 @@ public class AvaliacaoService {
     Assert.isTrue(!avaliacao.getComentario().equals(""), "Comentario não pode ser nulo");
     Assert.isTrue(avaliacao.getComentario().length() <= 150, "Comentário deve conter até 150 caracteres");
 
-    this.AvaliacaoRep.save(avaliacao);
+    this.avaliacaoRep.save(avaliacao);
+
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void delete(Long id){
+
+        if(avaliacaoRep.getById(id).isAtivo()) {
+            avaliacaoRep.getById(id).setAtivo(false);
+        }
+        avaliacaoRep.deleteById(id);
 
     }
 
