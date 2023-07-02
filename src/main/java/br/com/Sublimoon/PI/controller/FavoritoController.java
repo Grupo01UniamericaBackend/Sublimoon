@@ -60,8 +60,10 @@ public class FavoritoController {
             }
 
 
-             BeanUtils.copyProperties(favorito, favoritoNovo, "id","cadastro", "ativo");
-
+            // BeanUtils.copyProperties(favorito, favoritoNovo, "id","cadastro", "ativo");
+             for(int i = 0; i <= favorito.getProdutos().size(); i++) {
+                 favoritoNovo.getProdutos().add(favorito.getProdutos().get(i));
+             }
             this.favoritoService.Favoritar(favorito);
             return ResponseEntity.ok("Registro alterado com sucesso");
 
