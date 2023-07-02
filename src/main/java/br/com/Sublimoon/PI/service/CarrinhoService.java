@@ -62,15 +62,21 @@ public class CarrinhoService {
             //BeanUtils.copyProperties(carrinhoNovo, carrinhoAntigo, "id");
             carrinhoAntigo.setItem(carrinhoNovo);
             for(int i = 0; i < carrinhoAntigo.getItem().size(); i ++){
+
                 Item itemNovo = carrinhoAntigo.getItem().get(i);
 
-                Produto produto = itemNovo.getProduto();
+                long idProduto = itemNovo.getProduto().getId();
+                Produto produto = produtoRepository.getById(idProduto);
                 float valorUnitario = produto.getPreco();
 
                 itemNovo.setValorUnit(valorUnitario);
                 itemNovo.setValor(itemNovo.getValorUnit() * itemNovo.getQuantidade());
                 itemNovo.setValorTotal(itemNovo.getValor());
                 carrinho.setSubTotal(carrinho.getSubTotal() + itemNovo.getValorTotal());
+
+                itemRepository.save(itemNovo);
+                carrinhoAntigo.getItem().set(i,itemNovo);
+                carrinhoAntigo.setSubTotal(carrinho.getSubTotal() + itemNovo.getValorTotal());
 
             }
 
