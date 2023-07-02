@@ -49,7 +49,7 @@ public class ProdutoController {
 
 
     @PostMapping
-    public ResponseEntity <?> cadastrar(@RequestBody final Produto produto, final Categoria categoria){
+    public ResponseEntity <?> cadastrar(@RequestBody final Produto produto){
         try {
             Produto produtoExistente = produtoRep.findByNome(produto.getNome());
             Assert.isTrue(produtoExistente == null || produtoExistente.equals(produto),"Nome já cadastrado!");
