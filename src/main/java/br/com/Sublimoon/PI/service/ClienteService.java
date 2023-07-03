@@ -28,12 +28,13 @@ public class ClienteService {
         Assert.isTrue(cliente.getCpf().length() <= 20 ,"O cpf deve ter no máximo 20 dígitos") ;
 
 
-        Cliente cpfExistente = clienteRepository.findByCpf(cliente.getCpf());
-        Assert.isTrue(cpfExistente == null || cpfExistente.equals(cliente),"Cliente já cadastrado!");
-        Cliente telefoneExistente = clienteRepository.findByTelefone(cliente.getTelefone());
-        Assert.isTrue(telefoneExistente == null || telefoneExistente.equals(cliente),"Telefone já cadastrado!");
-        Cliente emailExistente = clienteRepository.findByEmail(cliente.getEmail());
-        Assert.isTrue(emailExistente == null || emailExistente.equals(cliente),"Email já cadastrado!");
+       // Cliente cpfExistente = clienteRepository.findByCpf(cliente.getCpf());
+        //Assert.isTrue(cpfExistente == null || cpfExistente.equals(cliente),"Cliente já cadastrado!");
+        //Cliente telefoneExistente = clienteRepository.findByTelefone(cliente.getTelefone());
+        //Assert.isTrue(telefoneExistente == null || telefoneExistente.equals(cliente),"Telefone já cadastrado!");
+        //Cliente emailExistente = clienteRepository.findByEmail(cliente.getEmail());
+        //Assert.isTrue(emailExistente == null || emailExistente.equals(cliente),"Email já cadastrado!")
+
 
 
 
