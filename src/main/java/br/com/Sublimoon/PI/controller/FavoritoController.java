@@ -12,7 +12,6 @@ import br.com.Sublimoon.PI.entity.Favorito;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @Controller
@@ -51,6 +50,7 @@ public class FavoritoController {
     public ResponseEntity <?> ListaCompletaFavoritos(){
         return ResponseEntity.ok(this.favoritoRep.findAll());
     }
+
 
     @PostMapping
     public ResponseEntity cadastraFavorito(@RequestBody final Favorito favorito){

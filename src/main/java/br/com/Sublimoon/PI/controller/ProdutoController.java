@@ -47,6 +47,12 @@ public class ProdutoController {
 
     }
 
+    @GetMapping("/favorito/lista")
+    public ResponseEntity <?> ListaFavoritos(){
+        return ResponseEntity.ok(this.produtoRep.findByAtivo(false));
+
+    }
+
 
     @PostMapping
     public ResponseEntity <?> cadastrar(@RequestBody final Produto produto){
