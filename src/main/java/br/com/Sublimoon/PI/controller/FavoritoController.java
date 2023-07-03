@@ -75,7 +75,7 @@ public class FavoritoController {
             Favorito favoritoLista = favoritoRep.getById(id);
             // BeanUtils.copyProperties(favorito, favoritoNovo, "id","cadastro", "ativo");
              for(int i = 0; i < favorito.getProdutos().size(); i++) {
-                 favorito.getProdutos().get(i).setAtivo(true);
+                 //favorito.getProdutos().get(i).setAtivo(true);
                  favoritoLista.getProdutos().add(favorito.getProdutos().get(i));
              }
             this.favoritoService.Favoritar(favoritoLista);
@@ -86,6 +86,32 @@ public class FavoritoController {
 
          }
 
+    }
+    @GetMapping("favoritou/{id}/{produto}")
+    public ResponseEntity<?> Favorito(@PathVariable (value = "id") final Long id, @PathVariable (value = "produto") final long idProduto) {
+        try {
+            Favorito favorito = favoritoRep.getById(id);
+            List<Produto> favoritou = favorito.getProdutos();
+            boolean IsTrue = false;
+
+
+            for(int i = 0; i < favoritou.size(); i++){
+                if(favoritou.get(i).getId() == idProduto){
+                    favoritou.get(i).setAtivo(false);
+
+                    favoritou.remove(i);
+                    favorito.setProdutos(favoritou);
+                    IsTrue = true;
+                    favoritoRep.save(favorito);
+                    return ResponseEntity.ok(IsTrue);
+                }
+            }
+
+            return ResponseEntity.ok(IsTrue);
+        }
+        catch (Exception e){
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+        }
     }
 
 
