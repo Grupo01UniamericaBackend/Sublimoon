@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2ce9f60f-89c8-404c-8162-0883dae68d8c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/PiApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/configuracao/config.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/AdmController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/AvaliacaoController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/CarrinhoController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/ClienteController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/ConfigController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/EnvioController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/FavoritoController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/ItemController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/PedidoController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/ProdutoController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/AbstractEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Adm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Avaliacao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Carrinho.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Categoria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Cliente.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Config.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Cor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Envio.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Favorito.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Item.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Pedido.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Produto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Usuario.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/AdmRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/AvaliacaoRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/CarrinhoRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/ClienteRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/ConfigRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/EnvioRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/FavoritoRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/ItemRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/PedidoRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/ProdutoRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/AdmService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/AvaliacaoService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/CarrinhoService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/ClienteService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/ConfigService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/EnvioService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/FavoritoService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/PedidoService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/ProdutoService.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2S1jbHaDK8chZk9qgpIbHMXk4Hy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lenovo/Desktop/Sublimoon 07-02&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="PiApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.PI.PiApplication" />
+      <module name="Sublimoon 07-02" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.Sublimoon.PI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2ce9f60f-89c8-404c-8162-0883dae68d8c" name="Changes" comment="" />
+      <created>1688321050828</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1688321050828</updated>
+    </task>
+    <servers />
+  </component>
+</project>
