@@ -12,6 +12,7 @@ import br.com.Sublimoon.PI.entity.Favorito;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @Controller
@@ -24,15 +25,12 @@ public class FavoritoController {
     final FavoritoService favoritoService;
 
     @Autowired
-
     final ProdutoController produtoController;
     @Autowired
-
     final ProdutoService produtoService;
 
     @Autowired
     final  ProdutoRepository produtoRep;
-
 
     public FavoritoController(FavoritoRepository favoritoRep, FavoritoService favoritoService, ProdutoController produtoController, ProdutoService produtoService, ProdutoRepository produtoRep) {
         this.favoritoRep = favoritoRep;
@@ -53,7 +51,6 @@ public class FavoritoController {
     public ResponseEntity <?> ListaCompletaFavoritos(){
         return ResponseEntity.ok(this.favoritoRep.findAll());
     }
-
 
     @PostMapping
     public ResponseEntity cadastraFavorito(@RequestBody final Favorito favorito){
@@ -79,16 +76,11 @@ public class FavoritoController {
             }
 
             Favorito favoritoLista = favoritoRep.getById(id);
-
+            // BeanUtils.copyProperties(favorito, favoritoNovo, "id","cadastro", "ativo");
             for(int i = 0; i < favorito.getProdutos().size(); i++) {
+                //favorito.getProdutos().get(i).setAtivo(true);
                 favoritoLista.getProdutos().add(favorito.getProdutos().get(i));
             }
-
-             for(int i = 0; i < favorito.getProdutos().size(); i++) {
-                 //favorito.getProdutos().get(i).setAtivo(true);
-                 favoritoLista.getProdutos().add(favorito.getProdutos().get(i));
-             }
-
             this.favoritoService.Favoritar(favoritoLista);
             return ResponseEntity.ok("Registro alterado com sucesso");
 
@@ -98,12 +90,6 @@ public class FavoritoController {
         }
 
     }
-
-
-
-
-
-
     @GetMapping("favoritou/{id}")
     public ResponseEntity<?> Favorito(@PathVariable (value = "id") final Long id) {
         try {
@@ -122,7 +108,7 @@ public class FavoritoController {
                     if (produto1.equals(produto2)) {
                         produto1.setAtivo(false);
                     }
-                    
+
                 }
             }
 
@@ -138,21 +124,15 @@ public class FavoritoController {
     public ResponseEntity<?> deletaIdFavorito(@PathVariable (value = "id") final Long id, @PathVariable (value = "produto") final long idRemove) {
         try {
             Favorito favorito = favoritoRep.getById(id);
-
             List<Produto> remover = favorito.getProdutos();
             //Long idRemove = produto.getId();
 
             for(int i = 0; i < remover.size(); i++){
                 if(remover.get(i).getId() == idRemove){
 
-                    remover.remove(i);
-                    favorito.setProdutos(remover);
-
-
 
                     remover.remove(i);
                     favorito.setProdutos(remover);
-
 
                     favoritoRep.save(favorito);
                     return ResponseEntity.ok("Desativado ou excluído");
