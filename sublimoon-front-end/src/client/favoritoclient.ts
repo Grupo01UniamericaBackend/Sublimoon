@@ -1,6 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 
 import { Favorito } from '@/model/favorito';
+import { Produto } from '@/model/produto';
 
     class FavoritoClient{
 
@@ -20,6 +21,13 @@ import { Favorito } from '@/model/favorito';
             return Promise.reject(error.response.data)
         }
     }
+    public async Favorito(id: number): Promise<Produto[]> {
+        try {
+            return (await this.axiosClient.get<Produto[]>(`/favoritou/${id}`)).data
+        } catch (error:any) {
+            return Promise.reject(error.response.data)
+        }
+      }
 
     public async listaAll(): Promise<Favorito[]> {
         try {
@@ -45,7 +53,10 @@ import { Favorito } from '@/model/favorito';
         }
     }
 
+<<<<<<< HEAD
    
+=======
+>>>>>>> 8cd670a2282298a2417fcb78865ef5fa7ddafae8
     public async deletaFavorito(id: number, idProduto: number): Promise<string> {
         try {
             return (await this.axiosClient.delete<string>(`/delete/${id}/${idProduto}`)).data

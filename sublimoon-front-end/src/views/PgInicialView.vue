@@ -49,8 +49,13 @@
       >
         <img :src="item.imagem" class="card-img-top" alt="..." />
         <div class="card-body">
+<<<<<<< HEAD
           <h5 class="card-title">{{ item.nome }}</h5>
           <p class="card-text">R$ {{ item.preco }}</p>
+=======
+          <h5 class="card-title">{{ item.nome}} aaaa</h5>
+          <p class="card-text">R${{ item.preco }}</p>
+>>>>>>> 8cd670a2282298a2417fcb78865ef5fa7ddafae8
           <router-link
             type="button"
             class="btn btn-sm btn-primary"
@@ -58,8 +63,13 @@
           >
             Visualizar produto
           </router-link>
+<<<<<<< HEAD
           <img  class="fav"  @click="Favoritar(item)" v-if="item.ativo == false" src="../assets/contorno-em-forma-de-coracao.png" />
           <img class="fav" @click="Desfavoritar(item)" v-if="item.ativo == true" src="../assets/silhueta-em-forma-de-coracao.png" />
+=======
+          <img  class="fav"  @click="Favoritar(item)" v-if=" item.ativo == true" src="../assets/contorno-em-forma-de-coracao.png" />
+          <img class="fav" @click="Desfavoritar(item)" v-if=" item.ativo == false" src="../assets/silhueta-em-forma-de-coracao.png" />
+>>>>>>> 8cd670a2282298a2417fcb78865ef5fa7ddafae8
         </div>
       </div>
     </div>
@@ -80,15 +90,24 @@ export default defineComponent({
     return {
       ProdutosList: new Array<Produto>(),
       produto: new Produto(),
+<<<<<<< HEAD
       favorito: new Favorito()
+=======
+      favorito: new Favorito(),
+      isTrue: new Boolean(),
+      coracao: new Boolean()
+     
+>>>>>>> 8cd670a2282298a2417fcb78865ef5fa7ddafae8
     };
   },
   mounted() {
     this.findAll();
+   
+  
   },
   methods: {
     findAll() {
-      ProdutoClient.listaAll()
+      FavoritoClient.Favorito(1)
         .then((sucess) => {
           this.ProdutosList = sucess;
 
@@ -98,6 +117,7 @@ export default defineComponent({
           console.log(error);
         });
     },
+<<<<<<< HEAD
     Favoritar(item: Produto) {
 
 this.favorito.produtos = [item]
@@ -125,6 +145,35 @@ FavoritoClient.deletaFavorito(3, item.id)
 
 },
 },
+=======
+       Favoritar(item: Produto) {
+
+      this.favorito.produtos = [item]
+      FavoritoClient.editar(1, this.favorito)
+        .then((sucess) => {
+          this.favorito = new Favorito();
+
+         console.log(sucess)
+        })
+        .catch((error) => {
+          console.log(error)
+        });
+    },
+    Desfavoritar(item: Produto) {
+      
+      FavoritoClient.deletaFavorito(1, item.id)
+      .then((sucess) => {
+          this.favorito = new Favorito();
+
+         console.log(sucess)
+        })
+        .catch((error) => {
+          console.log(error)
+        });
+      
+    },
+  },
+>>>>>>> 8cd670a2282298a2417fcb78865ef5fa7ddafae8
 });
 </script>
 

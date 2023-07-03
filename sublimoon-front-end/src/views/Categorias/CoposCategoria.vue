@@ -11,7 +11,7 @@
         class="card"
         style="width: 18rem"
       >
-        <img src="{{ item.imagem }}" class="card-img-top" alt="..." />
+        <img :src="item.imagem" class="card-img-top" alt="..."  />
         <div class="card-body">
           <h5 class="card-title">{{ item.nome }}</h5>
           <p class="card-text">R${{ item.preco }}</p>
