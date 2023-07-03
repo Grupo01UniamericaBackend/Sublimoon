@@ -75,6 +75,7 @@ public class FavoritoController {
             Favorito favoritoLista = favoritoRep.getById(id);
             // BeanUtils.copyProperties(favorito, favoritoNovo, "id","cadastro", "ativo");
              for(int i = 0; i < favorito.getProdutos().size(); i++) {
+                 favorito.getProdutos().get(i).setAtivo(true);
                  favoritoLista.getProdutos().add(favorito.getProdutos().get(i));
              }
             this.favoritoService.Favoritar(favoritoLista);
@@ -98,8 +99,11 @@ public class FavoritoController {
 
             for(int i = 0; i < remover.size(); i++){
                 if(remover.get(i).getId() == idRemove){
+                    remover.get(i).setAtivo(false);
+
                     remover.remove(i);
                     favorito.setProdutos(remover);
+
                     favoritoRep.save(favorito);
                     return ResponseEntity.ok("Desativado ou excluído");
                 }
