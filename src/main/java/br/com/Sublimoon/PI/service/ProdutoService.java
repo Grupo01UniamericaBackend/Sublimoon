@@ -61,4 +61,12 @@ public class ProdutoService {
         this.produtoRep.deleteById(id);
     }
 
+    @Transactional(rollbackFor = Exception.class)
+    public void fav (Produto produto){
+
+        produto.setAtivo(true);
+
+        this.produtoRep.save(produto);
+    }
+
 }
