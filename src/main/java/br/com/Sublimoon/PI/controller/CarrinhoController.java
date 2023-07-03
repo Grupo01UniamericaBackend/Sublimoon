@@ -49,7 +49,7 @@ public class CarrinhoController {
         try {
             final Carrinho carrinho1 = this.carrinhoRepository.findById(id).orElse(null);
 
-            if (carrinho1 == null || !carrinho1.getId().equals(carrinho.getId())) {
+            if (carrinho1 == null) {
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
             }
             this.carrinhoService.addCarrinho(id,carrinho);
