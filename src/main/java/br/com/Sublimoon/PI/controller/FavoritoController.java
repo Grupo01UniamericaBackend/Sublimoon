@@ -25,14 +25,20 @@ public class FavoritoController {
     final FavoritoService favoritoService;
 
     @Autowired
+
+    final ProdutoController produtoController;
+    @Autowired
+
     final ProdutoService produtoService;
 
     @Autowired
     final  ProdutoRepository produtoRep;
 
-    public FavoritoController(FavoritoRepository favoritoRep, FavoritoService favoritoService, ProdutoService produtoService, ProdutoRepository produtoRep) {
+
+    public FavoritoController(FavoritoRepository favoritoRep, FavoritoService favoritoService, ProdutoController produtoController, ProdutoService produtoService, ProdutoRepository produtoRep) {
         this.favoritoRep = favoritoRep;
         this.favoritoService = favoritoService;
+        this.produtoController = produtoController;
         this.produtoService = produtoService;
         this.produtoRep = produtoRep;
     }
@@ -73,10 +79,16 @@ public class FavoritoController {
             }
 
             Favorito favoritoLista = favoritoRep.getById(id);
-            // BeanUtils.copyProperties(favorito, favoritoNovo, "id","cadastro", "ativo");
+
             for(int i = 0; i < favorito.getProdutos().size(); i++) {
                 favoritoLista.getProdutos().add(favorito.getProdutos().get(i));
             }
+
+             for(int i = 0; i < favorito.getProdutos().size(); i++) {
+                 //favorito.getProdutos().get(i).setAtivo(true);
+                 favoritoLista.getProdutos().add(favorito.getProdutos().get(i));
+             }
+
             this.favoritoService.Favoritar(favoritoLista);
             return ResponseEntity.ok("Registro alterado com sucesso");
 
@@ -89,17 +101,59 @@ public class FavoritoController {
 
 
 
+
+
+
+    @GetMapping("favoritou/{id}")
+    public ResponseEntity<?> Favorito(@PathVariable (value = "id") final Long id) {
+        try {
+            Favorito favorito = favoritoRep.getById(id);
+
+            List<Produto> produtos = produtoRep.findAll();
+
+            List<Produto> favoritou = favorito.getProdutos();
+            long idProduto;
+            long idFavorito;
+            boolean IsTrue = false;
+
+            for (Produto produto1 : produtos) {
+                produto1.setAtivo(true);
+                for (Produto produto2 : favoritou) {
+                    if (produto1.equals(produto2)) {
+                        produto1.setAtivo(false);
+                    }
+                    
+                }
+            }
+
+
+            return ResponseEntity.ok(produtos);
+        }
+        catch (Exception e){
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+        }
+    }
+
     @DeleteMapping("delete/{id}/{produto}")
     public ResponseEntity<?> deletaIdFavorito(@PathVariable (value = "id") final Long id, @PathVariable (value = "produto") final long idRemove) {
         try {
             Favorito favorito = favoritoRep.getById(id);
+
             List<Produto> remover = favorito.getProdutos();
             //Long idRemove = produto.getId();
 
             for(int i = 0; i < remover.size(); i++){
                 if(remover.get(i).getId() == idRemove){
+
                     remover.remove(i);
                     favorito.setProdutos(remover);
+
+
+
+                    remover.remove(i);
+                    favorito.setProdutos(remover);
+
+
                     favoritoRep.save(favorito);
                     return ResponseEntity.ok("Desativado ou excluído");
                 }
