@@ -66,7 +66,7 @@ public class FavoritoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<?> updateFavorito(@PathVariable(value = "id") final Long id,@RequestBody Favorito favorito){
-         try {
+        try {
             final Favorito favoritoNovo = this.favoritoRep.findById(id).orElse(null);
 
             if(favoritoNovo == null ){
@@ -77,17 +77,17 @@ public class FavoritoController {
 
             Favorito favoritoLista = favoritoRep.getById(id);
             // BeanUtils.copyProperties(favorito, favoritoNovo, "id","cadastro", "ativo");
-             for(int i = 0; i < favorito.getProdutos().size(); i++) {
-                 //favorito.getProdutos().get(i).setAtivo(true);
-                 favoritoLista.getProdutos().add(favorito.getProdutos().get(i));
-             }
+            for(int i = 0; i < favorito.getProdutos().size(); i++) {
+                //favorito.getProdutos().get(i).setAtivo(true);
+                favoritoLista.getProdutos().add(favorito.getProdutos().get(i));
+            }
             this.favoritoService.Favoritar(favoritoLista);
             return ResponseEntity.ok("Registro alterado com sucesso");
 
-         } catch(Exception e){
-             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+        } catch(Exception e){
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
 
-         }
+        }
 
     }
     @GetMapping("favoritou/{id}")
@@ -108,7 +108,7 @@ public class FavoritoController {
                     if (produto1.equals(produto2)) {
                         produto1.setAtivo(false);
                     }
-                    
+
                 }
             }
 

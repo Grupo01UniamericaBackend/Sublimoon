@@ -32,7 +32,7 @@ public class Item {
     private Produto produto;
     @Getter @Setter
     @Column(name = "quantidade", nullable = false)
-    private int quantidade;
+    private int quantidade; 
     @Getter @Setter
     @Column(name = "valor")
     private float valor;

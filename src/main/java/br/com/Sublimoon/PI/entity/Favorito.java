@@ -11,7 +11,7 @@ public class Favorito extends AbstractEntity{
 
 
     @Getter @Setter
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "favorito_produto",
             uniqueConstraints = @UniqueConstraint(
                     columnNames = {
@@ -30,7 +30,7 @@ public class Favorito extends AbstractEntity{
     private List<Produto>produtos;
 
     @Getter @Setter
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinTable(name = "favorito_cliente",
             uniqueConstraints = @UniqueConstraint(
                     columnNames = {

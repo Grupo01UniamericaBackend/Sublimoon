@@ -34,6 +34,8 @@ public class ProdutoController {
         return ResponseEntity.ok(produto);
     }
 
+
+
     @GetMapping("/categoria/{categoria}")
     public ResponseEntity<?> findByCategoria(@PathVariable("categoria") Categoria categoria) {
 
@@ -41,9 +43,17 @@ public class ProdutoController {
 
     }
 
+
+
     @GetMapping("/lista")
     public ResponseEntity <?> Lista(){
         return ResponseEntity.ok(this.produtoRep.findAll());
+
+    }
+
+    @GetMapping("/favorito/lista")
+    public ResponseEntity <?> ListaFavoritos(){
+        return ResponseEntity.ok(this.produtoRep.findByAtivo(false));
 
     }
 
@@ -81,6 +91,27 @@ public class ProdutoController {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
     }
+
+    @PutMapping("/fav/{id}")
+    public ResponseEntity<?> fav(@PathVariable("id") final Long id, @RequestBody final Produto produto){
+        try {
+            final Produto produto1 = this.produtoRep.findById(id).orElse(null);
+
+            if (produto1 == null ){
+                throw new RuntimeException("Nao foi possivel indentificar o registro informado");
+            }
+
+            final Produto produtoNovo = produtoRep.getById(id);
+            BeanUtils.copyProperties(produto, produtoNovo, "id","cadastro");
+
+            this.produtoService.fav(produto);
+            return ResponseEntity.ok("Registro Cadastrado com Sucesso");
+        }
+        catch (Exception e){
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+        }
+    }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleta(@PathVariable Long id){
