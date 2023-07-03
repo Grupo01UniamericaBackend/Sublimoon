@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "axios": "^1.4.0",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@types/vue": "^2.0.0",
+    "@types/webpack-env": "^1.18.1"
+  }
+}
