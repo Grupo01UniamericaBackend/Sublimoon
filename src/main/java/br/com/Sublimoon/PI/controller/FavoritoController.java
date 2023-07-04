@@ -94,8 +94,9 @@ public class FavoritoController {
     public ResponseEntity<?> Favorito(@PathVariable (value = "id") final Long id) {
         try {
             Favorito favorito = favoritoRep.getById(id);
+            List<Produto>produtos = produtoRep.findAll();
 
-            List<Produto> produtos = produtoRep.findAll();
+
 
             List<Produto> favoritou = favorito.getProdutos();
             long idProduto;
