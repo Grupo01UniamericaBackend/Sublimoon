@@ -1,5 +1,6 @@
 package br.com.Sublimoon.PI.controller;
 
+import br.com.Sublimoon.PI.DTO.AdmDTO;
 import br.com.Sublimoon.PI.entity.Adm;
 import br.com.Sublimoon.PI.repository.AdmRepository;
 import br.com.Sublimoon.PI.repository.ConfigRepository;
@@ -39,9 +40,11 @@ public class AdmController {
 
 
     @PostMapping
-    public ResponseEntity<?> cadastrarAdm(@RequestBody final Adm adm) {
+    public ResponseEntity<?> cadastrarAdm(@RequestBody final AdmDTO adm) {
         try {
-            this.admServ.createAdm(adm);
+            Adm adm1 = new Adm();
+            BeanUtils.copyProperties(adm,adm1);
+            this.admServ.createAdm(adm1);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
