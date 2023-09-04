@@ -5,15 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ce9f60f-89c8-404c-8162-0883dae68d8c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/PI/DTO/AbstractEntityDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/PI/DTO/AdmDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/PI/DTO/AvaliacaoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/PI/DTO/CarrinhoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/PI/DTO/ClienteDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/PI/DTO/ConfigDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/PI/DTO/EnvioDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/PI/DTO/FavoritoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/PI/DTO/ItemDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/PI/DTO/PedidoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/PI/DTO/ProdutoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/PI/DTO/UsuarioDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/PI/controller/FavoritoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/PI/controller/FavoritoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/FavoritoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/FavoritoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/ProdutoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/ProdutoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/AbstractEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/AbstractEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Favorito.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Favorito.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/ProdutoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/ProdutoRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/ClienteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/ClienteService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/ProdutoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/ProdutoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,17 +40,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lenovo/Desktop/Sublimoon 07-02&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Lenovo/Documents/desenvolvimento/sublimoon"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="br.com.Sublimoon.PI.DTO" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="PiApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.PI.PiApplication" />
-      <module name="Sublimoon 07-02" />
+      <module name="sublimoon" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="br.com.Sublimoon.PI.*" />
