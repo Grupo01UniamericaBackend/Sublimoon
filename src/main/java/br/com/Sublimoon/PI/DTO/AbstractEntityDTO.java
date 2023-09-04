@@ -22,15 +22,6 @@ abstract public class AbstractEntityDTO {
 
     private boolean ativo;
 
-    @PrePersist
-    private void prePersist(){
-        this.cadastro = LocalDateTime.now();
-        this.ativo = false;
-    }
 
-    @PreUpdate
-    private void proUpdate(){
-        this.edicao = LocalDateTime.now();
-    }
 
 }

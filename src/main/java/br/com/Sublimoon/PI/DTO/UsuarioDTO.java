@@ -23,15 +23,6 @@ public class UsuarioDTO {
 
     private String email;
 
-    @PrePersist
-    private void prePersist(){
-        this.cadastro = LocalDateTime.now();
-        this.ativo = true;
-    }
 
-    @PreUpdate
-    private void proUpdate(){
-        this.edicao = LocalDateTime.now();
-    }
 
 }
