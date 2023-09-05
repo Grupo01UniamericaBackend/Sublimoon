@@ -1,5 +1,7 @@
 package br.com.Sublimoon.PI.controller;
 
+import br.com.Sublimoon.PI.DTO.EnvioDTO;
+import br.com.Sublimoon.PI.entity.Adm;
 import br.com.Sublimoon.PI.entity.Categoria;
 import br.com.Sublimoon.PI.repository.EnvioRepository;
 import br.com.Sublimoon.PI.service.EnvioService;
@@ -35,9 +37,11 @@ public class EnvioController {
     }
 
     @PostMapping
-    public ResponseEntity <?> cadastrarEnvio(@RequestBody final Envio envio){
+    public ResponseEntity <?> cadastrarEnvio(@RequestBody final EnvioDTO envio){
         try {
-            this.envioServ.validaEnvio(envio);
+            Envio envio1 = new Envio();
+            BeanUtils.copyProperties(envio,envio1);
+            this.envioServ.validaEnvio(envio1);
             return ResponseEntity.ok("Envio cadastrado com sucesso");
         }
         catch (Exception e){
@@ -46,7 +50,7 @@ public class EnvioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editar(@PathVariable("id") final Long id, @RequestBody final Envio envio) {
+    public ResponseEntity<?> editar(@PathVariable("id") final Long id, @RequestBody final EnvioDTO envio) {
         try {
             final Envio envio1 = this.envioRepository.findById(id).orElse(null);
 
@@ -57,7 +61,7 @@ public class EnvioController {
             final Envio envioNovo = envioRepository.getById(id);
             BeanUtils.copyProperties(envio, envioNovo, "id","cadastro", "ativo");
 
-            this.envioServ.validaEnvio(envio);
+            this.envioServ.validaEnvio(envioNovo);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
 
         }  catch (Exception e) {

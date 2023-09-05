@@ -1,6 +1,8 @@
 package br.com.Sublimoon.PI.controller;
 
 
+import br.com.Sublimoon.PI.DTO.AvaliacaoDTO;
+import br.com.Sublimoon.PI.entity.Adm;
 import br.com.Sublimoon.PI.entity.Avaliacao;
 import br.com.Sublimoon.PI.repository.AvaliacaoRepository;
 import org.springframework.beans.BeanUtils;
@@ -37,9 +39,11 @@ public class AvaliacaoController {
 
 
     @PostMapping
-    public ResponseEntity<?> cadastrarAvaliacao(@RequestBody final Avaliacao avaliacao) {
+    public ResponseEntity<?> cadastrarAvaliacao(@RequestBody final AvaliacaoDTO avaliacao) {
         try {
-            this.avaliacaoServ.createAvaliacao(avaliacao);
+            Avaliacao avaliacao1 = new Avaliacao();
+            BeanUtils.copyProperties(avaliacao,avaliacao1);
+            this.avaliacaoServ.createAvaliacao(avaliacao1);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
@@ -47,7 +51,7 @@ public class AvaliacaoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editarAvaliacao(@PathVariable(value = "id") final Long id, @RequestBody final Avaliacao avaliacao) {
+    public ResponseEntity<?> editarAvaliacao(@PathVariable(value = "id") final Long id, @RequestBody final AvaliacaoDTO avaliacao) {
         try {
             final Avaliacao avaliacao1 = this.avaliacaoRepository.findById(id).orElse(null);
 
@@ -59,7 +63,7 @@ public class AvaliacaoController {
 
             BeanUtils.copyProperties(avaliacao, avaliacaoNovo, "id","cadastro", "ativo");
 
-            this.avaliacaoServ.createAvaliacao(avaliacao);
+            this.avaliacaoServ.createAvaliacao(avaliacaoNovo);
 
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
         }  catch (RuntimeException e) {

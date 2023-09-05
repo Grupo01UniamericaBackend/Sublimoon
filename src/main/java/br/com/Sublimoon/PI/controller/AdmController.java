@@ -52,7 +52,7 @@ public class AdmController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editarAdm(@PathVariable("id")Long id, @RequestBody final Adm adm) {
+    public ResponseEntity<?> editarAdm(@PathVariable("id")Long id, @RequestBody final AdmDTO adm) {
         try {
             final Adm adm1 = this.admRep.findById(id).orElse(null);
 
@@ -62,9 +62,10 @@ public class AdmController {
 
             final Adm admNovo = admRep.getById(id);
 
+
             BeanUtils.copyProperties(adm, admNovo, "id","cadastro", "ativo");
 
-            this.admServ.createAdm(adm);
+            this.admServ.createAdm(admNovo);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
         }  catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());

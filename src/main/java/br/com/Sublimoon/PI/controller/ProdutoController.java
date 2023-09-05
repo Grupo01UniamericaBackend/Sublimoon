@@ -1,6 +1,7 @@
 package br.com.Sublimoon.PI.controller;
 
-import br.com.Sublimoon.PI.entity.Categoria;
+import br.com.Sublimoon.PI.DTO.ProdutoDTO;
+import br.com.Sublimoon.PI.entity.*;
 import br.com.Sublimoon.PI.service.ProdutoService;
 import br.com.Sublimoon.PI.repository.ProdutoRepository;
 import org.springframework.beans.BeanUtils;
@@ -11,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.dao.DataIntegrityViolationException;
-import br.com.Sublimoon.PI.entity.Produto;
-import br.com.Sublimoon.PI.entity.Cor;
 import br.com.Sublimoon.PI.entity.Categoria;
 
 
@@ -59,12 +58,14 @@ public class ProdutoController {
 
 
     @PostMapping
-    public ResponseEntity <?> cadastrar(@RequestBody final Produto produto){
+    public ResponseEntity <?> cadastrar(@RequestBody final ProdutoDTO produto){
         try {
+            Produto produto1 = new Produto();
+            BeanUtils.copyProperties(produto,produto1);
             Produto produtoExistente = produtoRep.findByNome(produto.getNome());
             Assert.isTrue(produtoExistente == null || produtoExistente.equals(produto),"Nome já cadastrado!");
 
-            produtoService.cadastrar(produto);
+            produtoService.cadastrar(produto1);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         }
         catch (Exception e){
@@ -73,7 +74,7 @@ public class ProdutoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editarProduto(@PathVariable("id") final Long id, @RequestBody final Produto produto){
+    public ResponseEntity<?> editarProduto(@PathVariable("id") final Long id, @RequestBody final ProdutoDTO produto){
         try {
             final Produto produto1 = this.produtoRep.findById(id).orElse(null);
 

@@ -1,5 +1,7 @@
 package br.com.Sublimoon.PI.controller;
 
+import br.com.Sublimoon.PI.DTO.PedidoDTO;
+import br.com.Sublimoon.PI.entity.Adm;
 import br.com.Sublimoon.PI.entity.Favorito;
 import br.com.Sublimoon.PI.repository.PedidoRepository;
 
@@ -39,9 +41,11 @@ public class PedidoController {
     }
 
     @PostMapping
-    public ResponseEntity <?> cadastrarPedido(@RequestBody final Pedido pedido){
+    public ResponseEntity <?> cadastrarPedido(@RequestBody final PedidoDTO pedido){
         try {
-            pedidoService.verificarPedido(pedido);
+           Pedido pedido1 = new Pedido();
+            BeanUtils.copyProperties(pedido,pedido1);
+            pedidoService.verificarPedido(pedido1);
             return ResponseEntity.ok("Pedido cadastrado com sucesso");
         }
         catch (Exception e){
@@ -50,7 +54,7 @@ public class PedidoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateFavorito(@PathVariable("id") final Long id,@RequestBody Pedido pedido){
+    public ResponseEntity<?> updateFavorito(@PathVariable("id") final Long id,@RequestBody PedidoDTO pedido){
         try {
             final Pedido pedido1 = this.pedidoRep.findById(id).orElse(null);
 
@@ -63,7 +67,7 @@ public class PedidoController {
 
             BeanUtils.copyProperties(pedido, pedido1, "id","cadastro", "ativo");
 
-            this.pedidoService.verificarPedido(pedido);
+            this.pedidoService.verificarPedido(pedido1);
             return ResponseEntity.ok("Registro alterado com sucesso");
 
         } catch(Exception e){

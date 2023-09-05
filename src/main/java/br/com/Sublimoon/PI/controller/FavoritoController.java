@@ -1,10 +1,13 @@
 package br.com.Sublimoon.PI.controller;
 
+import br.com.Sublimoon.PI.DTO.FavoritoDTO;
+import br.com.Sublimoon.PI.entity.Adm;
 import br.com.Sublimoon.PI.entity.Produto;
 import br.com.Sublimoon.PI.repository.FavoritoRepository;
 import br.com.Sublimoon.PI.repository.ProdutoRepository;
 import br.com.Sublimoon.PI.service.FavoritoService;
 import br.com.Sublimoon.PI.service.ProdutoService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,10 +56,11 @@ public class FavoritoController {
     }
 
     @PostMapping
-    public ResponseEntity cadastraFavorito(@RequestBody final Favorito favorito){
+    public ResponseEntity cadastraFavorito(@RequestBody final FavoritoDTO favorito){
         try {
-
-            favoritoService.Favoritar(favorito);
+            Favorito favorito1 = new Favorito();
+            BeanUtils.copyProperties(favorito,favorito1);
+            favoritoService.Favoritar(favorito1);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         }
         catch (DataIntegrityViolationException e){
@@ -65,7 +69,7 @@ public class FavoritoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateFavorito(@PathVariable(value = "id") final Long id,@RequestBody Favorito favorito){
+    public ResponseEntity<?> updateFavorito(@PathVariable(value = "id") final Long id,@RequestBody FavoritoDTO favorito){
         try {
             final Favorito favoritoNovo = this.favoritoRep.findById(id).orElse(null);
 

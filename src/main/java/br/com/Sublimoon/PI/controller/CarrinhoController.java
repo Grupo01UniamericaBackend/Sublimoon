@@ -1,8 +1,12 @@
 package br.com.Sublimoon.PI.controller;
 
+import br.com.Sublimoon.PI.DTO.CarrinhoDTO;
+import br.com.Sublimoon.PI.entity.Adm;
+import br.com.Sublimoon.PI.entity.Avaliacao;
 import br.com.Sublimoon.PI.entity.Carrinho;
 import br.com.Sublimoon.PI.repository.CarrinhoRepository;
 import br.com.Sublimoon.PI.service.CarrinhoService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
@@ -35,9 +39,11 @@ public class CarrinhoController {
 
 
     @PostMapping
-    public ResponseEntity<?> cadastrar(@RequestBody final Carrinho carrinho) {
+    public ResponseEntity<?> cadastrar(@RequestBody final CarrinhoDTO carrinho) {
         try {
-            this.carrinhoService.createCarrinho(carrinho);
+            Carrinho carrinho1 = new Carrinho();
+            BeanUtils.copyProperties(carrinho,carrinho1);
+            this.carrinhoService.createCarrinho(carrinho1);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
@@ -45,14 +51,19 @@ public class CarrinhoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editar(@PathVariable(value = "id") final Long id, @RequestBody final Carrinho carrinho) {
+    public ResponseEntity<?> editar(@PathVariable(value = "id") final Long id, @RequestBody final CarrinhoDTO carrinho) {
         try {
             final Carrinho carrinho1 = this.carrinhoRepository.findById(id).orElse(null);
 
             if (carrinho1 == null) {
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
             }
-            this.carrinhoService.addCarrinho(id,carrinho);
+            final Carrinho carrinhoNovo = carrinhoRepository.getById(id);
+
+            BeanUtils.copyProperties(carrinho, carrinhoNovo, "id","cadastro", "ativo");
+
+            this.carrinhoService.createCarrinho(carrinhoNovo);
+            this.carrinhoService.addCarrinho(id,carrinhoNovo);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
         }  catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());

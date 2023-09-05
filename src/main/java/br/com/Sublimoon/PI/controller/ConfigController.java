@@ -1,5 +1,7 @@
 package br.com.Sublimoon.PI.controller;
 
+import br.com.Sublimoon.PI.DTO.ConfigDTO;
+import br.com.Sublimoon.PI.entity.Adm;
 import br.com.Sublimoon.PI.entity.Config;
 import br.com.Sublimoon.PI.repository.ConfigRepository;
 import br.com.Sublimoon.PI.service.ConfigService;
@@ -36,9 +38,11 @@ public class ConfigController {
 
 
     @PostMapping
-    public ResponseEntity<?> cadastrar(@RequestBody final Config config) {
+    public ResponseEntity<?> cadastrar(@RequestBody final ConfigDTO config) {
         try {
-            this.configRep.save(config);
+            Config config1 = new Config();
+            BeanUtils.copyProperties(config,config1);
+            this.configRep.save(config1);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (DataIntegrityViolationException e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getCause().getCause().getMessage());
@@ -46,7 +50,7 @@ public class ConfigController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editar(@PathVariable(value = "id") final Long id, @RequestBody final Config config) {
+    public ResponseEntity<?> editar(@PathVariable(value = "id") final Long id, @RequestBody final ConfigDTO config) {
         try {
             final Config config1 = this.configRep.findById(id).orElse(null);
 
@@ -59,7 +63,7 @@ public class ConfigController {
 
             BeanUtils.copyProperties(config, configNovo, "id","cadastro", "ativo");
 
-            this.configRep.save(config);
+            this.configRep.save(configNovo);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
         } catch (DataIntegrityViolationException e) {
             return ResponseEntity.internalServerError()

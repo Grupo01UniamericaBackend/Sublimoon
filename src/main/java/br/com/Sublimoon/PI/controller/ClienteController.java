@@ -1,5 +1,7 @@
 package br.com.Sublimoon.PI.controller;
 
+import br.com.Sublimoon.PI.DTO.ClienteDTO;
+import br.com.Sublimoon.PI.entity.Adm;
 import br.com.Sublimoon.PI.entity.Carrinho;
 import br.com.Sublimoon.PI.entity.Cliente;
 import br.com.Sublimoon.PI.repository.ClienteRepository;
@@ -37,11 +39,12 @@ public class ClienteController {
 
 
     @PostMapping
-    public ResponseEntity<?> cadastrar(@RequestBody final Cliente cliente) {
+    public ResponseEntity<?> cadastrar(@RequestBody final ClienteDTO cliente) {
         try {
+            Cliente cliente1 = new Cliente();
+            BeanUtils.copyProperties(cliente,cliente1);
 
-
-            this.clienteSer.VerificarCliente(cliente);
+            this.clienteSer.VerificarCliente(cliente1);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
@@ -50,7 +53,7 @@ public class ClienteController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editar(@PathVariable(value = "id") final Long id, @RequestBody @Valid Cliente cliente){
+    public ResponseEntity<?> editar(@PathVariable(value = "id") final Long id, @RequestBody @Valid ClienteDTO cliente){
         try {
 
             final Cliente cliente1 = this.clienteRep.findById(id).orElse(null);
@@ -63,7 +66,7 @@ public class ClienteController {
             BeanUtils.copyProperties(cliente, clienteNovo, "id", "cadastro", "ativo");
 
 
-            clienteSer.VerificarCliente(cliente);
+            clienteSer.VerificarCliente(clienteNovo);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error" + e .getMessage());
