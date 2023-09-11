@@ -1,11 +1,12 @@
 package br.com.Sublimoon.PI.service;
-
+import br.com.Sublimoon.PI.DTO.PedidoDTO;
 import br.com.Sublimoon.PI.entity.Carrinho;
 import br.com.Sublimoon.PI.entity.Envio;
 import br.com.Sublimoon.PI.entity.Pedido;
 import br.com.Sublimoon.PI.repository.CarrinhoRepository;
 import br.com.Sublimoon.PI.repository.EnvioRepository;
 import br.com.Sublimoon.PI.repository.PedidoRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,8 +24,10 @@ public class PedidoService {
 
 
     @Transactional(rollbackFor = Exception.class)
-    public Pedido verificarPedido(final Pedido pedido){
+    public Pedido verificarPedido(final PedidoDTO pedidoDTO){
 
+        var pedido = new Pedido();
+        BeanUtils.copyProperties(pedidoDTO,pedido);
 
         Assert.isTrue(!pedido.getPagamento().equals(""),"Pagamento nao pode ser nulo!!");
         Assert.isTrue(!pedido.getEndereco().equals(""),"O Endereço n pode ser nulo!!");

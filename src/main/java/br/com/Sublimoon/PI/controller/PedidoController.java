@@ -41,12 +41,10 @@ public class PedidoController {
     }
 
     @PostMapping
-    public ResponseEntity <?> cadastrarPedido(@RequestBody final PedidoDTO pedido){
+    public ResponseEntity <?> cadastrarPedido(@RequestBody final PedidoDTO pedidoDTO){
         try {
-           Pedido pedido1 = new Pedido();
-            BeanUtils.copyProperties(pedido,pedido1);
-            pedidoService.verificarPedido(pedido1);
-            return ResponseEntity.ok("Pedido cadastrado com sucesso");
+            pedidoService.verificarPedido(pedidoDTO);
+            return ResponseEntity.ok("Pedido cadastrado com sucesso!!");
         }
         catch (Exception e){
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
@@ -54,27 +52,23 @@ public class PedidoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateFavorito(@PathVariable("id") final Long id,@RequestBody PedidoDTO pedido){
+    public ResponseEntity<?> updateFavorito(@PathVariable("id") final Long id,@RequestBody Pedido pedido) {
         try {
-            final Pedido pedido1 = this.pedidoRep.findById(id).orElse(null);
+            pedidoService.editarpedido(pedido);
+            final Pedido pedido1 =this.pedidoRep.findById(id).orElse(null);
 
-            if(pedido1 == null ){
-
-                throw new RuntimeException("Nao foi possivel indentificar o registro informado");
-
+            if (pedido1 == null || !pedido1.getId().equals(pedido1.getId())){
+                throw new RuntimeException("Nao foi possivel indentificar o Pedido informado");
             }
-
-
-            BeanUtils.copyProperties(pedido, pedido1, "id","cadastro", "ativo");
-
-            this.pedidoService.verificarPedido(pedido1);
-            return ResponseEntity.ok("Registro alterado com sucesso");
-
-        } catch(Exception e){
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
-
+            return ResponseEntity.ok("Pedido editado no estoque com Sucesso");
         }
-
+        catch (DataIntegrityViolationException e){
+            return ResponseEntity.internalServerError()
+                    .body("Error: " + e.getCause().getCause().getMessage());
+        }
+        catch (RuntimeException e){
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+        }
     }
 
     @DeleteMapping("delete/{id}")
