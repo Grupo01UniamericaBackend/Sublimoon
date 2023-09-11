@@ -14,8 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.dao.DataIntegrityViolationException;
 import br.com.Sublimoon.PI.entity.Categoria;
 
-
-
 @Controller
 @RequestMapping(value = "/api/produto")
 public class ProdutoController {
@@ -60,13 +58,8 @@ public class ProdutoController {
     @PostMapping
     public ResponseEntity <?> cadastrar(@RequestBody final ProdutoDTO produto){
         try {
-            Produto produto1 = new Produto();
-            BeanUtils.copyProperties(produto,produto1);
-            Produto produtoExistente = produtoRep.findByNome(produto.getNome());
-            Assert.isTrue(produtoExistente == null || produtoExistente.equals(produto),"Nome já cadastrado!");
-
-            produtoService.cadastrar(produto1);
-            return ResponseEntity.ok("Registro cadastrado com sucesso");
+            produtoService.cadastrar(produto);
+            return ResponseEntity.ok("Produto Cadastrado com sucesso!!");
         }
         catch (Exception e){
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
@@ -74,23 +67,24 @@ public class ProdutoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editarProduto(@PathVariable("id") final Long id, @RequestBody final ProdutoDTO produto){
+    public ResponseEntity<?> editarProduto(@PathVariable("id") final Long id, @RequestBody final Produto produto){
         try {
+            produtoService.atualizaProduto(produto);
             final Produto produto1 = this.produtoRep.findById(id).orElse(null);
 
-            if (produto1 == null ){
-                throw new RuntimeException("Nao foi possivel indentificar o registro informado");
+            if (produto1 == null || !produto1.getId().equals(produto.getId())){
+                throw new RuntimeException("Nao foi possivel indentificar o Produto informado");
             }
-
-            final Produto produtoNovo = produtoRep.getById(id);
-            BeanUtils.copyProperties(produto, produtoNovo, "id","cadastro", "ativo");
-
-            this.produtoService.cadastrar(produtoNovo);
-            return ResponseEntity.ok("Registro Cadastrado com Sucesso");
+            return ResponseEntity.ok("Produto editado no estoque com Sucesso");
         }
-        catch (Exception e){
+        catch (DataIntegrityViolationException e){
+            return ResponseEntity.internalServerError()
+                    .body("Error: " + e.getCause().getCause().getMessage());
+        }
+        catch (RuntimeException e){
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
+
     }
 
     @PutMapping("/fav/{id}")

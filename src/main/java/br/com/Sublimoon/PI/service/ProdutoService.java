@@ -1,6 +1,8 @@
 package br.com.Sublimoon.PI.service;
+import br.com.Sublimoon.PI.DTO.ProdutoDTO;
 import br.com.Sublimoon.PI.entity.Produto;
 import br.com.Sublimoon.PI.repository.ProdutoRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,8 +16,10 @@ public class ProdutoService {
 
 
     @Transactional(rollbackFor = Exception.class)
-    public void cadastrar (final Produto produto){
+    public void cadastrar (final ProdutoDTO produtoDTO){
 
+        var produto = new Produto();
+        BeanUtils.copyProperties(produtoDTO, produto);
 
         Assert.isTrue(!produto.getNome().equals(""),"O nome do produto não pode ser nulo!");
         Assert.isTrue(produto.getNome().length() <= 100 ,"O nome do produto deve ter até 100 digitos") ;
@@ -50,6 +54,7 @@ public class ProdutoService {
 
     @Transactional(rollbackFor = Exception.class)
     public void atualizaProduto (Produto produto){
+
         final Produto produtoAttService=this.produtoRep.findById(produto.getId()).orElse(null);
         produto.setCadastro(produtoAttService.getCadastro());
 
