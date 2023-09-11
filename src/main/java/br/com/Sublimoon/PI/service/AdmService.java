@@ -1,7 +1,9 @@
 package br.com.Sublimoon.PI.service;
 
+import br.com.Sublimoon.PI.DTO.AdmDTO;
 import br.com.Sublimoon.PI.entity.Adm;
 import br.com.Sublimoon.PI.repository.AdmRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,10 @@ public class AdmService {
 
 
     @Transactional(rollbackFor = Exception.class)
-    public void createAdm(final Adm adm){
+    public void createAdm(final AdmDTO admDTO){
+
+        var adm= new Adm();
+        BeanUtils.copyProperties(admDTO, adm);
 
         Assert.isTrue(adm.getUserAdm().equals("001AdmUser100") && adm.getSenhaAdm().equals("333AdminPassword777") || adm.getUserAdm().equals("TesteADM02") && adm.getSenhaAdm().equals("SENHA123")
                 ,"Nome ou Senha Invalidos para Administrador");
@@ -43,6 +48,11 @@ public class AdmService {
         this.admRep.save(adm);
 
 
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void editaADM(Adm adm){
+            final Adm admAtt=this.admRep.findById(adm.getId()).orElse(null);
     }
 
     @Transactional(rollbackFor = Exception.class)

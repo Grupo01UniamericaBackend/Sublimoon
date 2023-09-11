@@ -42,9 +42,8 @@ public class AdmController {
     @PostMapping
     public ResponseEntity<?> cadastrarAdm(@RequestBody final AdmDTO adm) {
         try {
-            Adm adm1 = new Adm();
-            BeanUtils.copyProperties(adm,adm1);
-            this.admServ.createAdm(adm1);
+
+            this.admServ.createAdm(adm);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
@@ -60,12 +59,7 @@ public class AdmController {
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
             }
 
-            final Adm admNovo = admRep.getById(id);
-
-
-            BeanUtils.copyProperties(adm, admNovo, "id","cadastro", "ativo");
-
-            this.admServ.createAdm(admNovo);
+            this.admServ.createAdm(adm);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
         }  catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
