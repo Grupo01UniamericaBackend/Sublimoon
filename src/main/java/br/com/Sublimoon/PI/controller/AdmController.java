@@ -4,6 +4,7 @@ import br.com.Sublimoon.PI.DTO.AdmDTO;
 import br.com.Sublimoon.PI.entity.Adm;
 import br.com.Sublimoon.PI.repository.AdmRepository;
 import br.com.Sublimoon.PI.repository.ConfigRepository;
+import jakarta.persistence.Id;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -51,19 +52,23 @@ public class AdmController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editarAdm(@PathVariable("id")Long id, @RequestBody final AdmDTO adm) {
-        try {
-            final Adm adm1 = this.admRep.findById(id).orElse(null);
+    public ResponseEntity<?> editarAdm(@PathVariable("id") final Long id, @RequestBody final Adm adm) {
+            try {
+                admServ.editaADM(adm);
+                final Adm adm1 = this.admRep.findById(id).orElse(null);
 
-            if (adm1 == null) {
-                throw new RuntimeException("Nao foi possivel indentificar o registro informado");
+                if (adm1 == null || !adm1.getId().equals(adm.getId())){
+                    throw new RuntimeException("Não foi possível identificar o ADM informado");
+                }
+                return ResponseEntity.ok("ADM editado com sucesso");
             }
-
-            this.admServ.createAdm(adm);
-            return ResponseEntity.ok("Registro Cadastrado com Sucesso");
-        }  catch (Exception e) {
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
-        }
+            catch (DataIntegrityViolationException e){
+                return ResponseEntity.internalServerError()
+                        .body("Error: " + e.getCause().getCause().getMessage());
+            }
+            catch (RuntimeException e){
+                return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            }
     }
 
     @DeleteMapping("/{id}")
