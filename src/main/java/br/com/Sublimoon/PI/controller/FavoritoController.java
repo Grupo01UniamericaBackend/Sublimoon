@@ -76,15 +76,13 @@ public class FavoritoController {
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
 
             }
-            /*
             Favorito favoritoLista = favoritoRep.getById(id);
             // BeanUtils.copyProperties(favorito, favoritoNovo, "id","cadastro", "ativo");
             for(int i = 0; i < favorito.getProdutos().size(); i++) {
                 //favorito.getProdutos().get(i).setAtivo(true);
                 favoritoLista.getProdutos().add(favorito.getProdutos().get(i));
             }
-            this.favoritoService.Favoritar(favoritoLista);
-             */
+            this.favoritoService.Favoritar(favorito);
             return ResponseEntity.ok("Registro alterado com sucesso");
 
         } catch(Exception e){
