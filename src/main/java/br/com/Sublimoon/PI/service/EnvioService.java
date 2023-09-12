@@ -30,6 +30,13 @@ public class EnvioService {
     }
 
     @Transactional(rollbackFor = Exception.class)
+    public void atualizaEnvio(Envio envio){
+        final Envio envioAtt =this.envioRepository.findById(envio.getId()).orElse(null);
+
+        this.envioRepository.save(envio);
+    }
+
+    @Transactional(rollbackFor = Exception.class)
     public void delete(Long id){
 
         this.envioRepository.deleteById(id);

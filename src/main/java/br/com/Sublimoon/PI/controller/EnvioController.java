@@ -47,23 +47,23 @@ public class EnvioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editar(@PathVariable("id") final Long id, @RequestBody final EnvioDTO envio) {
-        try {
-            final Envio envio1 = this.envioRepository.findById(id).orElse(null);
+    public ResponseEntity<?> editar(@PathVariable("id") final Long id, @RequestBody final Envio envio) {
+       try {
+        envioServ.atualizaEnvio(envio);
+        final Envio envio1 =this.envioRepository.findById(id).orElse(null);
 
-            if (envio1 == null || !envio1.getId().equals(envio.getId())) {
-                throw new RuntimeException("Nao foi possivel indentificar o registro informado");
-            }
-
-            final Envio envioNovo = envioRepository.getById(id);
-            BeanUtils.copyProperties(envio, envioNovo, "id","cadastro", "ativo");
-
-            this.envioServ.validaEnvio(envioNovo);
-            return ResponseEntity.ok("Registro Cadastrado com Sucesso");
-
-        }  catch (Exception e) {
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+        if (envio1 == null || !envio1.getId().equals(envio.getId())){
+            throw new RuntimeException("Nao foi possivel identificar o envio informado");
         }
+        return ResponseEntity.ok("Envio editado com sucesso!");
+       }
+       catch (DataIntegrityViolationException e){
+           return ResponseEntity.internalServerError()
+                   .body("Error: " + e.getCause().getCause().getMessage());
+       }
+       catch (RuntimeException e){
+           return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+       }
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deletaIdEnvio(@PathVariable Long id){
