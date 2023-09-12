@@ -56,12 +56,10 @@ public class FavoritoController {
     }
 
     @PostMapping
-    public ResponseEntity cadastraFavorito(@RequestBody final FavoritoDTO favorito){
+    public ResponseEntity cadastraFavorito(@RequestBody final FavoritoDTO favoritoDTO){
         try {
-            Favorito favorito1 = new Favorito();
-            BeanUtils.copyProperties(favorito,favorito1);
-            favoritoService.Favoritar(favorito1);
-            return ResponseEntity.ok("Registro cadastrado com sucesso");
+                favoritoService.Favoritar(favoritoDTO);
+            return ResponseEntity.ok("Favoritado com sucesso!!!");
         }
         catch (DataIntegrityViolationException e){
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
@@ -78,7 +76,7 @@ public class FavoritoController {
                 throw new RuntimeException("Nao foi possivel indentificar o registro informado");
 
             }
-
+            /*
             Favorito favoritoLista = favoritoRep.getById(id);
             // BeanUtils.copyProperties(favorito, favoritoNovo, "id","cadastro", "ativo");
             for(int i = 0; i < favorito.getProdutos().size(); i++) {
@@ -86,6 +84,7 @@ public class FavoritoController {
                 favoritoLista.getProdutos().add(favorito.getProdutos().get(i));
             }
             this.favoritoService.Favoritar(favoritoLista);
+             */
             return ResponseEntity.ok("Registro alterado com sucesso");
 
         } catch(Exception e){

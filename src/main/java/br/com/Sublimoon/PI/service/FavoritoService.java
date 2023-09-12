@@ -1,10 +1,12 @@
 package br.com.Sublimoon.PI.service;
+import br.com.Sublimoon.PI.DTO.FavoritoDTO;
 import br.com.Sublimoon.PI.entity.Cliente;
 import br.com.Sublimoon.PI.entity.Favorito;
 import br.com.Sublimoon.PI.entity.Produto;
 import br.com.Sublimoon.PI.repository.ClienteRepository;
 import br.com.Sublimoon.PI.repository.FavoritoRepository;
 import br.com.Sublimoon.PI.repository.ProdutoRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,8 +29,10 @@ public class FavoritoService{
 
 
     @Transactional(rollbackFor = Exception.class)
-    public Favorito Favoritar(final Favorito favorito) {
+    public Favorito Favoritar(final FavoritoDTO favoritoDTO) {
 
+        var favorito = new Favorito();
+        BeanUtils.copyProperties(favoritoDTO,favorito);
 
 
         Assert.isTrue(produtoRepository.findById(favorito.getCliente().getId()).get()!= null, "Produto não encontrado!");
@@ -47,9 +51,6 @@ public class FavoritoService{
         }
 
         */
-
-
-
 
         return favoritoRepository.save(favorito);
     }
