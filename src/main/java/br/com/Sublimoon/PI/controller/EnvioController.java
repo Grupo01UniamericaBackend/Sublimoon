@@ -1,5 +1,4 @@
 package br.com.Sublimoon.PI.controller;
-
 import br.com.Sublimoon.PI.DTO.EnvioDTO;
 import br.com.Sublimoon.PI.entity.Adm;
 import br.com.Sublimoon.PI.entity.Categoria;
@@ -37,11 +36,9 @@ public class EnvioController {
     }
 
     @PostMapping
-    public ResponseEntity <?> cadastrarEnvio(@RequestBody final EnvioDTO envio){
+    public ResponseEntity <?> cadastrarEnvio(@RequestBody final EnvioDTO envioDTO){
         try {
-            Envio envio1 = new Envio();
-            BeanUtils.copyProperties(envio,envio1);
-            this.envioServ.validaEnvio(envio1);
+            this.envioServ.validaEnvio(envioDTO);
             return ResponseEntity.ok("Envio cadastrado com sucesso");
         }
         catch (Exception e){
