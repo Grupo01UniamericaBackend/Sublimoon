@@ -1,8 +1,10 @@
 package br.com.Sublimoon.PI.service;
 
+import br.com.Sublimoon.PI.DTO.AvaliacaoDTO;
 import br.com.Sublimoon.PI.entity.Avaliacao;
 import br.com.Sublimoon.PI.repository.AvaliacaoRepository;
 import br.com.Sublimoon.PI.repository.ClienteRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +20,10 @@ public class AvaliacaoService {
     private ClienteRepository clienteRep;
 
     @Transactional(rollbackFor = Exception.class)
-    public void createAvaliacao(final Avaliacao avaliacao){
+    public void createAvaliacao(final AvaliacaoDTO avaliacaoDTO){
+
+        var avaliacao = new Avaliacao();
+        BeanUtils.copyProperties(avaliacaoDTO,avaliacao);
 
     Assert.isTrue(avaliacao.getNota() != null,"Nota não pode ser nulo");
 
@@ -29,6 +34,13 @@ public class AvaliacaoService {
 
     this.avaliacaoRep.save(avaliacao);
 
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void atualizaAvaliacao(Avaliacao avaliacao){
+    final Avaliacao avaliacaoDTOatt = this.avaliacaoRep.findById(avaliacao.getId()).orElse(null);
+
+    this.avaliacaoRep.save(avaliacao);
     }
 
     @Transactional(rollbackFor = Exception.class)

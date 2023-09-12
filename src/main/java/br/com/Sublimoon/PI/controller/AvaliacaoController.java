@@ -39,34 +39,31 @@ public class AvaliacaoController {
 
 
     @PostMapping
-    public ResponseEntity<?> cadastrarAvaliacao(@RequestBody final AvaliacaoDTO avaliacao) {
+    public ResponseEntity<?> cadastrarAvaliacao(@RequestBody final AvaliacaoDTO avaliacaoDTO) {
         try {
-            Avaliacao avaliacao1 = new Avaliacao();
-            BeanUtils.copyProperties(avaliacao,avaliacao1);
-            this.avaliacaoServ.createAvaliacao(avaliacao1);
-            return ResponseEntity.ok("Registro cadastrado com sucesso");
+                avaliacaoServ.createAvaliacao(avaliacaoDTO);
+            return ResponseEntity.ok("Avaliado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editarAvaliacao(@PathVariable(value = "id") final Long id, @RequestBody final AvaliacaoDTO avaliacao) {
+    public ResponseEntity<?> editarAvaliacao(@PathVariable(value = "id") final Long id, @RequestBody final Avaliacao avaliacao) {
         try {
+            avaliacaoServ.atualizaAvaliacao(avaliacao);
             final Avaliacao avaliacao1 = this.avaliacaoRepository.findById(id).orElse(null);
 
-            if (avaliacao1 == null || !avaliacao1.getId().equals(avaliacao.getId())) {
-                throw new RuntimeException("Nao foi possivel indentificar o registro informado");
+            if (avaliacao1 == null || !avaliacao1.getId().equals(avaliacao.getId())){
+                throw new RuntimeException("Nao foi possivel identificar o registo informado");
             }
-
-            final Avaliacao avaliacaoNovo = avaliacaoRepository.getById(id);
-
-            BeanUtils.copyProperties(avaliacao, avaliacaoNovo, "id","cadastro", "ativo");
-
-            this.avaliacaoServ.createAvaliacao(avaliacaoNovo);
-
-            return ResponseEntity.ok("Registro Cadastrado com Sucesso");
-        }  catch (RuntimeException e) {
+            return ResponseEntity.ok("Produto editado no estoque com Sucesso");
+        }
+        catch (DataIntegrityViolationException e){
+            return ResponseEntity.internalServerError()
+                    .body("Error: " + e.getCause().getCause().getMessage());
+        }
+        catch (RuntimeException e){
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
     }
