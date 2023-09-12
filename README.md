@@ -8,6 +8,7 @@
 - Josimar Henrique de Oliveira
 - Reginaldo Santos Gomes
 - Scheligan Gabriele Monzon
+- Gabriel Ruiz Mussi Bersot
 
 🧠 Demandante: 
 
