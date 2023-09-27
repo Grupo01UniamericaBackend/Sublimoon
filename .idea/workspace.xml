@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ce9f60f-89c8-404c-8162-0883dae68d8c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/PI/controller/EnvioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/PI/controller/EnvioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/PI/service/EnvioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/PI/service/EnvioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
