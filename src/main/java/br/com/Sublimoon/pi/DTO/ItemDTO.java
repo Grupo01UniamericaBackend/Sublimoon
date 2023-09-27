@@ -1,6 +1,6 @@
-package br.com.sublimoon.pi.dto;
+package br.com.Sublimoon.pi.DTO;
 
-import br.com.sublimoon.pi.entity.Produto;
+import br.com.Sublimoon.pi.entity.Produto;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package br.com.sublimoon.pi.entity;
+package br.com.Sublimoon.pi.entity;
 
 public enum Categoria {
     CANECA,GARRAFINHA,CAMISETA,COPOTERMICO

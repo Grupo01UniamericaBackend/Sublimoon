@@ -1,4 +1,4 @@
-package br.com.sublimoon.pi.controller;
+package br.com.Sublimoon.pi.controller;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

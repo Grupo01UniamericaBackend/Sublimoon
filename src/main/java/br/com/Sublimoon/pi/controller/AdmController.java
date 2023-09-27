@@ -1,10 +1,10 @@
-package br.com.sublimoon.pi.controller;
+package br.com.Sublimoon.pi.controller;
 
-import br.com.sublimoon.pi.dto.AdmDTO;
-import br.com.sublimoon.pi.entity.Adm;
-import br.com.sublimoon.pi.repository.AdmRepository;
-import br.com.sublimoon.pi.repository.ConfigRepository;
-import br.com.sublimoon.pi.service.AdmService;
+import br.com.Sublimoon.pi.DTO.AdmDTO;
+import br.com.Sublimoon.pi.entity.Adm;
+import br.com.Sublimoon.pi.repository.AdmRepository;
+import br.com.Sublimoon.pi.repository.ConfigRepository;
+import br.com.Sublimoon.pi.service.AdmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;

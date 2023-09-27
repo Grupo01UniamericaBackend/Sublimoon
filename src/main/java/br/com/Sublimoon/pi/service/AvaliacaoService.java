@@ -1,9 +1,9 @@
-package br.com.sublimoon.pi.service;
+package br.com.Sublimoon.pi.service;
 
-import br.com.sublimoon.pi.dto.AvaliacaoDTO;
-import br.com.sublimoon.pi.entity.Avaliacao;
-import br.com.sublimoon.pi.repository.AvaliacaoRepository;
-import br.com.sublimoon.pi.repository.ClienteRepository;
+import br.com.Sublimoon.pi.DTO.AvaliacaoDTO;
+import br.com.Sublimoon.pi.entity.Avaliacao;
+import br.com.Sublimoon.pi.repository.AvaliacaoRepository;
+import br.com.Sublimoon.pi.repository.ClienteRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

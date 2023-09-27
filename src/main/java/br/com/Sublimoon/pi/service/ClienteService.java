@@ -1,7 +1,7 @@
-package br.com.sublimoon.pi.service;
+package br.com.Sublimoon.pi.service;
 
-import br.com.sublimoon.pi.entity.Cliente;
-import br.com.sublimoon.pi.repository.ClienteRepository;
+import br.com.Sublimoon.pi.entity.Cliente;
+import br.com.Sublimoon.pi.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

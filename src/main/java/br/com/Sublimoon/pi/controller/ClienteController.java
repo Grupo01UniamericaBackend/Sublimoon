@@ -1,9 +1,9 @@
-package br.com.sublimoon.pi.controller;
+package br.com.Sublimoon.pi.controller;
 
-import br.com.sublimoon.pi.dto.ClienteDTO;
-import br.com.sublimoon.pi.entity.Cliente;
-import br.com.sublimoon.pi.repository.ClienteRepository;
-import br.com.sublimoon.pi.service.ClienteService;
+import br.com.Sublimoon.pi.DTO.ClienteDTO;
+import br.com.Sublimoon.pi.entity.Cliente;
+import br.com.Sublimoon.pi.repository.ClienteRepository;
+import br.com.Sublimoon.pi.service.ClienteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

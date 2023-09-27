@@ -1,6 +1,6 @@
-package br.com.sublimoon.pi.service;
+package br.com.Sublimoon.pi.service;
 
-import br.com.sublimoon.pi.repository.ConfigRepository;
+import br.com.Sublimoon.pi.repository.ConfigRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

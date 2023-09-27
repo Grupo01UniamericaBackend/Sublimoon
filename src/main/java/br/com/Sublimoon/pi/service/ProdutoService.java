@@ -1,7 +1,7 @@
-package br.com.sublimoon.pi.service;
-import br.com.sublimoon.pi.dto.ProdutoDTO;
-import br.com.sublimoon.pi.entity.Produto;
-import br.com.sublimoon.pi.repository.ProdutoRepository;
+package br.com.Sublimoon.pi.service;
+import br.com.Sublimoon.pi.DTO.ProdutoDTO;
+import br.com.Sublimoon.pi.entity.Produto;
+import br.com.Sublimoon.pi.repository.ProdutoRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

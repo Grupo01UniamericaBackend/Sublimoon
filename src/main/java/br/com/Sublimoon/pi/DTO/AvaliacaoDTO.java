@@ -1,8 +1,8 @@
-package br.com.sublimoon.pi.dto;
+package br.com.Sublimoon.pi.DTO;
 
 
-import br.com.sublimoon.pi.entity.Cliente;
-import br.com.sublimoon.pi.entity.Produto;
+import br.com.Sublimoon.pi.entity.Cliente;
+import br.com.Sublimoon.pi.entity.Produto;
 import lombok.Data;
 
 

@@ -1,7 +1,7 @@
-package br.com.sublimoon.pi.dto;
-import br.com.sublimoon.pi.entity.AbstractEntity;
-import br.com.sublimoon.pi.entity.Cliente;
-import br.com.sublimoon.pi.entity.Item;
+package br.com.Sublimoon.pi.DTO;
+import br.com.Sublimoon.pi.entity.AbstractEntity;
+import br.com.Sublimoon.pi.entity.Cliente;
+import br.com.Sublimoon.pi.entity.Item;
 import lombok.Data;
 
 import java.util.List;

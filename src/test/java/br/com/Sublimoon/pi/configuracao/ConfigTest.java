@@ -1,4 +1,4 @@
-package br.com.sublimoon.pi.configuracao;
+package br.com.Sublimoon.pi.configuracao;
 
 import org.junit.jupiter.api.Test;
 

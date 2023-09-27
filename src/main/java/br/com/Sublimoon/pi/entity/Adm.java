@@ -1,4 +1,4 @@
-package br.com.sublimoon.pi.entity;
+package br.com.Sublimoon.pi.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

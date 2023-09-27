@@ -1,19 +1,30 @@
-package br.com.sublimoon.pi.service;
-
-import br.com.sublimoon.pi.dto.AdmDTO;
-import br.com.sublimoon.pi.entity.Adm;
-import br.com.sublimoon.pi.repository.AdmRepository;
+package br.com.Sublimoon.pi.service;
+import br.com.Sublimoon.pi.DTO.AdmDTO;
+import br.com.Sublimoon.pi.entity.Adm;
+import br.com.Sublimoon.pi.repository.AdmRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 @Service
 public class AdmService {
 
     @Autowired
      private AdmRepository admRep;
+
+    public String hashPassword(Adm adm){
+        String senhaPredefinida = adm.getSenhaAdm();
+        String salt = BCrypt.gensalt();
+        return BCrypt.hashpw(senhaPredefinida, salt);
+    }
+    public void adicionarAdm(Adm novoAdm){
+        String hashSenha = hashPassword(novoAdm);
+        novoAdm.setSenhaAdm(hashSenha);
+    }
 
 
     @Transactional(rollbackFor = Exception.class)
@@ -46,7 +57,6 @@ public class AdmService {
         Assert.isTrue(adm.getEmail().length() <= 50, "E-mail deve ter até 50 caracteres");
 
         this.admRep.save(adm);
-
 
     }
 

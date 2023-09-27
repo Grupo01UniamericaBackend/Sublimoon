@@ -1,4 +1,4 @@
-package br.com.sublimoon.pi.dto;
+package br.com.Sublimoon.pi.DTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest

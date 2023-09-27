@@ -1,9 +1,9 @@
-package br.com.sublimoon.pi.controller;
+package br.com.Sublimoon.pi.controller;
 
-import br.com.sublimoon.pi.dto.PedidoDTO;
-import br.com.sublimoon.pi.repository.PedidoRepository;
-import br.com.sublimoon.pi.service.PedidoService;
-import br.com.sublimoon.pi.entity.Pedido;
+import br.com.Sublimoon.pi.DTO.PedidoDTO;
+import br.com.Sublimoon.pi.entity.Pedido;
+import br.com.Sublimoon.pi.repository.PedidoRepository;
+import br.com.Sublimoon.pi.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,9 +1,9 @@
-package br.com.sublimoon.pi.controller;
-import br.com.sublimoon.pi.dto.ProdutoDTO;
-import br.com.sublimoon.pi.service.ProdutoService;
-import br.com.sublimoon.pi.repository.ProdutoRepository;
-import br.com.sublimoon.pi.entity.Categoria;
-import br.com.sublimoon.pi.entity.Produto;
+package br.com.Sublimoon.pi.controller;
+import br.com.Sublimoon.pi.DTO.ProdutoDTO;
+import br.com.Sublimoon.pi.entity.Categoria;
+import br.com.Sublimoon.pi.entity.Produto;
+import br.com.Sublimoon.pi.repository.ProdutoRepository;
+import br.com.Sublimoon.pi.service.ProdutoService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package br.com.sublimoon.pi;
+package br.com.Sublimoon.pi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

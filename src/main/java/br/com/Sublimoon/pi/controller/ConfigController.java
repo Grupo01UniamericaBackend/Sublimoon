@@ -1,8 +1,8 @@
-package br.com.sublimoon.pi.controller;
-import br.com.sublimoon.pi.dto.ConfigDTO;
-import br.com.sublimoon.pi.entity.Config;
-import br.com.sublimoon.pi.repository.ConfigRepository;
-import br.com.sublimoon.pi.service.ConfigService;
+package br.com.Sublimoon.pi.controller;
+import br.com.Sublimoon.pi.DTO.ConfigDTO;
+import br.com.Sublimoon.pi.entity.Config;
+import br.com.Sublimoon.pi.repository.ConfigRepository;
+import br.com.Sublimoon.pi.service.ConfigService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;

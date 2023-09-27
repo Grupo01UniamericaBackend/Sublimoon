@@ -1,9 +1,9 @@
-package br.com.sublimoon.pi;
+package br.com.Sublimoon.pi;
 
-import br.com.sublimoon.pi.entity.Envio;
-import br.com.sublimoon.pi.entity.Produto;
-import br.com.sublimoon.pi.service.PedidoService;
-import br.com.sublimoon.pi.service.ProdutoService;
+import br.com.Sublimoon.pi.entity.Envio;
+import br.com.Sublimoon.pi.entity.Produto;
+import br.com.Sublimoon.pi.service.PedidoService;
+import br.com.Sublimoon.pi.service.ProdutoService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

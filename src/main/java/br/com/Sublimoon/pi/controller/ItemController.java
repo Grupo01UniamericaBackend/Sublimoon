@@ -1,5 +1,5 @@
-package br.com.sublimoon.pi.controller;
-import br.com.sublimoon.pi.repository.ItemRepository;
+package br.com.Sublimoon.pi.controller;
+import br.com.Sublimoon.pi.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
