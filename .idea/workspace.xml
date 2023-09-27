@@ -5,8 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ce9f60f-89c8-404c-8162-0883dae68d8c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/repository/AdmRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/repository/AvaliacaoRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/AvaliacaoDTOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/AvaliacaoDTOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/CarrinhoDTOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/CarrinhoDTOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/ClienteDTOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/ClienteDTOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/ConfigDTOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/ConfigDTOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/EnvioDTOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/EnvioDTOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/FavoritoDTOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/FavoritoDTOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/ItemDTOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/ItemDTOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/PedidoDTOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/PedidoDTOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/ProdutoDTOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/ProdutoDTOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/UsuarioDTOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/UsuarioDTOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/AbstractEntityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/AbstractEntityTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/AdmTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/AdmTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/AvaliacaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/AvaliacaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/CarrinhoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/CarrinhoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/ClienteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/ClienteTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/ConfigTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/ConfigTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/EnvioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/EnvioTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/FavoritoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/FavoritoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/ItemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/ItemTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/PedidoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/PedidoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/ProdutoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/ProdutoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/UsuarioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/entity/UsuarioTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/service/AdmServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/service/AdmServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/service/AvaliacaoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/service/AvaliacaoServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/service/CarrinhoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/service/CarrinhoServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/service/ClienteServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/service/ClienteServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/service/ConfigServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/service/ConfigServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/service/EnvioServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/service/EnvioServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/service/FavoritoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/service/FavoritoServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/service/PedidoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/service/PedidoServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/service/ProdutoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/service/ProdutoServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +77,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="br.com.Sublimoon.PI.service" />
       <recent name="br.com.Sublimoon.PI.repository" />
       <recent name="br.com.Sublimoon.PI.entity" />
       <recent name="br.com.Sublimoon.PI.DTO" />

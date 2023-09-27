@@ -1,7 +1,9 @@
 package br.com.Sublimoon.PI.service;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.jupiter.api.Assertions.*;
+@SpringBootTest
 class ConfigServiceTest {
 
 }
