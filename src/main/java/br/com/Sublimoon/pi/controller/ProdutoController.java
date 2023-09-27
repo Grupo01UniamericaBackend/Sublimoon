@@ -1,5 +1,5 @@
 package br.com.sublimoon.pi.controller;
-import br.com.sublimoon.pi.DTO.ProdutoDTO;
+import br.com.sublimoon.pi.dto.ProdutoDTO;
 import br.com.sublimoon.pi.service.ProdutoService;
 import br.com.sublimoon.pi.repository.ProdutoRepository;
 import br.com.sublimoon.pi.entity.Categoria;
@@ -41,13 +41,13 @@ public class ProdutoController {
 
 
     @GetMapping("/lista")
-    public ResponseEntity <?> Lista(){
+    public ResponseEntity <?> lista(){
         return ResponseEntity.ok(this.produtoRep.findAll());
 
     }
 
     @GetMapping("/favorito/lista")
-    public ResponseEntity <?> ListaFavoritos(){
+    public ResponseEntity <?> listaFavoritos(){
         return ResponseEntity.ok(this.produtoRep.findByAtivo(false));
 
     }

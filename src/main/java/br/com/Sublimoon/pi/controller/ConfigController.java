@@ -1,5 +1,5 @@
 package br.com.sublimoon.pi.controller;
-import br.com.sublimoon.pi.DTO.ConfigDTO;
+import br.com.sublimoon.pi.dto.ConfigDTO;
 import br.com.sublimoon.pi.entity.Config;
 import br.com.sublimoon.pi.repository.ConfigRepository;
 import br.com.sublimoon.pi.service.ConfigService;
@@ -29,7 +29,7 @@ public class ConfigController {
     }
 
     @GetMapping("/lista")
-    public ResponseEntity<?> Lista() {
+    public ResponseEntity<?> lista() {
         return ResponseEntity.ok(this.configRep.findAll());
 
     }

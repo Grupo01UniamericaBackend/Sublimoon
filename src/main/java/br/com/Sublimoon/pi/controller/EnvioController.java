@@ -1,5 +1,5 @@
 package br.com.sublimoon.pi.controller;
-import br.com.sublimoon.pi.DTO.EnvioDTO;
+import br.com.sublimoon.pi.dto.EnvioDTO;
 import br.com.sublimoon.pi.repository.EnvioRepository;
 import br.com.sublimoon.pi.service.EnvioService;
 import br.com.sublimoon.pi.entity.Envio;
@@ -28,7 +28,7 @@ public class EnvioController {
     }
 
     @GetMapping("/lista")
-    public ResponseEntity <?> ListaCompletaEnvio(){
+    public ResponseEntity <?> listaCompletaEnvio(){
         return ResponseEntity.ok(this.envioRepository.findAll());
     }
 

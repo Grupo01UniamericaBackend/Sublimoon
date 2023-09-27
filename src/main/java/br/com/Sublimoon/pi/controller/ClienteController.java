@@ -1,6 +1,6 @@
 package br.com.sublimoon.pi.controller;
 
-import br.com.sublimoon.pi.DTO.ClienteDTO;
+import br.com.sublimoon.pi.dto.ClienteDTO;
 import br.com.sublimoon.pi.entity.Cliente;
 import br.com.sublimoon.pi.repository.ClienteRepository;
 import br.com.sublimoon.pi.service.ClienteService;
@@ -28,7 +28,7 @@ public class ClienteController {
         return ResponseEntity.ok(cliente);
     }
     @GetMapping("/lista")
-    public ResponseEntity<?> Lista() {
+    public ResponseEntity<?> lista() {
         return ResponseEntity.ok(this.clienteRep.findAll());
 
     }

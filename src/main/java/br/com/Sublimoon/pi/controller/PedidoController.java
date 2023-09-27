@@ -1,6 +1,6 @@
 package br.com.sublimoon.pi.controller;
 
-import br.com.sublimoon.pi.DTO.PedidoDTO;
+import br.com.sublimoon.pi.dto.PedidoDTO;
 import br.com.sublimoon.pi.repository.PedidoRepository;
 import br.com.sublimoon.pi.service.PedidoService;
 import br.com.sublimoon.pi.entity.Pedido;
@@ -32,7 +32,7 @@ public class PedidoController {
 
 
     @GetMapping("/lista")
-    public ResponseEntity <?> ListaCompletaPedido(){
+    public ResponseEntity <?> listaCompletaPedido(){
         return ResponseEntity.ok(pedidoRep.findAll());
     }
 

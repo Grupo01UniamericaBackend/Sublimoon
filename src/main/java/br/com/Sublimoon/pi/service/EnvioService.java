@@ -1,6 +1,6 @@
 package br.com.sublimoon.pi.service;
 
-import br.com.sublimoon.pi.DTO.EnvioDTO;
+import br.com.sublimoon.pi.dto.EnvioDTO;
 import br.com.sublimoon.pi.entity.Envio;
 import br.com.sublimoon.pi.repository.EnvioRepository;
 import org.springframework.beans.BeanUtils;

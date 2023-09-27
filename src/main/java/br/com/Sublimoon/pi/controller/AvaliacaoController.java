@@ -1,5 +1,5 @@
 package br.com.sublimoon.pi.controller;
-import br.com.sublimoon.pi.DTO.AvaliacaoDTO;
+import br.com.sublimoon.pi.dto.AvaliacaoDTO;
 import br.com.sublimoon.pi.entity.Avaliacao;
 import br.com.sublimoon.pi.repository.AvaliacaoRepository;
 import br.com.sublimoon.pi.service.AvaliacaoService;
@@ -28,7 +28,7 @@ public class AvaliacaoController {
     }
 
     @GetMapping("/lista")
-    public ResponseEntity<?> Lista() {
+    public ResponseEntity<?> lista() {
         return ResponseEntity.ok(this.avaliacaoRepository.findAll());
 
     }

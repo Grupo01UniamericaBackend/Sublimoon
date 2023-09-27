@@ -1,6 +1,6 @@
 package br.com.sublimoon.pi.service;
 
-import br.com.sublimoon.pi.DTO.AdmDTO;
+import br.com.sublimoon.pi.dto.AdmDTO;
 import br.com.sublimoon.pi.entity.Adm;
 import br.com.sublimoon.pi.repository.AdmRepository;
 import org.springframework.beans.BeanUtils;

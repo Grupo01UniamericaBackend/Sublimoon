@@ -1,5 +1,5 @@
 package br.com.sublimoon.pi.service;
-import br.com.sublimoon.pi.DTO.ProdutoDTO;
+import br.com.sublimoon.pi.dto.ProdutoDTO;
 import br.com.sublimoon.pi.entity.Produto;
 import br.com.sublimoon.pi.repository.ProdutoRepository;
 import org.springframework.beans.BeanUtils;
