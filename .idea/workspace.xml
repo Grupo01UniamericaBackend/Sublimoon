@@ -5,16 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ce9f60f-89c8-404c-8162-0883dae68d8c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/controller/AdmControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/controller/AvaliacaoControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/controller/CarrinhoControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/controller/ClienteControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/controller/ConfigControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/controller/EnvioControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/controller/FavoritoControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/controller/ItemControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/controller/PedidoControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/controller/ProdutoControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/AbstractEntityDTOTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/AdmDTOTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/AvaliacaoDTOTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/CarrinhoDTOTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/ClienteDTOTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/ConfigDTOTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/EnvioDTOTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/FavoritoDTOTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/ItemDTOTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/PedidoDTOTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/ProdutoDTOTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/PI/DTO/UsuarioDTOTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +58,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="br.com.Sublimoon.PI.DTO" />
       <recent name="br.com.Sublimoon.PI.controller" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
