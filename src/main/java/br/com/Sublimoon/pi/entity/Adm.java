@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "Adms",schema = "public")
-public class Adm extends Usuario{
+public class Adm extends AbstractEntity{
 
     @Getter @Setter
     @Column (name = "userAdm",nullable = false,length = 25)
@@ -16,5 +16,11 @@ public class Adm extends Usuario{
     @Column(name = "senhaAdm",nullable = false,length = 20)
     private String senhaAdm;
 
-
+    public Adm(){
+    }
+    public Adm(Long id,String userAdm, String senhaAdm) {
+        this.id = id;
+        this.userAdm = userAdm;
+        this.senhaAdm = senhaAdm;
+    }
 }

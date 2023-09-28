@@ -12,7 +12,7 @@ abstract public class AbstractEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
     @Column(name="id", nullable = false, unique = true)
-    private Long id;
+    protected Long id;
     @Getter @Setter
     @Column(name = "dtCadastro")
     private LocalDateTime cadastro;

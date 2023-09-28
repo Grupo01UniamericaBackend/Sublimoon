@@ -9,7 +9,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AdmRepository extends JpaRepository<Adm, Long>{
 
-     Adm findByTelefone(String telefone);
-
-     Adm findByEmail(String email);
 }
