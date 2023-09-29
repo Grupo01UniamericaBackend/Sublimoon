@@ -10,6 +10,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping(value = "/api/envio")
 public class EnvioController {
@@ -22,18 +24,18 @@ public class EnvioController {
     private EnvioService envioServ;
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findById(@PathVariable("id") final Long id){
+    public ResponseEntity<Envio> findById(@PathVariable("id") final Long id){
         final Envio envio = this.envioRepository.findById(id).orElse(null);
         return ResponseEntity.ok(envio);
     }
 
     @GetMapping("/lista")
-    public ResponseEntity <?> listaCompletaEnvio(){
+    public ResponseEntity <List<Envio>> listaCompletaEnvio(){
         return ResponseEntity.ok(this.envioRepository.findAll());
     }
 
     @PostMapping
-    public ResponseEntity <?> cadastrarEnvio(@RequestBody final EnvioDTO envioDTO){
+    public ResponseEntity <String> cadastrarEnvio(@RequestBody final EnvioDTO envioDTO){
         try {
             this.envioServ.validaEnvio(envioDTO);
             return ResponseEntity.ok("Envio cadastrado com sucesso");
@@ -44,7 +46,7 @@ public class EnvioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editar(@PathVariable("id") final Long id, @RequestBody final Envio envio) {
+    public ResponseEntity<String> editar(@PathVariable("id") final Long id, @RequestBody final Envio envio) {
        try {
         envioServ.atualizaEnvio(envio);
         final Envio envio1 =this.envioRepository.findById(id).orElse(null);
@@ -63,7 +65,7 @@ public class EnvioController {
        }
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deletaIdEnvio(@PathVariable Long id){
+    public ResponseEntity<String> deletaIdEnvio(@PathVariable Long id){
         try {
 
             envioServ.delete(id);
