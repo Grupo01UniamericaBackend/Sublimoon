@@ -12,5 +12,11 @@ public class EnvioDTO extends AbstractEntity {
 
     private float valorFrete;
 
+    public EnvioDTO(){
 
+    }
+    public EnvioDTO(String formaEnvio, float valorFrete) {
+        this.formaEnvio = formaEnvio;
+        this.valorFrete = valorFrete;
+    }
 }

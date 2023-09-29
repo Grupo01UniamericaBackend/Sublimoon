@@ -67,7 +67,7 @@ public class EnvioController {
         try {
 
             envioServ.delete(id);
-            return ResponseEntity.ok("Desativado ou excluído");
+            return ResponseEntity.ok("Envio excluido");
         }
         catch (Exception e){
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());

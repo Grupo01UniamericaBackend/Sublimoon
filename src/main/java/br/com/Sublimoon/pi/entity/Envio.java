@@ -16,5 +16,12 @@ public class Envio extends AbstractEntity{
     @Column(name = "valorFrete",nullable = false)
     private float valorFrete;
 
+    public Envio(){
 
+    }
+    public Envio(Long id,String formaEnvio, float valorFrete) {
+        this.id = id;
+        this.formaEnvio = formaEnvio;
+        this.valorFrete = valorFrete;
+    }
 }
