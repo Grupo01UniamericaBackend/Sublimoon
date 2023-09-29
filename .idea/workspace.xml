@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2ce9f60f-89c8-404c-8162-0883dae68d8c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/service/CarrinhoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/service/CarrinhoService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,49 +91,49 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClienteDTOTest.canEqual" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClienteControllerTest.cadastrar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sublimoon" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.Sublimoon.pi.DTO.*" />
+          <option name="PATTERN" value="br.com.Sublimoon.pi.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.DTO" />
-      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.DTO.ClienteDTOTest" />
-      <option name="METHOD_NAME" value="canEqual" />
+      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.controller" />
+      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.controller.ClienteControllerTest" />
+      <option name="METHOD_NAME" value="cadastrar" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClienteDTOTest.testHashCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClienteControllerTest.findById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sublimoon" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.Sublimoon.pi.DTO.*" />
+          <option name="PATTERN" value="br.com.Sublimoon.pi.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.DTO" />
-      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.DTO.ClienteDTOTest" />
-      <option name="METHOD_NAME" value="testHashCode" />
+      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.controller" />
+      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.controller.ClienteControllerTest" />
+      <option name="METHOD_NAME" value="findById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClienteDTOTest.testToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClienteControllerTest.lista" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sublimoon" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.Sublimoon.pi.DTO.*" />
+          <option name="PATTERN" value="br.com.Sublimoon.pi.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.DTO" />
-      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.DTO.ClienteDTOTest" />
-      <option name="METHOD_NAME" value="testToString" />
+      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.controller" />
+      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.controller.ClienteControllerTest" />
+      <option name="METHOD_NAME" value="lista" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -174,11 +173,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ClienteControllerTest.cadastrar" />
+        <item itemvalue="JUnit.ClienteControllerTest.lista" />
+        <item itemvalue="JUnit.ClienteControllerTest.findById" />
         <item itemvalue="JUnit.AdmControllerTest.cadastrarAdm" />
         <item itemvalue="JUnit.EnvioTest.findByIdEnvio" />
-        <item itemvalue="JUnit.ClienteDTOTest.testToString" />
-        <item itemvalue="JUnit.ClienteDTOTest.testHashCode" />
-        <item itemvalue="JUnit.ClienteDTOTest.canEqual" />
       </list>
     </recent_temporary>
   </component>
