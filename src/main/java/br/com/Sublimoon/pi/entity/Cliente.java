@@ -51,4 +51,14 @@ public class Cliente extends AbstractEntity{
     )
     private List<Avaliacao> avaliacoesCliente;*/
 
+    public Cliente() {
+    }
+
+    public Cliente(String telefone, String email, String nome, String senha, String cpf) {
+        this.telefone = telefone;
+        this.email = email;
+        this.nome = nome;
+        this.senha = senha;
+        this.cpf = cpf;
+    }
 }

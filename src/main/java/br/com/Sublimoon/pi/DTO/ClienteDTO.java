@@ -23,5 +23,7 @@ public class ClienteDTO extends AbstractEntity {
     private String cpf;
 
 
-
+    public ClienteDTO(String telefone, String email, String nome, String senha, String cpf) {
+        super();
+    }
 }

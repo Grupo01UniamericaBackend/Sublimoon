@@ -6,10 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="2ce9f60f-89c8-404c-8162-0883dae68d8c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/entity/AbstractEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/entity/AbstractEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/entity/Adm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/entity/Adm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/repository/AdmRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/repository/AdmRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/service/AdmService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/service/AdmService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/DTO/AdmDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/DTO/AdmDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/DTO/ClienteDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/DTO/ClienteDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/entity/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/entity/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/entity/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/entity/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/DTO/AdmDTOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/DTO/AdmDTOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/DTO/ClienteDTOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/DTO/ClienteDTOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/entity/AdmTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/entity/AdmTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/entity/ClienteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/entity/ClienteTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/entity/UsuarioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/entity/UsuarioTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,15 +45,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-        &quot;keyToString&quot;: {
-        &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-        &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-        &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-        &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-        &quot;last_opened_file_path&quot;: &quot;C:/Users/Lenovo/Documents/desenvolvimento/sublimoon&quot;
-        }
-        }</component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "C:/Users/Lenovo/Documents/desenvolvimento/sublimoon",
+    "settings.editor.selected.configurable": "copyright"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -64,7 +70,7 @@
       <recent name="br.com.Sublimoon.PI.DTO" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.ClienteDTOTest.testToString">
     <configuration name="PiApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.PiApplication" />
       <module name="sublimoon" />
@@ -78,15 +84,82 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="br.com.sublimoon.pi.PiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="br.com.sublimoon.pi.PiApplication" />
+    <configuration name="ClienteDTOTest.canEqual" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sublimoon" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.sublimoon.pi.*" />
+          <option name="PATTERN" value="br.com.Sublimoon.pi.DTO.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.DTO" />
+      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.DTO.ClienteDTOTest" />
+      <option name="METHOD_NAME" value="canEqual" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClienteDTOTest.getAndSetCpf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sublimoon" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.Sublimoon.pi.DTO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.DTO" />
+      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.DTO.ClienteDTOTest" />
+      <option name="METHOD_NAME" value="getAndSetCpf" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClienteDTOTest.testEquals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sublimoon" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.Sublimoon.pi.DTO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.DTO" />
+      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.DTO.ClienteDTOTest" />
+      <option name="METHOD_NAME" value="testEquals" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClienteDTOTest.testHashCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sublimoon" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.Sublimoon.pi.DTO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.DTO" />
+      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.DTO.ClienteDTOTest" />
+      <option name="METHOD_NAME" value="testHashCode" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClienteDTOTest.testToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sublimoon" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.Sublimoon.pi.DTO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.DTO" />
+      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.DTO.ClienteDTOTest" />
+      <option name="METHOD_NAME" value="testToString" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -109,7 +182,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.br.com.sublimoon.pi.PiApplication" />
+        <item itemvalue="JUnit.ClienteDTOTest.testToString" />
+        <item itemvalue="JUnit.ClienteDTOTest.testHashCode" />
+        <item itemvalue="JUnit.ClienteDTOTest.canEqual" />
+        <item itemvalue="JUnit.ClienteDTOTest.testEquals" />
+        <item itemvalue="JUnit.ClienteDTOTest.getAndSetCpf" />
       </list>
     </recent_temporary>
   </component>

@@ -43,4 +43,16 @@ public class  Usuario {
         this.edicao = LocalDateTime.now();
     }
 
+
+    public Usuario() {
+    }
+
+    public Usuario(Long id, LocalDateTime cadastro, LocalDateTime edicao, boolean ativo, String telefone, String email) {
+        this.id = id;
+        this.cadastro = cadastro;
+        this.edicao = edicao;
+        this.ativo = ativo;
+        this.telefone = telefone;
+        this.email = email;
+    }
 }

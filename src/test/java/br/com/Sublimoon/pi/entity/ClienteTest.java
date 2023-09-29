@@ -1,5 +1,7 @@
 package br.com.Sublimoon.pi.entity;
 
+import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -7,43 +9,46 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class ClienteTest {
 
+    Cliente cliente = new Cliente("45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
     @Test
-    void getTelefone() {
+    void getAndSetTelefone() {
+
+        cliente.setTelefone("45-999950385");
+
+        Assertions.assertEquals("45-999950385", cliente.getTelefone());
     }
 
     @Test
-    void getEmail() {
+    void getAndSetEmail() {
+        cliente.setEmail("clienteTest@email.com");
+
+        Assertions.assertEquals("clienteTest@email.com", cliente.getEmail());
     }
 
     @Test
-    void getNome() {
+    void getAndSetNome() {
+
+        cliente.setNome("tester");
+
+        Assertions.assertEquals("tester", cliente.getNome());
     }
 
     @Test
-    void getSenha() {
+    void getAndSetSenha() {
+        cliente.setSenha("cliente123");
+
+        Assertions.assertEquals("cliente123", cliente.getSenha());
     }
 
     @Test
-    void getCpf() {
+    void getAndSetCpf() {
+
+        cliente.setCpf("06773077990");
+
+        Assertions.assertEquals("06773077990", cliente.getCpf());
     }
 
-    @Test
-    void setTelefone() {
-    }
 
-    @Test
-    void setEmail() {
-    }
 
-    @Test
-    void setNome() {
-    }
 
-    @Test
-    void setSenha() {
-    }
-
-    @Test
-    void setCpf() {
-    }
 }
