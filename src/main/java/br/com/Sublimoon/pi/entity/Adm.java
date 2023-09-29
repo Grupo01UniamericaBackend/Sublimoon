@@ -1,10 +1,12 @@
 package br.com.Sublimoon.pi.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
 @Entity
+@NoArgsConstructor
 @Table(name = "Adms",schema = "public")
 public class Adm extends AbstractEntity{
 
@@ -16,8 +18,7 @@ public class Adm extends AbstractEntity{
     @Column(name = "senhaAdm",nullable = false,length = 20)
     private String senhaAdm;
 
-    public Adm(){
-    }
+
     public Adm(Long id,String userAdm, String senhaAdm) {
         this.id = id;
         this.userAdm = userAdm;

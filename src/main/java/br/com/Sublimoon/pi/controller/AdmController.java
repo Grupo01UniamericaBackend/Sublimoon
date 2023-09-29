@@ -11,6 +11,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 @Controller
 @RequestMapping (value = "/api/adm")
 public class AdmController {
@@ -24,13 +27,14 @@ public class AdmController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
-        final Adm adm = this.admRep.findById(id).orElse(null);
+    public ResponseEntity<Optional<Adm>> findById(@PathVariable("id")  Long id) {
+        Optional<Adm> adm = this.admRep.findById(id);
         return ResponseEntity.ok(adm);
     }
 
+
     @GetMapping("/lista")
-    public ResponseEntity<?> lista() {
+    public ResponseEntity<List<Adm>> lista() {
         return ResponseEntity.ok(this.admRep.findAll());
 
     }

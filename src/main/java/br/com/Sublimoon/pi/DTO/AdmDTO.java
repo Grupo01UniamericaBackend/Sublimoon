@@ -14,6 +14,8 @@ public class AdmDTO extends UsuarioDTO {
     private String senhaAdm;
 
 
-    public AdmDTO(String userAdm, String adm) {
+    public AdmDTO(String userAdm, String senhaAdm) {
     }
+
+
 }

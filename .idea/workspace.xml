@@ -6,12 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="2ce9f60f-89c8-404c-8162-0883dae68d8c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/DTO/EnvioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/DTO/EnvioDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/EnvioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/EnvioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/entity/Envio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/entity/Envio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/service/EnvioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/service/EnvioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/entity/EnvioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/entity/EnvioTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/entity/UsuarioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/entity/UsuarioTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/DTO/AdmDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/DTO/AdmDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/DTO/UsuarioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/DTO/UsuarioDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/AdmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/AdmController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/entity/Adm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/entity/Adm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/DTO/UsuarioDTOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/DTO/UsuarioDTOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/controller/AdmControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/controller/AdmControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/AdmController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/AdmController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Adm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Adm.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +69,7 @@
       <recent name="br.com.Sublimoon.PI.DTO" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.AdmControllerTest.findById">
     <configuration name="PiApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.PiApplication" />
       <module name="sublimoon" />
@@ -81,55 +83,70 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClienteDTOTest.canEqual" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AdmControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sublimoon" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.Sublimoon.pi.DTO.*" />
+          <option name="PATTERN" value="br.com.Sublimoon.pi.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.DTO" />
-      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.DTO.ClienteDTOTest" />
-      <option name="METHOD_NAME" value="canEqual" />
+      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.controller" />
+      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.controller.AdmControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdmControllerTest.cadastrarAdm" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sublimoon" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.Sublimoon.pi.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.controller" />
+      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.controller.AdmControllerTest" />
+      <option name="METHOD_NAME" value="cadastrarAdm" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClienteDTOTest.getAndSetCpf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AdmControllerTest.findById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sublimoon" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.Sublimoon.pi.DTO.*" />
+          <option name="PATTERN" value="br.com.Sublimoon.pi.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.DTO" />
-      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.DTO.ClienteDTOTest" />
-      <option name="METHOD_NAME" value="getAndSetCpf" />
+      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.controller" />
+      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.controller.AdmControllerTest" />
+      <option name="METHOD_NAME" value="findById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClienteDTOTest.testEquals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AdmControllerTest.lista" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sublimoon" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.Sublimoon.pi.DTO.*" />
+          <option name="PATTERN" value="br.com.Sublimoon.pi.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.DTO" />
-      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.DTO.ClienteDTOTest" />
-      <option name="METHOD_NAME" value="testEquals" />
+      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.controller" />
+      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.controller.AdmControllerTest" />
+      <option name="METHOD_NAME" value="lista" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClienteDTOTest.testHashCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UsuarioDTOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sublimoon" />
       <extension name="coverage">
         <pattern>
@@ -138,25 +155,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.DTO" />
-      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.DTO.ClienteDTOTest" />
-      <option name="METHOD_NAME" value="testHashCode" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ClienteDTOTest.testToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sublimoon" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="br.com.Sublimoon.pi.DTO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.DTO" />
-      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.DTO.ClienteDTOTest" />
-      <option name="METHOD_NAME" value="testToString" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.DTO.UsuarioDTOTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -179,11 +179,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ClienteDTOTest.testToString" />
-        <item itemvalue="JUnit.ClienteDTOTest.testHashCode" />
-        <item itemvalue="JUnit.ClienteDTOTest.canEqual" />
-        <item itemvalue="JUnit.ClienteDTOTest.testEquals" />
-        <item itemvalue="JUnit.ClienteDTOTest.getAndSetCpf" />
+        <item itemvalue="JUnit.AdmControllerTest.findById" />
+        <item itemvalue="JUnit.AdmControllerTest" />
+        <item itemvalue="JUnit.AdmControllerTest.cadastrarAdm" />
+        <item itemvalue="JUnit.AdmControllerTest.lista" />
+        <item itemvalue="JUnit.UsuarioDTOTest" />
       </list>
     </recent_temporary>
   </component>

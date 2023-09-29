@@ -24,5 +24,10 @@ public class UsuarioDTO {
     private String email;
 
 
+    public UsuarioDTO() {
 
+    }
+
+    public UsuarioDTO(long id, LocalDateTime cadastro, LocalDateTime edicao, boolean ativo, String telefone, String email) {
+    }
 }
