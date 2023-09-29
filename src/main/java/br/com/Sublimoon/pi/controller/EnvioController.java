@@ -44,7 +44,8 @@ public class EnvioController {
             return ResponseEntity.ok("Envio cadastrado com sucesso");
         }
         catch (Exception e){
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
     }
 
@@ -59,12 +60,9 @@ public class EnvioController {
         }
         return ResponseEntity.ok("Envio editado com sucesso!");
        }
-       catch (DataIntegrityViolationException e){
-           return ResponseEntity.internalServerError()
-                   .body("Error: " + e.getCause().getCause().getMessage());
-       }
        catch (RuntimeException e){
-           return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+           String errorMessage = getErrorMessage(e);
+           return ResponseEntity.internalServerError().body(errorMessage);
        }
     }
     @DeleteMapping("/{id}")
@@ -75,8 +73,14 @@ public class EnvioController {
             return ResponseEntity.ok("Envio excluido");
         }
         catch (Exception e){
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
     }
+
+    private String getErrorMessage(Exception e) {
+        return "Error: " + e.getMessage();
+    }
+
 
 }

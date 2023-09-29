@@ -55,7 +55,6 @@ public class ProdutoController {
 
     }
 
-
     @PostMapping
     public ResponseEntity <String> cadastrar(@RequestBody final ProdutoDTO produto){
         try {
@@ -63,7 +62,8 @@ public class ProdutoController {
             return ResponseEntity.ok("Produto Cadastrado com sucesso!!");
         }
         catch (Exception e){
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
     }
 
@@ -78,12 +78,9 @@ public class ProdutoController {
             }
             return ResponseEntity.ok("Produto editado no estoque com Sucesso");
         }
-        catch (DataIntegrityViolationException e){
-            return ResponseEntity.internalServerError()
-                    .body("Error: " + e.getCause().getCause().getMessage());
-        }
         catch (RuntimeException e){
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
 
     }
@@ -104,7 +101,8 @@ public class ProdutoController {
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
         }
         catch (Exception e){
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
     }
 
@@ -117,9 +115,15 @@ public class ProdutoController {
             produtoService.delete(id);
             return ResponseEntity.ok("Desativado ou excluído");
         } catch (Exception e) {
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
     }
+
+    private String getErrorMessage(Exception e) {
+        return "Error: " + e.getMessage();
+    }
+
 
 
 }

@@ -59,7 +59,8 @@ public class FavoritoController {
             return ResponseEntity.ok("Favoritado com sucesso!!!");
         }
         catch (DataIntegrityViolationException e){
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
     }
 
@@ -82,8 +83,8 @@ public class FavoritoController {
             return ResponseEntity.ok("Registro alterado com sucesso");
 
         } catch(Exception e){
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
-
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
 
     }
@@ -92,8 +93,6 @@ public class FavoritoController {
         try {
             Favorito favorito = favoritoRep.getReferenceById(id);
             List<Produto>produtos = produtoRep.findAll();
-
-
 
             List<Produto> favoritou = favorito.getProdutos();
             long idProduto;
@@ -109,12 +108,11 @@ public class FavoritoController {
 
                 }
             }
-
-
             return ResponseEntity.ok(produtos);
         }
         catch (Exception e){
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
     }
 
@@ -124,10 +122,8 @@ public class FavoritoController {
             Favorito favorito = favoritoRep.getReferenceById(id);
             List<Produto> remover = favorito.getProdutos();
             //Long idRemove = produto.getId();
-
             for(int i = 0; i < remover.size(); i++){
                 if(remover.get(i).getId() == idRemove){
-
 
                     remover.remove(i);
                     favorito.setProdutos(remover);
@@ -136,12 +132,17 @@ public class FavoritoController {
                     return ResponseEntity.ok("Desativado ou excluído");
                 }
             }
-
             return ResponseEntity.ok("Desativado ou excluído");
         }
         catch (Exception e){
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
     }
+
+    private String getErrorMessage(Exception e) {
+        return "Error: " + e.getMessage();
+    }
+
 
 }

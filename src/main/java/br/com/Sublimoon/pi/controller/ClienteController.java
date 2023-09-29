@@ -41,7 +41,8 @@ public class ClienteController {
             clienteSer.VerificarCliente(cliente);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
     }
 
@@ -58,25 +59,27 @@ public class ClienteController {
             Cliente clienteNovo = clienteRep.getReferenceById(id);
             BeanUtils.copyProperties(cliente, clienteNovo, "id", "cadastro", "ativo");
 
-
             clienteSer.VerificarCliente(clienteNovo);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
-            return ResponseEntity.internalServerError().body("Error" + e .getMessage());
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleta(@PathVariable Long id) {
-
         try {
-
             clienteSer.delete(id);
             return ResponseEntity.ok("Desativado ou excluído");
         }
         catch (Exception e){
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
-
     }
+    private String getErrorMessage(Exception e) {
+        return "Error: " + e.getMessage();
+    }
+
 }

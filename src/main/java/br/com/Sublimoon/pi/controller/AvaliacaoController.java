@@ -40,7 +40,8 @@ public class AvaliacaoController {
                 avaliacaoServ.createAvaliacao(avaliacaoDTO);
             return ResponseEntity.ok("Avaliado com sucesso");
         } catch (Exception e) {
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
     }
 
@@ -55,12 +56,9 @@ public class AvaliacaoController {
             }
             return ResponseEntity.ok("Produto editado no estoque com Sucesso");
         }
-        catch (DataIntegrityViolationException e){
-            return ResponseEntity.internalServerError()
-                    .body("Error: " + e.getCause().getCause().getMessage());
-        }
         catch (RuntimeException e){
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
     }
 
@@ -73,8 +71,13 @@ public class AvaliacaoController {
             return ResponseEntity.ok("Desativado ou excluído");
         }
         catch (Exception e){
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
+    }
+
+    private String getErrorMessage(Exception e) {
+        return "Error: " + e.getMessage();
     }
 
 

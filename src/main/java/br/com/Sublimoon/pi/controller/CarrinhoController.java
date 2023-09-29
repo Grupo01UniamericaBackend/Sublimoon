@@ -45,7 +45,8 @@ public class CarrinhoController {
             this.carrinhoService.createCarrinho(carrinho1);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
     }
 
@@ -65,7 +66,8 @@ public class CarrinhoController {
             this.carrinhoService.addCarrinho(id,carrinhoNovo);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
         }  catch (Exception e) {
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
     }
 
@@ -73,16 +75,17 @@ public class CarrinhoController {
     public ResponseEntity<String> deleta(@PathVariable Long id) {
 
         try {
-
             carrinhoService.delete(id);
             return ResponseEntity.ok("Desativado ou excluído");
         }
         catch (Exception e){
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
-
-
     }
 
+    private String getErrorMessage(Exception e) {
+        return "Error: " + e.getMessage();
+    }
 
 }

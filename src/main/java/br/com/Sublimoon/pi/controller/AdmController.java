@@ -36,18 +36,16 @@ public class AdmController {
     @GetMapping("/lista")
     public ResponseEntity<List<Adm>> lista() {
         return ResponseEntity.ok(this.admRep.findAll());
-
     }
-
-
     @PostMapping
     public ResponseEntity<String> cadastrarAdm(@RequestBody final AdmDTO adm) {
         try {
 
             this.admServ.createAdm(adm);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
-        } catch (Exception e) {
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+        } catch (RuntimeException e) {
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
     }
 
@@ -62,12 +60,9 @@ public class AdmController {
                 }
                 return ResponseEntity.ok("ADM editado com sucesso");
             }
-            catch (DataIntegrityViolationException e){
-                return ResponseEntity.internalServerError()
-                        .body("Error: " + e.getCause().getCause().getMessage());
-            }
             catch (RuntimeException e){
-                return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+                String errorMessage = getErrorMessage(e);
+                return ResponseEntity.internalServerError().body(errorMessage);
             }
     }
 
@@ -79,9 +74,13 @@ public class AdmController {
             return ResponseEntity.ok("Desativado ou excluído");
         }
         catch (RuntimeException e){
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
+    }
 
+    private String getErrorMessage(Exception e) {
+        return "Error: " + e.getMessage();
     }
 
 

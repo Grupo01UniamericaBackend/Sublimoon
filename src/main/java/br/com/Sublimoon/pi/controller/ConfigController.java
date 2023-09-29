@@ -19,11 +19,8 @@ public class ConfigController {
 
     @Autowired
     ConfigRepository configRep;
-
     @Autowired
     ConfigService configService;
-
-
 
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Config>> findById(@PathVariable("id") final Long id) {
@@ -45,8 +42,9 @@ public class ConfigController {
             BeanUtils.copyProperties(config,config1);
             this.configRep.save(config1);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
-        } catch (DataIntegrityViolationException e) {
-            return ResponseEntity.internalServerError().body("Error: " + e.getCause().getCause().getMessage());
+        } catch (RuntimeException e) {
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
     }
 
@@ -66,11 +64,9 @@ public class ConfigController {
 
             this.configRep.save(configNovo);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
-        } catch (DataIntegrityViolationException e) {
-            return ResponseEntity.internalServerError()
-                    .body("Error: " + e.getCause().getCause().getMessage());
         } catch (RuntimeException e) {
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            String errorMessage = getErrorMessage(e);
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
     }
 
@@ -81,6 +77,10 @@ public class ConfigController {
             configRep.getReferenceById(id).setAtivo(false);
         }
         configRep.deleteById(id);
+    }
+
+    private String getErrorMessage(Exception e) {
+        return "Error: " + e.getMessage();
     }
 
 }
