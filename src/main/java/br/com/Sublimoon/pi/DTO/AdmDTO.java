@@ -18,4 +18,10 @@ public class AdmDTO extends UsuarioDTO {
     }
 
 
+    public AdmDTO(String userAdm, String senhaAdm, String telefone, String email) {
+    }
+
+    public AdmDTO() {
+
+    }
 }

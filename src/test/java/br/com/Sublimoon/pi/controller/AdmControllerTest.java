@@ -69,11 +69,11 @@ class AdmControllerTest {
     @Test
     void cadastrarAdm() {
 
-        AdmDTO adm = new AdmDTO( "001AdmUser100", "123senhaAdm321");
+        AdmDTO adm = new AdmDTO();
 
         var admcontroller = admController.cadastrarAdm(adm).getStatusCode();
 
-      //  Assertions.assertEquals(ResponseEntity.ok(), admcontroller);
+       // Assertions.assertEquals(ResponseEntity.ok(), admcontroller);
 
     }
 

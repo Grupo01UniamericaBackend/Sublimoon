@@ -41,7 +41,7 @@ public class AdmController {
 
 
     @PostMapping
-    public ResponseEntity<?> cadastrarAdm(@RequestBody final AdmDTO adm) {
+    public ResponseEntity<String> cadastrarAdm(@RequestBody final AdmDTO adm) {
         try {
 
             this.admServ.createAdm(adm);
@@ -52,7 +52,7 @@ public class AdmController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editarAdm(@PathVariable("id") final Long id, @RequestBody final Adm adm) {
+    public ResponseEntity<String> editarAdm(@PathVariable("id") final Long id, @RequestBody final Adm adm) {
             try {
                 admServ.editaADM(adm);
                 final Adm adm1 = this.admRep.findById(id).orElse(null);
@@ -72,7 +72,7 @@ public class AdmController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deletaAdm(@PathVariable Long id) {
+    public ResponseEntity<String> deletaAdm(@PathVariable Long id) {
         try {
 
             this.admServ.delete(id);
