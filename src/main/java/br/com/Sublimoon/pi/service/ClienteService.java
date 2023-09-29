@@ -36,14 +36,6 @@ public class ClienteService {
         //Assert.isTrue(emailExistente == null || emailExistente.equals(cliente),"Email já cadastrado!")
 
 
-
-
-        //Assert.isTrue(!cliente.getFavorito().equals(""),"O campo favoritos não pode nulo!");
-
-       // Assert.isTrue(!cliente.getCarrinho().equals(""),"O campo carrinho não pode nulo!");
-
-        //Assert.isTrue(!cliente.getId().equals(""),"O campo ID não pode nulo!");
-
         Assert.isTrue(cliente.getTelefone().substring(0,11).matches("[0-9]*"),"Telefone deve conter apenas números!");
         Assert.isTrue(!cliente.getTelefone().equals(""),"O telefone não pode ser nulo!");
         Assert.isTrue(cliente.getTelefone().length() == 11 ,"O numero deve ter 11 digitos, contando o DDD") ;

@@ -28,7 +28,7 @@ public class CarrinhoService {
 
 
     @Transactional(rollbackFor = Exception.class)
-    public Carrinho createCarrinho(final Carrinho carrinho){
+    public void createCarrinho(final Carrinho carrinho){
 
         for (int i = 0; i < carrinho.getItem().size(); i++){
             Item itemNovo = carrinho.getItem().get(i);
@@ -49,7 +49,7 @@ public class CarrinhoService {
 
         }
 
-        return carrinhoRepo.save(carrinho);
+        carrinhoRepo.save(carrinho);
     }
 
     @Transactional(rollbackFor = Exception.class)
