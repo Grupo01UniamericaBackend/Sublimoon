@@ -63,7 +63,7 @@
       <recent name="br.com.Sublimoon.PI.DTO" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PiApplication">
+  <component name="RunManager">
     <configuration name="PiApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.PiApplication" />
       <module name="sublimoon" />
