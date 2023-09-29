@@ -36,12 +36,9 @@ public class ClienteController {
 
     }
     @PostMapping
-    public ResponseEntity<String> cadastrar(@RequestBody final ClienteDTO cliente) {
+    public ResponseEntity<String> cadastrar(@RequestBody final Cliente cliente) {
         try {
-            Cliente cliente1 = new Cliente();
-            BeanUtils.copyProperties(cliente,cliente1);
-
-            this.clienteSer.VerificarCliente(cliente1);
+            clienteSer.VerificarCliente(cliente);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
