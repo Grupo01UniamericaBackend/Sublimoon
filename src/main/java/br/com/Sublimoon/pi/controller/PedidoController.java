@@ -11,6 +11,9 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 
 @Controller
 @RequestMapping(value = "/api/pedido")
@@ -25,19 +28,19 @@ public class PedidoController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findById(@PathVariable("id") final Long id){
-        final Pedido pedido = pedidoRep.findById(id).orElse(null);
+    public ResponseEntity<Optional<Pedido>> findById(@PathVariable("id") final Long id){
+        Optional<Pedido> pedido = pedidoRep.findById(id);
         return ResponseEntity.ok(pedido);
     }
 
 
     @GetMapping("/lista")
-    public ResponseEntity <?> listaCompletaPedido(){
+    public ResponseEntity <List<Pedido>> listaCompletaPedido(){
         return ResponseEntity.ok(pedidoRep.findAll());
     }
 
     @PostMapping
-    public ResponseEntity <?> cadastrarPedido(@RequestBody final PedidoDTO pedidoDTO){
+    public ResponseEntity <String> cadastrarPedido(@RequestBody final PedidoDTO pedidoDTO){
         try {
             pedidoService.verificarPedido(pedidoDTO);
             return ResponseEntity.ok("Pedido cadastrado com sucesso!!");
@@ -48,7 +51,7 @@ public class PedidoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateFavorito(@PathVariable("id") final Long id,@RequestBody Pedido pedido) {
+    public ResponseEntity<String> updateFavorito(@PathVariable("id") final Long id,@RequestBody Pedido pedido) {
         try {
             pedidoService.editarpedido(pedido);
             final Pedido pedido1 =this.pedidoRep.findById(id).orElse(null);
@@ -68,7 +71,7 @@ public class PedidoController {
     }
 
     @DeleteMapping("delete/{id}")
-    public ResponseEntity<?> deletaPedido(@PathVariable Long id) {
+    public ResponseEntity<String> deletaPedido(@PathVariable Long id) {
         try {
 
             pedidoService.delete(id);

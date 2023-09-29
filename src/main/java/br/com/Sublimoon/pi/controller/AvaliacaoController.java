@@ -9,6 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 
 @Controller
 @RequestMapping(value = "/api/avaliacao")
@@ -22,20 +25,19 @@ public class AvaliacaoController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
-        final Avaliacao avaliacao = this.avaliacaoRepository.findById(id).orElse(null);
+    public ResponseEntity<Optional<Avaliacao>> findById(@PathVariable("id") final Long id) {
+         Optional<Avaliacao> avaliacao = this.avaliacaoRepository.findById(id);
         return ResponseEntity.ok(avaliacao);
     }
 
     @GetMapping("/lista")
-    public ResponseEntity<?> lista() {
+    public ResponseEntity<List<Avaliacao>> lista() {
         return ResponseEntity.ok(this.avaliacaoRepository.findAll());
-
     }
 
 
     @PostMapping
-    public ResponseEntity<?> cadastrarAvaliacao(@RequestBody final AvaliacaoDTO avaliacaoDTO) {
+    public ResponseEntity<String> cadastrarAvaliacao(@RequestBody final AvaliacaoDTO avaliacaoDTO) {
         try {
                 avaliacaoServ.createAvaliacao(avaliacaoDTO);
             return ResponseEntity.ok("Avaliado com sucesso");
@@ -45,7 +47,7 @@ public class AvaliacaoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editarAvaliacao(@PathVariable(value = "id") final Long id, @RequestBody final Avaliacao avaliacao) {
+    public ResponseEntity<String> editarAvaliacao(@PathVariable(value = "id") final Long id, @RequestBody final Avaliacao avaliacao) {
         try {
             avaliacaoServ.atualizaAvaliacao(avaliacao);
             final Avaliacao avaliacao1 = this.avaliacaoRepository.findById(id).orElse(null);
@@ -65,7 +67,7 @@ public class AvaliacaoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deletaAvaliacao(@PathVariable Long id) {
+    public ResponseEntity<String> deletaAvaliacao(@PathVariable Long id) {
 
         try {
 

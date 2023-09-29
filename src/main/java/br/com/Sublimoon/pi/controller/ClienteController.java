@@ -11,6 +11,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 @Controller
 @RequestMapping(value = "/api/cliente")
 public class ClienteController {
@@ -23,19 +26,17 @@ public class ClienteController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findById(@PathVariable("id")  Long id){
-        final Cliente cliente = this.clienteRep.findById(id).orElse(null);
+    public ResponseEntity<Optional<Cliente>> findById(@PathVariable("id")  Long id){
+        Optional<Cliente> cliente = this.clienteRep.findById(id);
         return ResponseEntity.ok(cliente);
     }
     @GetMapping("/lista")
-    public ResponseEntity<?> lista() {
+    public ResponseEntity<List<Cliente>> lista() {
         return ResponseEntity.ok(this.clienteRep.findAll());
 
     }
-
-
     @PostMapping
-    public ResponseEntity<?> cadastrar(@RequestBody final ClienteDTO cliente) {
+    public ResponseEntity<String> cadastrar(@RequestBody final ClienteDTO cliente) {
         try {
             Cliente cliente1 = new Cliente();
             BeanUtils.copyProperties(cliente,cliente1);
@@ -44,12 +45,11 @@ public class ClienteController {
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
-
         }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editar(@PathVariable(value = "id") final Long id, @RequestBody @Valid ClienteDTO cliente){
+    public ResponseEntity<String> editar(@PathVariable(value = "id") final Long id, @RequestBody @Valid ClienteDTO cliente){
         try {
 
             final Cliente cliente1 = this.clienteRep.findById(id).orElse(null);
@@ -70,7 +70,7 @@ public class ClienteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleta(@PathVariable Long id) {
+    public ResponseEntity<String> deleta(@PathVariable Long id) {
 
         try {
 

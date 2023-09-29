@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping(value = "/api/favorito")
@@ -41,19 +42,18 @@ public class FavoritoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findById(@PathVariable("id") final Long id){
-        final Favorito favorito = this.favoritoRep.findById(id).orElse(null);
+    public ResponseEntity<Optional<Favorito>> findById(@PathVariable("id") final Long id){
+        Optional<Favorito> favorito = this.favoritoRep.findById(id);
         return ResponseEntity.ok(favorito);
-
     }
 
     @GetMapping("/lista")
-    public ResponseEntity <?> listaCompletaFavoritos(){
+    public ResponseEntity <List<Favorito>> listaCompletaFavoritos(){
         return ResponseEntity.ok(this.favoritoRep.findAll());
     }
 
     @PostMapping
-    public ResponseEntity <?> cadastraFavorito(@RequestBody final FavoritoDTO favoritoDTO){
+    public ResponseEntity <String> cadastraFavorito(@RequestBody final FavoritoDTO favoritoDTO){
         try {
                 favoritoService.Favoritar(favoritoDTO);
             return ResponseEntity.ok("Favoritado com sucesso!!!");
@@ -64,7 +64,7 @@ public class FavoritoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateFavorito(@PathVariable(value = "id") final Long id,@RequestBody FavoritoDTO favorito){
+    public ResponseEntity<String> updateFavorito(@PathVariable(value = "id") final Long id,@RequestBody FavoritoDTO favorito){
         try {
             final Favorito favoritoNovo = this.favoritoRep.findById(id).orElse(null);
 
@@ -88,7 +88,7 @@ public class FavoritoController {
 
     }
     @GetMapping("favoritou/{id}")
-    public ResponseEntity<?> Favorito(@PathVariable (value = "id") final Long id) {
+    public ResponseEntity<Object> Favorito(@PathVariable (value = "id") final Long id) {
         try {
             Favorito favorito = favoritoRep.getReferenceById(id);
             List<Produto>produtos = produtoRep.findAll();
@@ -119,7 +119,7 @@ public class FavoritoController {
     }
 
     @DeleteMapping("delete/{id}/{produto}")
-    public ResponseEntity<?> deletaIdFavorito(@PathVariable (value = "id") final Long id, @PathVariable (value = "produto") final long idRemove) {
+    public ResponseEntity<String> deletaIdFavorito(@PathVariable (value = "id") final Long id, @PathVariable (value = "produto") final long idRemove) {
         try {
             Favorito favorito = favoritoRep.getReferenceById(id);
             List<Produto> remover = favorito.getProdutos();

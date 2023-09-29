@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.dao.DataIntegrityViolationException;
 
+import java.util.List;
+import java.util.Optional;
+
 @Controller
 @RequestMapping(value = "/api/produto")
 public class ProdutoController {
@@ -24,15 +27,15 @@ public class ProdutoController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
-        final Produto produto = this.produtoRep.findById(id).orElse(null);
+    public ResponseEntity<Optional<Produto>> findById(@PathVariable("id") final Long id) {
+        Optional<Produto> produto = this.produtoRep.findById(id);
         return ResponseEntity.ok(produto);
     }
 
 
 
     @GetMapping("/categoria/{categoria}")
-    public ResponseEntity<?> findByCategoria(@PathVariable("categoria") Categoria categoria) {
+    public ResponseEntity<List<Produto>> findByCategoria(@PathVariable("categoria") Categoria categoria) {
 
         return ResponseEntity.ok(produtoRep.findByCategoria(categoria));
 
@@ -41,20 +44,20 @@ public class ProdutoController {
 
 
     @GetMapping("/lista")
-    public ResponseEntity <?> lista(){
+    public ResponseEntity <List<Produto>> lista(){
         return ResponseEntity.ok(this.produtoRep.findAll());
 
     }
 
     @GetMapping("/favorito/lista")
-    public ResponseEntity <?> listaFavoritos(){
+    public ResponseEntity <List<Produto>> listaFavoritos(){
         return ResponseEntity.ok(this.produtoRep.findByAtivo(false));
 
     }
 
 
     @PostMapping
-    public ResponseEntity <?> cadastrar(@RequestBody final ProdutoDTO produto){
+    public ResponseEntity <String> cadastrar(@RequestBody final ProdutoDTO produto){
         try {
             produtoService.cadastrar(produto);
             return ResponseEntity.ok("Produto Cadastrado com sucesso!!");
@@ -65,7 +68,7 @@ public class ProdutoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editarProduto(@PathVariable("id") final Long id, @RequestBody final Produto produto){
+    public ResponseEntity<String> editarProduto(@PathVariable("id") final Long id, @RequestBody final Produto produto){
         try {
             produtoService.atualizaProduto(produto);
             final Produto produto1 = this.produtoRep.findById(id).orElse(null);
@@ -86,7 +89,7 @@ public class ProdutoController {
     }
 
     @PutMapping("/fav/{id}")
-    public ResponseEntity<?> fav(@PathVariable("id") final Long id, @RequestBody final Produto produto){
+    public ResponseEntity<String> fav(@PathVariable("id") final Long id, @RequestBody final Produto produto){
         try {
             final Produto produto1 = this.produtoRep.findById(id).orElse(null);
 
@@ -107,7 +110,7 @@ public class ProdutoController {
 
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleta(@PathVariable Long id){
+    public ResponseEntity<String> deleta(@PathVariable Long id){
 
         try {
 

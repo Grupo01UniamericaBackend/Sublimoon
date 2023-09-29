@@ -9,6 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 @Controller
 @RequestMapping(value = "/api/carrinho")
 public class CarrinhoController {
@@ -22,20 +25,20 @@ public class CarrinhoController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
-        final Carrinho carrinho = this.carrinhoRepository.findById(id).orElse(null);
+    public ResponseEntity<Optional<Carrinho>> findById(@PathVariable("id") final Long id) {
+        Optional<Carrinho> carrinho = this.carrinhoRepository.findById(id);
         return ResponseEntity.ok(carrinho);
     }
 
     @GetMapping("/lista")
-    public ResponseEntity<?> lista() {
+    public ResponseEntity<List<Carrinho>> lista() {
         return ResponseEntity.ok(this.carrinhoRepository.findAll());
 
     }
 
 
     @PostMapping
-    public ResponseEntity<?> cadastrar(@RequestBody final CarrinhoDTO carrinho) {
+    public ResponseEntity<String> cadastrar(@RequestBody final CarrinhoDTO carrinho) {
         try {
             Carrinho carrinho1 = new Carrinho();
             BeanUtils.copyProperties(carrinho,carrinho1);
@@ -47,7 +50,7 @@ public class CarrinhoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editar(@PathVariable(value = "id") final Long id, @RequestBody final CarrinhoDTO carrinho) {
+    public ResponseEntity<String> editar(@PathVariable(value = "id") final Long id, @RequestBody final CarrinhoDTO carrinho) {
         try {
             final Carrinho carrinho1 = this.carrinhoRepository.findById(id).orElse(null);
 
@@ -67,7 +70,7 @@ public class CarrinhoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleta(@PathVariable Long id) {
+    public ResponseEntity<String> deleta(@PathVariable Long id) {
 
         try {
 

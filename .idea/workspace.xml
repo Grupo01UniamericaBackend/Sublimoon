@@ -6,14 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="2ce9f60f-89c8-404c-8162-0883dae68d8c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/DTO/AdmDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/DTO/AdmDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/DTO/UsuarioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/DTO/UsuarioDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/AdmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/AdmController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/entity/Adm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/entity/Adm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/DTO/UsuarioDTOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/DTO/UsuarioDTOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/controller/AdmControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/controller/AdmControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/AdmController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/AdmController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Adm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Adm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/AvaliacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/AvaliacaoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/CarrinhoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/CarrinhoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/ClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/ConfigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/ConfigController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/EnvioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/EnvioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/FavoritoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/FavoritoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/PedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/PedidoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/ProdutoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/controller/ProdutoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/AvaliacaoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/AvaliacaoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/CarrinhoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/CarrinhoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/ClienteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/ClienteController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/ConfigController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/ConfigController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/EnvioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/EnvioController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/FavoritoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/FavoritoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/PedidoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/PedidoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/ProdutoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/ProdutoController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +77,7 @@
       <recent name="br.com.Sublimoon.PI.DTO" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AdmControllerTest.findById">
+  <component name="RunManager" selected="Application.PiApplication">
     <configuration name="PiApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.PiApplication" />
       <module name="sublimoon" />

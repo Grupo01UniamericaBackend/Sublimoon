@@ -10,6 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 @Controller
 @RequestMapping(value = "/api/configuracao")
 public class ConfigController {
@@ -23,20 +26,20 @@ public class ConfigController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
-        final Config config = this.configRep.findById(id).orElse(null);
+    public ResponseEntity<Optional<Config>> findById(@PathVariable("id") final Long id) {
+        Optional <Config> config = this.configRep.findById(id);
         return ResponseEntity.ok(config);
     }
 
     @GetMapping("/lista")
-    public ResponseEntity<?> lista() {
+    public ResponseEntity<List<Config>> lista() {
         return ResponseEntity.ok(this.configRep.findAll());
 
     }
 
 
     @PostMapping
-    public ResponseEntity<?> cadastrar(@RequestBody final ConfigDTO config) {
+    public ResponseEntity<String> cadastrar(@RequestBody final ConfigDTO config) {
         try {
             Config config1 = new Config();
             BeanUtils.copyProperties(config,config1);
@@ -48,7 +51,7 @@ public class ConfigController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editar(@PathVariable(value = "id") final Long id, @RequestBody final ConfigDTO config) {
+    public ResponseEntity<String> editar(@PathVariable(value = "id") final Long id, @RequestBody final ConfigDTO config) {
         try {
             final Config config1 = this.configRep.findById(id).orElse(null);
 
