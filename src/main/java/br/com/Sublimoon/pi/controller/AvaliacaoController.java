@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
-
 @Controller
 @RequestMapping(value = "/api/avaliacao")
 public class AvaliacaoController {
@@ -77,9 +75,6 @@ public class AvaliacaoController {
         catch (Exception e){
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
-
-
-
     }
 
 
