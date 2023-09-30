@@ -1,7 +1,7 @@
 package br.com.Sublimoon.pi.entity;
 import br.com.Sublimoon.pi.DTO.EnvioDTO;
-import br.com.Sublimoon.pi.controller.EnvioController;
 import br.com.Sublimoon.pi.repository.EnvioRepository;
+import br.com.Sublimoon.pi.controller.EnvioController;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -49,7 +49,7 @@ class EnvioTest {
     @Test
     void cadastraEnvioErrado(){
         var envio = envioController.cadastrarEnvio(new EnvioDTO());
-        Assertions.assertEquals("Error: Cannot invoke \"String.equals(Object)\" because the return value of \"br.com.Sublimoon.pi.entity.Envio.getFormaEnvio()\" is null",envio.getBody());
+        Assertions.assertEquals("Error: Cannot invoke \"String.equals(Object)\" because the return value of \"entity.br.com.sublimon.pi.Envio.getFormaEnvio()\" is null",envio.getBody());
     }
     @Test
     void putEnvio(){
