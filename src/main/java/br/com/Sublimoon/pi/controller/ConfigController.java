@@ -5,7 +5,6 @@ import br.com.Sublimoon.pi.repository.ConfigRepository;
 import br.com.Sublimoon.pi.service.ConfigService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

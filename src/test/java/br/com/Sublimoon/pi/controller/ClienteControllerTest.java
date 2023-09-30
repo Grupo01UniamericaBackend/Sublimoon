@@ -1,10 +1,8 @@
 package br.com.Sublimoon.pi.controller;
 
-import br.com.Sublimoon.pi.DTO.ClienteDTO;
 import br.com.Sublimoon.pi.entity.Cliente;
 import br.com.Sublimoon.pi.repository.ClienteRepository;
 import br.com.Sublimoon.pi.service.ClienteService;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
