@@ -112,9 +112,9 @@ class ProdutoControllerTest {
     void cadastrar() {
         ProdutoDTO produto = new ProdutoDTO("Xicara 1", Categoria.CANECA, Cor.BRANCO, "...", "IMG", 20f, 1, 4, "10CM");
 
-        var produtocontroller = produtoController.cadastrar(produto);
+        var produtoResposta = produtoController.cadastrar(produto);
 
-       // Assertions.assertEquals("ok", produtocontroller);
+       Assertions.assertEquals("Produto Cadastrado com sucesso!!", produtoResposta.getBody());
     }
 
     @Test

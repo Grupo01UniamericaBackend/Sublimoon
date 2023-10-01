@@ -67,12 +67,10 @@ class ClienteControllerTest {
     @Test
     void cadastrar() {
 
-        ClienteDTO cliente = new ClienteDTO("45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
+        ClienteDTO cliente = new ClienteDTO("45999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
 
-        var clientecontroller = clienteController.cadastrar(cliente);
-        String resposta = clientecontroller.getBody();
-
-     //   Assertions.assertEquals("ok", resposta);
+        var clienteResposta = clienteController.cadastrar(cliente);
+        Assertions.assertEquals("Registro cadastrado com sucesso", clienteResposta.getBody());
 
     }
 

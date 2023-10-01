@@ -31,8 +31,15 @@ public class ProdutoDTO extends AbstractEntity {
 
     private String tamanho;
 
-
-    public ProdutoDTO(String nome, Categoria categoria, Cor cor, String descricao, String imagem, float preco, int quantidade, int mediaAvaliacao, String tamanho) {
-        super();
+    public ProdutoDTO(String nome, Categoria categoria, Cor cor, String descricao, String imagem, float preco, float quantidade, float mediaAvaliacao, String tamanho) {
+        this.nome = nome;
+        this.categoria = categoria;
+        this.cor = cor;
+        this.descricao = descricao;
+        this.imagem = imagem;
+        this.preco = preco;
+        this.quantidade = quantidade;
+        this.mediaAvaliacao = mediaAvaliacao;
+        this.tamanho = tamanho;
     }
 }

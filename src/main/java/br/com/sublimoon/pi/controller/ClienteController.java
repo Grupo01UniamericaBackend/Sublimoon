@@ -40,9 +40,10 @@ public class ClienteController {
         try {
             clienteSer.VerificarCliente(cliente);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
-        } catch (Exception e) {
+        }
+        catch (RuntimeException e) {
             String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            return ResponseEntity.internalServerError().body(errorMessage);
         }
     }
 
