@@ -1,7 +1,10 @@
 package br.com.Sublimoon.pi.service;
 
+import br.com.Sublimoon.pi.DTO.ClienteDTO;
 import br.com.Sublimoon.pi.entity.Cliente;
 import br.com.Sublimoon.pi.repository.ClienteRepository;
+import org.jetbrains.annotations.NotNull;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,20 +15,28 @@ import org.springframework.util.Assert;
 public class ClienteService {
 
     @Autowired
-    private ClienteRepository clienteRepository;
+    final ClienteRepository clienteRepository;
+
+    public ClienteService(ClienteRepository clienteRepository) {
+        this.clienteRepository = clienteRepository;
+    }
 
     @Transactional(rollbackFor = Exception.class)
-    public void VerificarCliente (final Cliente cliente){
+    public void VerificarCliente (final @NotNull ClienteDTO cliente){
 
 
-        Assert.isTrue(!cliente.getNome().equals(""),"O nome não pode nulo!");
-        Assert.isTrue(cliente.getNome().length() <= 45 ,"O nome deve ter no máximo 45 digitos") ;
+        var clienteNovo = new Cliente();
+        BeanUtils.copyProperties(cliente, clienteNovo);
 
-        Assert.isTrue(!cliente.getSenha().equals(""),"A senha não pode ser nula!");
-        Assert.isTrue(cliente.getNome().length() <= 40 ,"A senha deve ter até 40 digitos") ;
+        Assert.isTrue(clienteNovo.getNome().length() <= 45 ,"O nome deve ter no máximo 45 digitos") ;
 
-        Assert.isTrue(!cliente.getCpf().equals(""),"O cpf não pode ser nulo!");
-        Assert.isTrue(cliente.getCpf().length() <= 20 ,"O cpf deve ter no máximo 20 dígitos") ;
+        Assert.isTrue(!clienteNovo.getNome().equals(""),"O nome não pode nulo!");
+
+        Assert.isTrue(!clienteNovo.getSenha().equals(""),"A senha não pode ser nula!");
+        Assert.isTrue(clienteNovo.getNome().length() <= 40 ,"A senha deve ter até 40 digitos") ;
+
+        Assert.isTrue(!clienteNovo.getCpf().equals(""),"O cpf não pode ser nulo!");
+        Assert.isTrue(clienteNovo.getCpf().length() <= 20 ,"O cpf deve ter no máximo 20 dígitos") ;
 
 
        // Cliente cpfExistente = clienteRepository.findByCpf(cliente.getCpf());
@@ -36,14 +47,14 @@ public class ClienteService {
         //Assert.isTrue(emailExistente == null || emailExistente.equals(cliente),"Email já cadastrado!")
 
 
-        Assert.isTrue(cliente.getTelefone().substring(0,11).matches("[0-9]*"),"Telefone deve conter apenas números!");
-        Assert.isTrue(!cliente.getTelefone().equals(""),"O telefone não pode ser nulo!");
-        Assert.isTrue(cliente.getTelefone().length() == 11 ,"O numero deve ter 11 digitos, contando o DDD") ;
+        Assert.isTrue(clienteNovo.getTelefone().substring(0,11).matches("[0-9]*"),"Telefone deve conter apenas números!");
+        Assert.isTrue(!clienteNovo.getTelefone().equals(""),"O telefone não pode ser nulo!");
+        Assert.isTrue(clienteNovo.getTelefone().length() == 11 ,"O numero deve ter 11 digitos, contando o DDD") ;
 
-        Assert.isTrue(!cliente.getEmail().equals(""),"O email não pode ser nulo!");
-        Assert.isTrue(cliente.getEmail().length() <= 50 ,"O email deve ter no maximo 50 caracteres") ;
+        Assert.isTrue(!clienteNovo.getEmail().equals(""),"O email não pode ser nulo!");
+        Assert.isTrue(clienteNovo.getEmail().length() <= 50 ,"O email deve ter no maximo 50 caracteres") ;
 
-        this.clienteRepository.save(cliente);
+        this.clienteRepository.save(clienteNovo);
 
     }
 

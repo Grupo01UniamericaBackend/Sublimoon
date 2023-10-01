@@ -11,6 +11,8 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,19 +70,30 @@ class AdmControllerTest {
     @Test
     void cadastrarAdm() {
 
-        AdmDTO adm = new AdmDTO();
+        AdmDTO adm = new AdmDTO("nome", "senha");
 
         var admcontroller = admController.cadastrarAdm(adm).getStatusCode();
 
-       // Assertions.assertEquals(ResponseEntity.ok(), admcontroller);
+        Assertions.assertEquals(HttpStatusCode.valueOf(200), admcontroller);
 
     }
 
     @Test
     void editarAdm() {
+        Adm adm = new Adm(1L, "admin", "admin123");
+
+        var admcontroller = admController.editarAdm(1L, adm).getStatusCode();
+
+        Assertions.assertEquals(HttpStatusCode.valueOf(200), admcontroller);
+
+
     }
 
     @Test
     void deletaAdm() {
+
+        var admcontroller = admController.deletaAdm(1L).getBody();
+
+        Assertions.assertEquals("Desativado ou excluído", admcontroller);
     }
 }

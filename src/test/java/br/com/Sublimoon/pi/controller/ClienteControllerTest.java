@@ -1,5 +1,6 @@
 package br.com.Sublimoon.pi.controller;
 
+import br.com.Sublimoon.pi.DTO.ClienteDTO;
 import br.com.Sublimoon.pi.entity.Cliente;
 import br.com.Sublimoon.pi.repository.ClienteRepository;
 import br.com.Sublimoon.pi.service.ClienteService;
@@ -22,10 +23,10 @@ class ClienteControllerTest {
     ClienteRepository clienteRep;
 
     @Autowired
-    ClienteController clienteController = new ClienteController();
+    private final ClienteController clienteController = new ClienteController();
 
     @Autowired
-    ClienteService clienteService = new ClienteService();
+    private final ClienteService clienteService = new ClienteService(clienteRep);
 
     @BeforeEach
     void injectFindById(){
@@ -42,6 +43,7 @@ class ClienteControllerTest {
         clientes.add(cliente);
         Mockito.when(clienteRep.findAll()).thenReturn(clientes);
     }
+
 
     @Test
     void findById() {
@@ -65,12 +67,12 @@ class ClienteControllerTest {
     @Test
     void cadastrar() {
 
-        Cliente cliente = new Cliente("45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
+        ClienteDTO cliente = new ClienteDTO("45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
 
         var clientecontroller = clienteController.cadastrar(cliente);
-        String resposta = clientecontroller.getStatusCode().toString();
+        String resposta = clientecontroller.getBody();
 
-       // Assertions.assertEquals("ok", resposta);
+     //   Assertions.assertEquals("ok", resposta);
 
     }
 
