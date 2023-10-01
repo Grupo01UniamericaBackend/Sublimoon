@@ -1,4 +1,4 @@
-package br.com.sublimoon.pi.DTO;
+package br.com.sublimoon.pi.dto;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;

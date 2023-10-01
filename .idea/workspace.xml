@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ce9f60f-89c8-404c-8162-0883dae68d8c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/entity/EnvioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/entity/EnvioTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="2ce9f60f-89c8-404c-8162-0883dae68d8c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,7 +59,7 @@
       <recent name="br.com.Sublimoon.PI.DTO" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.PiApplication">
     <configuration name="PiApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.PiApplication" />
       <module name="sublimoonTest" />

@@ -1,5 +1,5 @@
 package br.com.sublimoon.pi.controller;
-import br.com.sublimoon.pi.DTO.ProdutoDTO;
+import br.com.sublimoon.pi.dto.ProdutoDTO;
 import br.com.sublimoon.pi.entity.Categoria;
 import br.com.sublimoon.pi.entity.Produto;
 import br.com.sublimoon.pi.repository.ProdutoRepository;

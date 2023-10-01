@@ -1,4 +1,4 @@
-package br.com.sublimoon.pi.DTO;
+package br.com.sublimoon.pi.dto;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

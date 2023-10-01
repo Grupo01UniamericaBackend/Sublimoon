@@ -1,6 +1,6 @@
 package br.com.sublimoon.pi.controller;
 
-import br.com.sublimoon.pi.DTO.PedidoDTO;
+import br.com.sublimoon.pi.dto.PedidoDTO;
 import br.com.sublimoon.pi.entity.Pedido;
 import br.com.sublimoon.pi.repository.PedidoRepository;
 import br.com.sublimoon.pi.service.PedidoService;

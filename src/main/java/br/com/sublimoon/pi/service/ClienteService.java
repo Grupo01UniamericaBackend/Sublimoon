@@ -1,6 +1,6 @@
 package br.com.sublimoon.pi.service;
 
-import br.com.sublimoon.pi.DTO.ClienteDTO;
+import br.com.sublimoon.pi.dto.ClienteDTO;
 import br.com.sublimoon.pi.entity.Cliente;
 import br.com.sublimoon.pi.repository.ClienteRepository;
 import org.jetbrains.annotations.NotNull;

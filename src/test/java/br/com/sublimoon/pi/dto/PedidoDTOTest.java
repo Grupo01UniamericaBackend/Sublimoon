@@ -1,41 +1,57 @@
-package br.com.sublimoon.pi.DTO;
+package br.com.sublimoon.pi.dto;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AvaliacaoDTOTest {
+class PedidoDTOTest {
 
     @Test
-    void getNota() {
+    void getTotal() {
     }
 
     @Test
-    void getComentario() {
+    void getPagamento() {
     }
 
     @Test
-    void getCliente() {
+    void getEndereco() {
     }
 
     @Test
-    void getProduto() {
+    void getCep() {
     }
 
     @Test
-    void setNota() {
+    void getCarrinho() {
     }
 
     @Test
-    void setComentario() {
+    void getEnvio() {
     }
 
     @Test
-    void setCliente() {
+    void setTotal() {
     }
 
     @Test
-    void setProduto() {
+    void setPagamento() {
+    }
+
+    @Test
+    void setEndereco() {
+    }
+
+    @Test
+    void setCep() {
+    }
+
+    @Test
+    void setCarrinho() {
+    }
+
+    @Test
+    void setEnvio() {
     }
 
     @Test

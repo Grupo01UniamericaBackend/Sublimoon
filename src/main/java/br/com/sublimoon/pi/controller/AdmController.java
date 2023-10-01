@@ -1,6 +1,6 @@
 package br.com.sublimoon.pi.controller;
 
-import br.com.sublimoon.pi.DTO.AdmDTO;
+import br.com.sublimoon.pi.dto.AdmDTO;
 import br.com.sublimoon.pi.entity.Adm;
 import br.com.sublimoon.pi.repository.AdmRepository;
 import br.com.sublimoon.pi.repository.ConfigRepository;

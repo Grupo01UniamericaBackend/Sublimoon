@@ -1,5 +1,5 @@
 package br.com.sublimoon.pi.service;
-import br.com.sublimoon.pi.DTO.PedidoDTO;
+import br.com.sublimoon.pi.dto.PedidoDTO;
 import br.com.sublimoon.pi.entity.Carrinho;
 import br.com.sublimoon.pi.entity.Envio;
 import br.com.sublimoon.pi.entity.Pedido;

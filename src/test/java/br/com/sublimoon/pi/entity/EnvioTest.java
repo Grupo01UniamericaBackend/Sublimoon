@@ -1,5 +1,5 @@
 package br.com.sublimoon.pi.entity;
-import br.com.sublimoon.pi.DTO.EnvioDTO;
+import br.com.sublimoon.pi.dto.EnvioDTO;
 import br.com.sublimoon.pi.repository.EnvioRepository;
 import br.com.sublimoon.pi.controller.EnvioController;
 import org.junit.jupiter.api.Assertions;

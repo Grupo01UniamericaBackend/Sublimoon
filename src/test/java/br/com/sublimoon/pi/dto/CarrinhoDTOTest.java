@@ -1,13 +1,21 @@
-package br.com.sublimoon.pi.DTO;
+package br.com.sublimoon.pi.dto;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FavoritoDTOTest {
+class CarrinhoDTOTest {
 
     @Test
-    void getProdutos() {
+    void getQuantidade() {
+    }
+
+    @Test
+    void getDesconto() {
+    }
+
+    @Test
+    void getSubTotal() {
     }
 
     @Test
@@ -15,11 +23,27 @@ class FavoritoDTOTest {
     }
 
     @Test
-    void setProdutos() {
+    void getItem() {
+    }
+
+    @Test
+    void setQuantidade() {
+    }
+
+    @Test
+    void setDesconto() {
+    }
+
+    @Test
+    void setSubTotal() {
     }
 
     @Test
     void setCliente() {
+    }
+
+    @Test
+    void setItem() {
     }
 
     @Test

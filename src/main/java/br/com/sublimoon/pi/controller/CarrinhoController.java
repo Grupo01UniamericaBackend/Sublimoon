@@ -1,5 +1,5 @@
 package br.com.sublimoon.pi.controller;
-import br.com.sublimoon.pi.DTO.CarrinhoDTO;
+import br.com.sublimoon.pi.dto.CarrinhoDTO;
 import br.com.sublimoon.pi.entity.Carrinho;
 import br.com.sublimoon.pi.repository.CarrinhoRepository;
 import br.com.sublimoon.pi.service.CarrinhoService;

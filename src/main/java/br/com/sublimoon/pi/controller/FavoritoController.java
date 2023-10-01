@@ -1,5 +1,5 @@
 package br.com.sublimoon.pi.controller;
-import br.com.sublimoon.pi.DTO.FavoritoDTO;
+import br.com.sublimoon.pi.dto.FavoritoDTO;
 import br.com.sublimoon.pi.entity.Favorito;
 import br.com.sublimoon.pi.entity.Produto;
 import br.com.sublimoon.pi.repository.FavoritoRepository;
