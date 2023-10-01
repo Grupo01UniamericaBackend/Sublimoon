@@ -4,6 +4,7 @@ import br.com.Sublimoon.pi.entity.Produto;
 import br.com.Sublimoon.pi.repository.ProdutoRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -18,7 +19,7 @@ public class ProdutoService {
 
 
     @Transactional(rollbackFor = Exception.class)
-    public void cadastrar (final ProdutoDTO produtoDTO){
+    public ResponseEntity<String> cadastrar (final ProdutoDTO produtoDTO){
 
         var produto = new Produto();
         BeanUtils.copyProperties(produtoDTO, produto);
@@ -39,6 +40,7 @@ public class ProdutoService {
         Assert.isTrue(!produto.getTamanho().equals(""),"O tamanho não pode ser nulo");
 
         this.produtoRep.save(produto);
+        return ResponseEntity.ok("produto cadastrado com sucesso!");
     }
 
     @Transactional(rollbackFor = Exception.class)
