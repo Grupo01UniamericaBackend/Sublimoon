@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ce9f60f-89c8-404c-8162-0883dae68d8c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/DTO/ProdutoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/DTO/ProdutoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/service/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Sublimoon/pi/service/ProdutoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/controller/ProdutoControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/controller/ProdutoControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/service/ProdutoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/service/ProdutoServiceTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="2ce9f60f-89c8-404c-8162-0883dae68d8c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,15 +35,15 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
-    &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lenovo/Documents/desenvolvimento/sublimoon&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;copyright&quot;
-    }
-    }</component>
+        &quot;keyToString&quot;: {
+        &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+        &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+        &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+        &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+        &quot;last_opened_file_path&quot;: &quot;C:/Users/Lenovo/Documents/desenvolvimento/sublimoon&quot;,
+        &quot;settings.editor.selected.configurable&quot;: &quot;copyright&quot;
+        }
+        }</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -65,7 +59,7 @@
       <recent name="br.com.Sublimoon.PI.DTO" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ProdutoServiceTest.cadastrar">
+  <component name="RunManager">
     <configuration name="PiApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.PiApplication" />
       <module name="sublimoonTest" />
@@ -79,81 +73,81 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProdutoControllerTest.cadastrar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProdutoTest.getAndSetImagem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sublimoonTest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.Sublimoon.pi.controller.*" />
+          <option name="PATTERN" value="br.com.Sublimoon.pi.entity.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.controller" />
-      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.controller.ProdutoControllerTest" />
-      <option name="METHOD_NAME" value="cadastrar" />
+      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.entity" />
+      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.entity.ProdutoTest" />
+      <option name="METHOD_NAME" value="getAndSetImagem" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProdutoControllerTest.findByCategoria" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProdutoTest.getAndSetMediaAvaliacao" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sublimoonTest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.Sublimoon.pi.controller.*" />
+          <option name="PATTERN" value="br.com.Sublimoon.pi.entity.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.controller" />
-      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.controller.ProdutoControllerTest" />
-      <option name="METHOD_NAME" value="findByCategoria" />
+      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.entity" />
+      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.entity.ProdutoTest" />
+      <option name="METHOD_NAME" value="getAndSetMediaAvaliacao" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProdutoControllerTest.lista" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProdutoTest.getAndSetPreco" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sublimoonTest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.Sublimoon.pi.controller.*" />
+          <option name="PATTERN" value="br.com.Sublimoon.pi.entity.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.controller" />
-      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.controller.ProdutoControllerTest" />
-      <option name="METHOD_NAME" value="lista" />
+      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.entity" />
+      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.entity.ProdutoTest" />
+      <option name="METHOD_NAME" value="getAndSetPreco" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProdutoControllerTest.listaFavoritos" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProdutoTest.getAndSetQuantidade" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sublimoonTest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.Sublimoon.pi.controller.*" />
+          <option name="PATTERN" value="br.com.Sublimoon.pi.entity.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.controller" />
-      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.controller.ProdutoControllerTest" />
-      <option name="METHOD_NAME" value="listaFavoritos" />
+      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.entity" />
+      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.entity.ProdutoTest" />
+      <option name="METHOD_NAME" value="getAndSetQuantidade" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProdutoServiceTest.cadastrar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProdutoTest.getAndSetTamanho" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sublimoonTest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.Sublimoon.pi.service.*" />
+          <option name="PATTERN" value="br.com.Sublimoon.pi.entity.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.service" />
-      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.service.ProdutoServiceTest" />
-      <option name="METHOD_NAME" value="cadastrar" />
+      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.entity" />
+      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.entity.ProdutoTest" />
+      <option name="METHOD_NAME" value="getAndSetTamanho" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -177,11 +171,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ProdutoServiceTest.cadastrar" />
-        <item itemvalue="JUnit.ProdutoControllerTest.cadastrar" />
-        <item itemvalue="JUnit.ProdutoControllerTest.listaFavoritos" />
-        <item itemvalue="JUnit.ProdutoControllerTest.lista" />
-        <item itemvalue="JUnit.ProdutoControllerTest.findByCategoria" />
+        <item itemvalue="JUnit.ProdutoTest.getAndSetQuantidade" />
+        <item itemvalue="JUnit.ProdutoTest.getAndSetTamanho" />
+        <item itemvalue="JUnit.ProdutoTest.getAndSetMediaAvaliacao" />
+        <item itemvalue="JUnit.ProdutoTest.getAndSetPreco" />
+        <item itemvalue="JUnit.ProdutoTest.getAndSetImagem" />
       </list>
     </recent_temporary>
   </component>
