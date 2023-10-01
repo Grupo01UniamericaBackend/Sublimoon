@@ -41,5 +41,5 @@ public class Item {
     private float valorUnit;
     @Getter @Setter
     @Column(name = "valorTotal")
-    private float ValorTotal = valorUnit * quantidade;
+    private float valorTotal = valorUnit * quantidade;
 }

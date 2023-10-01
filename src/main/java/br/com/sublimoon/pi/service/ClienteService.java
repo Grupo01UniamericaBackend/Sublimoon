@@ -22,7 +22,7 @@ public class ClienteService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void VerificarCliente (final ClienteDTO cliente){
+    public void verificarCliente (final ClienteDTO cliente){
 
 
         var clienteNovo = new Cliente();

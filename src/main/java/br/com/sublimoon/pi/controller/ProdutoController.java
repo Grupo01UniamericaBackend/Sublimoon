@@ -31,8 +31,6 @@ public class ProdutoController {
         return ResponseEntity.ok(produto);
     }
 
-
-
     @GetMapping("/categoria/{categoria}")
     public ResponseEntity<List<Produto>> findByCategoria(@PathVariable("categoria") Categoria categoria) {
 
@@ -40,18 +38,14 @@ public class ProdutoController {
 
     }
 
-
-
     @GetMapping("/lista")
     public ResponseEntity <List<Produto>> lista(){
         return ResponseEntity.ok(this.produtoRep.findAll());
-
     }
 
     @GetMapping("/favorito/lista")
     public ResponseEntity <List<Produto>> listaFavoritos(){
         return ResponseEntity.ok(this.produtoRep.findByAtivo(false));
-
     }
 
     @PostMapping
@@ -73,7 +67,7 @@ public class ProdutoController {
             final Produto produto1 = this.produtoRep.findById(id).orElse(null);
 
             if (produto1 == null || !produto1.getId().equals(produto.getId())){
-                throw new RuntimeException("Nao foi possivel indentificar o Produto informado");
+                throw new RegistroNaoEncontradoException("Nao foi possivel indentificar o Produto informado");
             }
             return ResponseEntity.ok("Produto editado no estoque com Sucesso");
         }
@@ -90,7 +84,7 @@ public class ProdutoController {
             final Produto produto1 = this.produtoRep.findById(id).orElse(null);
 
             if (produto1 == null ){
-                throw new RuntimeException("Nao foi possivel indentificar o registro informado");
+                throw new RegistroNaoEncontradoException("Nao foi possivel indentificar o registro informado");
             }
 
             final Produto produtoNovo = produtoRep.getReferenceById(id);
@@ -123,7 +117,11 @@ public class ProdutoController {
         return "Error: " + e.getMessage();
     }
 
-
+    public static class RegistroNaoEncontradoException extends RuntimeException {
+        public RegistroNaoEncontradoException(String message) {
+            super(message);
+        }
+    }
 
 }
 

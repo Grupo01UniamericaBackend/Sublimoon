@@ -55,7 +55,7 @@ public class EnvioController {
         final Envio envio1 =this.envioRepository.findById(id).orElse(null);
 
         if (envio1 == null || !envio1.getId().equals(envio.getId())){
-            throw new RuntimeException("Nao foi possivel identificar o envio informado");
+            throw new RegistroNaoEncontradoException("Nao foi possivel identificar o envio informado");
         }
         return ResponseEntity.ok("Envio editado com sucesso!");
        }
@@ -81,5 +81,10 @@ public class EnvioController {
         return "Error: " + e.getMessage();
     }
 
+    public static class RegistroNaoEncontradoException extends RuntimeException {
+        public RegistroNaoEncontradoException(String message) {
+            super(message);
+        }
+    }
 
 }

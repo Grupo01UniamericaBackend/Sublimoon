@@ -51,7 +51,7 @@ public class AvaliacaoController {
             final Avaliacao avaliacao1 = this.avaliacaoRepository.findById(id).orElse(null);
 
             if (avaliacao1 == null || !avaliacao1.getId().equals(avaliacao.getId())){
-                throw new RuntimeException("Nao foi possivel identificar o registo informado");
+                throw new RegistroNaoEncontradoException("Nao foi possivel identificar o registo informado");
             }
             return ResponseEntity.ok("Produto editado no estoque com Sucesso");
         }
@@ -78,6 +78,9 @@ public class AvaliacaoController {
     private String getErrorMessage(Exception e) {
         return "Error: " + e.getMessage();
     }
-
-
+    public static class RegistroNaoEncontradoException extends RuntimeException {
+        public RegistroNaoEncontradoException(String message) {
+            super(message);
+        }
+    }
 }

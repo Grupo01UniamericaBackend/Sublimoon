@@ -53,7 +53,7 @@ public class ConfigController {
             final Config config1 = this.configRep.findById(id).orElse(null);
 
             if (config1 == null) {
-                throw new RuntimeException("Nao foi possivel indentificar o registro informado");
+                throw new RegistroNaoEncontradoException("Nao foi possivel indentificar o registro informado");
             }
             findById(id);
 
@@ -80,6 +80,12 @@ public class ConfigController {
 
     private String getErrorMessage(Exception e) {
         return "Error: " + e.getMessage();
+    }
+
+    public static class RegistroNaoEncontradoException extends RuntimeException {
+        public RegistroNaoEncontradoException(String message) {
+            super(message);
+        }
     }
 
 }

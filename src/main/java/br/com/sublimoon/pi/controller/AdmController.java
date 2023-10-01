@@ -55,7 +55,7 @@ public class AdmController {
                 final Adm adm1 = this.admRep.findById(id).orElse(null);
 
                 if (adm1 == null || !adm1.getId().equals(adm.getId())){
-                    throw new RuntimeException("Não foi possível identificar o ADM informado");
+                    throw new RegistroNaoEncontradoException("Não foi possível identificar o ADM informado");
                 }
                 return ResponseEntity.ok("ADM editado com sucesso");
             }
@@ -82,5 +82,11 @@ public class AdmController {
         return "Error: " + e.getMessage();
     }
 
+
+    public static class RegistroNaoEncontradoException extends RuntimeException {
+        public RegistroNaoEncontradoException(String message) {
+            super(message);
+        }
+    }
 
 }

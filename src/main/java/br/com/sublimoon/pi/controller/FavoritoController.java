@@ -55,7 +55,7 @@ public class FavoritoController {
     @PostMapping
     public ResponseEntity <String> cadastraFavorito(@RequestBody final FavoritoDTO favoritoDTO){
         try {
-                favoritoService.Favoritar(favoritoDTO);
+                favoritoService.favoritar(favoritoDTO);
             return ResponseEntity.ok("Favoritado com sucesso!!!");
         }
         catch (DataIntegrityViolationException e){
@@ -71,7 +71,7 @@ public class FavoritoController {
 
             if(favoritoNovo == null ){
 
-                throw new RuntimeException("Nao foi possivel indentificar o registro informado");
+                throw new RegistroNaoEncontradoException("Nao foi possivel indentificar o registro informado");
 
             }
             Favorito favoritoLista = favoritoRep.getReferenceById(id);
@@ -79,7 +79,7 @@ public class FavoritoController {
             for(int i = 0; i < favorito.getProdutos().size(); i++) {
                 favoritoLista.getProdutos().add(favorito.getProdutos().get(i));
             }
-            this.favoritoService.Favoritar(favorito);
+            this.favoritoService.favoritar(favorito);
             return ResponseEntity.ok("Registro alterado com sucesso");
 
         } catch(Exception e){
@@ -89,7 +89,7 @@ public class FavoritoController {
 
     }
     @GetMapping("favoritou/{id}")
-    public ResponseEntity<Object> Favorito(@PathVariable (value = "id") final Long id) {
+    public ResponseEntity<Object> favorito(@PathVariable (value = "id") final Long id) {
         try {
             Favorito favorito = favoritoRep.getReferenceById(id);
             List<Produto>produtos = produtoRep.findAll();
@@ -97,7 +97,7 @@ public class FavoritoController {
             List<Produto> favoritou = favorito.getProdutos();
             long idProduto;
             long idFavorito;
-            boolean IsTrue = false;
+            boolean isTrue = false;
 
             for (Produto produto1 : produtos) {
                 produto1.setAtivo(true);
@@ -144,5 +144,10 @@ public class FavoritoController {
         return "Error: " + e.getMessage();
     }
 
+    public static class RegistroNaoEncontradoException extends RuntimeException {
+        public RegistroNaoEncontradoException(String message) {
+            super(message);
+        }
+    }
 
 }

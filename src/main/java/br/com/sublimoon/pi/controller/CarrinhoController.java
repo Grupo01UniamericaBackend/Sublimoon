@@ -56,7 +56,7 @@ public class CarrinhoController {
             final Carrinho carrinho1 = this.carrinhoRepository.findById(id).orElse(null);
 
             if (carrinho1 == null) {
-                throw new RuntimeException("Nao foi possivel indentificar o registro informado");
+                throw new RegistroNaoEncontradoException("Nao foi possivel indentificar o registro informado");
             }
             final Carrinho carrinhoNovo = carrinhoRepository.getReferenceById(id);
 
@@ -86,6 +86,12 @@ public class CarrinhoController {
 
     private String getErrorMessage(Exception e) {
         return "Error: " + e.getMessage();
+    }
+
+    public static class RegistroNaoEncontradoException extends RuntimeException {
+        public RegistroNaoEncontradoException(String message) {
+            super(message);
+        }
     }
 
 }

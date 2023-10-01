@@ -38,7 +38,7 @@ public class ClienteController {
     @PostMapping
     public ResponseEntity<String> cadastrar(@RequestBody final ClienteDTO cliente) {
         try {
-            clienteSer.VerificarCliente(cliente);
+            clienteSer.verificarCliente(cliente);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         }
         catch (RuntimeException e) {
@@ -54,7 +54,7 @@ public class ClienteController {
             final Cliente cliente1 = this.clienteRep.findById(id).orElse(null);
 
             if (cliente1 == null || !cliente1.getId().equals(cliente.getId())) {
-                throw new RuntimeException("Nao foi possivel indentificar o registro informado");
+                throw new RegistroNaoEncontradoException("Nao foi possivel indentificar o registro informado");
             }
 
             Cliente clienteNovo = clienteRep.getReferenceById(id);
@@ -63,7 +63,7 @@ public class ClienteController {
             ClienteDTO clienteDTO = new ClienteDTO();
             BeanUtils.copyProperties(clienteNovo, clienteDTO);
 
-            clienteSer.VerificarCliente(clienteDTO);
+            clienteSer.verificarCliente(clienteDTO);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
             String errorMessage = getErrorMessage(e);
@@ -84,6 +84,12 @@ public class ClienteController {
     }
     private String getErrorMessage(Exception e) {
         return "Error: " + e.getMessage();
+    }
+
+    public static class RegistroNaoEncontradoException extends RuntimeException {
+        public RegistroNaoEncontradoException(String message) {
+            super(message);
+        }
     }
 
 }

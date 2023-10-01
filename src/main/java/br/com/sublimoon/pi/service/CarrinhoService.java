@@ -85,9 +85,9 @@ public class CarrinhoService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public List<Item> adicionarItem(List<Item> listaItens, List<Item> Itens){
+    public List<Item> adicionarItem(List<Item> listaItens, List<Item> itens){
 
-        for (Item iten : Itens) {
+        for (Item iten : itens) {
             int i = -1;
             Item itemAdd = iten;
             for (int x = 0; x < listaItens.size() & i < 0; x++) {
@@ -102,7 +102,7 @@ public class CarrinhoService {
 
                     listaItens.add(itemAdd);
                 } else { //se encontrar um item igual, ele muda a quantidade e o valor
-                    itemAdd = Itens.get(i);
+                    itemAdd = itens.get(i);
                     int quantidade = itemAdd.getQuantidade() + listaItens.get(i).getQuantidade();//soma a quantidade
 
                     itemAdd.setQuantidade(quantidade);
@@ -117,12 +117,12 @@ public class CarrinhoService {
         }
         return listaItens;
     }
-    public Collection<Item> getItens(List<Item> Itens){
+    public Collection<Item> getItens(List<Item> itens){
 
-        if(Itens == null){
-                Itens = new ArrayList<>();
+        if(itens == null){
+                itens = new ArrayList<>();
         }
-        return Itens;
+        return itens;
     }
 
     @Transactional(rollbackFor = Exception.class)

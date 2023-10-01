@@ -57,7 +57,7 @@ public class PedidoController {
             final Pedido pedido1 =this.pedidoRep.findById(id).orElse(null);
 
             if (pedido1 == null || !pedido1.getId().equals(pedido1.getId())){
-                throw new RuntimeException("Nao foi possivel indentificar o Pedido informado");
+                throw new RegistroNaoEncontradoException("Nao foi possivel indentificar o Pedido informado");
             }
             return ResponseEntity.ok("Pedido editado no estoque com Sucesso");
         }
@@ -81,6 +81,12 @@ public class PedidoController {
 
     private String getErrorMessage(Exception e) {
         return "Error: " + e.getMessage();
+    }
+
+    public static class RegistroNaoEncontradoException extends RuntimeException {
+        public RegistroNaoEncontradoException(String message) {
+            super(message);
+        }
     }
 
 

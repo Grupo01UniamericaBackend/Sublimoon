@@ -24,7 +24,7 @@ public class FavoritoService{
 
 
     @Transactional(rollbackFor = Exception.class)
-    public Favorito Favoritar(final FavoritoDTO favoritoDTO) {
+    public Favorito favoritar(final FavoritoDTO favoritoDTO) {
 
         var favorito = new Favorito();
         BeanUtils.copyProperties(favoritoDTO,favorito);

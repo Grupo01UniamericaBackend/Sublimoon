@@ -22,5 +22,5 @@ public class ItemDTO {
 
     private float valorUnit;
 
-    private float ValorTotal = valorUnit * quantidade;
+    private float valorTotal = valorUnit * quantidade;
 }
