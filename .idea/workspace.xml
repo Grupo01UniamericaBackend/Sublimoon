@@ -6,52 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2ce9f60f-89c8-404c-8162-0883dae68d8c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/entity/EnvioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/Sublimoon/pi/entity/EnvioTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/PiApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/configuracao/config.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/AdmController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/AvaliacaoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/CarrinhoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/ClienteController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/ConfigController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/EnvioController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/FavoritoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/ItemController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/PedidoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/controller/ProdutoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/AbstractEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Adm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Avaliacao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Carrinho.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Categoria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Cliente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Config.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Cor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Envio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Favorito.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Item.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Pedido.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Produto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/entity/Usuario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/AdmRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/AvaliacaoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/CarrinhoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/ClienteRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/ConfigRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/EnvioRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/FavoritoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/ItemRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/PedidoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/repository/ProdutoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/AdmService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/AvaliacaoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/CarrinhoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/ClienteService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/ConfigService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/EnvioService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/FavoritoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/PedidoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/Sublimoon/PI/service/ProdutoService.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
