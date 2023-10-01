@@ -56,5 +56,19 @@ public class Produto  extends AbstractEntity {
     @Column(name = "tamanhoDoProduto", nullable = false, length = 10)
     private String tamanho;
 
+    public Produto(String nome, Categoria categoria, Cor cor, String descricao, String imagem, float preco, float quantidade, float mediaAvaliacao, String tamanho) {
+        this.nome = nome;
+        this.categoria = categoria;
+        this.cor = cor;
+        this.descricao = descricao;
+        this.imagem = imagem;
+        this.preco = preco;
+        this.quantidade = quantidade;
+        this.mediaAvaliacao = mediaAvaliacao;
+        this.tamanho = tamanho;
+    }
 
+    public Produto() {
+
+    }
 }

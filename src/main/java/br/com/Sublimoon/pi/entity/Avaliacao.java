@@ -59,7 +59,14 @@ public class Avaliacao extends AbstractEntity{
     )
     private Produto produto;
 
-
+    public Avaliacao() {
+    }
+    public Avaliacao(Float nota, String comentario, Cliente cliente, Produto produto) {
+        this.nota = nota;
+        this.comentario = comentario;
+        this.cliente = cliente;
+        this.produto = produto;
+    }
 
 
 }

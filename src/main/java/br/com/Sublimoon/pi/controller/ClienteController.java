@@ -36,13 +36,13 @@ public class ClienteController {
 
     }
     @PostMapping
-    public ResponseEntity<String> cadastrar(@RequestBody final Cliente cliente) {
+    public ResponseEntity<String> cadastrar(@RequestBody final ClienteDTO cliente) {
         try {
             clienteSer.VerificarCliente(cliente);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
             String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
     }
 
@@ -59,7 +59,10 @@ public class ClienteController {
             Cliente clienteNovo = clienteRep.getReferenceById(id);
             BeanUtils.copyProperties(cliente, clienteNovo, "id", "cadastro", "ativo");
 
-            clienteSer.VerificarCliente(clienteNovo);
+            ClienteDTO clienteDTO = new ClienteDTO();
+            BeanUtils.copyProperties(clienteNovo, clienteDTO);
+
+            clienteSer.VerificarCliente(clienteDTO);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
             String errorMessage = getErrorMessage(e);

@@ -26,4 +26,8 @@ public class ClienteDTO extends AbstractEntity {
     public ClienteDTO(String telefone, String email, String nome, String senha, String cpf) {
         super();
     }
+
+    public ClienteDTO() {
+
+    }
 }

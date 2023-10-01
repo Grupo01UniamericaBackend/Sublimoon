@@ -7,8 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Sublimoon 07-02" />
         <module name="PI" />
+        <module name="sublimoonTest" />
+        <module name="Sublimoon 07-02" />
         <module name="sublimoon" />
       </profile>
     </annotationProcessing>
@@ -18,6 +19,7 @@
       <module name="PI" options="-parameters" />
       <module name="Sublimoon 07-02" options="-parameters" />
       <module name="sublimoon" options="-parameters" />
+      <module name="sublimoonTest" options="-parameters" />
     </option>
   </component>
 </project>
