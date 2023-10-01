@@ -47,12 +47,8 @@ public class AvaliacaoController {
     @PutMapping("/{id}")
     public ResponseEntity<String> editarAvaliacao(@PathVariable(value = "id") final Long id, @RequestBody final Avaliacao avaliacao) {
         try {
-            avaliacaoServ.atualizaAvaliacao(avaliacao);
-            final Avaliacao avaliacao1 = this.avaliacaoRepository.findById(id).orElse(null);
+            avaliacaoServ.atualizaAvaliacao(id, avaliacao);
 
-            if (avaliacao1 == null || !avaliacao1.getId().equals(avaliacao.getId())){
-                throw new RegistroNaoEncontradoException("Nao foi possivel identificar o registo informado");
-            }
             return ResponseEntity.ok("Produto editado no estoque com Sucesso");
         }
         catch (RuntimeException e){
