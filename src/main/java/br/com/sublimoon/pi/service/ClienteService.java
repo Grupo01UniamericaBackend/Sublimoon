@@ -3,9 +3,9 @@ package br.com.sublimoon.pi.service;
 import br.com.sublimoon.pi.dto.ClienteDTO;
 import br.com.sublimoon.pi.entity.Cliente;
 import br.com.sublimoon.pi.repository.ClienteRepository;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -22,7 +22,7 @@ public class ClienteService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void verificarCliente (final ClienteDTO cliente){
+    public ResponseEntity<String> verificarCliente (final ClienteDTO cliente){
 
 
         var clienteNovo = new Cliente();
@@ -47,13 +47,15 @@ public class ClienteService {
 
         this.clienteRepository.save(clienteNovo);
 
+        return ResponseEntity.ok("cliente verificado!");
+
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void delete (Long id ){
+    public ResponseEntity<String> delete (Long id ){
 
         this.clienteRepository.deleteById(id);
-
+        return ResponseEntity.ok("cliente deletado!");
 
     }
 

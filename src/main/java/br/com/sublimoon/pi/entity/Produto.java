@@ -71,4 +71,18 @@ public class Produto  extends AbstractEntity {
     public Produto() {
 
     }
+    public Produto(Long id ,String nome, Categoria categoria, Cor cor, String descricao, String imagem, float preco, float quantidade, float mediaAvaliacao, String tamanho) {
+        this.id = id;
+        this.nome = nome;
+        this.categoria = categoria;
+        this.cor = cor;
+        this.descricao = descricao;
+        this.imagem = imagem;
+        this.preco = preco;
+        this.quantidade = quantidade;
+        this.mediaAvaliacao = mediaAvaliacao;
+        this.tamanho = tamanho;
+    }
+
+
 }

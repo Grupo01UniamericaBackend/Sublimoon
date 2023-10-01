@@ -44,25 +44,32 @@ public class ProdutoService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void atualizaProduto (Produto produto){
+    public ResponseEntity<String> atualizaProduto (Produto produto){
 
         final Produto produtoAttService=this.produtoRep.findById(produto.getId()).orElse(null);
         produto.setCadastro(Objects.requireNonNull(produtoAttService).getCadastro());
 
         this.produtoRep.save(produto);
+
+        return ResponseEntity.ok("produto atualizado com sucesso!");
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void delete (Long id){
+    public ResponseEntity<String> delete (Long id){
         this.produtoRep.deleteById(id);
+
+        return ResponseEntity.ok("produto deletado com sucesso!");
+
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void fav (Produto produto){
+    public ResponseEntity<String> fav (Produto produto){
 
         produto.setAtivo(true);
 
         this.produtoRep.save(produto);
+        return ResponseEntity.ok("produto favoritado com sucesso!");
     }
+
 
 }

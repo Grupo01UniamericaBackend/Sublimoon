@@ -5,23 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ce9f60f-89c8-404c-8162-0883dae68d8c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/AdmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/AdmController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/AvaliacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/AvaliacaoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/CarrinhoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/CarrinhoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/ClienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/ConfigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/ConfigController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/EnvioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/EnvioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/FavoritoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/FavoritoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/PedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/PedidoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/dto/ItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/dto/ItemDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/dto/ProdutoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/dto/ProdutoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/entity/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/entity/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/entity/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/entity/Produto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/CarrinhoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/CarrinhoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/ClienteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/FavoritoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/FavoritoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/ProdutoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/service/ClienteServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/service/ClienteServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/service/ProdutoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/service/ProdutoServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +66,7 @@
       <recent name="br.com.Sublimoon.PI.DTO" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.ProdutoDTOTest">
     <configuration name="PiApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.PiApplication" />
       <module name="sublimoonTest" />
@@ -91,81 +80,80 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProdutoTest.getAndSetImagem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sublimoonTest" />
+    <configuration name="ProdutoDTOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sublimoon" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.Sublimoon.pi.entity.*" />
+          <option name="PATTERN" value="br.com.sublimoon.pi.dto.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.entity" />
-      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.entity.ProdutoTest" />
-      <option name="METHOD_NAME" value="getAndSetImagem" />
+      <option name="PACKAGE_NAME" value="br.com.sublimoon.pi.dto" />
+      <option name="MAIN_CLASS_NAME" value="br.com.sublimoon.pi.dto.ProdutoDTOTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProdutoDTOTest.canEqual" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sublimoon" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.sublimoon.pi.dto.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.sublimoon.pi.dto" />
+      <option name="MAIN_CLASS_NAME" value="br.com.sublimoon.pi.dto.ProdutoDTOTest" />
+      <option name="METHOD_NAME" value="canEqual" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProdutoTest.getAndSetMediaAvaliacao" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sublimoonTest" />
+    <configuration name="ProdutoDTOTest.testEquals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sublimoon" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.Sublimoon.pi.entity.*" />
+          <option name="PATTERN" value="br.com.sublimoon.pi.dto.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.entity" />
-      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.entity.ProdutoTest" />
-      <option name="METHOD_NAME" value="getAndSetMediaAvaliacao" />
+      <option name="PACKAGE_NAME" value="br.com.sublimoon.pi.dto" />
+      <option name="MAIN_CLASS_NAME" value="br.com.sublimoon.pi.dto.ProdutoDTOTest" />
+      <option name="METHOD_NAME" value="testEquals" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProdutoTest.getAndSetPreco" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sublimoonTest" />
+    <configuration name="ProdutoDTOTest.testHashCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sublimoon" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.Sublimoon.pi.entity.*" />
+          <option name="PATTERN" value="br.com.sublimoon.pi.dto.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.entity" />
-      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.entity.ProdutoTest" />
-      <option name="METHOD_NAME" value="getAndSetPreco" />
+      <option name="PACKAGE_NAME" value="br.com.sublimoon.pi.dto" />
+      <option name="MAIN_CLASS_NAME" value="br.com.sublimoon.pi.dto.ProdutoDTOTest" />
+      <option name="METHOD_NAME" value="testHashCode" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProdutoTest.getAndSetQuantidade" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sublimoonTest" />
+    <configuration name="ProdutoDTOTest.testToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sublimoon" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.Sublimoon.pi.entity.*" />
+          <option name="PATTERN" value="br.com.sublimoon.pi.dto.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.entity" />
-      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.entity.ProdutoTest" />
-      <option name="METHOD_NAME" value="getAndSetQuantidade" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProdutoTest.getAndSetTamanho" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sublimoonTest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="br.com.Sublimoon.pi.entity.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="br.com.Sublimoon.pi.entity" />
-      <option name="MAIN_CLASS_NAME" value="br.com.Sublimoon.pi.entity.ProdutoTest" />
-      <option name="METHOD_NAME" value="getAndSetTamanho" />
+      <option name="PACKAGE_NAME" value="br.com.sublimoon.pi.dto" />
+      <option name="MAIN_CLASS_NAME" value="br.com.sublimoon.pi.dto.ProdutoDTOTest" />
+      <option name="METHOD_NAME" value="testToString" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -189,11 +177,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ProdutoTest.getAndSetQuantidade" />
-        <item itemvalue="JUnit.ProdutoTest.getAndSetTamanho" />
-        <item itemvalue="JUnit.ProdutoTest.getAndSetMediaAvaliacao" />
-        <item itemvalue="JUnit.ProdutoTest.getAndSetPreco" />
-        <item itemvalue="JUnit.ProdutoTest.getAndSetImagem" />
+        <item itemvalue="JUnit.ProdutoDTOTest" />
+        <item itemvalue="JUnit.ProdutoDTOTest.testToString" />
+        <item itemvalue="JUnit.ProdutoDTOTest.testHashCode" />
+        <item itemvalue="JUnit.ProdutoDTOTest.canEqual" />
+        <item itemvalue="JUnit.ProdutoDTOTest.testEquals" />
       </list>
     </recent_temporary>
   </component>
