@@ -21,6 +21,7 @@ class ProdutoServiceTest {
     @MockBean
     ProdutoRepository produtoRepository;
 
+
     @Autowired
     private final ProdutoService produtoService = new ProdutoService();
 
@@ -63,6 +64,6 @@ class ProdutoServiceTest {
 
         var produtoservice = produtoService.fav(produto).getBody();
 
-       // Assertions.assertEquals("produto favoritado com sucesso!", produto);
+      //  Assertions.assertEquals("produto favoritado com sucesso!", produto);
     }
 }

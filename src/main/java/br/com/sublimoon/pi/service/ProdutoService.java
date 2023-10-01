@@ -65,9 +65,12 @@ public class ProdutoService {
     @Transactional(rollbackFor = Exception.class)
     public ResponseEntity<String> fav (Produto produto){
 
-        produto.setAtivo(true);
+        if(!produto.isAtivo()) {
 
-        this.produtoRep.save(produto);
+
+            produto.setAtivo(true);
+            produtoRep.save(produto);
+        }
         return ResponseEntity.ok("produto favoritado com sucesso!");
     }
 
