@@ -45,8 +45,7 @@ public class CarrinhoController {
             this.carrinhoService.createCarrinho(carrinho1);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("Error: "+e.getMessage());
         }
     }
 
@@ -56,7 +55,7 @@ public class CarrinhoController {
             final Carrinho carrinho1 = this.carrinhoRepository.findById(id).orElse(null);
 
             if (carrinho1 == null) {
-                throw new RegistroNaoEncontradoException("Nao foi possivel indentificar o registro informado");
+                return ResponseEntity.internalServerError().body("Nao foi possivel indentificar o registro informado");
             }
             final Carrinho carrinhoNovo = carrinhoRepository.getReferenceById(id);
 
@@ -66,8 +65,7 @@ public class CarrinhoController {
             this.carrinhoService.addCarrinho(id,carrinhoNovo);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
         }  catch (Exception e) {
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("ERror: "+e.getMessage());
         }
     }
 
@@ -79,19 +77,9 @@ public class CarrinhoController {
             return ResponseEntity.ok("Desativado ou excluído");
         }
         catch (Exception e){
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("ERRor: "+ e.getMessage());
         }
     }
 
-    private String getErrorMessage(Exception e) {
-        return "Error: " + e.getMessage();
-    }
-
-    public static class RegistroNaoEncontradoException extends RuntimeException {
-        public RegistroNaoEncontradoException(String message) {
-            super(message);
-        }
-    }
 
 }

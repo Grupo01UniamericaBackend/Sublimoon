@@ -31,13 +31,12 @@ public class AdmService {
         String senhaPreDefinida = "123senhaAdm321"; // senha pré-definida
         String hashSenha = hashPassword(senhaPreDefinida);
         adm.setSenhaAdm(senhaPreDefinida);
-
         adm.setUserAdm("AdmUserPred123");
-        Assert.isTrue(! adm.getUserAdm().equals(""), "Adm não pode ser nulo");
+        Assert.isTrue( adm.getUserAdm()!=null, "Adm não pode ser nulo");
 
         Assert.isTrue( adm.getUserAdm().length() <= 25, "Deve conter até 25 caracteres");
 
-        Assert.isTrue( !adm.getSenhaAdm().equals(""), "Senha não pode ser nulo");
+        Assert.isTrue( adm.getSenhaAdm()!=null, "Senha não pode ser nulo");
        // Assert.isTrue(adm.getSenhaAdm().length() <= 40, "Senha deve conter até 20 caracteres");
 
         this.admRep.save(adm);

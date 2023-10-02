@@ -43,8 +43,7 @@ public class EnvioController {
             return ResponseEntity.ok("Envio cadastrado com sucesso");
         }
         catch (Exception e){
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("Error: "+ e.getMessage());
         }
     }
 
@@ -55,13 +54,12 @@ public class EnvioController {
         final Envio envio1 =this.envioRepository.findById(id).orElse(null);
 
         if (envio1 == null || !envio1.getId().equals(envio.getId())){
-            throw new RegistroNaoEncontradoException("Nao foi possivel identificar o envio informado");
+            return ResponseEntity.internalServerError().body("Nao foi possivel indentificar o registro informado");
         }
         return ResponseEntity.ok("Envio editado com sucesso!");
        }
        catch (RuntimeException e){
-           String errorMessage = getErrorMessage(e);
-           return ResponseEntity.internalServerError().body(errorMessage);
+           return ResponseEntity.internalServerError().body("ERror:" + e.getMessage());
        }
     }
     @DeleteMapping("/{id}")
@@ -72,19 +70,9 @@ public class EnvioController {
             return ResponseEntity.ok("Envio excluido");
         }
         catch (Exception e){
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("ERRor: "+ e.getMessage());
         }
     }
 
-    private String getErrorMessage(Exception e) {
-        return "Error: " + e.getMessage();
-    }
-
-    public static class RegistroNaoEncontradoException extends RuntimeException {
-        public RegistroNaoEncontradoException(String message) {
-            super(message);
-        }
-    }
 
 }

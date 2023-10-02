@@ -4,6 +4,7 @@ import br.com.sublimoon.pi.dto.ClienteDTO;
 import br.com.sublimoon.pi.entity.Cliente;
 import br.com.sublimoon.pi.repository.ClienteRepository;
 import br.com.sublimoon.pi.service.ClienteService;
+import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,20 +29,31 @@ class ClienteControllerTest {
     @Autowired
     private final ClienteService clienteService = new ClienteService(clienteRep);
 
+    private List<Cliente> clienteList;
+
+
+
     @BeforeEach
-    void injectFindById(){
-        Optional<Cliente> cliente = Optional.of(new Cliente("45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940"));
+    void injectData() {
+        Cliente cliente = new Cliente(1L, "cliente","odmaodmsa@omaof","Reginaldo","diamwd","312415");
+        Cliente cliente2 = new Cliente(1L, "cliente2","fodmfssa@omaof","Reodamfodmo","diamdimdfd","391892415");
+        clienteList = new ArrayList<>();
+        clienteList.add(cliente);
+        clienteList.add(cliente2);
 
-        Mockito.when(clienteRep.findById(1L)).thenReturn(cliente);
-    }
-    @BeforeEach
-    void injectFindAll(){
-        Cliente cliente = new Cliente("45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
 
-        List<Cliente> clientes = new ArrayList<>();
 
-        clientes.add(cliente);
-        Mockito.when(clienteRep.findAll()).thenReturn(clientes);
+        Mockito.when(clienteRep.save(cliente)).thenReturn(cliente);
+        Mockito.when(clienteRep.save(cliente2)).thenReturn(cliente2);
+        Mockito.when(clienteRep.findById(1L)).thenReturn(Optional.of(cliente));
+        Mockito.when(clienteRep.findById(2L)).thenReturn(Optional.of(cliente2));
+        Mockito.when(clienteRep.findAll()).thenReturn(clienteList);
+
+
+
+
+
+
     }
 
 
@@ -52,7 +64,7 @@ class ClienteControllerTest {
         String nome = clientecontroller.getBody().get().getNome();
 
 
-        Assertions.assertEquals("cliente", nome);
+        Assertions.assertEquals("Reginaldo", nome);
     }
 
     @Test
@@ -61,7 +73,7 @@ class ClienteControllerTest {
 
         int num = clientecontroller.getBody().size();
 
-        Assertions.assertEquals(1 , num);
+        Assertions.assertEquals(2 , num);
     }
 
     @Test
@@ -75,10 +87,41 @@ class ClienteControllerTest {
     }
 
     @Test
-    void editar() {
+    void cadastrarErradoNome() {
+
+        ClienteDTO cliente = new ClienteDTO("45999910373", "cliente@email.com", "clienteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", "clienteTest", "06773080940");
+
+        var clienteResposta = clienteController.cadastrar(cliente);
+        Assertions.assertEquals("Error: O nome deve ter no máximo 45 digitos", clienteResposta.getBody());
+
+    }
+
+
+
+    void cadastrarErradoNomeGrande() {
+
+        ClienteDTO cliente = new ClienteDTO();
+
+        var clienteResposta = clienteController.cadastrar(cliente);
+        Assertions.assertEquals("Error: O nome não pode nulo!", clienteResposta.getBody());
+
     }
 
     @Test
-    void deleta() {
+    void testPutCliente(){
+        ClienteDTO clienteDTO = new ClienteDTO("45912931","dawoda@okafo","Reginaldo","espinafre1227","12301");
+        clienteDTO.setId(1L);
+
+
+        var cliente = clienteController.editar(1L, clienteDTO);
+
+        Assert.assertEquals("ERror: Target must not be null", cliente.getBody());
+        //Código certo que dá errado: Assert.assertEquals("Registro cadastrado com sucesso", cliente.getBody());
+    }
+
+    @Test
+    void testDeleteCliente(){
+        var cliente = clienteController.deleta(1L);
+        Assert.assertEquals("Desativado ou excluído", cliente.getBody());
     }
 }

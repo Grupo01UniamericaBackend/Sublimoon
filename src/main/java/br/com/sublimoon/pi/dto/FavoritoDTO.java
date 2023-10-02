@@ -18,4 +18,13 @@ public class FavoritoDTO extends AbstractEntity {
 
     private Cliente cliente;
 
+    public FavoritoDTO(){
+
+    }
+
+    public FavoritoDTO(List<Produto>produtos,Cliente cliente){
+        this.produtos = produtos;
+        this.cliente = cliente;
+    }
+
 }

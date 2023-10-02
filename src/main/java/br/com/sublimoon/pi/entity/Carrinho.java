@@ -56,4 +56,17 @@ public class Carrinho extends  AbstractEntity{
     )
     private List<Item> Item;
 
+
+    public Carrinho(Long id,int quantidade, float desconto, float subTotal, Cliente cliente, List<br.com.sublimoon.pi.entity.Item> item) {
+        this.id = id;
+        this.quantidade = quantidade;
+        this.desconto = desconto;
+        this.subTotal = subTotal;
+        this.cliente = cliente;
+        Item = item;
+    }
+
+    public Carrinho() {
+
+    }
 }

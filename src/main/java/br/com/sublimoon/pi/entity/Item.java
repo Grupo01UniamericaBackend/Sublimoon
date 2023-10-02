@@ -42,4 +42,16 @@ public class Item {
     @Getter @Setter
     @Column(name = "valorTotal")
     private float valorTotal = valorUnit * quantidade;
+
+
+    public Item(Long id, Produto produto, int quantidade, float valor, float valorUnit, float valorTotal) {
+        this.id = id;
+        this.produto = produto;
+        this.quantidade = quantidade;
+        this.valor = valor;
+        this.valorUnit = valorUnit;
+        this.valorTotal = valorTotal;
+    }
+
+    public Item(){}
 }

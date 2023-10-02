@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class AvaliacaoTest {
 
-    Cliente cliente = new Cliente("45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
+    Cliente cliente = new Cliente(1L,"45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
     Produto produto = new Produto("Xicara 1", Categoria.CANECA, Cor.BRANCO, "...", "IMG",20f,1,4,"10CM");
     Avaliacao avaliacao = new Avaliacao(4.5F, "OK", cliente, produto);
     @Test
@@ -27,7 +27,7 @@ class AvaliacaoTest {
 
     @Test
     void getAndSetCliente() {
-        Cliente cliente2 = new Cliente("45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
+        Cliente cliente2 = new Cliente(1L,"45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
 
         avaliacao.setCliente(cliente2);
 

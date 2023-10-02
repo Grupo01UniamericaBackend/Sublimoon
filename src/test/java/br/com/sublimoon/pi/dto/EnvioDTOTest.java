@@ -15,6 +15,11 @@ class EnvioDTOTest {
         Assertions.assertEquals("Lancha",envioDTO.getFormaEnvio());
     }
     @Test
+    void getSetValor(){
+        envioDTO.setValorFrete(20);
+        Assertions.assertEquals(20,envioDTO.getValorFrete());
+    }
+    @Test
     void construtorVazioTest(){
         EnvioDTO envioDTO3 = new EnvioDTO();
         Assertions.assertEquals(envioDTO2,envioDTO3);

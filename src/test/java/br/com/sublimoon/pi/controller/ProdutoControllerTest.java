@@ -13,6 +13,7 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatusCode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,7 @@ class ProdutoControllerTest {
 
     @BeforeEach
     void injectFindById(){
-        Optional<Produto> produto = Optional.of(new Produto("Xicara 1", Categoria.CANECA, Cor.BRANCO, "...", "IMG", 20f, 1, 4, "10CM"));
+        Optional<Produto> produto = Optional.of(new Produto(1L,"Xicara 1", Categoria.CANECA, Cor.BRANCO, "...", "IMG", 20f, 1, 4, "10CM"));
 
 
         Mockito.when(produtoRepository.findById(1L)).thenReturn(produto);
@@ -118,7 +119,25 @@ class ProdutoControllerTest {
     }
 
     @Test
+    void cadastrarErrado() {
+        ProdutoDTO produto = new ProdutoDTO();
+
+        var produtoResposta = produtoController.cadastrar(produto);
+
+        Assertions.assertEquals("Error:O nome do produto não pode ser nulo!", produtoResposta.getBody());
+    }
+
+    @Test
     void editarProduto() {
+
+        Produto produto = new Produto(1L,"Xicara 1", Categoria.CANECA, Cor.BRANCO, "...", "IMG", 20f, 1, 4, "10CM");
+
+        var produtocontro = produtoController.editarProduto(1L,produto).getStatusCode();
+
+        Assertions.assertEquals(HttpStatusCode.valueOf(200), produtocontro);
+        //Código certo que dá errado Assertions.assertEquals(HttpStatusCode.valueOf(200), favoritocontroller);
+
+
     }
 
     @Test
@@ -127,5 +146,8 @@ class ProdutoControllerTest {
 
     @Test
     void deleta() {
+        var produtosalve = produtoController.deleta(1L).getBody();
+
+        Assertions.assertEquals("Desativado ou excluído", produtosalve);
     }
 }

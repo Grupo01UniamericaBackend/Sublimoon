@@ -26,5 +26,14 @@ public class PedidoDTO extends AbstractEntity {
 
     private Envio envio;
 
+    public PedidoDTO(){}
 
+    public PedidoDTO(float total, String pagamento, String endereco, String cep, Carrinho carrinho, Envio envio) {
+        this.total = total;
+        this.pagamento = pagamento;
+        this.endereco = endereco;
+        this.cep = cep;
+        this.carrinho = carrinho;
+        this.envio = envio;
+    }
 }

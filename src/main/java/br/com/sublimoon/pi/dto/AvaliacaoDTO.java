@@ -26,6 +26,20 @@ public class AvaliacaoDTO extends AbstractEntityDTO {
     private Produto produto;
 
 
+    public AvaliacaoDTO(float nota, String comentario, Cliente cliente, Produto produto) {
+        this.nota = nota;
+        this.comentario = comentario;
+        this.cliente = cliente;
+        this.produto = produto;
+    }
 
+    public AvaliacaoDTO() {
 
+    }
+
+    public AvaliacaoDTO(Float nota, Cliente cliente, Produto produto) {
+        this.nota = nota;
+        this.cliente = cliente;
+        this.produto = produto;
+    }
 }

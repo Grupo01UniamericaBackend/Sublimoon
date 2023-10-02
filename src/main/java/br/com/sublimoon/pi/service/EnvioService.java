@@ -22,7 +22,7 @@ public class EnvioService {
         var envio = new Envio();
         BeanUtils.copyProperties(envioDTO,envio);
 
-        Assert.isTrue(!envio.getFormaEnvio().equals(""),"Por favor, selecione uma forma de envio válida!!");
+        Assert.isTrue(envio.getFormaEnvio()!=null,"Por favor, selecione uma forma de envio válida!!");
         Assert.isTrue(envio.getFormaEnvio().length() <= 30,"Forma de envio n pode passar de 30 caracteres");
 
         this.envioRepository.save(envio);

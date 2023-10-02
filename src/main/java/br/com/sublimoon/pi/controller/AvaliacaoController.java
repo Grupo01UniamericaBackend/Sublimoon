@@ -39,25 +39,19 @@ public class AvaliacaoController {
                 avaliacaoServ.createAvaliacao(avaliacaoDTO);
             return ResponseEntity.ok("Avaliado com sucesso");
         } catch (Exception e) {
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("ERRor: "+ e.getMessage());
         }
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<String> editarAvaliacao(@PathVariable(value = "id") final Long id, @RequestBody final Avaliacao avaliacao) {
         try {
-            avaliacaoServ.atualizaAvaliacao(avaliacao);
-            final Avaliacao avaliacao1 = this.avaliacaoRepository.findById(id).orElse(null);
+            avaliacaoServ.atualizaAvaliacao(id, avaliacao);
 
-            if (avaliacao1 == null || !avaliacao1.getId().equals(avaliacao.getId())){
-                throw new RegistroNaoEncontradoException("Nao foi possivel identificar o registo informado");
-            }
             return ResponseEntity.ok("Produto editado no estoque com Sucesso");
         }
         catch (RuntimeException e){
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("ERror: "+ e.getMessage());
         }
     }
 
@@ -70,17 +64,8 @@ public class AvaliacaoController {
             return ResponseEntity.ok("Desativado ou excluído");
         }
         catch (Exception e){
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("Error: "+ e.getMessage());
         }
     }
 
-    private String getErrorMessage(Exception e) {
-        return "Error: " + e.getMessage();
-    }
-    public static class RegistroNaoEncontradoException extends RuntimeException {
-        public RegistroNaoEncontradoException(String message) {
-            super(message);
-        }
-    }
 }

@@ -1,96 +1,107 @@
 package br.com.sublimoon.pi.dto;
 
+import br.com.sublimoon.pi.entity.Categoria;
+import br.com.sublimoon.pi.entity.Cor;
+import br.com.sublimoon.pi.entity.Produto;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class ProdutoDTOTest {
 
+    ProdutoDTO produto = new ProdutoDTO("Xicara 1", Categoria.CANECA, Cor.BRANCO, "...", "IMG",20f,1,4,"10CM");
     @Test
-    void getNome() {
+    void getAndNome() {
+
+        produto.setNome("copo");
+
+        Assertions.assertEquals("copo", produto.getNome());
     }
 
     @Test
-    void getCategoria() {
+    void getAndCategoria() {
+
+        produto.setCategoria(Categoria.COPOTERMICO);
+
+        Assertions.assertEquals(Categoria.COPOTERMICO, produto.getCategoria());
     }
 
     @Test
-    void getCor() {
+    void getAndSetCor() {
+        produto.setCor(Cor.AZUL);
+
+        Assertions.assertEquals(Cor.AZUL, produto.getCor());
     }
 
     @Test
-    void getDescricao() {
+    void getAndSetDescricao() {
+
+        produto.setDescricao("teste");
+
+        Assertions.assertEquals("teste", produto.getDescricao());
+
     }
 
     @Test
-    void getImagem() {
+    void getAndSetImagem() {
+        produto.setImagem("png.png");
+
+        Assertions.assertEquals("png.png", produto.getImagem());
     }
 
     @Test
-    void getPreco() {
+    void getAndSetPreco() {
+        produto.setPreco(10f);
+
+
+        Assertions.assertEquals(10f, produto.getPreco());
     }
 
     @Test
-    void getQuantidade() {
+    void getAndSetQuantidade() {
+        produto.setQuantidade(1f);
+
+        Assertions.assertEquals(1f, produto.getQuantidade());
     }
 
     @Test
-    void getMediaAvaliacao() {
+    void getAndSetMediaAvaliacao() {
+        produto.setMediaAvaliacao(2f);
+        Assertions.assertEquals(2f, produto.getMediaAvaliacao());
     }
 
     @Test
-    void getTamanho() {
-    }
+    void getAndSetTamanho() {
 
-    @Test
-    void setNome() {
-    }
+        produto.setTamanho("12cm");
 
-    @Test
-    void setCategoria() {
-    }
-
-    @Test
-    void setCor() {
-    }
-
-    @Test
-    void setDescricao() {
-    }
-
-    @Test
-    void setImagem() {
-    }
-
-    @Test
-    void setPreco() {
-    }
-
-    @Test
-    void setQuantidade() {
-    }
-
-    @Test
-    void setMediaAvaliacao() {
-    }
-
-    @Test
-    void setTamanho() {
+        Assertions.assertEquals("12cm", produto.getTamanho());
     }
 
     @Test
     void testEquals() {
+        ProdutoDTO produto2 = new ProdutoDTO("Xicara 1", Categoria.CANECA, Cor.BRANCO, "...", "IMG",20f,1,4,"10CM");
+
+        Assertions.assertTrue(produto.equals(produto2));
     }
 
     @Test
     void canEqual() {
+        ProdutoDTO produto2 = new ProdutoDTO("Xicara 1", Categoria.CANECA, Cor.BRANCO, "...", "IMG",20f,1,4,"10CM");
+
+        Assertions.assertTrue(produto2.canEqual(produto));
     }
 
     @Test
     void testHashCode() {
+        ProdutoDTO produto2 = new ProdutoDTO("Xicara 1", Categoria.CANECA, Cor.BRANCO, "...", "IMG",20f,1,4,"10CM");
+        Assertions.assertEquals(produto2.hashCode(), produto.hashCode());
     }
 
     @Test
     void testToString() {
+        ProdutoDTO produto2 = new ProdutoDTO("Xicara 1", Categoria.CANECA, Cor.BRANCO, "...", "IMG",20f,1,4,"10CM");
+        Assertions.assertEquals(produto2.toString(), produto.toString());
     }
 }

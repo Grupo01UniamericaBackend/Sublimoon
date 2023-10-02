@@ -48,4 +48,14 @@ public class Favorito extends AbstractEntity{
     )
     private Cliente cliente;
 
+    public Favorito(){
+
+    }
+
+    public Favorito(Long id,List<Produto>produtos,Cliente cliente){
+        this.id = id;
+        this.produtos = produtos;
+        this.cliente = cliente;
+    }
+
 }

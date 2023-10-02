@@ -61,7 +61,7 @@ class EnvioTest {
     void putEnvioErrado(){
         Envio envio1 = new Envio(2L,"PutErrado",8);
         var envio = envioController.editar(7L,envio1);
-        Assertions.assertEquals("Error: Nao foi possivel identificar o envio informado",envio.getBody());
+        Assertions.assertEquals("Nao foi possivel indentificar o registro informado",envio.getBody());
     }
     @Test
     void deleteEnvioTest(){
@@ -71,7 +71,7 @@ class EnvioTest {
     @Test
     void deleteEnvioErrado(){
         var envio =envioController.deletaIdEnvio(100L);
-        Assertions.assertEquals("Error: Nao foi possivel identificar o Id",envio.getBody());
+        Assertions.assertEquals("ERRor: Nao foi possivel identificar o Id",envio.getBody());
     }
     @Test
     void findByIdEnvio(){
