@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ce9f60f-89c8-404c-8162-0883dae68d8c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/entity/AbstractEntityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/entity/AbstractEntityTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,17 +40,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-    &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Josimar&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/josim/OneDrive/Documentos/Desenvolvimento/pizzaria/pom.xml&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;copyright&quot;
-    }
-    }</component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "Josimar",
+    "last_opened_file_path": "C:/Users/josim/OneDrive/Documentos/Desenvolvimento/pizzaria/pom.xml",
+    "settings.editor.selected.configurable": "copyright"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -66,7 +66,7 @@
       <recent name="br.com.Sublimoon.PI.DTO" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.br.com.sublimoon.pi in PI">
     <configuration name="PiApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.com.sublimoon.pi.PiApplication" />
       <module name="sublimoon" />
