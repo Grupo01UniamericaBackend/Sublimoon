@@ -1,14 +1,16 @@
 package br.com.sublimoon.pi.dto;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+
 public class EnvioDTO extends AbstractEntityDTO {
 
-
+    @Getter
+    @Setter
     private String formaEnvio;
 
-
+    @Getter @Setter
     private float valorFrete;
 
     public EnvioDTO(){

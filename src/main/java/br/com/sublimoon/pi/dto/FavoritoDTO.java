@@ -2,19 +2,20 @@ package br.com.sublimoon.pi.dto;
 
 import br.com.sublimoon.pi.entity.Cliente;
 import br.com.sublimoon.pi.entity.Produto;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 
-@Data
+
 public class FavoritoDTO extends AbstractEntityDTO{
 
-
-
+    @Getter
+    @Setter
     private List<Produto>produtos;
 
-
+    @Getter @Setter
     private Cliente cliente;
 
     public FavoritoDTO(){

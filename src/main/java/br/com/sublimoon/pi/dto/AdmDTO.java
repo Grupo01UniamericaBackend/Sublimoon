@@ -1,16 +1,14 @@
 package br.com.sublimoon.pi.dto;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-
-
-@Data
 public class AdmDTO extends UsuarioDTO {
 
-
+    @Getter @Setter
     private String userAdm;
 
-
+    @Getter @Setter
     private String senhaAdm;
 
 

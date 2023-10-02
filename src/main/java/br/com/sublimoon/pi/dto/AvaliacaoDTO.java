@@ -3,26 +3,25 @@ package br.com.sublimoon.pi.dto;
 
 import br.com.sublimoon.pi.entity.Cliente;
 import br.com.sublimoon.pi.entity.Produto;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 
 
-@Data
 public class AvaliacaoDTO extends AbstractEntityDTO {
 
 
-
+    @Getter @Setter
     private Float nota;
 
-
-
+    @Getter @Setter
     private String comentario;
 
 
-
+    @Getter @Setter
     private Cliente cliente;
 
-
+    @Getter @Setter
     private Produto produto;
 
 

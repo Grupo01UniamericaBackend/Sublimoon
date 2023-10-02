@@ -1,24 +1,26 @@
 package br.com.sublimoon.pi.dto;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+
 public class ClienteDTO extends AbstractEntityDTO {
 
 
-
+    @Getter
+    @Setter
     private String telefone;
 
-
+    @Getter @Setter
     private String email;
 
-
+    @Getter @Setter
     private String nome;
 
-
+    @Getter @Setter
     private String senha;
 
-
+    @Getter @Setter
     private String cpf;
 
 

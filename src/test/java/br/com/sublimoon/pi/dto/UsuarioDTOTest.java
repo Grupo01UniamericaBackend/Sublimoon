@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @SpringBootTest
 class UsuarioDTOTest {
-    UsuarioDTO usuarioDTO = new UsuarioDTO(1L, LocalDateTime.of(2023,9, 28, 20, 12), LocalDateTime.of(2023,9, 28, 20, 20),true, "45-40028922", "email@email.com");
+    UsuarioDTO usuarioDTO = new UsuarioDTO(LocalDateTime.of(2023,9, 28, 20, 12), LocalDateTime.of(2023,9, 28, 20, 20),true, "45-40028922", "email@email.com");
     @Test
     void getAndSetCadastro() {
         usuarioDTO.setCadastro(LocalDateTime.of(2023,9, 28, 20, 20));
@@ -50,28 +50,28 @@ class UsuarioDTOTest {
 
     @Test
     void testEquals() {
-        UsuarioDTO usuarioDTO2 = new UsuarioDTO(1L, LocalDateTime.of(2023,9, 28, 20, 12), LocalDateTime.of(2023,9, 28, 20, 20),true, "45-40028922", "email@email.com");
+        UsuarioDTO usuarioDTO2 = new UsuarioDTO(LocalDateTime.of(2023,9, 28, 20, 12), LocalDateTime.of(2023,9, 28, 20, 20),true, "45-40028922", "email@email.com");
 
         Assertions.assertEquals(usuarioDTO, usuarioDTO2);
     }
 
     @Test
     void canEqual() {
-        UsuarioDTO usuarioDTO2 = new UsuarioDTO(1L, LocalDateTime.of(2023,9, 28, 20, 12), LocalDateTime.of(2023,9, 28, 20, 20),true, "45-40028922", "email@email.com");
+        UsuarioDTO usuarioDTO2 = new UsuarioDTO(LocalDateTime.of(2023,9, 28, 20, 12), LocalDateTime.of(2023,9, 28, 20, 20),true, "45-40028922", "email@email.com");
 
         Assertions.assertTrue(usuarioDTO.canEqual(usuarioDTO2));
     }
 
     @Test
     void testHashCode() {
-        UsuarioDTO usuarioDTO2 = new UsuarioDTO(1L, LocalDateTime.of(2023,9, 28, 20, 12), LocalDateTime.of(2023,9, 28, 20, 20),true, "45-40028922", "email@email.com");
+        UsuarioDTO usuarioDTO2 = new UsuarioDTO(LocalDateTime.of(2023,9, 28, 20, 12), LocalDateTime.of(2023,9, 28, 20, 20),true, "45-40028922", "email@email.com");
 
         Assertions.assertEquals(usuarioDTO2.hashCode(), usuarioDTO.hashCode());
     }
 
     @Test
     void testToString() {
-        UsuarioDTO usuarioDTO2 = new UsuarioDTO(1L, LocalDateTime.of(2023,9, 28, 20, 12), LocalDateTime.of(2023,9, 28, 20, 20),true, "45-40028922", "email@email.com");
+        UsuarioDTO usuarioDTO2 = new UsuarioDTO(LocalDateTime.of(2023,9, 28, 20, 12), LocalDateTime.of(2023,9, 28, 20, 20),true, "45-40028922", "email@email.com");
 
         Assertions.assertEquals( usuarioDTO2.toString(), usuarioDTO.toString());
     }

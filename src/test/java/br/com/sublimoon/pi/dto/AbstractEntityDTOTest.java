@@ -9,13 +9,8 @@ import java.time.LocalDateTime;
 @SpringBootTest
 class AbstractEntityDTOTest {
 
-    UsuarioDTO usuarioDTO = new UsuarioDTO(1L, LocalDateTime.of(2023,9, 28, 20, 12), LocalDateTime.of(2023,9, 28, 20, 24)
+    UsuarioDTO usuarioDTO = new UsuarioDTO(LocalDateTime.of(2023,9, 28, 20, 12), LocalDateTime.of(2023,9, 28, 20, 24)
             ,true, "45-40028922", "email@email.com");
-
-    @Test
-    void getId() {
-        Assertions.assertEquals(1L, usuarioDTO.getId());
-    }
 
     @Test
     void getAndSetCadastro() {

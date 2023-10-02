@@ -1,26 +1,25 @@
 package br.com.sublimoon.pi.dto;
-import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
 
 
 import java.time.LocalDateTime;
 
-@Data
-public class UsuarioDTO {
-    @Id
-    @Getter
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (name = "idUsuario",nullable = false, unique = true)
-    private Long id;
 
+public class UsuarioDTO extends AbstractEntityDTO{
+
+    @Getter @Setter
     private LocalDateTime cadastro;
 
+    @Getter @Setter
     private LocalDateTime edicao;
-
+    @Getter @Setter
     private boolean ativo;
+
+    @Getter @Setter
     private String telefone;
 
+    @Getter @Setter
     private String email;
 
 
@@ -28,8 +27,7 @@ public class UsuarioDTO {
 
     }
 
-    public UsuarioDTO(Long id, LocalDateTime cadastro, LocalDateTime edicao, boolean ativo, String telefone, String email) {
-        this.id = id;
+    public UsuarioDTO(LocalDateTime cadastro, LocalDateTime edicao, boolean ativo, String telefone, String email) {
         this.cadastro = cadastro;
         this.edicao = edicao;
         this.ativo = ativo;
