@@ -32,4 +32,14 @@ public class AvaliacaoDTO extends AbstractEntityDTO {
         this.cliente = cliente;
         this.produto = produto;
     }
+
+    public AvaliacaoDTO() {
+
+    }
+
+    public AvaliacaoDTO(Float nota, Cliente cliente, Produto produto) {
+        this.nota = nota;
+        this.cliente = cliente;
+        this.produto = produto;
+    }
 }

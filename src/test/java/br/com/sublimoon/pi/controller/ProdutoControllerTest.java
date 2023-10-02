@@ -119,6 +119,15 @@ class ProdutoControllerTest {
     }
 
     @Test
+    void cadastrarErrado() {
+        ProdutoDTO produto = new ProdutoDTO();
+
+        var produtoResposta = produtoController.cadastrar(produto);
+
+        Assertions.assertEquals("Error:O nome do produto não pode ser nulo!", produtoResposta.getBody());
+    }
+
+    @Test
     void editarProduto() {
 
         Produto produto = new Produto(1L,"Xicara 1", Categoria.CANECA, Cor.BRANCO, "...", "IMG", 20f, 1, 4, "10CM");

@@ -95,6 +95,47 @@ class AvaliacaoControllerTest {
 
     }
 
+
+    @Test
+    void cadastrarAvaliacaoErradoNota() {
+        Cliente cliente = new Cliente(1L,"45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
+        Produto produto = new Produto("Xicara 1", Categoria.CANECA, Cor.BRANCO, "...", "IMG",20f,1,4,"10CM");
+        AvaliacaoDTO avaliacao = new AvaliacaoDTO();
+
+
+        var avaliacaocontroller = avaliacaoController.cadastrarAvaliacao(avaliacao).getBody();
+
+        Assertions.assertEquals("ERRor: Nota não pode ser nulo", avaliacaocontroller);
+
+    }
+
+    @Test
+    void cadastrarAvaliacaoErradoComentario() {
+        Cliente cliente = new Cliente(1L,"45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
+        Produto produto = new Produto("Xicara 1", Categoria.CANECA, Cor.BRANCO, "...", "IMG",20f,1,4,"10CM");
+        AvaliacaoDTO avaliacao = new AvaliacaoDTO(4.5F,cliente,produto);
+
+
+        var avaliacaocontroller = avaliacaoController.cadastrarAvaliacao(avaliacao).getBody();
+
+        Assertions.assertEquals("ERRor: Comentario não pode ser nulo", avaliacaocontroller);
+
+    }
+
+
+    @Test
+    void cadastrarAvaliacaoErradoComentarioGrande() {
+        Cliente cliente = new Cliente(1L,"45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
+        Produto produto = new Produto("Xicara 1", Categoria.CANECA, Cor.BRANCO, "...", "IMG",20f,1,4,"10CM");
+        AvaliacaoDTO avaliacao = new AvaliacaoDTO(4.5F,"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",cliente,produto);
+
+
+        var avaliacaocontroller = avaliacaoController.cadastrarAvaliacao(avaliacao).getBody();
+
+        Assertions.assertEquals("ERRor: Comentário deve conter até 150 caracteres", avaliacaocontroller);
+
+    }
+
     @Test
     void editarAvaliacao() {
         Cliente cliente = new Cliente(1L,"45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");

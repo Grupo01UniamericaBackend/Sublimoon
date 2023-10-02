@@ -82,6 +82,17 @@ class EnvioControllerTest {
     }
 
     @Test
+    void cadastrarEnvioErrado() {
+
+        EnvioDTO envio = new EnvioDTO( null,12);
+
+        var enviocontroller = envioController.cadastrarEnvio(envio).getStatusCode();
+
+        Assertions.assertEquals(HttpStatusCode.valueOf(500), enviocontroller);
+
+    }
+
+    @Test
     void editarEnvio() {
         Envio envio = new Envio(1L, "Carro",12);
 

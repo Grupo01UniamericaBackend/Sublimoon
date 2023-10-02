@@ -24,7 +24,7 @@ public class ProdutoService {
         var produto = new Produto();
         BeanUtils.copyProperties(produtoDTO, produto);
 
-        Assert.isTrue(!produto.getNome().equals(""),"O nome do produto não pode ser nulo!");
+        Assert.isTrue(produto.getNome()!=null,"O nome do produto não pode ser nulo!");
         Assert.isTrue(produto.getNome().length() <= 100 ,"O nome do produto deve ter até 100 digitos") ;
 
 

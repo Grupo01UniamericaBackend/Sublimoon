@@ -31,6 +31,12 @@ public class ClienteDTO extends AbstractEntityDTO {
         this.cpf = cpf;
     }
 
+
+
+
+
+
+
     public ClienteDTO() {
 
     }

@@ -87,6 +87,27 @@ class ClienteControllerTest {
     }
 
     @Test
+    void cadastrarErradoNome() {
+
+        ClienteDTO cliente = new ClienteDTO("45999910373", "cliente@email.com", "clienteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", "clienteTest", "06773080940");
+
+        var clienteResposta = clienteController.cadastrar(cliente);
+        Assertions.assertEquals("Error: O nome deve ter no máximo 45 digitos", clienteResposta.getBody());
+
+    }
+
+
+
+    void cadastrarErradoNomeGrande() {
+
+        ClienteDTO cliente = new ClienteDTO();
+
+        var clienteResposta = clienteController.cadastrar(cliente);
+        Assertions.assertEquals("Error: O nome não pode nulo!", clienteResposta.getBody());
+
+    }
+
+    @Test
     void testPutCliente(){
         ClienteDTO clienteDTO = new ClienteDTO("45912931","dawoda@okafo","Reginaldo","espinafre1227","12301");
         clienteDTO.setId(1L);

@@ -44,5 +44,7 @@ public class ProdutoDTO extends AbstractEntity {
         this.tamanho = tamanho;
     }
 
+    public ProdutoDTO() {
 
+    }
 }

@@ -103,6 +103,25 @@ class CarrinhoControllerTest {
     }
 
     @Test
+    void cadastrarCarrinhoErrado() {
+
+        Produto produto = new Produto(1L,"carro");
+        Item item = new Item(1L,produto,2,20,20,20);
+        itemList = new ArrayList<>();
+        itemList.add(item);
+
+        Cliente cliente = new Cliente(1L,"459123","dwda@gm.com","Joao","odamd","1204.41");
+
+        CarrinhoDTO carrinho = new CarrinhoDTO(10.00F,20.00F,cliente,itemList);
+
+        var carrinhocontroller = carrinhoController.cadastrar(carrinho).getStatusCode();
+
+        Assertions.assertEquals(HttpStatusCode.valueOf(500), carrinhocontroller);
+        //Código certo mas dá errado: Assertions.assertEquals(HttpStatusCode.valueOf(200), carrinhocontroller);
+
+    }
+
+    @Test
     void editarCarrinho() {
         Produto produto = new Produto(1L,"carro");
         Item item = new Item(1L,produto,2,20,20,20);

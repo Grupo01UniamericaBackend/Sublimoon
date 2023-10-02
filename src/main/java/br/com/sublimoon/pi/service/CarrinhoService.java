@@ -6,6 +6,7 @@ import br.com.sublimoon.pi.entity.Produto;
 import br.com.sublimoon.pi.repository.CarrinhoRepository;
 import br.com.sublimoon.pi.repository.ItemRepository;
 import br.com.sublimoon.pi.repository.ProdutoRepository;
+import org.modelmapper.internal.util.Assert;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,8 @@ public class CarrinhoService {
     @Transactional(rollbackFor = Exception.class)
     public void createCarrinho(final Carrinho carrinho){
 
+
+        Assert.isTrue(carrinho.getQuantidade()!=0,"quantidade não pode ser nulo");
         for (int i = 0; i < carrinho.getItem().size(); i++){
             Item itemNovo = carrinho.getItem().get(i);
 

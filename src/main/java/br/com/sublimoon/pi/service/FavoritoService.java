@@ -30,22 +30,10 @@ public class FavoritoService{
         BeanUtils.copyProperties(favoritoDTO,favorito);
 
 
-        Assert.isTrue(produtoRepository.findById(favorito.getCliente().getId()).get()!= null, "Produto não encontrado!");
-        Assert.isTrue(clienteRepository.findById(favorito.getCliente().getId()).get()!= null, "Cliente não encontrado!");
-
-       /*favorito.setCliente(clienteRepository.findById(clienteId).get());
+       // Assert.isTrue(produtoRepository.findById(favorito.getCliente().getId()).get()!= null, "Produto não encontrado!");
+       // Assert.isTrue(clienteRepository.findById(favorito.getCliente().getId()).get()!= null, "Cliente não encontrado!");
 
 
-        if(favorito.getProdutos()==null) {
-            List<Produto> attProduto = new ArrayList<>(); // Cria uma nova lista caso ainda não exista
-            attProduto.add(produtoRepository.getById(produtoId));
-            favorito.setProdutos(attProduto); // Define a lista no favorito
-        }
-        else {
-            favorito.getProdutos().add(produtoRepository.getById(produtoId)); // Adiciona o produto à lista de produtos
-        }
-
-        */
 
         return favoritoRepository.save(favorito);
     }

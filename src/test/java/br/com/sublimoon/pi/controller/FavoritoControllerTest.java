@@ -75,6 +75,15 @@ class FavoritoControllerTest {
     @Test
     void cadastraFavorito() {
 
+        List<Produto> produto = new ArrayList<>();
+        produto.add(new Produto(1L,"carro"));
+        Cliente client = new Cliente(1L,"4455","rsad@gmai.com","carlos","2234","41241");
+
+        FavoritoDTO favorito = new FavoritoDTO(produto,client);
+
+        var favoritocontroller = favoritoController.cadastraFavorito(favorito);
+        Assertions.assertEquals("Favoritado com sucesso!!!", favoritocontroller.getBody());
+
     }
 
     @Test
