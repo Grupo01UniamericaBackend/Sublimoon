@@ -42,8 +42,7 @@ public class ClienteController {
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         }
         catch (RuntimeException e) {
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("Error: "+ e.getMessage());
         }
     }
 
@@ -55,7 +54,7 @@ public class ClienteController {
 
 
             if (cliente1 == null || !cliente1.getId().equals(cliente.getId())) {
-                throw new RegistroNaoEncontradoException("Nao foi possivel indentificar o registro informado");
+                return ResponseEntity.internalServerError().body("Nao foi possivel indentificar o registro informado");
             }
 
             Cliente clienteNovo = clienteRep.getReferenceById(id);
@@ -67,8 +66,7 @@ public class ClienteController {
             clienteSer.verificarCliente(clienteDTO);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (Exception e) {
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("ERror: "+e.getMessage());
         }
     }
 
@@ -79,17 +77,7 @@ public class ClienteController {
             return ResponseEntity.ok("Desativado ou excluído");
         }
         catch (Exception e){
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
-        }
-    }
-    private String getErrorMessage(Exception e) {
-        return "Error: " + e.getMessage();
-    }
-
-    public static class RegistroNaoEncontradoException extends RuntimeException {
-        public RegistroNaoEncontradoException(String message) {
-            super(message);
+            return ResponseEntity.internalServerError().body("ERRor: "+ e.getMessage());
         }
     }
 

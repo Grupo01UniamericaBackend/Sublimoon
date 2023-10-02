@@ -52,4 +52,6 @@ public class Item {
         this.valorUnit = valorUnit;
         this.valorTotal = valorTotal;
     }
+
+    public Item(){}
 }

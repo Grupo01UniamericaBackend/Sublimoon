@@ -55,8 +55,7 @@ public class ProdutoController {
             return ResponseEntity.ok("Produto Cadastrado com sucesso!!");
         }
         catch (Exception e){
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("Error:" + e.getMessage());
         }
     }
 
@@ -67,13 +66,12 @@ public class ProdutoController {
             final Produto produto1 = this.produtoRep.findById(id).orElse(null);
 
             if (produto1 == null || !produto1.getId().equals(produto.getId())){
-                throw new RegistroNaoEncontradoException("Nao foi possivel indentificar o Produto informado");
+                return ResponseEntity.internalServerError().body("Nao foi possivel indentificar o registro informado");
             }
             return ResponseEntity.ok("Produto editado no estoque com Sucesso");
         }
         catch (RuntimeException e){
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("ERror:" + e.getMessage());
         }
 
     }
@@ -84,7 +82,7 @@ public class ProdutoController {
             final Produto produto1 = this.produtoRep.findById(id).orElse(null);
 
             if (produto1 == null ){
-                throw new RegistroNaoEncontradoException("Nao foi possivel indentificar o registro informado");
+                return ResponseEntity.internalServerError().body("Nao foi possivel indentificar o registro informado");
             }
 
             final Produto produtoNovo = produtoRep.getReferenceById(id);
@@ -94,8 +92,7 @@ public class ProdutoController {
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
         }
         catch (Exception e){
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("ERROR:" +e.getMessage());
         }
     }
 
@@ -108,18 +105,7 @@ public class ProdutoController {
             produtoService.delete(id);
             return ResponseEntity.ok("Desativado ou excluído");
         } catch (Exception e) {
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
-        }
-    }
-
-    private String getErrorMessage(Exception e) {
-        return "Error: " + e.getMessage();
-    }
-
-    public static class RegistroNaoEncontradoException extends RuntimeException {
-        public RegistroNaoEncontradoException(String message) {
-            super(message);
+            return ResponseEntity.internalServerError().body("ERROr:" + e.getMessage());
         }
     }
 

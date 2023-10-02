@@ -61,5 +61,16 @@ public class Pedido extends AbstractEntity{
     )
     private Envio envio;
 
+    public Pedido (){}
 
+
+    public Pedido(Long id,float total, String pagamento, String endereco, String cep, Carrinho carrinho, Envio envio) {
+        this.id = id;
+        this.total = total;
+        this.pagamento = pagamento;
+        this.endereco = endereco;
+        this.cep = cep;
+        this.carrinho = carrinho;
+        this.envio = envio;
+    }
 }

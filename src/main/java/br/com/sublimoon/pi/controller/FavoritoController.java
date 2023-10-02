@@ -21,25 +21,18 @@ import java.util.Optional;
 public class FavoritoController {
 
     @Autowired
-    final FavoritoRepository favoritoRep;
+     FavoritoRepository favoritoRep;
     @Autowired
-    final FavoritoService favoritoService;
+     FavoritoService favoritoService;
 
     @Autowired
-    final ProdutoController produtoController;
+     ProdutoController produtoController;
     @Autowired
-    final ProdutoService produtoService;
+     ProdutoService produtoService;
 
     @Autowired
-    final ProdutoRepository produtoRep;
+     ProdutoRepository produtoRep;
 
-    public FavoritoController(FavoritoRepository favoritoRep, FavoritoService favoritoService, ProdutoController produtoController, ProdutoService produtoService, ProdutoRepository produtoRep) {
-        this.favoritoRep = favoritoRep;
-        this.favoritoService = favoritoService;
-        this.produtoController = produtoController;
-        this.produtoService = produtoService;
-        this.produtoRep = produtoRep;
-    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Favorito>> findById(@PathVariable("id") final Long id){
@@ -59,8 +52,7 @@ public class FavoritoController {
             return ResponseEntity.ok("Favoritado com sucesso!!!");
         }
         catch (DataIntegrityViolationException e){
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("Error:"+ e.getMessage());
         }
     }
 
@@ -71,7 +63,7 @@ public class FavoritoController {
 
             if(favoritoNovo == null ){
 
-                throw new RegistroNaoEncontradoException("Nao foi possivel indentificar o registro informado");
+                return ResponseEntity.internalServerError().body("Nao foi possivel indentificar o registro informado");
 
             }
             Favorito favoritoLista = favoritoRep.getReferenceById(id);
@@ -83,8 +75,7 @@ public class FavoritoController {
             return ResponseEntity.ok("Registro alterado com sucesso");
 
         } catch(Exception e){
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("ERror:" + e.getMessage());
         }
 
     }
@@ -111,8 +102,7 @@ public class FavoritoController {
             return ResponseEntity.ok(produtos);
         }
         catch (Exception e){
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("ERROR: "+e.getMessage());
         }
     }
 
@@ -135,18 +125,7 @@ public class FavoritoController {
             return ResponseEntity.ok("Desativado ou excluído");
         }
         catch (Exception e){
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
-        }
-    }
-
-    private String getErrorMessage(Exception e) {
-        return "Error: " + e.getMessage();
-    }
-
-    public static class RegistroNaoEncontradoException extends RuntimeException {
-        public RegistroNaoEncontradoException(String message) {
-            super(message);
+            return ResponseEntity.internalServerError().body("ERRor:" + e.getMessage());
         }
     }
 

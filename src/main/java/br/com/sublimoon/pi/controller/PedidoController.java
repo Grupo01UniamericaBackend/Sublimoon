@@ -41,12 +41,11 @@ public class PedidoController {
     @PostMapping
     public ResponseEntity <String> cadastrarPedido(@RequestBody final PedidoDTO pedidoDTO){
         try {
-            pedidoService.verificarPedido(pedidoDTO);
+            this.pedidoService.verificarPedido(pedidoDTO);
             return ResponseEntity.ok("Pedido cadastrado com sucesso!!");
         }
         catch (Exception e){
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("Error:" + e.getMessage());
         }
     }
 
@@ -57,13 +56,12 @@ public class PedidoController {
             final Pedido pedido1 =this.pedidoRep.findById(id).orElse(null);
 
             if (pedido1 == null || !pedido1.getId().equals(pedido1.getId())){
-                throw new RegistroNaoEncontradoException("Nao foi possivel indentificar o Pedido informado");
+                return ResponseEntity.internalServerError().body("Nao foi possivel indentificar o registro informado");
             }
             return ResponseEntity.ok("Pedido editado no estoque com Sucesso");
         }
         catch (RuntimeException e){
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("ERROR: "+ e.getMessage());
         }
     }
 
@@ -74,20 +72,8 @@ public class PedidoController {
             pedidoService.delete(id);
             return ResponseEntity.ok("Desativado ou excluído");
         } catch (Exception e) {
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("ERror:" + e.getMessage());
         }
     }
-
-    private String getErrorMessage(Exception e) {
-        return "Error: " + e.getMessage();
-    }
-
-    public static class RegistroNaoEncontradoException extends RuntimeException {
-        public RegistroNaoEncontradoException(String message) {
-            super(message);
-        }
-    }
-
 
 }

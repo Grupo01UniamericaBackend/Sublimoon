@@ -23,4 +23,14 @@ public class ItemDTO {
     private float valorUnit;
 
     private float valorTotal = valorUnit * quantidade;
+
+    public ItemDTO(){}
+
+    public ItemDTO( Produto produto, int quantidade, float valor, float valorUnit,float valorTotal) {
+        this.produto = produto;
+        this.quantidade = quantidade;
+        this.valor = valor;
+        this.valorUnit = valorUnit;
+        this.valorTotal = valorTotal;
+    }
 }

@@ -41,8 +41,7 @@ public class AdmController {
             this.admServ.createAdm(adm);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         } catch (RuntimeException e) {
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("ERRor: "+e.getMessage());
         }
     }
 
@@ -53,13 +52,12 @@ public class AdmController {
                 final Adm adm1 = this.admRep.findById(id).orElse(null);
 
                 if (adm1 == null || !adm1.getId().equals(adm.getId())){
-                    throw new RegistroNaoEncontradoException("Não foi possível identificar o ADM informado");
+                    return ResponseEntity.internalServerError().body("Nao foi possivel indentificar o registro informado");
                 }
                 return ResponseEntity.ok("ADM editado com sucesso");
             }
             catch (RuntimeException e){
-                String errorMessage = getErrorMessage(e);
-                return ResponseEntity.internalServerError().body(errorMessage);
+                return ResponseEntity.internalServerError().body("Error:"+ e.getMessage());
             }
     }
 
@@ -71,20 +69,9 @@ public class AdmController {
             return ResponseEntity.ok("Desativado ou excluído");
         }
         catch (RuntimeException e){
-            String errorMessage = getErrorMessage(e);
-            return ResponseEntity.internalServerError().body(errorMessage);
+            return ResponseEntity.internalServerError().body("ERror:"+ e.getMessage());
         }
     }
 
-    private String getErrorMessage(Exception e) {
-        return "Error: " + e.getMessage();
-    }
-
-
-    public static class RegistroNaoEncontradoException extends RuntimeException {
-        public RegistroNaoEncontradoException(String message) {
-            super(message);
-        }
-    }
 
 }
