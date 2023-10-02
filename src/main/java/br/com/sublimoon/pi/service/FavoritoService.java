@@ -8,10 +8,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Assert;
-
-
-
 
 @Service
 public class FavoritoService{
@@ -29,21 +25,7 @@ public class FavoritoService{
         var favorito = new Favorito();
         BeanUtils.copyProperties(favoritoDTO,favorito);
 
-
-       // Assert.isTrue(produtoRepository.findById(favorito.getCliente().getId()).get()!= null, "Produto não encontrado!");
-       // Assert.isTrue(clienteRepository.findById(favorito.getCliente().getId()).get()!= null, "Cliente não encontrado!");
-
-
-
         return favoritoRepository.save(favorito);
     }
-
-
-    @Transactional(rollbackFor = Exception.class)
-    public void delete(Long id) {
-
-
-    }
-
 
 }

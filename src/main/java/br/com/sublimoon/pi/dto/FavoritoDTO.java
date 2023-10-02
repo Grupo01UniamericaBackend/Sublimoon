@@ -1,6 +1,5 @@
 package br.com.sublimoon.pi.dto;
 
-import br.com.sublimoon.pi.entity.AbstractEntity;
 import br.com.sublimoon.pi.entity.Cliente;
 import br.com.sublimoon.pi.entity.Produto;
 import lombok.Data;
@@ -9,7 +8,7 @@ import java.util.List;
 
 
 @Data
-public class FavoritoDTO extends AbstractEntity {
+public class FavoritoDTO extends AbstractEntityDTO{
 
 
 

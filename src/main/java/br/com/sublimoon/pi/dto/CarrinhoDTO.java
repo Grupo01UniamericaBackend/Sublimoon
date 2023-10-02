@@ -1,5 +1,4 @@
 package br.com.sublimoon.pi.dto;
-import br.com.sublimoon.pi.entity.AbstractEntity;
 import br.com.sublimoon.pi.entity.Cliente;
 import br.com.sublimoon.pi.entity.Item;
 import lombok.Data;
@@ -7,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class CarrinhoDTO extends AbstractEntity {
+public class CarrinhoDTO extends AbstractEntityDTO {
 
 
     private int quantidade;

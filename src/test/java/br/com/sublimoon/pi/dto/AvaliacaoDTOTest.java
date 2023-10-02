@@ -47,7 +47,7 @@ class AvaliacaoDTOTest {
     void testEquals() {
         AvaliacaoDTO avaliacao2 = new AvaliacaoDTO(4.5F, "OK", cliente, produto);
 
-        Assertions.assertTrue(avaliacao2.equals(avaliacao));
+        Assertions.assertEquals(avaliacao2, avaliacao);
     }
 
     @Test

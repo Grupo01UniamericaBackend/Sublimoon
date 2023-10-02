@@ -140,9 +140,9 @@ class ProdutoControllerTest {
 
     }
 
-    @Test
+  /*  @Test
     void fav() {
-    }
+    }*/
 
     @Test
     void deleta() {

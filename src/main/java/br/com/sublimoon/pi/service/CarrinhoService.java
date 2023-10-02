@@ -48,7 +48,6 @@ public class CarrinhoService {
             itemRepository.save(itemNovo);
             carrinho.getItem().set(i,itemNovo);
             carrinho.setSubTotal(carrinho.getSubTotal() + itemNovo.getValorTotal());
-            //itemRepository.getById((long) i).setValorUnit(valorUnitario);
 
         }
 
@@ -93,7 +92,7 @@ public class CarrinhoService {
         for (Item iten : itens) {
             int i = -1;
             Item itemAdd = iten;
-            for (int x = 0; x < listaItens.size() & i < 0; x++) {
+            for (int x = 0; x < listaItens.size() && i < 0; x++) {
 
                 Produto produto = listaItens.get(x).getProduto();
                 if (itemAdd.getProduto().equals(produto)) {

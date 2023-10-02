@@ -39,7 +39,7 @@ public class EnvioService {
         final Envio envioEmBranco =this.envioRepository.findById(id).orElse(null);
 
         if (envioEmBranco == null || !envioEmBranco.getId().equals(id)){
-            throw  new RuntimeException("Nao foi possivel identificar o Id");
+            Assert.isTrue(false,"Nao foi possivel encontrar o registro informado");
         }
         this.envioRepository.delete(envioEmBranco);
 

@@ -50,7 +50,7 @@ class ClienteDTOTest {
     void testEquals() {
         ClienteDTO clienteDTO2 = new ClienteDTO("40028922", "naosei@email.com", "nome", "123","06773080940");
 
-        Assertions.assertTrue(clienteDTO2.equals(clienteDTO));
+        Assertions.assertEquals(clienteDTO2, clienteDTO);
     }
 
     @Test

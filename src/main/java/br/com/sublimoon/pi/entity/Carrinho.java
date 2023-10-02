@@ -54,7 +54,7 @@ public class Carrinho extends  AbstractEntity{
                     name = "item_id"
             )
     )
-    private List<Item> Item;
+    private List<Item> item;
 
 
     public Carrinho(Long id,int quantidade, float desconto, float subTotal, Cliente cliente, List<br.com.sublimoon.pi.entity.Item> item) {
@@ -63,7 +63,7 @@ public class Carrinho extends  AbstractEntity{
         this.desconto = desconto;
         this.subTotal = subTotal;
         this.cliente = cliente;
-        Item = item;
+        this.item = item;
     }
 
     public Carrinho() {

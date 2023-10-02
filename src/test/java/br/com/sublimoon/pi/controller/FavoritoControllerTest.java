@@ -101,12 +101,12 @@ class FavoritoControllerTest {
 
     }
 
-    @Test
+   /* @Test
     void favorito() {
     }
 
     @Test
     void deletaIdFavorito() {
 
-    }
+    }*/
 }

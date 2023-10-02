@@ -1,6 +1,5 @@
 package br.com.sublimoon.pi.dto;
 
-import br.com.sublimoon.pi.entity.AbstractEntity;
 import lombok.Data;
 
 @Data

@@ -86,9 +86,6 @@ public class FavoritoController {
             List<Produto>produtos = produtoRep.findAll();
 
             List<Produto> favoritou = favorito.getProdutos();
-            long idProduto;
-            long idFavorito;
-            boolean isTrue = false;
 
             for (Produto produto1 : produtos) {
                 produto1.setAtivo(true);
@@ -111,8 +108,7 @@ public class FavoritoController {
         try {
             Favorito favorito = favoritoRep.getReferenceById(id);
             List<Produto> remover = favorito.getProdutos();
-            //Long idRemove = produto.getId();
-            for(int i = 0; i < remover.size(); i++){
+            for(int i = remover.size() - 1; i >=0; i--){
                 if(remover.get(i).getId() == idRemove){
 
                     remover.remove(i);

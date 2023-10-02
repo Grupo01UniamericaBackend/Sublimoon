@@ -1,11 +1,10 @@
 package br.com.sublimoon.pi.dto;
-import br.com.sublimoon.pi.entity.AbstractEntity;
 import br.com.sublimoon.pi.entity.Categoria;
 import br.com.sublimoon.pi.entity.Cor;
 import lombok.Data;
 
 @Data
-public class ProdutoDTO extends AbstractEntity {
+public class ProdutoDTO extends AbstractEntityDTO {
 
 
     private String nome;

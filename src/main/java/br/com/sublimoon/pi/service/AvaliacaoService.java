@@ -34,8 +34,6 @@ public class AvaliacaoService {
 
     Assert.isTrue(avaliacao.getNota() != null,"Nota não pode ser nulo");
 
-    //Assert.isTrue(avaliacao.getCliente() != null,"Cliente não pode ser nulo");
-
     Assert.isTrue(avaliacao.getComentario()!=null, "Comentario não pode ser nulo");
     Assert.isTrue(avaliacao.getComentario().length() <= 150, "Comentário deve conter até 150 caracteres");
 
@@ -47,7 +45,6 @@ public class AvaliacaoService {
 
     @Transactional(rollbackFor = Exception.class)
     public ResponseEntity<String> atualizaAvaliacao(Long id, Avaliacao avaliacao){
-    Optional<Avaliacao> avaliacaoDTOatt = avaliacaoRep.findById(id);
 
     this.avaliacaoRep.save(avaliacao);
 

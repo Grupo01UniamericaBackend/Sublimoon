@@ -83,7 +83,7 @@ class ProdutoDTOTest {
     void testEquals() {
         ProdutoDTO produto2 = new ProdutoDTO("Xicara 1", Categoria.CANECA, Cor.BRANCO, "...", "IMG",20f,1,4,"10CM");
 
-        Assertions.assertTrue(produto.equals(produto2));
+        Assertions.assertEquals(produto, produto2);
     }
 
     @Test

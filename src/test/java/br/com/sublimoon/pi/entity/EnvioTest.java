@@ -67,7 +67,7 @@ class EnvioTest {
     @Test
     void deleteEnvioErrado(){
         var envio =envioController.deletaIdEnvio(100L);
-        Assertions.assertEquals("ERRor: Nao foi possivel identificar o Id",envio.getBody());
+        Assertions.assertEquals("ERRor: Nao foi possivel encontrar o registro informado",envio.getBody());
     }
     @Test
     void findByIdEnvio(){

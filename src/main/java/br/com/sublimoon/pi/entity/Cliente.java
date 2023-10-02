@@ -30,26 +30,6 @@ public class Cliente extends AbstractEntity{
     @Column(name = "cpf",nullable = false,unique = true,length = 30)
     private String cpf;
 
-   /* @Getter @Setter
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "cliente_avaliacao",
-            uniqueConstraints = @UniqueConstraint(
-                    columnNames = {
-                            "cliente_id",
-                            "avaliacao_id"
-                    }
-            ),
-            joinColumns = @JoinColumn(
-                    name = "cliente_id"
-            ),
-            inverseJoinColumns = @JoinColumn(
-                    name = "avaliacao_id"
-
-
-            )
-
-    )
-    private List<Avaliacao> avaliacoesCliente;*/
 
     public Cliente() {
     }

@@ -52,14 +52,14 @@ class UsuarioDTOTest {
     void testEquals() {
         UsuarioDTO usuarioDTO2 = new UsuarioDTO(1L, LocalDateTime.of(2023,9, 28, 20, 12), LocalDateTime.of(2023,9, 28, 20, 20),true, "45-40028922", "email@email.com");
 
-        Assertions.assertTrue(usuarioDTO.equals(usuarioDTO2));
+        Assertions.assertEquals(usuarioDTO, usuarioDTO2);
     }
 
     @Test
     void canEqual() {
         UsuarioDTO usuarioDTO2 = new UsuarioDTO(1L, LocalDateTime.of(2023,9, 28, 20, 12), LocalDateTime.of(2023,9, 28, 20, 20),true, "45-40028922", "email@email.com");
 
-        Assertions.assertTrue(usuarioDTO.equals(usuarioDTO2));
+        Assertions.assertTrue(usuarioDTO.canEqual(usuarioDTO2));
     }
 
     @Test

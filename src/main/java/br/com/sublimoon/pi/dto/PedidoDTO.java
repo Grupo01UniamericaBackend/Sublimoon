@@ -1,12 +1,11 @@
 package br.com.sublimoon.pi.dto;
 
-import br.com.sublimoon.pi.entity.AbstractEntity;
 import br.com.sublimoon.pi.entity.Carrinho;
 import br.com.sublimoon.pi.entity.Envio;
 import lombok.Data;
 
 @Data
-public class PedidoDTO extends AbstractEntity {
+public class PedidoDTO extends AbstractEntityDTO {
 
 
 

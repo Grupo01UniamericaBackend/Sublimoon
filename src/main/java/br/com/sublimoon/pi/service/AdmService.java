@@ -29,7 +29,6 @@ public class AdmService {
         BeanUtils.copyProperties(admDTO, adm);
 
         String senhaPreDefinida = "123senhaAdm321"; // senha pré-definida
-        String hashSenha = hashPassword(senhaPreDefinida);
         adm.setSenhaAdm(senhaPreDefinida);
         adm.setUserAdm("AdmUserPred123");
         Assert.isTrue( adm.getUserAdm()!=null, "Adm não pode ser nulo");
@@ -37,7 +36,6 @@ public class AdmService {
         Assert.isTrue( adm.getUserAdm().length() <= 25, "Deve conter até 25 caracteres");
 
         Assert.isTrue( adm.getSenhaAdm()!=null, "Senha não pode ser nulo");
-       // Assert.isTrue(adm.getSenhaAdm().length() <= 40, "Senha deve conter até 20 caracteres");
 
         this.admRep.save(adm);
 
@@ -47,7 +45,6 @@ public class AdmService {
 
     @Transactional(rollbackFor = Exception.class)
     public ResponseEntity<String> editaADM(Adm adm){
-            final Adm admAtt=this.admRep.findById(adm.getId()).orElse(null);
 
         return ResponseEntity.ok("adm alterado com sucesso!");
 

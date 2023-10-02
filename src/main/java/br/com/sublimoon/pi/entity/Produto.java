@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Entity
 @Table (name = "produtos",schema = "public")
 public class Produto  extends AbstractEntity {
@@ -54,6 +55,7 @@ public class Produto  extends AbstractEntity {
     @Setter
     @Column(name = "tamanhoDoProduto", nullable = false, length = 10)
     private String tamanho;
+
 
     @SuppressWarnings("java:S107")
     public Produto(String nome, Categoria categoria, Cor cor, String descricao, String imagem, float preco, float quantidade, float mediaAvaliacao, String tamanho) {

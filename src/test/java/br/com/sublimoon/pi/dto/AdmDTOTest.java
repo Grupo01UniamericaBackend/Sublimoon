@@ -20,12 +20,12 @@ class AdmDTOTest {
 
         Assertions.assertEquals("admin", admDTO.getSenhaAdm());
     }
-        @Test
+    @Test
     void testEquals() {
 
             AdmDTO admDTO2 = new AdmDTO("userAdm", "adm");
 
-            Assertions.assertTrue(admDTO.equals(admDTO2));
+        Assertions.assertEquals(admDTO, admDTO2);
     }
 
     @Test

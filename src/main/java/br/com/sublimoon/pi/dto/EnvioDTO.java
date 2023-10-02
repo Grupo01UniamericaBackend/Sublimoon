@@ -1,10 +1,9 @@
 package br.com.sublimoon.pi.dto;
 
-import br.com.sublimoon.pi.entity.AbstractEntity;
 import lombok.Data;
 
 @Data
-public class EnvioDTO extends AbstractEntity {
+public class EnvioDTO extends AbstractEntityDTO {
 
 
     private String formaEnvio;
