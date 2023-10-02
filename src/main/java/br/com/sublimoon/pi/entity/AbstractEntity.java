@@ -6,7 +6,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @MappedSuperclass
-abstract class AbstractEntity {
+    public abstract class AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

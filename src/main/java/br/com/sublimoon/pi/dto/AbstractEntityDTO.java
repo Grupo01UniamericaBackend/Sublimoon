@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Data
 @MappedSuperclass
- public abstract class AbstractEntityDTO {
+  public abstract class AbstractEntityDTO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

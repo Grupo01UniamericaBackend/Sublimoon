@@ -40,4 +40,7 @@ public class CarrinhoDTO extends AbstractEntityDTO {
         this.cliente = cliente;
         this.item = item;
     }
+    public CarrinhoDTO() {
+
+    }
 }
