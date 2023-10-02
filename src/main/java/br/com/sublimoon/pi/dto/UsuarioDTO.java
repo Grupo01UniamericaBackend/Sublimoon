@@ -28,6 +28,12 @@ public class UsuarioDTO {
 
     }
 
-    public UsuarioDTO(long id, LocalDateTime cadastro, LocalDateTime edicao, boolean ativo, String telefone, String email) {
+    public UsuarioDTO(Long id, LocalDateTime cadastro, LocalDateTime edicao, boolean ativo, String telefone, String email) {
+        this.id = id;
+        this.cadastro = cadastro;
+        this.edicao = edicao;
+        this.ativo = ativo;
+        this.telefone = telefone;
+        this.email = email;
     }
 }

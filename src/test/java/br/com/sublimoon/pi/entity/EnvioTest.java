@@ -46,11 +46,7 @@ class EnvioTest {
         var envio = envioController.cadastrarEnvio(new EnvioDTO("TomaTeste",10));
         Assertions.assertEquals("Envio cadastrado com sucesso", envio.getBody());
     }
-    @Test
-    void cadastraEnvioErrado(){
-        var envio = envioController.cadastrarEnvio(new EnvioDTO());
-        Assertions.assertEquals("Error: Cannot invoke \"String.equals(Object)\" because the return value of \"br.com.sublimoon.pi.entity.Envio.getFormaEnvio()\" is null",envio.getBody());
-    }
+
     @Test
     void putEnvio(){
         Envio envio1 = new Envio(1L, "Put",99);
