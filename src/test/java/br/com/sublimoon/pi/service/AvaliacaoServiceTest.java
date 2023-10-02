@@ -28,7 +28,7 @@ class AvaliacaoServiceTest {
     @BeforeEach
     void injectFindById(){
 
-        Cliente cliente = new Cliente("45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
+        Cliente cliente = new Cliente(1L,"45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
         Produto produto = new Produto("Xicara 1", Categoria.CANECA, Cor.BRANCO, "...", "IMG",20f,1,4,"10CM");
         Optional<Avaliacao> avaliacao = Optional.of(new Avaliacao(4.5F, "OK", cliente, produto));
 
@@ -38,7 +38,7 @@ class AvaliacaoServiceTest {
     }@BeforeEach
     void injectGetById(){
 
-        Cliente cliente = new Cliente("45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
+        Cliente cliente = new Cliente(1L,"45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
         Produto produto = new Produto("Xicara 1", Categoria.CANECA, Cor.BRANCO, "...", "IMG",20f,1,4,"10CM");
         Avaliacao avaliacao = new Avaliacao(4.5F, "OK", cliente, produto);
 
@@ -49,7 +49,7 @@ class AvaliacaoServiceTest {
 
     @Test
     void createAvaliacao() {
-        Cliente cliente = new Cliente("45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
+        Cliente cliente = new Cliente(1L,"45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
         Produto produto = new Produto("Xicara 1", Categoria.CANECA, Cor.BRANCO, "...", "IMG",20f,1,4,"10CM");
         AvaliacaoDTO avaliacao = new AvaliacaoDTO(4.5F, "OK", cliente, produto);
 
@@ -60,7 +60,7 @@ class AvaliacaoServiceTest {
 
     @Test
     void atualizaAvaliacao() {
-        Cliente cliente = new Cliente("45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
+        Cliente cliente = new Cliente(1L,"45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
         Produto produto = new Produto("Xicara 1", Categoria.CANECA, Cor.BRANCO, "...", "IMG",20f,1,4,"10CM");
         Avaliacao avaliacao = new Avaliacao(4.5F, "OK", cliente, produto);
 

@@ -19,4 +19,6 @@ public class EnvioDTO extends AbstractEntity {
         this.formaEnvio = formaEnvio;
         this.valorFrete = valorFrete;
     }
+
+
 }

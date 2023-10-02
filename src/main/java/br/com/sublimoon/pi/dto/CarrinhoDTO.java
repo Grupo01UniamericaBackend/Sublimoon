@@ -24,4 +24,12 @@ public class CarrinhoDTO extends AbstractEntity {
 
     private List<Item> item;
 
+
+    public CarrinhoDTO(int quantidade, float desconto, float subTotal, Cliente cliente, List<Item> item) {
+        this.quantidade = quantidade;
+        this.desconto = desconto;
+        this.subTotal = subTotal;
+        this.cliente = cliente;
+        this.item = item;
+    }
 }

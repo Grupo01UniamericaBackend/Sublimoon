@@ -54,7 +54,8 @@ public class Cliente extends AbstractEntity{
     public Cliente() {
     }
 
-    public Cliente(String telefone, String email, String nome, String senha, String cpf) {
+    public Cliente(Long id,String telefone, String email, String nome, String senha, String cpf) {
+        this.id = id;
         this.telefone = telefone;
         this.email = email;
         this.nome = nome;

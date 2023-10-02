@@ -84,7 +84,8 @@ public class Produto  extends AbstractEntity {
         this.tamanho = tamanho;
     }
 
-
-
-
+    public Produto(Long id,String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
 }

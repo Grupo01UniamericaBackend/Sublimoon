@@ -53,6 +53,7 @@ public class ClienteController {
 
             final Cliente cliente1 = this.clienteRep.findById(id).orElse(null);
 
+
             if (cliente1 == null || !cliente1.getId().equals(cliente.getId())) {
                 throw new RegistroNaoEncontradoException("Nao foi possivel indentificar o registro informado");
             }

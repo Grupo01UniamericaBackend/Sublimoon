@@ -4,7 +4,7 @@ import br.com.sublimoon.pi.entity.AbstractEntity;
 import lombok.Data;
 
 @Data
-public class ClienteDTO extends AbstractEntity {
+public class ClienteDTO extends AbstractEntityDTO {
 
 
 

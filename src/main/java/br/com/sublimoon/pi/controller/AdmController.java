@@ -3,7 +3,6 @@ package br.com.sublimoon.pi.controller;
 import br.com.sublimoon.pi.dto.AdmDTO;
 import br.com.sublimoon.pi.entity.Adm;
 import br.com.sublimoon.pi.repository.AdmRepository;
-import br.com.sublimoon.pi.repository.ConfigRepository;
 import br.com.sublimoon.pi.service.AdmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +20,7 @@ public class AdmController {
      private AdmRepository admRep;
     @Autowired
      private AdmService admServ;
-    @Autowired
-    private ConfigRepository configRepository;
+
 
 
     @GetMapping("/{id}")

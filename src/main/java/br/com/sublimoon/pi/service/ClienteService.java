@@ -28,8 +28,9 @@ public class ClienteService {
         var clienteNovo = new Cliente();
         BeanUtils.copyProperties(cliente, clienteNovo);
 
+        Assert.isTrue(clienteNovo.getNome()!=null,"O nome não pode nulo!");
         Assert.isTrue(clienteNovo.getNome().length() <= 45 ,"O nome deve ter no máximo 45 digitos") ;
-        Assert.isTrue(!clienteNovo.getNome().equals(""),"O nome não pode nulo!");
+
 
         Assert.isTrue(!clienteNovo.getSenha().equals(""),"A senha não pode ser nula!");
         Assert.isTrue(clienteNovo.getSenha().length() <= 40 ,"A senha deve ter até 40 digitos") ;

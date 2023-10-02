@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class ClienteTest {
 
-    Cliente cliente = new Cliente("45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
+    Cliente cliente = new Cliente(1L,"45-999910373", "cliente@email.com", "cliente", "clienteTest", "06773080940");
     @Test
     void getAndSetTelefone() {
 

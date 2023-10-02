@@ -5,10 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ce9f60f-89c8-404c-8162-0883dae68d8c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/AdmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/AdmController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/ClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/ConfigController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/dto/AbstractEntityDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/dto/AbstractEntityDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/dto/CarrinhoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/dto/CarrinhoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/dto/ClienteDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/dto/ClienteDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/dto/ConfigDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/dto/EnvioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/dto/EnvioDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/dto/ProdutoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/dto/ProdutoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/entity/Carrinho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/entity/Carrinho.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/entity/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/entity/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/entity/Config.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/entity/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/entity/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/entity/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/entity/Produto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/ProdutoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/service/ProdutoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/service/ProdutoServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/repository/ConfigRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/ClienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/ConfigService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/controller/AvaliacaoControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/controller/AvaliacaoControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/controller/CarrinhoControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/controller/CarrinhoControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/controller/ClienteControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/controller/ClienteControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/controller/ConfigControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/controller/EnvioControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/controller/EnvioControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/dto/AvaliacaoDTOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/dto/AvaliacaoDTOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/dto/ConfigDTOTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/entity/AvaliacaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/entity/AvaliacaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/entity/ClienteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/entity/ClienteTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/entity/ConfigTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/service/AvaliacaoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/service/AvaliacaoServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,21 +60,26 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 0
+}]]></component>
   <component name="ProjectId" id="2S1jbHaDK8chZk9qgpIbHMXk4Hy" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-        &quot;keyToString&quot;: {
-        &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-        &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-        &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-        &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-        &quot;last_opened_file_path&quot;: &quot;C:/Users/Lenovo/Documents/desenvolvimento/sublimoon&quot;,
-        &quot;settings.editor.selected.configurable&quot;: &quot;copyright&quot;
-        }
-        }</component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "Josimar",
+    "last_opened_file_path": "C:/Users/josim/OneDrive/Documentos/Desenvolvimento/pizzaria/pom.xml",
+    "settings.editor.selected.configurable": "copyright"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -64,7 +95,7 @@
       <recent name="br.com.Sublimoon.PI.DTO" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ProdutoServiceTest.fav">
+  <component name="RunManager" selected="JUnit.EnvioControllerTest">
     <configuration name="PiApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.com.sublimoon.pi.PiApplication" />
       <module name="sublimoon" />
@@ -78,8 +109,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AvaliacaoControllerTest.deletaAvaliacao" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sublimoon" />
+    <configuration name="ClienteControllerTest.testDeleteCliente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PI" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="br.com.sublimoon.pi.controller.*" />
@@ -87,57 +118,56 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="br.com.sublimoon.pi.controller" />
-      <option name="MAIN_CLASS_NAME" value="br.com.sublimoon.pi.controller.AvaliacaoControllerTest" />
-      <option name="METHOD_NAME" value="deletaAvaliacao" />
+      <option name="MAIN_CLASS_NAME" value="br.com.sublimoon.pi.controller.ClienteControllerTest" />
+      <option name="METHOD_NAME" value="testDeleteCliente" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AvaliacaoServiceTest.atualizaAvaliacao" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sublimoon" />
+    <configuration name="ClienteControllerTest.testPutCliente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PI" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.sublimoon.pi.service.*" />
+          <option name="PATTERN" value="br.com.sublimoon.pi.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.sublimoon.pi.service" />
-      <option name="MAIN_CLASS_NAME" value="br.com.sublimoon.pi.service.AvaliacaoServiceTest" />
-      <option name="METHOD_NAME" value="atualizaAvaliacao" />
+      <option name="PACKAGE_NAME" value="br.com.sublimoon.pi.controller" />
+      <option name="MAIN_CLASS_NAME" value="br.com.sublimoon.pi.controller.ClienteControllerTest" />
+      <option name="METHOD_NAME" value="testPutCliente" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AvaliacaoServiceTest.createAvaliacao" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sublimoon" />
+    <configuration name="ConfigControllerTest.testConfigCriar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PI" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.sublimoon.pi.service.*" />
+          <option name="PATTERN" value="br.com.sublimoon.pi.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.sublimoon.pi.service" />
-      <option name="MAIN_CLASS_NAME" value="br.com.sublimoon.pi.service.AvaliacaoServiceTest" />
-      <option name="METHOD_NAME" value="createAvaliacao" />
+      <option name="PACKAGE_NAME" value="br.com.sublimoon.pi.controller" />
+      <option name="MAIN_CLASS_NAME" value="br.com.sublimoon.pi.controller.ConfigControllerTest" />
+      <option name="METHOD_NAME" value="testConfigCriar" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AvaliacaoServiceTest.delete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sublimoon" />
+    <configuration name="EnvioControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PI" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.sublimoon.pi.service.*" />
+          <option name="PATTERN" value="br.com.sublimoon.pi.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.sublimoon.pi.service" />
-      <option name="MAIN_CLASS_NAME" value="br.com.sublimoon.pi.service.AvaliacaoServiceTest" />
-      <option name="METHOD_NAME" value="delete" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="br.com.sublimoon.pi.controller" />
+      <option name="MAIN_CLASS_NAME" value="br.com.sublimoon.pi.controller.EnvioControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -176,11 +206,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EnvioControllerTest" />
+        <item itemvalue="JUnit.ConfigControllerTest.testConfigCriar" />
+        <item itemvalue="JUnit.ClienteControllerTest.testDeleteCliente" />
+        <item itemvalue="JUnit.ClienteControllerTest.testPutCliente" />
         <item itemvalue="JUnit.ProdutoServiceTest.fav" />
-        <item itemvalue="JUnit.AvaliacaoServiceTest.delete" />
-        <item itemvalue="JUnit.AvaliacaoServiceTest.atualizaAvaliacao" />
-        <item itemvalue="JUnit.AvaliacaoServiceTest.createAvaliacao" />
-        <item itemvalue="JUnit.AvaliacaoControllerTest.deletaAvaliacao" />
       </list>
     </recent_temporary>
   </component>
