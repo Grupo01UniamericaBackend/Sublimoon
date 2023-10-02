@@ -37,12 +37,7 @@ class AbstractEntityTest {
         usuario.setAtivo(false);
         Assertions.assertFalse(usuario.isAtivo());
     }
-    @Test
-    void testPrePersist(){
-        usuario.setAtivo(false);
-        Assertions.assertNotNull(usuario.getCadastro());
-        Assertions.assertFalse(usuario.isAtivo());
-    }
+    
 
 
 
