@@ -134,7 +134,17 @@ public class CarrinhoService {
 
         Carrinho carrinho = carrinhoRepo.getReferenceById(idCarrinho);
 
-        carrinho.getItem().remove(itemRepository.findById(id));
+        List<Item> itens = carrinho.getItem();
+        Item itemRemove = itemRepository.getReferenceById(id);
+        int x;
+        for(int i = 0; i < itens.size(); i++){
+            Produto produto = itens.get(i).getProduto();
+            if (itemRemove.getProduto().equals(produto)) {
+                x = i;
+
+                carrinho.getItem().remove(x);
+            }
+        }
 
     }
 
