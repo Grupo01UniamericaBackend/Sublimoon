@@ -10,8 +10,7 @@ import java.util.List;
 @Data
 public class CarrinhoDTO extends AbstractEntityDTO {
 
-    @Getter @Setter
-    private int quantidade;
+
 
 
     @Getter @Setter
@@ -26,20 +25,14 @@ public class CarrinhoDTO extends AbstractEntityDTO {
     private List<Item> item;
 
 
-    public CarrinhoDTO(int quantidade, float desconto, float subTotal, Cliente cliente, List<Item> item) {
-        this.quantidade = quantidade;
-        this.desconto = desconto;
-        this.subTotal = subTotal;
-        this.cliente = cliente;
-        this.item = item;
-    }
-
     public CarrinhoDTO(float desconto, float subTotal, Cliente cliente, List<Item> item) {
         this.desconto = desconto;
         this.subTotal = subTotal;
         this.cliente = cliente;
         this.item = item;
     }
+
+
     public CarrinhoDTO() {
 
     }

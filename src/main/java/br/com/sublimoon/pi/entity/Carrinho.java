@@ -8,9 +8,7 @@ import java.util.List;
 @Table(name = "Carrinhos",schema = "public")
 public class Carrinho extends  AbstractEntity{
 
-    @Getter @Setter
-    @Column(name = "quantidade")
-    private int quantidade;
+
 
 
     @Getter @Setter
@@ -57,9 +55,8 @@ public class Carrinho extends  AbstractEntity{
     private List<Item> item;
 
 
-    public Carrinho(Long id,int quantidade, float desconto, float subTotal, Cliente cliente, List<br.com.sublimoon.pi.entity.Item> item) {
+    public Carrinho(Long id,float desconto, float subTotal, Cliente cliente, List<br.com.sublimoon.pi.entity.Item> item) {
         this.id = id;
-        this.quantidade = quantidade;
         this.desconto = desconto;
         this.subTotal = subTotal;
         this.cliente = cliente;

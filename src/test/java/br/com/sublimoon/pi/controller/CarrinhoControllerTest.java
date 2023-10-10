@@ -44,9 +44,22 @@ class CarrinhoControllerTest {
         itemList.add(item);
 
         Cliente cliente = new Cliente(1L,"459123","dwda@gm.com","Joao","odamd","1204.41");
-        Optional<Carrinho> carrinho = Optional.of(new Carrinho(1L,2,10.00F,20.00F,cliente,itemList));
+        Optional<Carrinho> carrinho = Optional.of(new Carrinho(1L,10.00F,20.00F,cliente,itemList));
 
         Mockito.when(carrinhoRep.findById(1L)).thenReturn(carrinho);
+    }
+    @BeforeEach
+    void injectGetById(){
+
+        Produto produto = new Produto(1L,"carro");
+        Item item = new Item(1L,produto,2,20,20,20);
+        itemList = new ArrayList<>();
+        itemList.add(item);
+
+        Cliente cliente = new Cliente(1L,"459123","dwda@gm.com","Joao","odamd","1204.41");
+       Carrinho carrinho = new Carrinho(1L,10.00F,20.00F,cliente,itemList);
+
+        Mockito.when(carrinhoRep.getReferenceById(1L)).thenReturn(carrinho);
     }
     @BeforeEach
     void injectFindAll(){
@@ -58,7 +71,7 @@ class CarrinhoControllerTest {
 
         Cliente cliente = new Cliente(1L,"459123","dwda@gm.com","Joao","odamd","1204.41");
         List<Carrinho> carrinho = new ArrayList<>();
-        carrinho.add (new Carrinho(1L,2,10.00F,20.00F,cliente,itemList));
+        carrinho.add (new Carrinho(1L,10.00F,20.00F,cliente,itemList));
 
         Mockito.when(carrinhoRep.findAll()).thenReturn((List<Carrinho>) carrinho);
 
@@ -93,7 +106,7 @@ class CarrinhoControllerTest {
 
         Cliente cliente = new Cliente(1L,"459123","dwda@gm.com","Joao","odamd","1204.41");
 
-        CarrinhoDTO carrinho = new CarrinhoDTO(2,10.00F,20.00F,cliente,itemList);
+        CarrinhoDTO carrinho = new CarrinhoDTO(10.00F,20.00F,cliente,itemList);
 
         var carrinhocontroller = carrinhoController.cadastrar(carrinho).getStatusCode();
 
@@ -130,7 +143,7 @@ class CarrinhoControllerTest {
 
         Cliente cliente = new Cliente(1L,"459123","dwda@gm.com","Joao","odamd","1204.41");
 
-        CarrinhoDTO carrinho = new CarrinhoDTO(2,10.00F,20.00F,cliente,itemList);
+        CarrinhoDTO carrinho = new CarrinhoDTO(10.00F,20.00F,cliente,itemList);
 
         var carrinhocontroller = carrinhoController.editar(1L, carrinho).getStatusCode();
 
@@ -143,7 +156,7 @@ class CarrinhoControllerTest {
     @Test
     void deletaCarrinho() {
 
-        var carrinhocontroller = carrinhoController.deleta(1L).getBody();
+        var carrinhocontroller = carrinhoController.deleta(1L, 1L).getBody();
 
         Assertions.assertEquals("Desativado ou excluído", carrinhocontroller);
     }

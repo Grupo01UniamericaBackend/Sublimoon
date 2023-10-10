@@ -1,7 +1,10 @@
 package br.com.sublimoon.pi.controller;
 import br.com.sublimoon.pi.dto.CarrinhoDTO;
+import br.com.sublimoon.pi.entity.Adm;
 import br.com.sublimoon.pi.entity.Carrinho;
+import br.com.sublimoon.pi.entity.Item;
 import br.com.sublimoon.pi.repository.CarrinhoRepository;
+import br.com.sublimoon.pi.repository.ItemRepository;
 import br.com.sublimoon.pi.service.CarrinhoService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,9 @@ public class CarrinhoController {
 
     @Autowired
     private CarrinhoRepository carrinhoRepository;
+
+    @Autowired
+    private ItemRepository itemRepository;
 
 
     @Autowired
@@ -57,11 +63,11 @@ public class CarrinhoController {
             if (carrinho1 == null) {
                 return ResponseEntity.internalServerError().body("Nao foi possivel indentificar o registro informado");
             }
-            final Carrinho carrinhoNovo = carrinhoRepository.getReferenceById(id);
+            final Carrinho carrinhoNovo = new Carrinho();
 
-            BeanUtils.copyProperties(carrinho, carrinhoNovo, "id","cadastro", "ativo");
+            BeanUtils.copyProperties(carrinho, carrinhoNovo);
 
-            this.carrinhoService.createCarrinho(carrinhoNovo);
+           // this.carrinhoService.createCarrinho(carrinhoNovo);
             this.carrinhoService.addCarrinho(id,carrinhoNovo);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
         }  catch (Exception e) {
@@ -69,11 +75,11 @@ public class CarrinhoController {
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleta(@PathVariable Long id) {
+    @DeleteMapping("/{id}/{idCarrinho}")
+    public ResponseEntity<String> deleta(@PathVariable("id") Long id, @PathVariable("idCarrinho")Long idCarrinho) {
 
         try {
-            carrinhoService.delete(id);
+            carrinhoService.delete(id, idCarrinho);
             return ResponseEntity.ok("Desativado ou excluído");
         }
         catch (Exception e){

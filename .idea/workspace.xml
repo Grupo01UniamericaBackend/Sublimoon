@@ -6,11 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="2ce9f60f-89c8-404c-8162-0883dae68d8c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/dto/AbstractEntityDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/dto/AbstractEntityDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/CarrinhoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/CarrinhoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/ItemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/dto/CarrinhoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/dto/CarrinhoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/entity/AbstractEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/entity/AbstractEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/entity/Carrinho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/entity/Carrinho.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/CarrinhoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/CarrinhoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/controller/CarrinhoControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/controller/CarrinhoControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/controller/PedidoControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/controller/PedidoControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/dto/CarrinhoDTOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/sublimoon/pi/dto/CarrinhoDTOTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +88,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CarrinhoControllerTest.deletaCarrinho" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sublimoonTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.sublimoon.pi.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.sublimoon.pi.controller" />
+      <option name="MAIN_CLASS_NAME" value="br.com.sublimoon.pi.controller.CarrinhoControllerTest" />
+      <option name="METHOD_NAME" value="deletaCarrinho" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ClienteControllerTest.testDeleteCliente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PI" />
       <extension name="coverage">
@@ -96,22 +115,6 @@
       <option name="PACKAGE_NAME" value="br.com.sublimoon.pi.controller" />
       <option name="MAIN_CLASS_NAME" value="br.com.sublimoon.pi.controller.ClienteControllerTest" />
       <option name="METHOD_NAME" value="testDeleteCliente" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ClienteControllerTest.testPutCliente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="br.com.sublimoon.pi.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="br.com.sublimoon.pi.controller" />
-      <option name="MAIN_CLASS_NAME" value="br.com.sublimoon.pi.controller.ClienteControllerTest" />
-      <option name="METHOD_NAME" value="testPutCliente" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -180,11 +183,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CarrinhoControllerTest.deletaCarrinho" />
         <item itemvalue="JUnit.br.com.sublimoon.pi in PI" />
         <item itemvalue="JUnit.EnvioControllerTest" />
         <item itemvalue="JUnit.ConfigControllerTest.testConfigCriar" />
         <item itemvalue="JUnit.ClienteControllerTest.testDeleteCliente" />
-        <item itemvalue="JUnit.ClienteControllerTest.testPutCliente" />
       </list>
     </recent_temporary>
   </component>
@@ -198,5 +201,16 @@
       <updated>1688321050828</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

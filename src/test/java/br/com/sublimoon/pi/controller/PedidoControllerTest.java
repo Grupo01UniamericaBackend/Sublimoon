@@ -38,7 +38,7 @@ class PedidoControllerTest {
         itemList = new ArrayList<>();
         itemList.add(item);
         Cliente cliente = new Cliente(1L,"459123","dwda@gm.com","Joao","odamd","1204.41");
-        Carrinho carrinho = new Carrinho(1L,10,0,10,cliente,itemList);
+        Carrinho carrinho = new Carrinho(1L,0,10,cliente,itemList);
 
         Envio envio = new Envio(1L,"carro",10);
 
@@ -55,7 +55,7 @@ class PedidoControllerTest {
         itemList = new ArrayList<>();
         itemList.add(item);
         Cliente cliente = new Cliente(1L,"459123","dwda@gm.com","Joao","odamd","1204.41");
-        Carrinho carrinho = new Carrinho(1L,10,0,10,cliente,itemList);
+        Carrinho carrinho = new Carrinho(1L,0,10,cliente,itemList);
 
         Envio envio = new Envio(1L,"carro",10);
         List<Pedido> pedidos = new ArrayList<>();
@@ -91,7 +91,7 @@ class PedidoControllerTest {
         itemList = new ArrayList<>();
         itemList.add(item);
         Cliente cliente = new Cliente(1L,"459123","dwda@gm.com","Joao","odamd","1204.41");
-        Carrinho carrinho = new Carrinho(1L,10,0,10,cliente,itemList);
+        Carrinho carrinho = new Carrinho(1L,0,10,cliente,itemList);
 
         Envio envio = new Envio(1L,"carro",10);
 
@@ -110,7 +110,7 @@ class PedidoControllerTest {
         itemList = new ArrayList<>();
         itemList.add(item);
         Cliente cliente = new Cliente(1L,"459123","dwda@gm.com","Joao","odamd","1204.41");
-        Carrinho carrinho = new Carrinho(1L,10,0,10,cliente,itemList);
+        Carrinho carrinho = new Carrinho(1L,0,10,cliente,itemList);
 
         Envio envio = new Envio(1L,"carro",10);
 

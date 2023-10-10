@@ -32,7 +32,7 @@ public class CarrinhoService {
     public void createCarrinho(final Carrinho carrinho){
 
 
-        Assert.isTrue(carrinho.getQuantidade()!=0,"quantidade não pode ser nulo");
+
         for (int i = 0; i < carrinho.getItem().size(); i++){
             Item itemNovo = carrinho.getItem().get(i);
 
@@ -60,7 +60,7 @@ public class CarrinhoService {
             Carrinho carrinhoAntigo = carrinhoRepo.getReferenceById(id);
             List<Item> carrinhoNovo = adicionarItem(carrinhoAntigo.getItem(),carrinho.getItem());
 
-
+             float subTotal = 0;
             carrinhoAntigo.setItem(carrinhoNovo);
             for(int i = 0; i < carrinhoAntigo.getItem().size(); i ++){
 
@@ -75,11 +75,13 @@ public class CarrinhoService {
                 itemNovo.setValorTotal(itemNovo.getValor());
                 carrinho.setSubTotal(carrinho.getSubTotal() + itemNovo.getValorTotal());
 
+                subTotal += itemNovo.getValorTotal();
                 itemRepository.save(itemNovo);
                 carrinhoAntigo.getItem().set(i,itemNovo);
-                carrinhoAntigo.setSubTotal(carrinho.getSubTotal() + itemNovo.getValorTotal());
+
 
             }
+            carrinhoAntigo.setSubTotal(carrinho.getSubTotal());
 
         carrinhoRepo.save(carrinhoAntigo);
 
@@ -128,8 +130,12 @@ public class CarrinhoService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void delete(Long id ){
-            this.carrinhoRepo.deleteById(id);
+    public void delete(Long id, long idCarrinho ){
+
+        Carrinho carrinho = carrinhoRepo.getReferenceById(idCarrinho);
+
+        carrinho.getItem().remove(itemRepository.findById(id));
+
     }
 
 }

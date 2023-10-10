@@ -17,12 +17,9 @@ class CarrinhoDTOTest {
 
     private Cliente cliente;
 
-    CarrinhoDTO carrinho = new CarrinhoDTO(2,10,20,cliente,itemList);
+    CarrinhoDTO carrinho = new CarrinhoDTO(10,20,cliente,itemList);
 
-    @Test
-    void getQuantidade() {
-        Assertions.assertEquals(2,carrinho.getQuantidade());
-    }
+
 
     @Test
     void getDesconto() {
@@ -46,11 +43,7 @@ class CarrinhoDTOTest {
         Assertions.assertEquals(itens,itemList);
     }
 
-    @Test
-    void setQuantidade() {
-        carrinho.setQuantidade(3);
-        Assertions.assertEquals(3,carrinho.getQuantidade());
-    }
+
 
     @Test
     void setDesconto() {
@@ -79,14 +72,14 @@ class CarrinhoDTOTest {
 
     @Test
     void testEquals() {
-        CarrinhoDTO carrinho2 = new CarrinhoDTO(2,10,20,cliente,itemList);
+        CarrinhoDTO carrinho2 = new CarrinhoDTO(10,20,cliente,itemList);
         Assertions.assertEquals(carrinho2,carrinho);
 
     }
 
     @Test
     void canEqual() {
-        CarrinhoDTO carrinho2 = new CarrinhoDTO(2,10,20,cliente,itemList);
+        CarrinhoDTO carrinho2 = new CarrinhoDTO(210,20,cliente,itemList);
 
         Assertions.assertTrue(carrinho.canEqual(carrinho2));
 
@@ -94,8 +87,8 @@ class CarrinhoDTOTest {
 
     @Test
     void testHashCode() {
-        CarrinhoDTO carrinho2 = new CarrinhoDTO(2,10,20,cliente,itemList);
-        CarrinhoDTO carrinho3 = new CarrinhoDTO(2,10,20,cliente,itemList);
+        CarrinhoDTO carrinho2 = new CarrinhoDTO(10,20,cliente,itemList);
+        CarrinhoDTO carrinho3 = new CarrinhoDTO(10,20,cliente,itemList);
 
         Assertions.assertEquals(carrinho2.hashCode(),carrinho3.hashCode());
 
@@ -103,7 +96,7 @@ class CarrinhoDTOTest {
 
     @Test
     void testToString() {
-        CarrinhoDTO carrinho4 = new CarrinhoDTO(2,10,20,cliente,itemList);
+        CarrinhoDTO carrinho4 = new CarrinhoDTO(10,20,cliente,itemList);
 
         Assertions.assertEquals(carrinho4.toString(),carrinho4.toString());
     }
