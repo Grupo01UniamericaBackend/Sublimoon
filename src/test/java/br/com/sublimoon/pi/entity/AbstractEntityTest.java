@@ -14,48 +14,23 @@ class AbstractEntityTest {
 
     @Test
     void getId() {
-<<<<<<< HEAD
-        Assertions.assertEquals(1L, usuario.getId());
-=======
 
         Assertions.assertEquals(1L, usuario.getId());
-
->>>>>>> 81b3b1dcf2f8803c1085aaad49887983676d1e6f
     }
 
     @Test
     void getAndSetCadastro() {
 
-<<<<<<< HEAD
-        usuario.setCadastro(LocalDateTime.of(2023,10, 2, 1, 12));
-
-        Assertions.assertEquals(LocalDateTime.of(2023,10, 2, 1, 12), usuario.getCadastro());
-=======
         usuario.setCadastro(LocalDateTime.of(2023,10, 02, 01, 12));
 
         Assertions.assertEquals(LocalDateTime.of(2023,10, 02, 01, 12), usuario.getCadastro());
->>>>>>> 81b3b1dcf2f8803c1085aaad49887983676d1e6f
     }
 
     @Test
     void getAndSetEdicao() {
-<<<<<<< HEAD
         usuario.setEdicao(LocalDateTime.of(2023,10, 2, 1, 12));
 
         Assertions.assertEquals(LocalDateTime.of(2023,10, 2, 1, 12), usuario.getEdicao());
-
-    }
-    @Test
-    void isAndSetAtivo() {
-        usuario.setAtivo(false);
-        Assertions.assertFalse(usuario.isAtivo());
-    }
-    
-
-=======
-        usuario.setEdicao(LocalDateTime.of(2023,10, 02, 01, 12));
-
-        Assertions.assertEquals(LocalDateTime.of(2023,10, 02, 01, 12), usuario.getEdicao());
 
     }
 
@@ -65,8 +40,6 @@ class AbstractEntityTest {
 
         Assertions.assertEquals(false, usuario.isAtivo());
     }
-
->>>>>>> 81b3b1dcf2f8803c1085aaad49887983676d1e6f
 
 
 }
