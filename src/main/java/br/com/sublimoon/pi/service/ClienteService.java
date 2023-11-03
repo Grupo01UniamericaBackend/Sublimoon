@@ -40,7 +40,6 @@ public class ClienteService {
 
 
         Assert.isTrue(clienteNovo.getTelefone().substring(0,11).matches("[0-9]*"),"Telefone deve conter apenas números!");
-       // Assert.isTrue(!clienteNovo.getTelefone().equals(""),"O telefone não pode ser nulo!");
         Assert.isTrue(clienteNovo.getTelefone().length() == 11 ,"O numero deve ter 11 digitos, contando o DDD") ;
 
         Assert.isTrue(!clienteNovo.getEmail().equals(""),"O email não pode ser nulo!");

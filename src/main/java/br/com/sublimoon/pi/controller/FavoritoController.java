@@ -21,17 +21,17 @@ import java.util.Optional;
 public class FavoritoController {
 
     @Autowired
-     FavoritoRepository favoritoRep;
+    FavoritoRepository favoritoRep;
     @Autowired
-     FavoritoService favoritoService;
+    FavoritoService favoritoService;
 
     @Autowired
-     ProdutoController produtoController;
+    ProdutoController produtoController;
     @Autowired
-     ProdutoService produtoService;
+    ProdutoService produtoService;
 
     @Autowired
-     ProdutoRepository produtoRep;
+    ProdutoRepository produtoRep;
 
 
     @GetMapping("/{id}")
@@ -48,7 +48,7 @@ public class FavoritoController {
     @PostMapping
     public ResponseEntity <String> cadastraFavorito(@RequestBody final FavoritoDTO favoritoDTO){
         try {
-                favoritoService.favoritar(favoritoDTO);
+            favoritoService.favoritar(favoritoDTO);
             return ResponseEntity.ok("Favoritado com sucesso!!!");
         }
         catch (DataIntegrityViolationException e){
@@ -86,9 +86,6 @@ public class FavoritoController {
             List<Produto>produtos = produtoRep.findAll();
 
             List<Produto> favoritou = favorito.getProdutos();
-            long idProduto;
-            long idFavorito;
-            boolean isTrue = false;
 
             for (Produto produto1 : produtos) {
                 produto1.setAtivo(true);
@@ -111,8 +108,7 @@ public class FavoritoController {
         try {
             Favorito favorito = favoritoRep.getReferenceById(id);
             List<Produto> remover = favorito.getProdutos();
-            //Long idRemove = produto.getId();
-            for(int i = 0; i < remover.size(); i++){
+            for(int i = remover.size() - 1; i >=0; i--){
                 if(remover.get(i).getId() == idRemove){
 
                     remover.remove(i);

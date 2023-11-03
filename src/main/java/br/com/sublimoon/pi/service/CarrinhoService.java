@@ -1,12 +1,10 @@
 package br.com.sublimoon.pi.service;
-
 import br.com.sublimoon.pi.entity.Carrinho;
 import br.com.sublimoon.pi.entity.Item;
 import br.com.sublimoon.pi.entity.Produto;
 import br.com.sublimoon.pi.repository.CarrinhoRepository;
 import br.com.sublimoon.pi.repository.ItemRepository;
 import br.com.sublimoon.pi.repository.ProdutoRepository;
-import org.modelmapper.internal.util.Assert;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

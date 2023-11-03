@@ -7,6 +7,7 @@ import br.com.sublimoon.pi.service.ClienteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +15,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@RestController
 @RequestMapping(value = "/api/cliente")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ClienteController {
 
     @Autowired
@@ -39,7 +41,7 @@ public class ClienteController {
     public ResponseEntity<String> cadastrar(@RequestBody final ClienteDTO cliente) {
         try {
             clienteSer.verificarCliente(cliente);
-            return ResponseEntity.ok("Registro cadastrado com sucesso");
+            return new ResponseEntity<>( HttpStatus.OK);
         }
         catch (RuntimeException e) {
             return ResponseEntity.internalServerError().body("Error: "+ e.getMessage());

@@ -35,7 +35,7 @@ public class PedidoService {
         Assert.isTrue(!pedido.getCep().equals(""),"CEP não pode ser nulo");
         Assert.isTrue(pedido.getCep().length() <= 25,"Cep n pode passar de 25 caracteres!!");
 
-       Carrinho carrinho =  carrinhoRepository.getReferenceById(pedido.getCarrinho().getId());
+        Carrinho carrinho =  carrinhoRepository.getReferenceById(pedido.getCarrinho().getId());
         Envio envio = envioRepository.getReferenceById(pedido.getEnvio().getId());
         float total1 = envio.getValorFrete();
 
@@ -70,8 +70,7 @@ public class PedidoService {
     @Transactional(rollbackFor = Exception.class)
     public void delete(Long id){
 
-            this.pedidoRep.deleteById(id);
+        this.pedidoRep.deleteById(id);
     }
 
 }
-

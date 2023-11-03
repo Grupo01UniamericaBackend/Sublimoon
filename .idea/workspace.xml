@@ -6,8 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="2ce9f60f-89c8-404c-8162-0883dae68d8c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/repository/CarrinhoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/repository/CarrinhoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/configuracao/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/configuracao/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/ClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/FavoritoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/FavoritoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/PedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/controller/PedidoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/CarrinhoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/CarrinhoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/ClienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/PedidoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/sublimoon/pi/service/PedidoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +25,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
