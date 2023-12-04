@@ -40,6 +40,7 @@ public class UserController {
     @PostMapping("/postar")
     public ResponseEntity<UserDTO> postar(@RequestBody UserDTO userDTO){
         try{
+
             userService.postar(userDTO);
             return new ResponseEntity<>(HttpStatus.OK);
         }

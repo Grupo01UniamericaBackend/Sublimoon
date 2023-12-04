@@ -10,12 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserService {
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     @Autowired
     private UserRepository repository;
     @Autowired
@@ -27,6 +30,8 @@ public class UserService {
     public ResponseEntity<String> postar(UserDTO userDTO){
         var user = new User();
         BeanUtils.copyProperties(userDTO, user);
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
         user.setRole("USER");
 
         this.repository.save(user);
