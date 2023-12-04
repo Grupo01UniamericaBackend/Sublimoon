@@ -21,17 +21,17 @@ import java.util.Optional;
 public class FavoritoController {
 
     @Autowired
-     FavoritoRepository favoritoRep;
+    FavoritoRepository favoritoRep;
     @Autowired
-     FavoritoService favoritoService;
+    FavoritoService favoritoService;
 
     @Autowired
-     ProdutoController produtoController;
+    ProdutoController produtoController;
     @Autowired
-     ProdutoService produtoService;
+    ProdutoService produtoService;
 
     @Autowired
-     ProdutoRepository produtoRep;
+    ProdutoRepository produtoRep;
 
 
     @GetMapping("/{id}")
@@ -48,7 +48,7 @@ public class FavoritoController {
     @PostMapping
     public ResponseEntity <String> cadastraFavorito(@RequestBody final FavoritoDTO favoritoDTO){
         try {
-                favoritoService.favoritar(favoritoDTO);
+            favoritoService.favoritar(favoritoDTO);
             return ResponseEntity.ok("Favoritado com sucesso!!!");
         }
         catch (DataIntegrityViolationException e){

@@ -35,6 +35,26 @@ class AbstractEntityDTOTest {
         Assertions.assertFalse(usuarioDTO.isAtivo());
     }
 
+    @Test
+    void canEqual() {
+        UsuarioDTO usuario2 = new UsuarioDTO(1L, LocalDateTime.of(2023,9, 28, 20, 12), LocalDateTime.of(2023,9, 28, 20, 24)
+                ,true, "45-40028922", "email@email.com");
+        Assertions.assertTrue(usuario2.canEqual(usuarioDTO));
+    }
 
+    @Test
+    void testHashCode() {
+        UsuarioDTO usuario2 = new UsuarioDTO(1L, LocalDateTime.of(2023,9, 28, 20, 12), LocalDateTime.of(2023,9, 28, 20, 24)
+                ,true, "45-40028922", "email@email.com");
+        Assertions.assertEquals(usuario2.hashCode(), usuarioDTO.hashCode());
+    }
+
+    @Test
+    void testToString() {
+        UsuarioDTO usuario2 = new UsuarioDTO(1L, LocalDateTime.of(2023,9, 28, 20, 12), LocalDateTime.of(2023,9, 28, 20, 24)
+                ,true, "45-40028922", "email@email.com");
+
+        Assertions.assertEquals(usuario2.toString(), usuarioDTO.toString());
+    }
 
 }

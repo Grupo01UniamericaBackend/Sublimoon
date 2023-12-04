@@ -1,12 +1,10 @@
 package br.com.sublimoon.pi.service;
-
 import br.com.sublimoon.pi.entity.Carrinho;
 import br.com.sublimoon.pi.entity.Item;
 import br.com.sublimoon.pi.entity.Produto;
 import br.com.sublimoon.pi.repository.CarrinhoRepository;
 import br.com.sublimoon.pi.repository.ItemRepository;
 import br.com.sublimoon.pi.repository.ProdutoRepository;
-import org.modelmapper.internal.util.Assert;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +17,9 @@ import java.util.List;
 public class CarrinhoService {
 
     @Autowired
-     private CarrinhoRepository carrinhoRepo;
+    private CarrinhoRepository carrinhoRepo;
     @Autowired
-     private ProdutoRepository produtoRepository;
+    private ProdutoRepository produtoRepository;
 
     @Autowired
     private ItemRepository itemRepository;
@@ -32,7 +30,7 @@ public class CarrinhoService {
     public void createCarrinho(final Carrinho carrinho){
 
 
-        Assert.isTrue(carrinho.getQuantidade()!=0,"quantidade não pode ser nulo");
+
         for (int i = 0; i < carrinho.getItem().size(); i++){
             Item itemNovo = carrinho.getItem().get(i);
 
@@ -57,29 +55,31 @@ public class CarrinhoService {
     @Transactional(rollbackFor = Exception.class)
     public Carrinho addCarrinho(long id, final Carrinho carrinho){
 
-            Carrinho carrinhoAntigo = carrinhoRepo.getReferenceById(id);
-            List<Item> carrinhoNovo = adicionarItem(carrinhoAntigo.getItem(),carrinho.getItem());
+        Carrinho carrinhoAntigo = carrinhoRepo.getReferenceById(id);
+        List<Item> carrinhoNovo = adicionarItem(carrinhoAntigo.getItem(),carrinho.getItem());
+
+        float subTotal = 0;
+        carrinhoAntigo.setItem(carrinhoNovo);
+        for(int i = 0; i < carrinhoAntigo.getItem().size(); i ++){
+
+            Item itemNovo = carrinhoAntigo.getItem().get(i);
+
+            long idProduto = itemNovo.getProduto().getId();
+            Produto produto = produtoRepository.getReferenceById(idProduto);
+            float valorUnitario = produto.getPreco();
+
+            itemNovo.setValorUnit(valorUnitario);
+            itemNovo.setValor(itemNovo.getValorUnit() * itemNovo.getQuantidade());
+            itemNovo.setValorTotal(itemNovo.getValor());
+            carrinho.setSubTotal(carrinho.getSubTotal() + itemNovo.getValorTotal());
+
+            subTotal += itemNovo.getValorTotal();
+            itemRepository.save(itemNovo);
+            carrinhoAntigo.getItem().set(i,itemNovo);
 
 
-            carrinhoAntigo.setItem(carrinhoNovo);
-            for(int i = 0; i < carrinhoAntigo.getItem().size(); i ++){
-
-                Item itemNovo = carrinhoAntigo.getItem().get(i);
-
-                long idProduto = itemNovo.getProduto().getId();
-                Produto produto = produtoRepository.getReferenceById(idProduto);
-                float valorUnitario = produto.getPreco();
-
-                itemNovo.setValorUnit(valorUnitario);
-                itemNovo.setValor(itemNovo.getValorUnit() * itemNovo.getQuantidade());
-                itemNovo.setValorTotal(itemNovo.getValor());
-                carrinho.setSubTotal(carrinho.getSubTotal() + itemNovo.getValorTotal());
-
-                itemRepository.save(itemNovo);
-                carrinhoAntigo.getItem().set(i,itemNovo);
-                carrinhoAntigo.setSubTotal(carrinho.getSubTotal() + itemNovo.getValorTotal());
-
-            }
+        }
+        carrinhoAntigo.setSubTotal(carrinho.getSubTotal());
 
         carrinhoRepo.save(carrinhoAntigo);
 
@@ -122,14 +122,28 @@ public class CarrinhoService {
     public Collection<Item> getItens(List<Item> itens){
 
         if(itens == null){
-                itens = new ArrayList<>();
+            itens = new ArrayList<>();
         }
         return itens;
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void delete(Long id ){
-            this.carrinhoRepo.deleteById(id);
+    public void delete(Long id, long idCarrinho ){
+
+        Carrinho carrinho = carrinhoRepo.getReferenceById(idCarrinho);
+
+        List<Item> itens = carrinho.getItem();
+        Item itemRemove = itemRepository.getReferenceById(id);
+        int x;
+        for(int i = 0; i < itens.size(); i++){
+            Produto produto = itens.get(i).getProduto();
+            if (itemRemove.getProduto().equals(produto)) {
+                x = i;
+
+                carrinho.getItem().remove(x);
+            }
+        }
+
     }
 
 }

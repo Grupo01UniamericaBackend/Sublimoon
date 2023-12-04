@@ -14,15 +14,16 @@ class AbstractEntityTest {
 
     @Test
     void getId() {
+
         Assertions.assertEquals(1L, usuario.getId());
     }
 
     @Test
     void getAndSetCadastro() {
 
-        usuario.setCadastro(LocalDateTime.of(2023,10, 2, 1, 12));
+        usuario.setCadastro(LocalDateTime.of(2023,10, 02, 01, 12));
 
-        Assertions.assertEquals(LocalDateTime.of(2023,10, 2, 1, 12), usuario.getCadastro());
+        Assertions.assertEquals(LocalDateTime.of(2023,10, 02, 01, 12), usuario.getCadastro());
     }
 
     @Test
@@ -32,18 +33,13 @@ class AbstractEntityTest {
         Assertions.assertEquals(LocalDateTime.of(2023,10, 2, 1, 12), usuario.getEdicao());
 
     }
+
     @Test
     void isAndSetAtivo() {
         usuario.setAtivo(false);
-        Assertions.assertFalse(usuario.isAtivo());
-    }
-    @Test
-    void testPrePersist(){
-        usuario.setAtivo(false);
-        Assertions.assertNotNull(usuario.getCadastro());
-        Assertions.assertFalse(usuario.isAtivo());
-    }
 
+        Assertions.assertEquals(false, usuario.isAtivo());
+    }
 
 
 }

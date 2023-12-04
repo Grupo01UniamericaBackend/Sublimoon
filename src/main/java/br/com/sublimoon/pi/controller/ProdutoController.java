@@ -6,6 +6,7 @@ import br.com.sublimoon.pi.repository.ProdutoRepository;
 import br.com.sublimoon.pi.service.ProdutoService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping(value = "/api/produto")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ProdutoController {
 
     @Autowired
@@ -52,7 +54,7 @@ public class ProdutoController {
     public ResponseEntity <String> cadastrar(@RequestBody final ProdutoDTO produto){
         try {
             produtoService.cadastrar(produto);
-            return ResponseEntity.ok("Produto Cadastrado com sucesso!!");
+            return new ResponseEntity<>( HttpStatus.OK);
         }
         catch (Exception e){
             return ResponseEntity.internalServerError().body("Error:" + e.getMessage());
@@ -89,7 +91,7 @@ public class ProdutoController {
             BeanUtils.copyProperties(produto, produtoNovo, "id","cadastro");
 
             this.produtoService.fav(produto);
-            return ResponseEntity.ok("Registro Cadastrado com Sucesso");
+            return new ResponseEntity<>( HttpStatus.OK);
         }
         catch (Exception e){
             return ResponseEntity.internalServerError().body("ERROR:" +e.getMessage());
@@ -103,7 +105,7 @@ public class ProdutoController {
         try {
 
             produtoService.delete(id);
-            return ResponseEntity.ok("Desativado ou excluído");
+            return new ResponseEntity<>( HttpStatus.OK);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("ERROr:" + e.getMessage());
         }
