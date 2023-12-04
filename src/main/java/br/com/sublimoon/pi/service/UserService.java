@@ -27,6 +27,7 @@ public class UserService {
     public ResponseEntity<String> postar(UserDTO userDTO){
         var user = new User();
         BeanUtils.copyProperties(userDTO, user);
+        user.setRole("USER");
 
         this.repository.save(user);
         return ResponseEntity.ok("usuario cadastrado com sucesso!");
