@@ -5,10 +5,13 @@ import br.com.sublimoon.pi.dto.LoginDTO;
 import br.com.sublimoon.pi.dto.UserDTO;
 import br.com.sublimoon.pi.entity.User;
 import br.com.sublimoon.pi.repository.UserRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserService {
@@ -20,6 +23,16 @@ public class UserService {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @Transactional(rollbackFor = Exception.class)
+    public ResponseEntity<String> postar(UserDTO userDTO){
+        var user = new User();
+        BeanUtils.copyProperties(userDTO, user);
+
+        this.repository.save(user);
+        return ResponseEntity.ok("usuario cadastrado com sucesso!");
+
+
+    }
 
     public UserDTO logar(LoginDTO loginDTO) {
         authenticationManager.authenticate(

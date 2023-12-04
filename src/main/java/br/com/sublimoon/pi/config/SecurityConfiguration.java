@@ -38,6 +38,7 @@ public class SecurityConfiguration  {
 		.authorizeHttpRequests((requests) -> requests
 				.requestMatchers("/*").permitAll()
 				.requestMatchers("/api/user").permitAll()
+				.requestMatchers("/api/user/**").permitAll()
 				.requestMatchers("/api/adm/**").permitAll()
 				.requestMatchers("/api/avaliacao/**").permitAll()
 				.requestMatchers("/api/carrinho/**").permitAll()
